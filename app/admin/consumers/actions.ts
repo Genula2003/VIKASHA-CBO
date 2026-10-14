@@ -1,12 +1,12 @@
 'use server'
 
 import { createClient } from '@/lib/supabase/server'
-import { revalidatePath } from 'next/cache'
+import { upsertConsumerRecord, recordReadingAndBill, revalidateAllSystemPaths } from '@/lib/services/system-store'
 import { z } from 'zod'
 
 const consumerSchema = z.object({
-  accountNumber: z.string().min(3),
-  name: z.string().min(2),
+  accountNumber: z.string().min(1, 'Account number is required'),
+  name: z.string().min(2, 'Name must be at least 2 characters'),
   email: z.string().email().optional().or(z.literal('')),
   mobile: z.string().optional().or(z.literal('')),
   address: z.string().optional().or(z.literal('')),
@@ -16,43 +16,58 @@ const consumerSchema = z.object({
 
 export async function addConsumer(data: z.infer<typeof consumerSchema>) {
   const result = consumerSchema.safeParse(data)
-  if (!result.success) return { error: 'Invalid data' }
+  if (!result.success) return { error: 'Invalid consumer details provided' }
 
-  const supabase = await createClient()
+  const acc = data.accountNumber.trim()
+  const todayDate = new Date().toISOString().split('T')[0]
+  const readingDate = data.initialReadingDate || todayDate
+  const readingVal = data.initialReading || 0
 
-  // Start a transaction-like sequence
-  const { data: consumer, error: consumerError } = await supabase.from('consumers').insert({
-    account_number: data.accountNumber,
+  // 1. Immediately persist in unified system store
+  const consumer = upsertConsumerRecord({
+    account_number: acc,
     account_holder_name: data.name,
-    email: data.email || null,
+    address: data.address || 'Magammana, Homagama',
     mobile: data.mobile || null,
-    address: data.address || null,
-    status: 'ACTIVE'
-  }).select().single()
+    email: data.email || null,
+    last_reading_value: readingVal,
+    last_reading_date: readingDate
+  })
 
-  if (consumerError) {
-    if (consumerError.code === '23505') {
-      return { error: 'Account number already exists' }
-    }
-    return { error: consumerError.message }
-  }
-
-  if (data.initialReading !== undefined && data.initialReadingDate) {
-    const { error: readingError } = await supabase.from('meter_readings').insert({
-      consumer_id: consumer.id,
-      reading_date: data.initialReadingDate,
-      previous_reading: 0,
-      current_reading: data.initialReading,
-      units_consumed: data.initialReading,
-      status: 'VALID'
-    })
-    
-    if (readingError) {
-      // In a real app we'd rollback the consumer creation or handle it better
-      console.error('Failed to insert initial reading:', readingError)
+  // 2. If initial reading is recorded, generate official baseline reading & invoice
+  if (readingVal > 0) {
+    try {
+      await recordReadingAndBill({
+        accountNumber: acc,
+        consumerName: data.name,
+        consumerAddress: data.address || 'Magammana, Homagama',
+        previousReading: 0,
+        currentReading: readingVal,
+        lastReadingDate: readingDate,
+        readerId: 'admin-console',
+        readerName: 'Municipal Admin Terminal'
+      })
+    } catch (e) {
+      console.warn('Initial reading setup note:', e)
     }
   }
 
-  revalidatePath('/admin/consumers')
+  // 3. Background sync to Supabase if connected
+  try {
+    const supabase = await createClient()
+    supabase.from('consumers').insert({
+      id: consumer.id,
+      account_number: acc,
+      account_holder_name: data.name,
+      email: data.email || null,
+      mobile: data.mobile || null,
+      address: data.address || null,
+      status: 'ACTIVE'
+    }).then(() => {})
+  } catch {}
+
+  // 4. Update everywhere automatically
+  revalidateAllSystemPaths(['/admin/consumers', `/pay`])
+
   return { success: true }
 }

@@ -1,16 +1,8 @@
-import Link from 'next/link'
-import { Home, Users, Settings, LogOut, FileText, CreditCard, Briefcase } from 'lucide-react'
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
-
-const navigation = [
-  { name: 'Dashboard', href: '/admin/dashboard', icon: Home },
-  { name: 'Consumers', href: '/admin/consumers', icon: Users },
-  { name: 'Meter Readers', href: '/admin/meter-readers', icon: Briefcase },
-  { name: 'Billing Rules', href: '/admin/billing-rules', icon: Settings },
-  { name: 'Bills', href: '/admin/bills', icon: FileText },
-  { name: 'Payments', href: '/admin/payments', icon: CreditCard },
-]
+import { AdminSidebar } from './AdminSidebar'
+import { ShieldCheck, Activity, Clock, MessageSquare } from 'lucide-react'
+import { getNotifyLkStatus } from '@/lib/sms/notify-lk'
 
 export default async function AdminLayout({ children }: { children: React.ReactNode }) {
   const supabase = await createClient()
@@ -20,58 +12,56 @@ export default async function AdminLayout({ children }: { children: React.ReactN
     redirect('/login')
   }
 
-  const { data: profile } = await supabase.from('profiles').select('name, email').eq('id', user.id).single()
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('name, email, role')
+    .eq('id', user.id)
+    .single()
+
+  const smsStatus = await getNotifyLkStatus().catch(() => ({ success: false, balance: undefined }))
 
   return (
-    <div className="flex h-screen bg-gray-100">
-      {/* Sidebar */}
-      <div className="flex w-64 flex-col bg-slate-900">
-        <div className="flex h-16 shrink-0 items-center px-6">
-          <span className="text-xl font-bold text-white tracking-tight">E-Billing Admin</span>
-        </div>
-        <div className="flex flex-1 flex-col overflow-y-auto">
-          <nav className="flex-1 space-y-1 px-4 py-4">
-            {navigation.map((item) => {
-              const Icon = item.icon
-              return (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  className="group flex items-center rounded-md px-2 py-2 text-sm font-medium text-slate-300 hover:bg-slate-800 hover:text-white"
-                >
-                  <Icon className="mr-3 h-5 w-5 flex-shrink-0 text-slate-400 group-hover:text-white" />
-                  {item.name}
-                </Link>
-              )
-            })}
-          </nav>
-        </div>
-        <div className="flex shrink-0 bg-slate-800 p-4">
-          <div className="group block w-full flex-shrink-0">
-            <div className="flex items-center">
-              <div>
-                <div className="inline-flex h-9 w-9 items-center justify-center rounded-full bg-slate-600">
-                  <span className="text-sm font-medium leading-none text-white">
-                    {profile?.name?.charAt(0) || 'A'}
-                  </span>
-                </div>
+    <div className="flex h-screen bg-[#F8FAFC] text-[#0B132B] overflow-hidden">
+      {/* Dynamic Sidebar */}
+      <AdminSidebar profile={profile} />
+
+      {/* Main Content Area */}
+      <div className="flex flex-1 flex-col overflow-hidden">
+        {/* Top Header Bar */}
+        <header className="h-14 bg-white border-b border-gray-200/80 px-6 flex items-center justify-between shrink-0 shadow-sm">
+          <div className="flex items-center gap-3">
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 text-[11px] font-bold border border-emerald-200/60">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+              NWSDB Municipal Gateway &bull; Live
+            </div>
+            <span className="hidden sm:inline-block text-xs font-semibold text-gray-400">
+              Kaduwela &amp; Magammana Regional Authority
+            </span>
+          </div>
+
+          <div className="flex items-center gap-4 text-xs font-semibold text-gray-500">
+            {smsStatus?.success && typeof smsStatus.balance === 'number' && (
+              <div 
+                className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-blue-50 text-[#004EEB] text-[11px] font-semibold border border-blue-200/60"
+                title="Notify.lk SMS Gateway Balance"
+              >
+                <MessageSquare size={12} className="text-[#004EEB]" />
+                <span>SMS: {smsStatus.balance} Credits</span>
               </div>
-              <div className="ml-3">
-                <p className="text-sm font-medium text-white">{profile?.name}</p>
-                <form action="/auth/signout" method="post">
-                  <button type="submit" className="text-xs font-medium text-slate-400 hover:text-slate-200 flex items-center mt-1">
-                    <LogOut className="h-3 w-3 mr-1" /> Sign Out
-                  </button>
-                </form>
-              </div>
+            )}
+            <div className="hidden md:flex items-center gap-1.5">
+              <ShieldCheck size={14} className="text-[#0066FF]" />
+              <span>TLS 1.3 &bull; Encrypted</span>
+            </div>
+            <div className="h-4 w-px bg-gray-200 hidden md:block" />
+            <div className="text-gray-700 font-bold">
+              {profile?.name || 'Admin'}
             </div>
           </div>
-        </div>
-      </div>
+        </header>
 
-      {/* Main content */}
-      <div className="flex flex-1 flex-col overflow-hidden">
-        <main className="flex-1 overflow-y-auto bg-gray-100 p-8">
+        {/* Scrollable Page Body */}
+        <main className="flex-1 overflow-y-auto p-6 md:p-8">
           {children}
         </main>
       </div>

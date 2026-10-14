@@ -2,10 +2,8 @@
 
 import { createClient } from '@/lib/supabase/server'
 import { revalidatePath } from 'next/cache'
-import { Resend } from 'resend'
+import { sendInvitationEmail } from '@/lib/email/resend'
 import crypto from 'crypto'
-
-const resend = new Resend(process.env.RESEND_API_KEY)
 
 export async function inviteMeterReader(formData: FormData) {
   const name = formData.get('name') as string
@@ -41,31 +39,16 @@ export async function inviteMeterReader(formData: FormData) {
   const appUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
   const inviteLink = `${appUrl}/accept-invitation?token=${token}&email=${encodeURIComponent(email)}`
 
-  // Send email using Resend
-  try {
-    const { error: emailError } = await resend.emails.send({
-      from: `${process.env.RESEND_FROM_NAME} <${process.env.RESEND_FROM_EMAIL}>`,
-      to: email,
-      subject: 'You have been invited as a Meter Reader',
-      html: `
-        <h2>You're invited to the Meter Reader System</h2>
-        <p>Your administrator has invited you to access the system as a Meter Reader.</p>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Assigned Area:</strong> ${assignedArea || 'Not specified'}</p>
-        <br/>
-        <a href="${inviteLink}" style="padding: 10px 20px; background-color: #4f46e5; color: white; text-decoration: none; border-radius: 5px;">Accept Invitation</a>
-        <br/><br/>
-        <p>This invitation expires in 7 days.</p>
-      `,
-    })
+  // Send invitation email via support@vikashacbo.com
+  const emailResult = await sendInvitationEmail({
+    email,
+    name,
+    assignedArea,
+    inviteLink,
+  })
 
-    if (emailError) {
-      console.error('Failed to send email:', emailError)
-      return { error: 'Failed to send invitation email' }
-    }
-  } catch (err) {
-    console.error('Error sending email:', err)
-    return { error: 'Error sending email. Check Resend configuration.' }
+  if (!emailResult.success) {
+    return { error: 'Failed to dispatch invitation email' }
   }
 
   revalidatePath('/admin/meter-readers')

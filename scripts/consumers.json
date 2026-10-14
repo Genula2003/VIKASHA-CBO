@@ -1,0 +1,3071 @@
+[
+  {
+    "accountNumber": "129",
+    "rawWaterAcc": "129",
+    "name": "MR W යාපා රත්නධීර",
+    "area": "MAIN ROAD",
+    "prevReading": 2340,
+    "prevUnits": 15,
+    "address": "226/3, MAIN ROAD MAGAMMANA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "372",
+    "rawWaterAcc": "372",
+    "name": "MR පියල් ශ්‍රී මැදගෙදර",
+    "area": "MAIN ROAD",
+    "prevReading": 2021,
+    "prevUnits": 4,
+    "address": "PASAL MAWATHA MAGAMMANA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "123",
+    "rawWaterAcc": "123",
+    "name": "MR K. කසුන් චාමර",
+    "area": "MAIN ROAD",
+    "prevReading": 1272,
+    "prevUnits": 9,
+    "address": "228/1, MAIN ROAD MAGAMMANA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "122",
+    "rawWaterAcc": "122",
+    "name": "MR S.M. කොතලාවල",
+    "area": "MAIN ROAD",
+    "prevReading": 319,
+    "prevUnits": 7,
+    "address": "228/3A, MAIN ROAD MAGAMMANA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "420",
+    "rawWaterAcc": "420",
+    "name": "MRS K.D.වර්ෂා ලක්මාලි",
+    "area": "MAIN ROAD",
+    "prevReading": 64,
+    "prevUnits": 21,
+    "address": "228/1C, MAIN ROAD MAGAMMANA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "120",
+    "rawWaterAcc": "120",
+    "name": "MR E D චන්ද්‍රලතා",
+    "area": "MAIN ROAD",
+    "prevReading": 920,
+    "prevUnits": 24,
+    "address": "228, MAIN ROAD MAGAMMANA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "121",
+    "rawWaterAcc": "121",
+    "name": "MRS අනුෂා කොතලාවල",
+    "area": "MAIN ROAD",
+    "prevReading": 27,
+    "prevUnits": 0,
+    "address": "228/3, MAIN ROAD MAGAMMANA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "281",
+    "rawWaterAcc": "281",
+    "name": "MR M.කොතලාවල",
+    "area": "MAIN ROAD",
+    "prevReading": 75,
+    "prevUnits": 8,
+    "address": "230 MAIN ROAD MAGAMMANA HOMAGAMA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "119",
+    "rawWaterAcc": "119",
+    "name": "MR L කොතලාවල",
+    "area": "MAIN ROAD",
+    "prevReading": 2138,
+    "prevUnits": 16,
+    "address": "230/1 MAIN ROAD MAGAMMANA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "178",
+    "rawWaterAcc": "178",
+    "name": "MRS කරලැයින් කොතලාවල",
+    "area": "MAIN ROAD",
+    "prevReading": 356,
+    "prevUnits": 9,
+    "address": "MAIN ROAD , MAGAMMANA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "5",
+    "rawWaterAcc": "5",
+    "name": "MRS W.S. පෙරේරා",
+    "area": "MAIN ROAD",
+    "prevReading": 2443,
+    "prevUnits": 9,
+    "address": "RANMAL UYANA, MAGAMMANA HOMAGAMA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "2",
+    "rawWaterAcc": "2",
+    "name": "Mr B. ධර්මදාස",
+    "area": "MAIN ROAD",
+    "prevReading": 567,
+    "prevUnits": 3,
+    "address": "373/18, RANMAL UYANA, MAGAMMANA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "1",
+    "rawWaterAcc": "1",
+    "name": "Mrs F. හොසේන්",
+    "area": "MAIN ROAD",
+    "prevReading": 1507,
+    "prevUnits": 6,
+    "address": "RANMAL UYANA, MAGAMMANA HOMAGAMA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "6",
+    "rawWaterAcc": "6",
+    "name": "MRS B.L. මැනේල්",
+    "area": "MAIN ROAD",
+    "prevReading": 360,
+    "prevUnits": 11,
+    "address": "RANMAL UYANA, MAGAMMANA HOMAGAMA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "3",
+    "rawWaterAcc": "3",
+    "name": "Mr කුමාර ධර්මරත්න",
+    "area": "MAIN ROAD",
+    "prevReading": 2667,
+    "prevUnits": 1,
+    "address": "RANMAL UYANA, MAGAMMANA HOMAGAMA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "29",
+    "rawWaterAcc": "29",
+    "name": "MR U තරංග පුෂ්පකුමාර",
+    "area": "MAIN ROAD",
+    "prevReading": 973,
+    "prevUnits": 0,
+    "address": "371/18, MAGAMMANA HOMAGAMA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "25",
+    "rawWaterAcc": "25",
+    "name": "MR මංජුල සංජීව",
+    "area": "MAIN ROAD",
+    "prevReading": 96,
+    "prevUnits": 0,
+    "address": "371/9, MAGAMMANA HOMAGAMA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "28",
+    "rawWaterAcc": "28",
+    "name": "MR පියසේන උඩවත්ත",
+    "area": "MAIN ROAD",
+    "prevReading": 20,
+    "prevUnits": 0,
+    "address": "SAMAN UYANA, MAGAMMANA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "27",
+    "rawWaterAcc": "27",
+    "name": "MRS D.A. අනුලාවතී",
+    "area": "MAIN ROAD",
+    "prevReading": 2222,
+    "prevUnits": 3,
+    "address": "371/3,SAMAN UYANA,MAGAMMANA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "148",
+    "rawWaterAcc": "148",
+    "name": "MR D.S.S.R.ජයසිංහ",
+    "area": "MAIN ROAD",
+    "prevReading": 876,
+    "prevUnits": 18,
+    "address": "371/1 SAMAN UYANA MAGAMMANA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "435",
+    "rawWaterAcc": "435",
+    "name": "MR H.Y.N ගුණසේකර",
+    "area": "MAIN ROAD",
+    "prevReading": 1817,
+    "prevUnits": 1,
+    "address": "371/4, SAMAN UYANA MAGAMMANA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "26",
+    "rawWaterAcc": "26",
+    "name": "MR සරත්චන්ද්‍ර පෙරේරා",
+    "area": "MAIN ROAD",
+    "prevReading": 1530,
+    "prevUnits": 0,
+    "address": "SAMAN UYANA ,MAGAMMANA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "30",
+    "rawWaterAcc": "30",
+    "name": "MR ගුණපාල සමරනායක",
+    "area": "MAIN ROAD",
+    "prevReading": 2240,
+    "prevUnits": 17,
+    "address": "SAMAN UYANA MAGAMMANA HOMAGAMA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "349",
+    "rawWaterAcc": "349",
+    "name": "MISS සචින්දිකා විජේසිංහ",
+    "area": "MAIN ROAD",
+    "prevReading": 1315,
+    "prevUnits": 13,
+    "address": "SAMAN UYANA MAGAMMANA HOMAGAMA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "21",
+    "rawWaterAcc": "21",
+    "name": "MR M.Y. ධම්මික ගුණසේකර",
+    "area": "MAIN ROAD",
+    "prevReading": 2454,
+    "prevUnits": 0,
+    "address": "SAMAN UYANA MAGAMMANA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "444",
+    "rawWaterAcc": "444",
+    "name": "MRS M.N.L.කුමාරි රණසිංහ",
+    "area": "MAIN ROAD",
+    "prevReading": 24,
+    "prevUnits": 24,
+    "address": "MAIN ROAD, MAGAMMANA"
+  },
+  {
+    "accountNumber": "170",
+    "rawWaterAcc": "170",
+    "name": "MRS U. ආරියවතී",
+    "area": "MAIN ROAD",
+    "prevReading": 1576,
+    "prevUnits": 9,
+    "address": "SAMAN Uyana MAGAMMANA HOMAGAMA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "174",
+    "rawWaterAcc": "174",
+    "name": "MR U.J. ලක්ෂ්මන් පෙරේරා",
+    "area": "MAIN ROAD",
+    "prevReading": 277,
+    "prevUnits": 17,
+    "address": "371/15, SAMAN UYANA, MAGAMMANA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "23",
+    "rawWaterAcc": "23",
+    "name": "MR A.A.L. පෙරේරා",
+    "area": "MAIN ROAD",
+    "prevReading": 402,
+    "prevUnits": 27,
+    "address": "MAIN ROAD, MAGAMMANA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "175",
+    "rawWaterAcc": "175",
+    "name": "MRS G.K. උපේක්ෂා ප්‍රියංකා",
+    "area": "MAIN ROAD",
+    "prevReading": 154,
+    "prevUnits": 0,
+    "address": "371/8A, MAGAMMANA HOMAGAMA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "355",
+    "rawWaterAcc": "355",
+    "name": "MR S A ධනුෂ්ක සම්පත්",
+    "area": "MAIN ROAD",
+    "prevReading": 1488,
+    "prevUnits": 37,
+    "address": "231A/L/05 MAGAMMANA HOMAGAMA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "436",
+    "rawWaterAcc": "436",
+    "name": "MRS M A ක්‍රිෂාන්ති",
+    "area": "MAIN ROAD",
+    "prevReading": 150,
+    "prevUnits": 9,
+    "address": "230 MAGAMMANA HOMAGAMA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "438",
+    "rawWaterAcc": "438",
+    "name": "MR H.D.ජානක ප්‍රසන්න කුමාර",
+    "area": "MAIN ROAD",
+    "prevReading": 132,
+    "prevUnits": 0,
+    "address": "371/2 MAGAMMANA HOMAGAMA (MAIN ROAD)"
+  },
+  {
+    "accountNumber": "363",
+    "rawWaterAcc": "363",
+    "name": "MR H G L JAYATHUNGA",
+    "area": "BATAHENA ROAD",
+    "prevReading": 1125,
+    "prevUnits": 20,
+    "address": "370/2, MAGAMMANA HOMAGAMA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "98.1",
+    "rawWaterAcc": "98.1",
+    "name": "MR U.L.R.A. CHANDIMAL",
+    "area": "BATAHENA ROAD",
+    "prevReading": 2430,
+    "prevUnits": 0,
+    "address": "MAIN ROAD HOMAGAMA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "7",
+    "rawWaterAcc": "7",
+    "name": "MR H. PIYASENA FERNANDO",
+    "area": "BATAHENA ROAD",
+    "prevReading": 3140,
+    "prevUnits": 12,
+    "address": "366/4,SARWODAYA WATTA,MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "8",
+    "rawWaterAcc": "8",
+    "name": "MRS G. SOMAWATHI",
+    "area": "BATAHENA ROAD",
+    "prevReading": 3764,
+    "prevUnits": 12,
+    "address": "SARWODAYA WATTA MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "51",
+    "rawWaterAcc": "51",
+    "name": "MR R. RATHNAJEEWA",
+    "area": "BATAHENA ROAD",
+    "prevReading": 4041,
+    "prevUnits": 30,
+    "address": "366/3 SARWODAYA WATTA MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "55",
+    "rawWaterAcc": "55",
+    "name": "MR M. SARATH DE SILVA",
+    "area": "BATAHENA ROAD",
+    "prevReading": 2589,
+    "prevUnits": 0,
+    "address": "SARWODAYA WATTA MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "58",
+    "rawWaterAcc": "58",
+    "name": "MRS J.A. AIRANGANI",
+    "area": "BATAHENA ROAD",
+    "prevReading": 2027,
+    "prevUnits": 0,
+    "address": "366/8, SARWODAYA WATTA, MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "17",
+    "rawWaterAcc": "17",
+    "name": "MR S.M. ANANDA",
+    "area": "BATAHENA ROAD",
+    "prevReading": 2034,
+    "prevUnits": 4,
+    "address": "366/9, SARWODAYA WATTA, MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "20",
+    "rawWaterAcc": "20",
+    "name": "MR SUMITH NISHANTHA VAAS",
+    "area": "BATAHENA ROAD",
+    "prevReading": 252,
+    "prevUnits": 14,
+    "address": "366/11, SARWODAYA WATTA, MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "19",
+    "rawWaterAcc": "19",
+    "name": "MRS G.H. MARGRET",
+    "area": "BATAHENA ROAD",
+    "prevReading": 2400,
+    "prevUnits": 7,
+    "address": "SARWODAYA WATTA MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "16",
+    "rawWaterAcc": "16",
+    "name": "MRS AJANTHI KALPANA VAAS",
+    "area": "BATAHENA ROAD",
+    "prevReading": 182,
+    "prevUnits": 21,
+    "address": "366/10, SARWODAYA WATTA, MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "18",
+    "rawWaterAcc": "18",
+    "name": "MR H. INDIKA PRRETHIMAL",
+    "area": "BATAHENA ROAD",
+    "prevReading": 1471,
+    "prevUnits": 8,
+    "address": "366/13, SARWODAYA WATTA, MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "57",
+    "rawWaterAcc": "57",
+    "name": "MR G.M.M.S. MEGHASURIYA",
+    "area": "BATAHENA ROAD",
+    "prevReading": 1480,
+    "prevUnits": 0,
+    "address": "363/8 BATAHENA ROAD MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "112",
+    "rawWaterAcc": "112",
+    "name": "MR S.S. SAMARAKOON",
+    "area": "BATAHENA ROAD",
+    "prevReading": 561,
+    "prevUnits": 1,
+    "address": "BATAHENA ROAD , MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "50",
+    "rawWaterAcc": "50",
+    "name": "MR S.J. RATHNAYAKE",
+    "area": "BATAHENA ROAD",
+    "prevReading": 1680,
+    "prevUnits": 16,
+    "address": "363/5 BATAHENA ROAD MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "197",
+    "rawWaterAcc": "197",
+    "name": "MR R.M.A. NIMALSIRI",
+    "area": "BATAHENA ROAD",
+    "prevReading": 818,
+    "prevUnits": 0,
+    "address": "364/S, BATAHENA ROAD, MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "188",
+    "rawWaterAcc": "188",
+    "name": "MR T D N PATHMANATHA",
+    "area": "BATAHENA ROAD",
+    "prevReading": 1436,
+    "prevUnits": 12,
+    "address": "409/4/1 BATAHENA ROAD MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "199",
+    "rawWaterAcc": "199",
+    "name": "MRS K. ANULA INDRANI",
+    "area": "BATAHENA ROAD",
+    "prevReading": 460,
+    "prevUnits": 3,
+    "address": "409/5, BATAHENA ROAD, MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "189",
+    "rawWaterAcc": "189",
+    "name": "MR S. ATHAPATHTHU",
+    "area": "BATAHENA ROAD",
+    "prevReading": 276,
+    "prevUnits": 2,
+    "address": "409/07, BATAHENA ROAD, MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "196",
+    "rawWaterAcc": "196",
+    "name": "MR A.M.RASANTHA LAKMAL",
+    "area": "BATAHENA ROAD",
+    "prevReading": 210,
+    "prevUnits": 11,
+    "address": "409/2/C BATAHENA ROAD MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "422",
+    "rawWaterAcc": "422",
+    "name": "MRS N D DHANANJA ATHAPATHTHU",
+    "area": "BATAHENA ROAD",
+    "prevReading": 971,
+    "prevUnits": 4,
+    "address": "409/15, BATAHENA ROAD, MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "351",
+    "rawWaterAcc": "351",
+    "name": "MR S P BIMALKA",
+    "area": "BATAHENA ROAD",
+    "prevReading": 2060,
+    "prevUnits": 22,
+    "address": "409/21, BATAHENA ROAD, MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "308",
+    "rawWaterAcc": "308",
+    "name": "MRS T S D PERERA",
+    "area": "BATAHENA ROAD",
+    "prevReading": 1895,
+    "prevUnits": 26,
+    "address": "54/14 BATAHENA ROAD MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "293",
+    "rawWaterAcc": "293",
+    "name": "MR K.R. PASKUWEL",
+    "area": "BATAHENA ROAD",
+    "prevReading": 1842,
+    "prevUnits": 0,
+    "address": "409/AR/23 BATAHENA ROAD MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "296",
+    "rawWaterAcc": "296",
+    "name": "MR A M N A ADIKARI",
+    "area": "BATAHENA ROAD",
+    "prevReading": 1252,
+    "prevUnits": 18,
+    "address": "BATAHENA MAGAMMANA HOMAGAMA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "340",
+    "rawWaterAcc": "340",
+    "name": "MR R M DISSANAYAKE",
+    "area": "BATAHENA ROAD",
+    "prevReading": 1110,
+    "prevUnits": 15,
+    "address": "28 BATAHENA ROAD MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "285",
+    "rawWaterAcc": "285",
+    "name": "MR M. PRATAP MAHENDRA",
+    "area": "BATAHENA ROAD",
+    "prevReading": 531,
+    "prevUnits": 7,
+    "address": "409/19 BATAHENA ROAD MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "316",
+    "rawWaterAcc": "316",
+    "name": "MR R M TIKIRIBANDA",
+    "area": "BATAHENA ROAD",
+    "prevReading": 1304,
+    "prevUnits": 6,
+    "address": "403/4 BATAHENA ROAD MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "312",
+    "rawWaterAcc": "312",
+    "name": "MR A G P D SAMPATH",
+    "area": "BATAHENA ROAD",
+    "prevReading": 1208,
+    "prevUnits": 0,
+    "address": "404/17 BATAHENA ROAD MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "329",
+    "rawWaterAcc": "329",
+    "name": "MR H T G A D K WARNASOMA",
+    "area": "BATAHENA ROAD",
+    "prevReading": 1437,
+    "prevUnits": 21,
+    "address": "404/18 BATAHENA ROAD MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "374",
+    "rawWaterAcc": "374",
+    "name": "MRS S A RUWANTHI MANGALIKA",
+    "area": "BATAHENA ROAD",
+    "prevReading": 1035,
+    "prevUnits": 15,
+    "address": "404/18 BATAHENA ROAD MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "360",
+    "rawWaterAcc": "360",
+    "name": "MRS I A DHARSHANA SAMANTHA",
+    "area": "BATAHENA ROAD",
+    "prevReading": 1442,
+    "prevUnits": 18,
+    "address": "411/79 BATAHENA ROAD MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "383",
+    "rawWaterAcc": "383",
+    "name": "MRS P A RANATHUNGA",
+    "area": "BATAHENA ROAD",
+    "prevReading": 1019,
+    "prevUnits": 18,
+    "address": "BATAHENA ROAD MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "387",
+    "rawWaterAcc": "387",
+    "name": "MRS W I T PERERA",
+    "area": "BATAHENA ROAD",
+    "prevReading": 1035,
+    "prevUnits": 13,
+    "address": "BATAHENA ROAD MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "385",
+    "rawWaterAcc": "385",
+    "name": "MRS SRIYANI PUSHPALATHA",
+    "area": "BATAHENA ROAD",
+    "prevReading": 136,
+    "prevUnits": 1,
+    "address": "BATAHENA ROAD MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "409",
+    "rawWaterAcc": "409",
+    "name": "MRS JINANI RUWANDHIKA",
+    "area": "BATAHENA ROAD",
+    "prevReading": 764,
+    "prevUnits": 8,
+    "address": "404/5 BATAHENA ROAD MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "410",
+    "rawWaterAcc": "410",
+    "name": "MRS EMILDA MERIYAN DIAS",
+    "area": "BATAHENA ROAD",
+    "prevReading": 100,
+    "prevUnits": 0,
+    "address": "404/3 BATAHENA ROAD MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "416",
+    "rawWaterAcc": "416",
+    "name": "MRS SAWANI DILANKA",
+    "area": "BATAHENA ROAD",
+    "prevReading": 1024,
+    "prevUnits": 21,
+    "address": "404/8 MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "417",
+    "rawWaterAcc": "417",
+    "name": "MR ASANAKA MISHANTHA",
+    "area": "BATAHENA ROAD",
+    "prevReading": 411,
+    "prevUnits": 5,
+    "address": "404/2 BATAHENA ROAD (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "424",
+    "rawWaterAcc": "424",
+    "name": "MR H SUMINDHA KUMARA",
+    "area": "BATAHENA ROAD",
+    "prevReading": 984,
+    "prevUnits": 18,
+    "address": "404/4 BATAHENA ROAD MAGAMMANA (BATAHENA ROAD)"
+  },
+  {
+    "accountNumber": "187",
+    "rawWaterAcc": "187",
+    "name": "MR H.A.S. KUMARASIRI",
+    "area": "ABAGAHALANDA",
+    "prevReading": 234,
+    "prevUnits": 0,
+    "address": "150/2, MAGAMMANA HOMAGAMA (ABAGAHALANDA)"
+  },
+  {
+    "accountNumber": "183",
+    "rawWaterAcc": "183",
+    "name": "MR H.M.R . SUSANTHA BANDARA",
+    "area": "ABAGAHALANDA",
+    "prevReading": 1705,
+    "prevUnits": 11,
+    "address": "154/E2, MAGAMMANA HOMAGAMA (ABAGAHALANDA)"
+  },
+  {
+    "accountNumber": "186",
+    "rawWaterAcc": "186",
+    "name": "MR LAL PERERA",
+    "area": "ABAGAHALANDA",
+    "prevReading": 586,
+    "prevUnits": 17,
+    "address": "154/E2, MAGAMMANA HOMAGAMA (ABAGAHALANDA)"
+  },
+  {
+    "accountNumber": "185",
+    "rawWaterAcc": "185",
+    "name": "MRS SIRINI LIYANAGAMAGE",
+    "area": "ABAGAHALANDA",
+    "prevReading": 3214,
+    "prevUnits": 18,
+    "address": "153/3E, MAGAMMANA HOMAGAMA (ABAGAHALANDA)"
+  },
+  {
+    "accountNumber": "184",
+    "rawWaterAcc": "184",
+    "name": "MRS D.D. AMALI UDAYANGANI",
+    "area": "ABAGAHALANDA",
+    "prevReading": 159,
+    "prevUnits": 10,
+    "address": "154/E2/A, MAGAMMANA HOMAGAMA (ABAGAHALANDA)"
+  },
+  {
+    "accountNumber": "201",
+    "rawWaterAcc": "201",
+    "name": "MR JAYANATH WICKCRAMABAHU",
+    "area": "ABAGAHALANDA",
+    "prevReading": 256,
+    "prevUnits": 7,
+    "address": "154/3B, ABAGAHALANDA, (ABAGAHALANDA)"
+  },
+  {
+    "accountNumber": "204",
+    "rawWaterAcc": "204",
+    "name": "MR B.H.WIMAL SHANTHA",
+    "area": "ABAGAHALANDA",
+    "prevReading": 504,
+    "prevUnits": 5,
+    "address": "154/3/D, ABAGAHALANDA, MAGAMMANA (ABAGAHALANDA)"
+  },
+  {
+    "accountNumber": "133",
+    "rawWaterAcc": "133",
+    "name": "MR S.K. SARATH SUBASINGHE",
+    "area": "ABAGAHALANDA",
+    "prevReading": 1227,
+    "prevUnits": 0,
+    "address": "151/7 MAGAMMANA HOMAGAMA (ABAGAHALANDA)"
+  },
+  {
+    "accountNumber": "143",
+    "rawWaterAcc": "143",
+    "name": "MR SAMAN SENAVIRATHNE",
+    "area": "ABAGAHALANDA",
+    "prevReading": 1362,
+    "prevUnits": 7,
+    "address": "157/3 MAGAMMANA HOMAGAMA (ABAGAHALANDA)"
+  },
+  {
+    "accountNumber": "156",
+    "rawWaterAcc": "156",
+    "name": "MRS G.D.PADMA CHANDRAKANTHI",
+    "area": "ABAGAHALANDA",
+    "prevReading": 2536,
+    "prevUnits": 0,
+    "address": "MAGAMMANA HOMAGAMA (ABAGAHALANDA)"
+  },
+  {
+    "accountNumber": "139",
+    "rawWaterAcc": "139",
+    "name": "MRS RANJANI WITHANA",
+    "area": "ABAGAHALANDA",
+    "prevReading": 1242,
+    "prevUnits": 0,
+    "address": "154 MAGAMMANA HOMAGAMA (ABAGAHALANDA)"
+  },
+  {
+    "accountNumber": "140",
+    "rawWaterAcc": "140",
+    "name": "MR LALITH KUMARA WITHANA",
+    "area": "ABAGAHALANDA",
+    "prevReading": 1393,
+    "prevUnits": 0,
+    "address": "154/A MAGAMMAN HOMAGAMA (ABAGAHALANDA)"
+  },
+  {
+    "accountNumber": "135",
+    "rawWaterAcc": "135",
+    "name": "MR PRASANNA KOTHALAWELA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 3520,
+    "prevUnits": 15,
+    "address": "156 / A MAGAMMANA HOMAGAMA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "137",
+    "rawWaterAcc": "137",
+    "name": "MR D.S.S.A. JAYASINGHE",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 2489,
+    "prevUnits": 6,
+    "address": "155/ A MAGAMMANA HOMAGAMA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "134",
+    "rawWaterAcc": "134",
+    "name": "MR PIYAL KOTHALAWELA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 2861,
+    "prevUnits": 1,
+    "address": "156/1 MAGAMMANA HOMAGAMA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "333",
+    "rawWaterAcc": "333",
+    "name": "MR S P KOTHALAWELA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 807,
+    "prevUnits": 6,
+    "address": "157/1 MAGAMMANA HOMAGAMA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "136",
+    "rawWaterAcc": "136",
+    "name": "MR SARATH K. KOTHALAWELA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 2,
+    "prevUnits": 0,
+    "address": "157/2, MAGAMMANA HOMAGAMA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "429",
+    "rawWaterAcc": "429",
+    "name": "MR VINDANA PRIYA KUMARA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 361,
+    "prevUnits": 11,
+    "address": "157/1/4 MAGAMMANA HOMAGAMA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "144",
+    "rawWaterAcc": "144",
+    "name": "MR H.ROHITHA NERANJANA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 1478,
+    "prevUnits": 10,
+    "address": "163/1 MAGAMMANA HOMAGAMA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "346",
+    "rawWaterAcc": "346",
+    "name": "MR K CHANNA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 1371,
+    "prevUnits": 18,
+    "address": "158 MAGAMMANA HOMAGAMA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "146",
+    "rawWaterAcc": "146",
+    "name": "MRS K. VEENANI",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 539,
+    "prevUnits": 33,
+    "address": "158/1/B, MAGAMMANA HOMAGAMA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "138",
+    "rawWaterAcc": "138",
+    "name": "MR K. KARUNADASA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 1835,
+    "prevUnits": 20,
+    "address": "163, MAGAMMANA HOMAGAMA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "132",
+    "rawWaterAcc": "132",
+    "name": "MRS JAYANTHI KOTHALAWELA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 2258,
+    "prevUnits": 15,
+    "address": "158/2 KOTHALAWELA MAWATHA HOMAGAMA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "216",
+    "rawWaterAcc": "216",
+    "name": "MR M.D.R. FONSEKA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 55,
+    "prevUnits": 0,
+    "address": "158/1 KOTHALAWELA MAWATHA, (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "147",
+    "rawWaterAcc": "147",
+    "name": "MRS K.KUSUMAWATHI",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 2865,
+    "prevUnits": 0,
+    "address": "158/1A MAGAMMANA HOMAGAMA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "153",
+    "rawWaterAcc": "153",
+    "name": "MRS H. INOKA PRIYADHARSHANI",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 1563,
+    "prevUnits": 7,
+    "address": "158/7 KOTHALAWELA MAWATHA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "382",
+    "rawWaterAcc": "382",
+    "name": "MRS N P KOTHALAWELA-",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 1527,
+    "prevUnits": 32,
+    "address": "210 KOTHALAWELA ROAD MAGAMMANA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "151",
+    "rawWaterAcc": "151",
+    "name": "MR NALIN D.NANAYAKKARA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 1728,
+    "prevUnits": 10,
+    "address": "KOTHALAWELA MAWATA MAGAMMANA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "113.1",
+    "rawWaterAcc": "113.1",
+    "name": "MR K.W. EDEEMA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 104,
+    "prevUnits": 0,
+    "address": "158/2 KOTHALAWELA MAWATA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "113.2",
+    "rawWaterAcc": "113.2",
+    "name": "MR K.W. EDEEMA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 868,
+    "prevUnits": 4,
+    "address": "158/2B KOTHALAWELA MAWATA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "113.3",
+    "rawWaterAcc": "113.3",
+    "name": "MR K.W. EDEEMA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 1477,
+    "prevUnits": 16,
+    "address": "158/2A KOTHALAWELA MAWATA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "275",
+    "rawWaterAcc": "275",
+    "name": "MR JANAKA DHARSHANA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 334,
+    "prevUnits": 6,
+    "address": "MAGAMMANA HOMAGAMA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "396",
+    "rawWaterAcc": "396",
+    "name": "MRS D S KOTHALAWELA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 1316,
+    "prevUnits": 19,
+    "address": "KOTHALAWELA ROAD MAGAMMANA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "398",
+    "rawWaterAcc": "398",
+    "name": "MRS O K AMITHA AMARAWATHI",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 191,
+    "prevUnits": 0,
+    "address": "211 /10 KOTHALAWELA ROAD MAGAMMANA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "397",
+    "rawWaterAcc": "397",
+    "name": "MR B P RATHNAYAKE",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 380,
+    "prevUnits": 16,
+    "address": "211 8/A KOTHALAWELA ROAD MAGAMMANA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "264",
+    "rawWaterAcc": "264",
+    "name": "MR D N N NANAYAKKARA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 3019,
+    "prevUnits": 45,
+    "address": "211/1K KOTHALAWELA MAWATA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "242",
+    "rawWaterAcc": "242",
+    "name": "MR SUSINDRA LAKMAL",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 2219,
+    "prevUnits": 18,
+    "address": "211/1J KOTHALAWELA MAWATA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "305",
+    "rawWaterAcc": "305",
+    "name": "MR C M M CHANDRASEKARA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 1766,
+    "prevUnits": 13,
+    "address": "211 KOTHALAWELA ROAD MAGAMMANA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "256",
+    "rawWaterAcc": "256",
+    "name": "MRS KUMARI BALASOORIYA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 1761,
+    "prevUnits": 9,
+    "address": "211/4, KOTHALAWELA ROAD MAGAMMANA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "257",
+    "rawWaterAcc": "257",
+    "name": "MRS JANAKI PRIYANGIKA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 141,
+    "prevUnits": 13,
+    "address": "211/1E, KOTHALAWELA ROAD MAGAMMANA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "365",
+    "rawWaterAcc": "365",
+    "name": "MR DHARSHANA SAMPATH",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 2091,
+    "prevUnits": 12,
+    "address": "211/11/D, KOTHALAWELA ROAD (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "282",
+    "rawWaterAcc": "282",
+    "name": "MRS V.V.ABEYSEKARA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 652,
+    "prevUnits": 15,
+    "address": "211/8, KOTHALAWELA ROAD MAGAMMANA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "419",
+    "rawWaterAcc": "419",
+    "name": "MR ANURA PRIYANTHA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 645,
+    "prevUnits": 16,
+    "address": "212/A MAGAMMANA HOMAGAMA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "265",
+    "rawWaterAcc": "265",
+    "name": "MR ASANKA PADMAKUMARA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 2719,
+    "prevUnits": 22,
+    "address": "176/5, KOTHALAWELA ROAD MAGAMMANA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "364",
+    "rawWaterAcc": "364",
+    "name": "MR H P AKALANKA KOTHALAWELA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 2349,
+    "prevUnits": 13,
+    "address": "176/2/1 KOTHALAWELA ROAD MAGAMMANA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "253",
+    "rawWaterAcc": "253",
+    "name": "MR CHANDIMAL KUMARASIRI",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 1604,
+    "prevUnits": 10,
+    "address": "176/A, KOTHALAWELA ROAD MAGAMMANA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "389",
+    "rawWaterAcc": "389",
+    "name": "MRS SUNETRA MALKANTHI",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 0,
+    "prevUnits": 0,
+    "address": "176/A2 , KOTHALAWELA ROAD MAGAMMANA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "251",
+    "rawWaterAcc": "251",
+    "name": "MRS L.R. ANULAWATHI",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 1821,
+    "prevUnits": 14,
+    "address": "211/3, KOTHALAWELA ROAD MAGAMMANA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "246",
+    "rawWaterAcc": "246",
+    "name": "MR V W RANAWEERA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 1935,
+    "prevUnits": 19,
+    "address": "211/A, MAGAMMANA HOMAGAMA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "247.1",
+    "rawWaterAcc": "247.1",
+    "name": "MRS CHAMILA SENANI",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 1866,
+    "prevUnits": 12,
+    "address": "211/1, KOTHALAWELA ROAD MAGAMMANA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "247.2",
+    "rawWaterAcc": "247.2",
+    "name": "MRS CHAMILA SENANI",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 1338,
+    "prevUnits": 14,
+    "address": "211/1, KOTHALAWELA ROAD MAGAMMANA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "247/3",
+    "rawWaterAcc": "247/3",
+    "name": "MRS CHAMILA SENANI",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 1089,
+    "prevUnits": 26,
+    "address": "MAGAMMANA HOMAGAMA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "248",
+    "rawWaterAcc": "248",
+    "name": "MR MAHESH ASANKA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 381,
+    "prevUnits": 12,
+    "address": "211/G KOTHALAWELA ROAD MAGAMMANA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "330",
+    "rawWaterAcc": "330",
+    "name": "MR H T AJITH",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 2151,
+    "prevUnits": 21,
+    "address": "211/B KOTHALAWELA ROAD MAGAMMANA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "249",
+    "rawWaterAcc": "249",
+    "name": "MR CHAMARA PRADEEP",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 448,
+    "prevUnits": 0,
+    "address": "211/C, KOTHALAWELA ROAD MAGAMMANA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "399",
+    "rawWaterAcc": "399",
+    "name": "MR W M NANDASENA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 472,
+    "prevUnits": 8,
+    "address": "211/5 KOTHALAWELA ROAD MAGAMMANA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "399.1",
+    "rawWaterAcc": "399.1",
+    "name": "MR W M NANDASENA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 35,
+    "prevUnits": 17,
+    "address": "211/5 KOTHALAWELA ROAD MAGAMMANA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "440",
+    "rawWaterAcc": "440",
+    "name": "MRS C.SANDRA DILISHIYA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 1253,
+    "prevUnits": 18,
+    "address": "211/5AMAGAMMANA HOMAGAMA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "254",
+    "rawWaterAcc": "254",
+    "name": "MR ARUNA UDARA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 2002,
+    "prevUnits": 17,
+    "address": "212/01/D, MAGAMMANA HOMAGAMA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "239",
+    "rawWaterAcc": "239",
+    "name": "MRS K.D . LEELAWATHI",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 2567,
+    "prevUnits": 9,
+    "address": "212/1, MAGAMMANA HOMAGAMA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "295",
+    "rawWaterAcc": "295",
+    "name": "MRS W D I K RANASINGHE",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 1165,
+    "prevUnits": 18,
+    "address": "KOTHALAWELA ROAD MAGAMMANA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "190",
+    "rawWaterAcc": "190",
+    "name": "MR W.D.I.K. RANASINGHE",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 278,
+    "prevUnits": 0,
+    "address": "212/1B MAGAMMANA HOMAGAMA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "215",
+    "rawWaterAcc": "215",
+    "name": "MR NIMALASIRI BANDULA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 1160,
+    "prevUnits": 0,
+    "address": "213/5,MAGAMMANA HOMAGAMA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "284",
+    "rawWaterAcc": "284",
+    "name": "MR MALAGE AJITH ROHANA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 388,
+    "prevUnits": 5,
+    "address": "213 MAGAMMANA HOMAGAMA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "206",
+    "rawWaterAcc": "206",
+    "name": "MR G.P. KUMARA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 94,
+    "prevUnits": 22,
+    "address": "MAGAMMANA HOMAGAMA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "401",
+    "rawWaterAcc": "401",
+    "name": "MR G.P. KUMARA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 589,
+    "prevUnits": 7,
+    "address": "MAGAMMANA HOMAGAMA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "413",
+    "rawWaterAcc": "413",
+    "name": "MRS D.P WIJEPALA DE ZOYSA",
+    "area": "KOTHALAWELA ROAD",
+    "prevReading": 1332,
+    "prevUnits": 11,
+    "address": "51/19 SOMALANKAARA MAWATHA (KOTHALAWELA ROAD)"
+  },
+  {
+    "accountNumber": "207",
+    "rawWaterAcc": "207",
+    "name": "MRS H.D. ගිම්හානි ප්‍රේමතිලක",
+    "area": "ARALIYA LAND",
+    "prevReading": 2464,
+    "prevUnits": 14,
+    "address": "231/L/59, ARALIYA LAND, MAGAMMANA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "222",
+    "rawWaterAcc": "222",
+    "name": "MR K.M. වනිගසූරිය",
+    "area": "ARALIYA LAND",
+    "prevReading": 1966,
+    "prevUnits": 9,
+    "address": "ARALIYA LAND , MAGAMMANA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "222.1",
+    "rawWaterAcc": "222.1",
+    "name": "MR K.M.වනිගසූරිය",
+    "area": "ARALIYA LAND",
+    "prevReading": 530,
+    "prevUnits": 18,
+    "address": "ARALIYA LAND , MAGAMMANA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "404",
+    "rawWaterAcc": "404",
+    "name": "MR D.S.ලියනගේ",
+    "area": "ARALIYA LAND",
+    "prevReading": 299,
+    "prevUnits": 0,
+    "address": "555/5, ARALIYA LAND, MAGAMMANA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "214",
+    "rawWaterAcc": "214",
+    "name": "MRS ක්‍රිෂාන්ති ජයසුන්දර",
+    "area": "ARALIYA LAND",
+    "prevReading": 1178,
+    "prevUnits": 13,
+    "address": "231/L/61, ARALIYA LAND MAGAMMANA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "395",
+    "rawWaterAcc": "395",
+    "name": "MRS D P N C DIAS",
+    "area": "ARALIYA LAND",
+    "prevReading": 843,
+    "prevUnits": 10,
+    "address": "ARALIYA LAND MAGAMMANA HOMAGAMA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "271",
+    "rawWaterAcc": "271",
+    "name": "MRS සුජාතා රත්නායක",
+    "area": "ARALIYA LAND",
+    "prevReading": 851,
+    "prevUnits": 12,
+    "address": "231/L/54,ARALIYA LAND MAGAMMANA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "238",
+    "rawWaterAcc": "238",
+    "name": "MR N.P.P. කොස්තා",
+    "area": "ARALIYA LAND",
+    "prevReading": 1670,
+    "prevUnits": 16,
+    "address": "ARALIYA LAND MAGAMMANA HOMAGAMA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "203",
+    "rawWaterAcc": "203",
+    "name": "MR චින්තක ජයසිංහ",
+    "area": "ARALIYA LAND",
+    "prevReading": 2159,
+    "prevUnits": 18,
+    "address": "233/1/E, ARALIYA LAND MAGAMMANA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "127",
+    "rawWaterAcc": "127",
+    "name": "MR පී.ප්‍රේමදාස",
+    "area": "ARALIYA LAND",
+    "prevReading": 2217,
+    "prevUnits": 4,
+    "address": "233/1 ARALIYA LAND MAGAMMANA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "177",
+    "rawWaterAcc": "177",
+    "name": "MR රන්ජිත් රූපසිංහ",
+    "area": "ARALIYA LAND",
+    "prevReading": 791,
+    "prevUnits": 0,
+    "address": "232/3 ARALIYA LAND MAGAMMANA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "220",
+    "rawWaterAcc": "220",
+    "name": "MRS මදුරිකා සුභාෂිණී",
+    "area": "ARALIYA LAND",
+    "prevReading": 370,
+    "prevUnits": 0,
+    "address": "231/C , ARALIYA LAND MAGAMMANA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "208",
+    "rawWaterAcc": "208",
+    "name": "MR K. අසංක මධුරංග",
+    "area": "ARALIYA LAND",
+    "prevReading": 1286,
+    "prevUnits": 3,
+    "address": "231/L/49, ARALIYA LANDMAGAMMANA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "236",
+    "rawWaterAcc": "236",
+    "name": "MR R.D.K. හේවාවිතාරණ",
+    "area": "ARALIYA LAND",
+    "prevReading": 447,
+    "prevUnits": 0,
+    "address": "231/L/40, ARALIYA LAND MAGAMMANA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "209",
+    "rawWaterAcc": "209",
+    "name": "MR ලලිත් සේනාරත්න",
+    "area": "ARALIYA LAND",
+    "prevReading": 1891,
+    "prevUnits": 7,
+    "address": "39, ARALIYA LAND MAGAMMANA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "231",
+    "rawWaterAcc": "231",
+    "name": "MR සම්පත් පුෂ්පකුමාර",
+    "area": "ARALIYA LAND",
+    "prevReading": 1890,
+    "prevUnits": 3,
+    "address": "231/1/37, ARALIYA LAND, MAGAMMANA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "217",
+    "rawWaterAcc": "217",
+    "name": "MRS E.D. මධුකුසලානි",
+    "area": "ARALIYA LAND",
+    "prevReading": 928,
+    "prevUnits": 12,
+    "address": "231/L/36, ABAGAHALANDA, MAGAMMANA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "237",
+    "rawWaterAcc": "237",
+    "name": "MR K.K. අජිත්",
+    "area": "ARALIYA LAND",
+    "prevReading": 2799,
+    "prevUnits": 0,
+    "address": "231/L/29, KIRIWATTUDUWA ROAD, (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "219",
+    "rawWaterAcc": "219",
+    "name": "MR S. මිපාගල",
+    "area": "ARALIYA LAND",
+    "prevReading": 526,
+    "prevUnits": 24,
+    "address": "160, MAGAMMANA HOMAGAMA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "279",
+    "rawWaterAcc": "279",
+    "name": "MR A. කලබෝවිල",
+    "area": "ARALIYA LAND",
+    "prevReading": 1496,
+    "prevUnits": 12,
+    "address": "388/G, ARALIYA LAND, MAGAMMANA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "176",
+    "rawWaterAcc": "176",
+    "name": "MRS H A සීලා කාන්ති",
+    "area": "ARALIYA LAND",
+    "prevReading": 2043,
+    "prevUnits": 18,
+    "address": "232/1 MAGAMMANA HOMAGAMA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "126",
+    "rawWaterAcc": "126",
+    "name": "MR H A සීලා කාන්ති",
+    "area": "ARALIYA LAND",
+    "prevReading": 1165,
+    "prevUnits": 1,
+    "address": "231/1, MAGAMMANA HOMAGAMA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "230",
+    "rawWaterAcc": "230",
+    "name": "MR රුමේෂ් මාලිංග",
+    "area": "ARALIYA LAND",
+    "prevReading": 965,
+    "prevUnits": 13,
+    "address": "231/L/50, KIRIWATHTHUDUWA ROAD, (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "125",
+    "rawWaterAcc": "125",
+    "name": "MR A.A.ජයවර්ධන",
+    "area": "ARALIYA LAND",
+    "prevReading": 1517,
+    "prevUnits": 11,
+    "address": "231/9/A MAGAMMANA HOMAGAMA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "306",
+    "rawWaterAcc": "306",
+    "name": "MRS A නිලානි නිශාන්ති",
+    "area": "ARALIYA LAND",
+    "prevReading": 351,
+    "prevUnits": 24,
+    "address": "231/4/A MAGAMMANA HOMAGAMA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "213",
+    "rawWaterAcc": "213",
+    "name": "MRS S.D.R. දර්ශනී",
+    "area": "ARALIYA LAND",
+    "prevReading": 183,
+    "prevUnits": 15,
+    "address": "231/L/13, MAGAMMANA HOMAGAMA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "212",
+    "rawWaterAcc": "212",
+    "name": "MR චාමර විජේසිංහ",
+    "area": "ARALIYA LAND",
+    "prevReading": 27,
+    "prevUnits": 3,
+    "address": "248/1, MAGAMMANA HOMAGAMA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "212.1",
+    "rawWaterAcc": "212.1",
+    "name": "MR චාමර විජේසිංහ",
+    "area": "ARALIYA LAND",
+    "prevReading": 484,
+    "prevUnits": 12,
+    "address": "248/1, MAGAMMANA HOMAGAMA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "211",
+    "rawWaterAcc": "211",
+    "name": "MR D.S.R.A. ජයසිංහ",
+    "area": "ARALIYA LAND",
+    "prevReading": 2958,
+    "prevUnits": 22,
+    "address": "231/L/7, MAGAMMANA HOMAGAMA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "210",
+    "rawWaterAcc": "210",
+    "name": "MRS G.A.I. දේවිකා",
+    "area": "ARALIYA LAND",
+    "prevReading": 267,
+    "prevUnits": 9,
+    "address": "231/L6, MAGAMMANA HOMAGAMA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "297",
+    "rawWaterAcc": "297",
+    "name": "MRS W T S W S පෙරේරා",
+    "area": "ARALIYA LAND",
+    "prevReading": 1661,
+    "prevUnits": 24,
+    "address": "231/L/5 ARALIYA LAND MAGAMMANA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "359",
+    "rawWaterAcc": "359",
+    "name": "MRS W T S W S පෙරේරා",
+    "area": "ARALIYA LAND",
+    "prevReading": 1233,
+    "prevUnits": 15,
+    "address": "231A/L/05 MAGAMMANA HOMAGAMA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "425",
+    "rawWaterAcc": "425",
+    "name": "MRS W R ආලෝකා කුමාරි",
+    "area": "ARALIYA LAND",
+    "prevReading": 261,
+    "prevUnits": 2,
+    "address": "231/L/L2 MAGAMMANA HOMAGAMA (ARALIYA LAND)"
+  },
+  {
+    "accountNumber": "154",
+    "rawWaterAcc": "154",
+    "name": "MR G. මර්වින්",
+    "area": "DOLE KADE",
+    "prevReading": 424,
+    "prevUnits": 25,
+    "address": "MAGAMMANA HOMAGAMA (DOLE KADE)"
+  },
+  {
+    "accountNumber": "34",
+    "rawWaterAcc": "34",
+    "name": "MR R.P.D. නවින්ද්‍ර විලාන්",
+    "area": "DOLE KADE",
+    "prevReading": 2360,
+    "prevUnits": 6,
+    "address": "DOLEKADE JUNCTION HOMAGAMA (DOLE KADE)"
+  },
+  {
+    "accountNumber": "192",
+    "rawWaterAcc": "192",
+    "name": "MRS H.මැනේල් දාබරේ",
+    "area": "DOLE KADE",
+    "prevReading": 366,
+    "prevUnits": 39,
+    "address": "360/6, MAGAMMANA HOMAGAMA (DOLE KADE)"
+  },
+  {
+    "accountNumber": "31",
+    "rawWaterAcc": "31",
+    "name": "MRS කමලා අරන්දගල",
+    "area": "DOLE KADE",
+    "prevReading": 2325,
+    "prevUnits": 24,
+    "address": "360/1A, MAGAMMANA HOMAGAMA (DOLE KADE)"
+  },
+  {
+    "accountNumber": "98.2",
+    "rawWaterAcc": "98.2",
+    "name": "MR U.L.R.A. චන්ද්‍රමාලි",
+    "area": "DOLE KADE",
+    "prevReading": 615,
+    "prevUnits": 1,
+    "address": "MAIN ROAD HOMAGAMA - 17 (DOLE KADE)"
+  },
+  {
+    "accountNumber": "98.3",
+    "rawWaterAcc": "98.3",
+    "name": "MR U.L.R.A. චන්ද්‍රමාලි",
+    "area": "DOLE KADE",
+    "prevReading": 3684,
+    "prevUnits": 20,
+    "address": "MAIN ROAD HOMAGAMA - 18 (DOLE KADE)"
+  },
+  {
+    "accountNumber": "98.4",
+    "rawWaterAcc": "98.4",
+    "name": "MR U.L.R.A. චන්ද්‍රමාලි",
+    "area": "DOLE KADE",
+    "prevReading": 696,
+    "prevUnits": 3,
+    "address": "MAIN ROAD HOMAGAMA - 19 (DOLE KADE)"
+  },
+  {
+    "accountNumber": "98.5",
+    "rawWaterAcc": "98.5",
+    "name": "MR U.L.R.A. චන්ද්‍රමාලි (SMV)",
+    "area": "DOLE KADE",
+    "prevReading": 442,
+    "prevUnits": 0,
+    "address": "MAIN ROAD HOMAGAMA - 22 (DOLE KADE)"
+  },
+  {
+    "accountNumber": "98.6",
+    "rawWaterAcc": "98.6",
+    "name": "MR U.L.R.A. චන්ද්‍රමාලි (LAK RU)",
+    "area": "DOLE KADE",
+    "prevReading": 987,
+    "prevUnits": 2,
+    "address": "MAIN ROAD HOMAGAMA - 20 (DOLE KADE)"
+  },
+  {
+    "accountNumber": "98.7",
+    "rawWaterAcc": "98.7",
+    "name": "MR U.L.R.A. චන්ද්‍රමාලි (OPTICALS)",
+    "area": "DOLE KADE",
+    "prevReading": 345,
+    "prevUnits": 6,
+    "address": "MAIN ROAD HOMAGAMA - 21 (DOLE KADE)"
+  },
+  {
+    "accountNumber": "35.2",
+    "rawWaterAcc": "35.2",
+    "name": "MR U.L.R.A. චන්දන",
+    "area": "DOLE KADE",
+    "prevReading": 1005,
+    "prevUnits": 11,
+    "address": "MAIN ROAD HOMAGAMA (DOLE KADE)"
+  },
+  {
+    "accountNumber": "35.1",
+    "rawWaterAcc": "35.1",
+    "name": "MR U.L.R.A. චන්දන",
+    "area": "DOLE KADE",
+    "prevReading": 2458,
+    "prevUnits": 14,
+    "address": "148, MAGAMMANA HOMAGAMA Commini (DOLE KADE)"
+  },
+  {
+    "accountNumber": "388.1",
+    "rawWaterAcc": "388.1",
+    "name": "MR U.L.R.A. චන්දන",
+    "area": "DOLE KADE",
+    "prevReading": 60,
+    "prevUnits": 2,
+    "address": "344/12 MAGAMMANA HOMAGAMA (DOLE KADE)"
+  },
+  {
+    "accountNumber": "388.2",
+    "rawWaterAcc": "388.2",
+    "name": "MR U.L.R.A. චන්දන",
+    "area": "DOLE KADE",
+    "prevReading": 335,
+    "prevUnits": 3,
+    "address": "344/12 MAGAMMANA HOMAGAMA (DOLE KADE)"
+  },
+  {
+    "accountNumber": "270",
+    "rawWaterAcc": "270",
+    "name": "සර්වෝදය බැංකුව",
+    "area": "DOLE KADE",
+    "prevReading": 138,
+    "prevUnits": 26,
+    "address": "DOLEKADE, MAGAMMANA (DOLE KADE)"
+  },
+  {
+    "accountNumber": "191.1",
+    "rawWaterAcc": "191.1",
+    "name": "MR සුසන්ත ගුණවර්ධන",
+    "area": "DOLE KADE",
+    "prevReading": 142,
+    "prevUnits": 6,
+    "address": "DOLEKAGE, MAGAMMANA (Lee maduwa) (DOLE KADE)"
+  },
+  {
+    "accountNumber": "191.2",
+    "rawWaterAcc": "191.2",
+    "name": "MR සුසන්ත ගුණවර්ධන",
+    "area": "DOLE KADE",
+    "prevReading": 646,
+    "prevUnits": 2,
+    "address": "DOLEKAGE, MAGAMMANA (Hotel) (DOLE KADE)"
+  },
+  {
+    "accountNumber": "191.3",
+    "rawWaterAcc": "191.3",
+    "name": "MR සුසන්ත ගුණවර්ධන",
+    "area": "DOLE KADE",
+    "prevReading": 544,
+    "prevUnits": 7,
+    "address": "DOLEKAGE, MAGAMMANA (Sillara Kade) (DOLE KADE)"
+  },
+  {
+    "accountNumber": "191.4",
+    "rawWaterAcc": "191.4",
+    "name": "MR සුසන්ත ගුණවර්ධන",
+    "area": "DOLE KADE",
+    "prevReading": 237,
+    "prevUnits": 3,
+    "address": "DOLEKAGE, MAGAMMANA (Bakery) (DOLE KADE)"
+  },
+  {
+    "accountNumber": "191.5",
+    "rawWaterAcc": "191.5",
+    "name": "MR සුසන්ත ගුණවර්ධන",
+    "area": "DOLE KADE",
+    "prevReading": 1646,
+    "prevUnits": 18,
+    "address": "DOLEKAGE, MAGAMMANA (F) (DOLE KADE)"
+  },
+  {
+    "accountNumber": "191.6",
+    "rawWaterAcc": "191.6",
+    "name": "MR සුසන්ත ගුණවර්ධන",
+    "area": "DOLE KADE",
+    "prevReading": 390,
+    "prevUnits": 8,
+    "address": "DOLEKAGE , MAGAMMANA (G) (DOLE KADE)"
+  },
+  {
+    "accountNumber": "191.7",
+    "rawWaterAcc": "191.7",
+    "name": "MR සුසන්ත ගුණවර්ධන",
+    "area": "DOLE KADE",
+    "prevReading": 1576,
+    "prevUnits": 25,
+    "address": "DOLEKAGE, MAGAMMANA (H) (DOLE KADE)"
+  },
+  {
+    "accountNumber": "191.8",
+    "rawWaterAcc": "191.8",
+    "name": "MR සුසන්ත ගුණවර්ධන",
+    "area": "DOLE KADE",
+    "prevReading": 1666,
+    "prevUnits": 8,
+    "address": "DOLEKAGE, MAGAMMANA (J) (DOLE KADE)"
+  },
+  {
+    "accountNumber": "191.9",
+    "rawWaterAcc": "191.9",
+    "name": "MR සුසන්ත ගුණවර්ධන",
+    "area": "DOLE KADE",
+    "prevReading": 1668,
+    "prevUnits": 11,
+    "address": "DOLEKAGE, MAGAMMANA (Hotel) (DOLE KADE)"
+  },
+  {
+    "accountNumber": "191.11",
+    "rawWaterAcc": "191.11",
+    "name": "MR සුසන්ත ගුණවර්ධන",
+    "area": "DOLE KADE",
+    "prevReading": 316,
+    "prevUnits": 11,
+    "address": "DOLEKAGE, MAGAMMANA (P) (DOLE KADE)"
+  },
+  {
+    "accountNumber": "191.12",
+    "rawWaterAcc": "191.12",
+    "name": "MR සුසන්ත ගුණවර්ධන",
+    "area": "DOLE KADE",
+    "prevReading": 152,
+    "prevUnits": 0,
+    "address": "DOLEKAGE, MAGAMMANA (N) (DOLE KADE)"
+  },
+  {
+    "accountNumber": "191.14",
+    "rawWaterAcc": "191.14",
+    "name": "MR සුසන්ත ගුණවර්ධන",
+    "area": "DOLE KADE",
+    "prevReading": 321,
+    "prevUnits": 5,
+    "address": "DOLEKAGE, MAGAMMANA (L) (DOLE KADE)"
+  },
+  {
+    "accountNumber": "191.15",
+    "rawWaterAcc": "191.15",
+    "name": "MR සුසන්ත ගුණවර්ධන",
+    "area": "DOLE KADE",
+    "prevReading": 108,
+    "prevUnits": 0,
+    "address": "DOLEKAGE, MAGAMMANA (Q) (DOLE KADE)"
+  },
+  {
+    "accountNumber": "32",
+    "rawWaterAcc": "32",
+    "name": "MRS J.G. චන්ද්‍රාවතී",
+    "area": "DOLE KADE",
+    "prevReading": 154,
+    "prevUnits": 12,
+    "address": "344/1, MAGAMMANA HOMAGAMA (DOLE KADE)"
+  },
+  {
+    "accountNumber": "109",
+    "rawWaterAcc": "109",
+    "name": "MRS සෝමා දොඩම්වත්ත",
+    "area": "DOLE KADE",
+    "prevReading": 2429,
+    "prevUnits": 0,
+    "address": "344 DOLEKADE MAGAMMANA (DOLE KADE)"
+  },
+  {
+    "accountNumber": "33",
+    "rawWaterAcc": "33",
+    "name": "MR සිරිසේන ජයසූරිය",
+    "area": "DOLE KADE",
+    "prevReading": 221,
+    "prevUnits": 10,
+    "address": "339 MAGAMMANA HOMAGAMA (DOLE KADE)"
+  },
+  {
+    "accountNumber": "411",
+    "rawWaterAcc": "411",
+    "name": "MRS මිපාගලගේ කමලාවතී",
+    "area": "DOLE KADE",
+    "prevReading": 357,
+    "prevUnits": 2,
+    "address": "296/1 MAGAMMANA HOMAGAMA (DOLE KADE)"
+  },
+  {
+    "accountNumber": "36",
+    "rawWaterAcc": "36",
+    "name": "MR G.A. සෝමදාස",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 2592,
+    "prevUnits": 57,
+    "address": "347/1 MAGAMMANA HOMAGAMA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "289",
+    "rawWaterAcc": "289",
+    "name": "MR G.A දර්ශන සමීර",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 2577,
+    "prevUnits": 9,
+    "address": "347/1/1 MAGAMMANA HOMAGAMA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "89",
+    "rawWaterAcc": "89",
+    "name": "MR P ROHANA SAMAN PEIRIS",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 2393,
+    "prevUnits": 18,
+    "address": "345/3 MAIN ROAD HOMAGAMA. (Home) (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "90",
+    "rawWaterAcc": "90",
+    "name": "MR P WIMALASENA PEIRIS",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 1075,
+    "prevUnits": 0,
+    "address": "345/1 MAIN ROAD HOMAGAMA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "162",
+    "rawWaterAcc": "162",
+    "name": "MRS NAYANI PEIRIS",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 1588,
+    "prevUnits": 0,
+    "address": "345/4 MAGAMMANA HOMAGAMA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "292",
+    "rawWaterAcc": "292",
+    "name": "MR PATMASIRI GORAKAPITIYA",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 2668,
+    "prevUnits": 14,
+    "address": "345/2 MAGAMMANA HOMAGAMA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "63",
+    "rawWaterAcc": "63",
+    "name": "MR G.L. BANDUSIRI",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 3986,
+    "prevUnits": 2,
+    "address": "335 MAGAMMANA MAGAMMANA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "277",
+    "rawWaterAcc": "277",
+    "name": "MR P. ROHANA SAMAN PEIRIS",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 1549,
+    "prevUnits": 6,
+    "address": "345/3, MAGAMMANA , (Hard ware) (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "276",
+    "rawWaterAcc": "276",
+    "name": "MRS P. PRIYANKA WASANTHI",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 67,
+    "prevUnits": 0,
+    "address": "263/6/1, MAGAMMANA HOMAGAMA A (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "319",
+    "rawWaterAcc": "319",
+    "name": "MR P R S PIERIS",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 1575,
+    "prevUnits": 6,
+    "address": "345/3 MAGAMMANA, HOMAGAMA E (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "336",
+    "rawWaterAcc": "336",
+    "name": "MR P R S PIERIS",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 785,
+    "prevUnits": 8,
+    "address": "345/3, MAGAMMANA HOMAGAMA D (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "391",
+    "rawWaterAcc": "391",
+    "name": "P R S PIERIS -F",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 757,
+    "prevUnits": 0,
+    "address": "345/3, MAGAMMANA HOMAGAMA F (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "392",
+    "rawWaterAcc": "392",
+    "name": "P R S PIERIS -G",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 2196,
+    "prevUnits": 6,
+    "address": "345/3, MAGAMMANA HOMAGAMA G (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "107",
+    "rawWaterAcc": "107",
+    "name": "MRS CHAMPIKA HETTIARACHCHI",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 773,
+    "prevUnits": 5,
+    "address": "336/7 ,SURAMYA MAWATHA, MAGAMMANA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "12",
+    "rawWaterAcc": "12",
+    "name": "MRS S.A. ROSALIN NONA",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 1369,
+    "prevUnits": 13,
+    "address": "SURAMYA MAWATHA, MAGAMMANA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "37",
+    "rawWaterAcc": "37",
+    "name": "MRS DAYAWATHI JAYASOORIYA",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 1707,
+    "prevUnits": 0,
+    "address": "340 MAGAMMANA HOMAGAMA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "91",
+    "rawWaterAcc": "91",
+    "name": "MRS S.A. RANJANI",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 2765,
+    "prevUnits": 21,
+    "address": "338, SURAMYA MAWATHA, MAGAMMANA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "229",
+    "rawWaterAcc": "229",
+    "name": "MR K M G WIMALASIRI",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 661,
+    "prevUnits": 25,
+    "address": "329/5, SURAMYA MATHA HOMAGAMA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "228",
+    "rawWaterAcc": "228",
+    "name": "MRS A. PRIYADHARSHANI",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 1091,
+    "prevUnits": 0,
+    "address": "352/1, SURAMYA MAWATHA, MAGAMMANA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "83",
+    "rawWaterAcc": "83",
+    "name": "MRS R.A NIMALI GUNASEKARA",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 2277,
+    "prevUnits": 21,
+    "address": "SURAMYA MAWATHA, MAGAMMANA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "92",
+    "rawWaterAcc": "92",
+    "name": "MR R.W. MANOJ KUMARA",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 1570,
+    "prevUnits": 20,
+    "address": "329/A, MAGAMMANA HOMAGAMA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "115",
+    "rawWaterAcc": "115",
+    "name": "MR KITHSIRI SAMANTHA",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 3725,
+    "prevUnits": 18,
+    "address": "SURAMYA MAWATHA, MAGAMMANA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "114",
+    "rawWaterAcc": "114",
+    "name": "MR K.M. NIHAL KARUNARATHNE",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 2972,
+    "prevUnits": 17,
+    "address": "SURAMYA MAWATHA, MAGAMMANA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "81",
+    "rawWaterAcc": "81",
+    "name": "MR SUSIL H. WANAGURU",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 2539,
+    "prevUnits": 10,
+    "address": "323/4, SURAMYA MAWATHA, MAGAMMANA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "82",
+    "rawWaterAcc": "82",
+    "name": "MR CHANDRASIRI RUPASINGHE",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 2756,
+    "prevUnits": 17,
+    "address": "327/7, SURAMYA MAWATHA, MAGAMMANA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "307",
+    "rawWaterAcc": "307",
+    "name": "MRS A DAYAWATHI",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 1839,
+    "prevUnits": 4,
+    "address": "323/3 SURAMYA MAWATHA HOMAGAMA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "86",
+    "rawWaterAcc": "86",
+    "name": "MR JAYANTHA SAMANLAL",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 2132,
+    "prevUnits": 20,
+    "address": "323/6, SURAMYA MAWATHA, MAGAMMANA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "193",
+    "rawWaterAcc": "193",
+    "name": "MR H A SOMALATHA",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 588,
+    "prevUnits": 11,
+    "address": "319/2, SURAMYA MAWATHA, MAGAMMANA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "267",
+    "rawWaterAcc": "267",
+    "name": "MRS H. SAMANTHI",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 1350,
+    "prevUnits": 11,
+    "address": "319/1, SUAMYA MAWATHA, MAGAMMANA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "194",
+    "rawWaterAcc": "194",
+    "name": "MR H. AJITH KEERTHI",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 2117,
+    "prevUnits": 10,
+    "address": "319/3, SURAMYA MAWATHA, MAGAMMANA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "85",
+    "rawWaterAcc": "85",
+    "name": "MRS H. PRIYANTHI",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 1527,
+    "prevUnits": 16,
+    "address": "319, SURAMYA MAWATHA, MAGAMMANA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "145",
+    "rawWaterAcc": "145",
+    "name": "MR CHAMINDA JAYAKODY",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 3104,
+    "prevUnits": 19,
+    "address": "SURAMYA MAWATHA, MAGAMMANA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "328",
+    "rawWaterAcc": "328",
+    "name": "MR M A RANJITH DISSANAYAKE",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 1578,
+    "prevUnits": 31,
+    "address": "SUAMYA MAWATHA MAGAMMANA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "64",
+    "rawWaterAcc": "64",
+    "name": "MR K. KULASIRI",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 2623,
+    "prevUnits": 17,
+    "address": "325/6, SURAMYA MAWATHA MAGAMMANA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "369",
+    "rawWaterAcc": "369",
+    "name": "MRS R A P W RUPASINGHE",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 979,
+    "prevUnits": 16,
+    "address": "323/E SURAMYA MAWATHA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "373",
+    "rawWaterAcc": "373",
+    "name": "MRS S A SHIRANTHI MANGALIKA",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 989,
+    "prevUnits": 12,
+    "address": "323/E SURAMYA MAWATHA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "375",
+    "rawWaterAcc": "375",
+    "name": "MRS TECLA PRIYANTHI",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 745,
+    "prevUnits": 8,
+    "address": "323/E SURAMYA MAWATHA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "65",
+    "rawWaterAcc": "65",
+    "name": "MR UPUL NISHANTHA",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 1124,
+    "prevUnits": 6,
+    "address": "325/5 MAGAMMANA HOMAGAMA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "393",
+    "rawWaterAcc": "393",
+    "name": "MRS N.B.SEPALIKA PRIYADARSHANI",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 492,
+    "prevUnits": 23,
+    "address": "SURAMYA MAWATHA, MAGAMMANA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "11",
+    "rawWaterAcc": "11",
+    "name": "MRS J. VIOLET WANAGURU",
+    "area": "SURAMYA MAWATHA",
+    "prevReading": 1579,
+    "prevUnits": 10,
+    "address": "336/1,SURAMYA MAWATHA, MAGAMMANA (SURAMYA MAWATHA)"
+  },
+  {
+    "accountNumber": "195",
+    "rawWaterAcc": "195",
+    "name": "MR UPUL NISHANTHA",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 150,
+    "prevUnits": 9,
+    "address": "359/1, WEDAGE WATTA. MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "77",
+    "rawWaterAcc": "77",
+    "name": "MR KRISHANTHA KUMARA",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 3343,
+    "prevUnits": 27,
+    "address": "359, WEDAGEWATTA ROAD, MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "76",
+    "rawWaterAcc": "76",
+    "name": "MR JAGATH CHANDRALAL",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 176,
+    "prevUnits": 27,
+    "address": "MAGAMMANA HOMAGAMA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "380",
+    "rawWaterAcc": "380",
+    "name": "SAR. SHRAMA.SAMITHIYA",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 150,
+    "prevUnits": 5,
+    "address": "373/G WEDAGEWATTA ROAD, MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "80",
+    "rawWaterAcc": "80",
+    "name": "MRS WIMALAWATHI WETTASINGHE",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 1025,
+    "prevUnits": 1,
+    "address": "373/1 , WEDAGEWATTA ROAD, MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "294",
+    "rawWaterAcc": "294",
+    "name": "MR L G L A R DARMAKEERTHI",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 1532,
+    "prevUnits": 9,
+    "address": "355/1 WEDAGEWATTA MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "78",
+    "rawWaterAcc": "78",
+    "name": "MR D. CHANDIMA PEIRIS",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 1098,
+    "prevUnits": 5,
+    "address": "MAGAMMANA HOMAGAMA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "79",
+    "rawWaterAcc": "79",
+    "name": "MR SOMASIRI JAYAKODY",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 1530,
+    "prevUnits": 10,
+    "address": "MAGAMMANA HOMAGAMA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "93",
+    "rawWaterAcc": "93",
+    "name": "MR S. A. M . JAYANTHA KUMARA",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 2942,
+    "prevUnits": 18,
+    "address": "SURAMYA MAWATHA, MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "290.1",
+    "rawWaterAcc": "290.1",
+    "name": "MR S.A.Y KUMARA",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 247,
+    "prevUnits": 25,
+    "address": "354 WEDAGEWATTA MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "290.2",
+    "rawWaterAcc": "290.2",
+    "name": "MR S.A.Y KUMARA",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 2070,
+    "prevUnits": 25,
+    "address": "354 WEDAGEWATTA MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "71",
+    "rawWaterAcc": "71",
+    "name": "MR S.A. NIHAL SARATHCHANDRA",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 2275,
+    "prevUnits": 27,
+    "address": "MAGAMMANA HOMAGAMA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "70",
+    "rawWaterAcc": "70",
+    "name": "MR K.A. GUNANANDA",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 1573,
+    "prevUnits": 7,
+    "address": "MAGAMMANA HOMAGAMA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "61",
+    "rawWaterAcc": "61",
+    "name": "MR JAYATISSA ATHTHANAYAKE",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 1939,
+    "prevUnits": 15,
+    "address": "354/2 WEDAGEWATTHA MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "414",
+    "rawWaterAcc": "414",
+    "name": "MR WISHWA SHAMINDA",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 1261,
+    "prevUnits": 11,
+    "address": "33/12A WEDAGEWATHTHA ROAD MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "309",
+    "rawWaterAcc": "309",
+    "name": "MR SHANTHA KUMARA PIERIS",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 1146,
+    "prevUnits": 15,
+    "address": "374/8 WEDAGEWATTA ROAD MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "288",
+    "rawWaterAcc": "288",
+    "name": "MR S . A. B. PADMALAL",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 1502,
+    "prevUnits": 3,
+    "address": "374/7 WEDAGEWATTA MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "42",
+    "rawWaterAcc": "42",
+    "name": "MR R.D.R. JAYATHILAKE",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 626,
+    "prevUnits": 0,
+    "address": "374/11, WEDAGEWATTA , MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "354",
+    "rawWaterAcc": "354",
+    "name": "MRS W J T C DARSHANI FERNANDO",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 1991,
+    "prevUnits": 15,
+    "address": "WEAGEWATTHA MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "338",
+    "rawWaterAcc": "338",
+    "name": "MRS SISILA T. WIMALASOORIYA",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 1369,
+    "prevUnits": 14,
+    "address": "374/12 WEAGEWATTHA MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "356",
+    "rawWaterAcc": "356",
+    "name": "MRS D G VIOLET SOMAWATHI",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 1444,
+    "prevUnits": 17,
+    "address": "374/25 WEDAGEWATTA ROAD MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "335",
+    "rawWaterAcc": "335",
+    "name": "MISS R B JANANI BUDHDHIKA",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 1541,
+    "prevUnits": 0,
+    "address": "28/10 WEDAGEWATTA MAGAMMANA, (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "428",
+    "rawWaterAcc": "428",
+    "name": "MISS DUNUHINGE LILAKANTHI",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 3009,
+    "prevUnits": 17,
+    "address": "374/17 WEDAGEWATTA HOMAGAMA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "347",
+    "rawWaterAcc": "347",
+    "name": "MRS N A R DE SILVA JAYASINGHE",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 114,
+    "prevUnits": 10,
+    "address": "374/3 WEDAGEWATTA ROAD MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "39",
+    "rawWaterAcc": "39",
+    "name": "MR JAYANTHA GALLAHEWA",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 2072,
+    "prevUnits": 0,
+    "address": "374/16 WEDAGE WATTA MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "46",
+    "rawWaterAcc": "46",
+    "name": "MRS L.A.W. CHANDRIKA",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 1534,
+    "prevUnits": 2,
+    "address": "374/10 WEDAGEWATTA MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "41",
+    "rawWaterAcc": "41",
+    "name": "MRS B.M. DAMAYANTHI",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 1399,
+    "prevUnits": 1,
+    "address": "374/13 WEDAGEWATTA MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "40",
+    "rawWaterAcc": "40",
+    "name": "MR W.G. ARIYARATHNE",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 2033,
+    "prevUnits": 0,
+    "address": "374/4 WEDAGEWATTA MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "48",
+    "rawWaterAcc": "48",
+    "name": "MR W.S. FERNANDO",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 0,
+    "prevUnits": 0,
+    "address": "374 WEDAGEWATTA MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "47",
+    "rawWaterAcc": "47",
+    "name": "MR RANGA N. ATTHANAYAKE",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 381,
+    "prevUnits": 1,
+    "address": "374/22 WEDAGEWATTA MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "287",
+    "rawWaterAcc": "287",
+    "name": "MRS H.M. A. KUMARIHAMY",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 1202,
+    "prevUnits": 3,
+    "address": "374/2 WEDAGEWATTA MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "173",
+    "rawWaterAcc": "173",
+    "name": "MR A.A. GUNARATHNE",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 804,
+    "prevUnits": 21,
+    "address": "WEDAGE WATTA ROAD MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "286",
+    "rawWaterAcc": "286",
+    "name": "MR W.A.SHANTHA KUMAR",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 793,
+    "prevUnits": 0,
+    "address": "383/5 WEDAGEWATTA MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "72",
+    "rawWaterAcc": "72",
+    "name": "MR J.P.C. ABEYSINGHE",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 2755,
+    "prevUnits": 0,
+    "address": "384, WEDAGEWTTA, MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "68",
+    "rawWaterAcc": "68",
+    "name": "MRS J.A. SANI JAYAKODI",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 5518,
+    "prevUnits": 11,
+    "address": "379/A/2 WEDAGEWATTA MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "172",
+    "rawWaterAcc": "172",
+    "name": "MR U.W. GUNARATHNE BANDARA",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 1561,
+    "prevUnits": 17,
+    "address": "385/2, WEDAGE WATTA ROAD MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "245",
+    "rawWaterAcc": "245",
+    "name": "MR S.A. NIMALSIRI",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 1436,
+    "prevUnits": 10,
+    "address": "385/1, WEDAGEWATTA ROAD, MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "73",
+    "rawWaterAcc": "73",
+    "name": "MR U.B. WIMAL JAYATHILAKE",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 3806,
+    "prevUnits": 23,
+    "address": "385/1B, WEDAGEWTTA ROAD, MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "445",
+    "rawWaterAcc": "445",
+    "name": "MR S.A.ANURA JAYANTHA",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 1,
+    "prevUnits": 1,
+    "address": "385/1/B ,MAGAMMANA ,HOMAGAMA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "378",
+    "rawWaterAcc": "378",
+    "name": "MR RANAHANSA KREEDA SAMAJAYA",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 51,
+    "prevUnits": 1,
+    "address": "WEDAGEWTTA ROAD, MAGAMMANA (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "60",
+    "rawWaterAcc": "60",
+    "name": "MR W.A.R.S. JAYAWARDHANA",
+    "area": "WEDAGEWATHTHA ROAD",
+    "prevReading": 2018,
+    "prevUnits": 19,
+    "address": "379/2/B, WEDAGEWATTA ROAD (WEDAGEWATHTHA ROAD)"
+  },
+  {
+    "accountNumber": "412",
+    "rawWaterAcc": "412",
+    "name": "MRS R.A.H.S ALWIS",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 1217,
+    "prevUnits": 14,
+    "address": "379 WEDAGEWATHTHA ROAD (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "59",
+    "rawWaterAcc": "59",
+    "name": "MRS S.A. RAMYALATHA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 1687,
+    "prevUnits": 7,
+    "address": "379/15, WEDAGEWATTA, MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "59.1",
+    "rawWaterAcc": "59.1",
+    "name": "MRS S.A. RAMYALATHA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 340,
+    "prevUnits": 13,
+    "address": "379/15, WEDAGEWATTA, MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "74",
+    "rawWaterAcc": "74",
+    "name": "MR K.P. JAYATISSA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 1895,
+    "prevUnits": 11,
+    "address": "379/5A WEDAGEWATTA MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "101",
+    "rawWaterAcc": "101",
+    "name": "MR K.W.D. ATHIK ROHITHA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 2550,
+    "prevUnits": 10,
+    "address": "PRAGATHI MAWATHA, 1ST LANE (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "366",
+    "rawWaterAcc": "366",
+    "name": "MRS D K GANGA JEEWANTHI",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 1437,
+    "prevUnits": 5,
+    "address": "379/7/2, WEDAGEWATTA ROAD (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "243",
+    "rawWaterAcc": "243",
+    "name": "MR DANUKA SHIRANTHA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 1311,
+    "prevUnits": 34,
+    "address": "174/34A WEDAGEWATTA MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "244",
+    "rawWaterAcc": "244",
+    "name": "MR K.W.D. ATHIK ROHITHA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 4159,
+    "prevUnits": 22,
+    "address": "379/7/1, WEDAGEWATTA ROAD, (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "376",
+    "rawWaterAcc": "376",
+    "name": "MR N.L. SIRIPALA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 719,
+    "prevUnits": 9,
+    "address": "GURUGE WATTA MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "407",
+    "rawWaterAcc": "407",
+    "name": "MR K.G.BANDHUWANSHA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 1720,
+    "prevUnits": 14,
+    "address": "379/14A WEDAGEWATTA MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "106",
+    "rawWaterAcc": "106",
+    "name": "MR SARATH DHARMASIRI",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 2589,
+    "prevUnits": 18,
+    "address": "389/11, WEDAGEWATTA ROAD MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "105",
+    "rawWaterAcc": "105",
+    "name": "MRS EVA JANET FERNANDO",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 1507,
+    "prevUnits": 0,
+    "address": "380/4A WEDAGEWATTA MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "104",
+    "rawWaterAcc": "104",
+    "name": "MRS IRESHA FERNANDO",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 626,
+    "prevUnits": 2,
+    "address": "380/4 WEDAGEWATTA MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "163",
+    "rawWaterAcc": "163",
+    "name": "MR ASANKA S. DISSANAYAKE",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 2761,
+    "prevUnits": 0,
+    "address": "GURUGE WATTA MAGAMMANA MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "100",
+    "rawWaterAcc": "100",
+    "name": "MR P.G. SAGARA UDAYA KUMARA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 618,
+    "prevUnits": 2,
+    "address": "380/3A WEDAGEWATTA ROAD MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "103",
+    "rawWaterAcc": "103",
+    "name": "MR M. SOMASIRI",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 898,
+    "prevUnits": 4,
+    "address": "380/5, WEDAGE WATTA ROAD MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "166",
+    "rawWaterAcc": "166",
+    "name": "MR K.D . AIWAN",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 1330,
+    "prevUnits": 22,
+    "address": "GURUGE WATTA MAGAMMANA MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "155",
+    "rawWaterAcc": "155",
+    "name": "MR K.P.P. WICKRAMASINGHE",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 2588,
+    "prevUnits": 0,
+    "address": "GURUGE WATTA MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "95",
+    "rawWaterAcc": "95",
+    "name": "MRS K.M.G. DAMMIKA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 3238,
+    "prevUnits": 17,
+    "address": "GURUGE WATTA HOMAGAMA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "443",
+    "rawWaterAcc": "443",
+    "name": "MR K.PREMARATHNA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 1,
+    "prevUnits": 0,
+    "address": "PRAGATHI MAWATHA, MAGAMMANA"
+  },
+  {
+    "accountNumber": "94",
+    "rawWaterAcc": "94",
+    "name": "MR H.M. HERATH MADAWATTA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 3178,
+    "prevUnits": 0,
+    "address": "398/1/B, WEDAGEWATTA ROAD, (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "234",
+    "rawWaterAcc": "234",
+    "name": "MRS SULOCHANA ERANDI PERERA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 1172,
+    "prevUnits": 0,
+    "address": "398/D, WEDAGEWATTA ROAD, MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "377",
+    "rawWaterAcc": "377",
+    "name": "MR MANOJ H. JAYASOORIYA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 1595,
+    "prevUnits": 22,
+    "address": "398/2 WEDAGEWATTA ROAD, MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "377.1",
+    "rawWaterAcc": "377.1",
+    "name": "MR MANOJ H. JAYASOORIYA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 37,
+    "prevUnits": 16,
+    "address": "398/2 WEDAGEWATTA ROAD, MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "441",
+    "rawWaterAcc": "441",
+    "name": "MRS D.L.DILSARA SADHARUWANI",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 129,
+    "prevUnits": 16,
+    "address": "PRAGATHI MAWATHA, MAGAMMANA"
+  },
+  {
+    "accountNumber": "331",
+    "rawWaterAcc": "331",
+    "name": "MR G W CHAMILA PRIYADHARSHANA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 2882,
+    "prevUnits": 27,
+    "address": "GURUGE WATTA WEDAGE WATTA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "227",
+    "rawWaterAcc": "227",
+    "name": "MR SUSANTHA RAJAPAKSHA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 1924,
+    "prevUnits": 22,
+    "address": "398/21A,WEDAGEWATTA, MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "370",
+    "rawWaterAcc": "370",
+    "name": "MR A R J N WIJAWARDHANA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 2506,
+    "prevUnits": 14,
+    "address": "398/19A,WEDAGEWATTA, MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "141",
+    "rawWaterAcc": "141",
+    "name": "MRS IROSHA UDAYANGANI",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 1865,
+    "prevUnits": 8,
+    "address": "398/21 WEDAGE WATTA MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "218",
+    "rawWaterAcc": "218",
+    "name": "MR R.S. VAAS",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 899,
+    "prevUnits": 9,
+    "address": "398 7/3, PRAGATHI MAWATHA, (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "52",
+    "rawWaterAcc": "52",
+    "name": "MR W.E.C. FERNANDO",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 3282,
+    "prevUnits": 30,
+    "address": "398/6/A, WEDAGEWATTA ROAD, (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "13",
+    "rawWaterAcc": "13",
+    "name": "MR D. GUNARATHNE",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 5368,
+    "prevUnits": 20,
+    "address": "398/238, WEDAGEWATTA, MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "269",
+    "rawWaterAcc": "269",
+    "name": "MRS U H PADMARANI",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 548,
+    "prevUnits": 4,
+    "address": "398/23C, PRAGATHI MAWATHA, (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "415",
+    "rawWaterAcc": "415",
+    "name": "MR B.SEETHA PADHMINI",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 899,
+    "prevUnits": 1,
+    "address": "398/36, WEDAGEWATTA ROAD, MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "259",
+    "rawWaterAcc": "259",
+    "name": "MRS M.S. CHANDRIKA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 1423,
+    "prevUnits": 9,
+    "address": "398/34, WEDAGEWATTA ROAD, MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "168",
+    "rawWaterAcc": "168",
+    "name": "MR ANURUDDHA B. WELIVITA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 3094,
+    "prevUnits": 29,
+    "address": "GURUGE WATTA MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "14",
+    "rawWaterAcc": "14",
+    "name": "MR H.M.S. GAMINIWANSA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 1145,
+    "prevUnits": 9,
+    "address": "398/6, WEDAGEWATTA ROAD, MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "291",
+    "rawWaterAcc": "291",
+    "name": "MR W.A.R.S.PERERA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 1153,
+    "prevUnits": 22,
+    "address": "398/39A WEDAGEWATTA MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "268",
+    "rawWaterAcc": "268",
+    "name": "MRS R.M.S.RENUKA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 420,
+    "prevUnits": 1,
+    "address": "398/17/3, WEDAGEWATTA, MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "116",
+    "rawWaterAcc": "116",
+    "name": "MR U.G.N. DAMMIKA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 1991,
+    "prevUnits": 7,
+    "address": "397/A/6, WEDAGEWATTA ROAD MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "240",
+    "rawWaterAcc": "240",
+    "name": "MR JANAKA Y KUMARA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 1687,
+    "prevUnits": 0,
+    "address": "397/4, WEDAGEWATTA ROAD, MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "157",
+    "rawWaterAcc": "157",
+    "name": "MR K.R. GAMINI NANDASIRI",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 1439,
+    "prevUnits": 1,
+    "address": "GURUGE WATTA MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "171",
+    "rawWaterAcc": "171",
+    "name": "MR GAMINI WEERASINGHE",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 1890,
+    "prevUnits": 2,
+    "address": "397/3, WEDAGE WATTA ROAD, MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "118",
+    "rawWaterAcc": "118",
+    "name": "MR D.A. ASHOKA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 3771,
+    "prevUnits": 30,
+    "address": "398/17, WEDAGEWATTA ROAD, MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "169",
+    "rawWaterAcc": "169",
+    "name": "MR D.C.K. KUMARASINGHE",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 1705,
+    "prevUnits": 19,
+    "address": "GURUGE WATTA MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "386",
+    "rawWaterAcc": "386",
+    "name": "MR ARUNA SAMANTHA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 2494,
+    "prevUnits": 35,
+    "address": "GURUGE WATTA WEDAGE WATTA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "341",
+    "rawWaterAcc": "341",
+    "name": "MRS G L CHANDRIKA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 641,
+    "prevUnits": 6,
+    "address": "398/11 WEDAGEWATTA ROAD MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "381",
+    "rawWaterAcc": "381",
+    "name": "MR H W PRABATH NIROSHAN",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 1491,
+    "prevUnits": 7,
+    "address": "398/8 WEDAGEWATTA ROAD, MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "381.1",
+    "rawWaterAcc": "381.1",
+    "name": "MR H W PRABATH NIROSHAN",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 285,
+    "prevUnits": 36,
+    "address": "PRAGATHI MAWATHA, MAGAMMANA"
+  },
+  {
+    "accountNumber": "379",
+    "rawWaterAcc": "379",
+    "name": "MR P A CHAMINDA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 1654,
+    "prevUnits": 5,
+    "address": "398/8 B WEDAGEWATTA ROAD, MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "262",
+    "rawWaterAcc": "262",
+    "name": "MR H.G. NIHAL ANANDA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 1121,
+    "prevUnits": 21,
+    "address": "398/8F, WEDAGEWATTA ROAD, MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "205",
+    "rawWaterAcc": "205",
+    "name": "E.P.S. SOCIETY",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 221,
+    "prevUnits": 6,
+    "address": "398/8/C, PRAGATHI MAWATHA, MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "263",
+    "rawWaterAcc": "263",
+    "name": "MRS J.H. ACHINTHA",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 2102,
+    "prevUnits": 19,
+    "address": "398/8E, WEDAGEWATTA ROAD, MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "430",
+    "rawWaterAcc": "430",
+    "name": "MRS SANDYA INDRANI",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 1189,
+    "prevUnits": 11,
+    "address": "398/8A, WEDAGEWATTA, MAGAMMANA (PRAGATHI MAWATHA)"
+  },
+  {
+    "accountNumber": "431",
+    "rawWaterAcc": "431",
+    "name": "MRS E.K RENUKA SHIROMI",
+    "area": "PRAGATHI MAWATHA",
+    "prevReading": 215,
+    "prevUnits": 2,
+    "address": "398/13WEDAGEWATTA,MAGAMMANA (PRAGATHI MAWATHA)"
+  }
+]

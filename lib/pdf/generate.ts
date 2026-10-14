@@ -38,9 +38,9 @@ export async function generateBillPdf(data: BillPdfData): Promise<Buffer> {
   
   doc.text(`Previous Reading: ${data.previousReading}`, 130, 45)
   doc.text(`Current Reading: ${data.currentReading}`, 130, 52)
-  doc.setFont(undefined, 'bold')
+  doc.setFont('helvetica', 'bold')
   doc.text(`Units Consumed: ${data.unitsConsumed}`, 130, 61)
-  doc.setFont(undefined, 'normal')
+  doc.setFont('helvetica', 'normal')
 
   doc.line(20, 75, 190, 75)
 
@@ -59,12 +59,12 @@ export async function generateBillPdf(data: BillPdfData): Promise<Buffer> {
   // Total
   y += 15
   doc.setFontSize(14)
-  doc.setFont(undefined, 'bold')
+  doc.setFont('helvetica', 'bold')
   doc.text('TOTAL', 20, y)
   doc.text(`LKR ${data.totalAmount.toLocaleString(undefined, { minimumFractionDigits: 2 })}`, 190, y, { align: 'right' })
 
   doc.setFontSize(12)
-  doc.setFont(undefined, 'normal')
+  doc.setFont('helvetica', 'normal')
   y += 15
   doc.text(`Due Date: ${data.dueDate}`, 20, y)
   doc.text(`Status: ${data.status}`, 20, y + 7)

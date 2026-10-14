@@ -71,15 +71,16 @@ export async function resendBillSms(billId: string) {
     .eq('id', billId)
     .single()
 
-  if (error || !bill || !bill.consumers.mobile) {
-    return { error: 'Failed to retrieve bill or mobile is missing.' }
+  if (error || !bill || !bill.consumers?.mobile) {
+    return { error: 'Failed to retrieve bill or consumer mobile number is missing.' }
   }
 
-  const secureBillLink = `${process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'}/bill/${bill.access_token}`
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL || 'http://localhost:3000'
+  const secureBillLink = `${baseUrl}/bill/${bill.access_token}`
 
   const smsResult = await sendDemoSms({
     mobile: bill.consumers.mobile,
-    message: `REMINDER: Your bill for ${bill.consumers.account_number} is LKR ${bill.amount}. View: ${secureBillLink}`
+    message: `Vikasha CBO Reminder: Bill for Acc #${bill.consumers.account_number} is LKR ${bill.amount.toLocaleString()}. Pay: ${secureBillLink}`
   })
 
   await supabase.from('notifications').insert({
@@ -88,10 +89,14 @@ export async function resendBillSms(billId: string) {
     channel: 'SMS',
     type: 'BILL',
     recipient: bill.consumers.mobile,
-    status: 'DEMO_SENT',
-    provider_message_id: smsResult.messageId
+    status: smsResult.success ? 'SENT' : 'FAILED',
+    provider_message_id: smsResult.messageId,
+    error_message: smsResult.error
   })
 
   revalidatePath('/admin/bills')
+  if (!smsResult.success) {
+    return { error: smsResult.error || 'SMS gateway could not dispatch message.' }
+  }
   return { success: true }
 }

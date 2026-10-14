@@ -21,8 +21,11 @@ export async function login(formData: FormData) {
   // Determine role and redirect
   const { data: { user } } = await supabase.auth.getUser()
   if (user) {
-    const { data: profile } = await supabase.from('profiles').select('role').eq('id', user.id).single()
-    if (profile?.role === 'ADMIN') {
+    const { data: profile } = await supabase.from('profiles').select('role').eq('id', user.id).maybeSingle()
+    if (!profile) {
+      return { error: 'Account authenticated, but no profile was found in the database. Please run the setup SQL in Supabase.' }
+    }
+    if (profile.role === 'ADMIN') {
       redirect('/admin/dashboard')
     } else {
       redirect('/meter-reader/dashboard')
