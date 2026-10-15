@@ -17,7 +17,11 @@ export const metadata: Metadata = {
   description: "Official online portal for Vikasha Community Based Organisation (CBO) Water Supply Project, Magammana, Homagama. Real-time meter reading, billing, and secure online payments.",
 };
 
-export default function RootLayout({ children }: LayoutProps<"/">) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html
       lang="en"
