@@ -139,74 +139,84 @@ export default function ImageSlideshow() {
   // Single loop width in pixels
   const singleLoopWidth = focusItems.length * (cardWidth + gap);
 
-  // Initial peeking offset: so Card 1 peeks slightly on the left just like the reference screenshot
+  // Position at loop 1 initially so user can scroll backward or forward seamlessly
   useEffect(() => {
     const el = scrollRef.current;
-    if (el && el.scrollLeft === 0) {
-      el.scrollLeft = 80;
+    if (el && singleLoopWidth > 0 && el.scrollLeft === 0) {
+      el.scrollLeft = singleLoopWidth;
     }
-  }, []);
+  }, [singleLoopWidth]);
 
-  // Continuous silky-smooth infinite auto-scroll loop
+  // Handle seamless infinite loop wrap-around without visual interruption
   useEffect(() => {
     const el = scrollRef.current;
-    if (!el) return;
+    if (!el || singleLoopWidth <= 0) return;
 
-    let animationFrameId: number;
-    let lastTime = performance.now();
-    const scrollSpeed = 0.65; // ~39px per second: calm, elegant, continuous glide
-
-    const step = (currentTime: number) => {
-      const delta = currentTime - lastTime;
-      lastTime = currentTime;
-
-      if (!isPaused && !isInteractingRef.current && el) {
-        el.scrollLeft += (scrollSpeed * delta) / 16.67;
-
-        // Seamless wrap when past single loop width
-        if (el.scrollLeft >= singleLoopWidth * 2) {
-          el.scrollLeft -= singleLoopWidth;
-        } else if (el.scrollLeft <= 0) {
-          el.scrollLeft += singleLoopWidth;
+    let debounceTimer: NodeJS.Timeout;
+    const handleScroll = () => {
+      clearTimeout(debounceTimer);
+      // Wait for smooth scrolling to settle before silent instant reposition
+      debounceTimer = setTimeout(() => {
+        if (!el) return;
+        if (el.scrollLeft >= singleLoopWidth * 2.5) {
+          el.scrollTo({ left: el.scrollLeft - singleLoopWidth, behavior: "instant" as ScrollBehavior });
+        } else if (el.scrollLeft <= singleLoopWidth * 0.5) {
+          el.scrollTo({ left: el.scrollLeft + singleLoopWidth, behavior: "instant" as ScrollBehavior });
         }
-      }
-
-      animationFrameId = requestAnimationFrame(step);
+      }, 350);
     };
 
-    animationFrameId = requestAnimationFrame(step);
+    el.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      el.removeEventListener("scroll", handleScroll);
+      clearTimeout(debounceTimer);
+    };
+  }, [singleLoopWidth]);
 
-    return () => cancelAnimationFrame(animationFrameId);
-  }, [isPaused, singleLoopWidth]);
-
-  // Handle manual navigation arrows (< and >)
-  const handleNext = useCallback(() => {
+  // Clean and smooth slide next
+  const slideNext = useCallback(() => {
     const el = scrollRef.current;
     if (!el) return;
+    el.scrollBy({ left: cardWidth + gap, behavior: "smooth" });
+  }, [cardWidth, gap]);
 
+  // Clean and smooth slide prev
+  const slidePrev = useCallback(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+    el.scrollBy({ left: -(cardWidth + gap), behavior: "smooth" });
+  }, [cardWidth, gap]);
+
+  // Cleanly and smoothly slide every 5 seconds
+  useEffect(() => {
+    if (isPaused) return;
+
+    const intervalId = setInterval(() => {
+      if (isInteractingRef.current) return;
+      slideNext();
+    }, 5000);
+
+    return () => clearInterval(intervalId);
+  }, [isPaused, slideNext]);
+
+  // Manual navigation handlers with 5-second grace period before auto-slide resumes
+  const handleNext = useCallback(() => {
     isInteractingRef.current = true;
     if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
-
-    el.scrollBy({ left: cardWidth + gap, behavior: "smooth" });
-
+    slideNext();
     resumeTimeoutRef.current = setTimeout(() => {
       isInteractingRef.current = false;
-    }, 700);
-  }, [cardWidth, gap]);
+    }, 5000);
+  }, [slideNext]);
 
   const handlePrev = useCallback(() => {
-    const el = scrollRef.current;
-    if (!el) return;
-
     isInteractingRef.current = true;
     if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
-
-    el.scrollBy({ left: -(cardWidth + gap), behavior: "smooth" });
-
+    slidePrev();
     resumeTimeoutRef.current = setTimeout(() => {
       isInteractingRef.current = false;
-    }, 700);
-  }, [cardWidth, gap]);
+    }, 5000);
+  }, [slidePrev]);
 
   // Quadruple items to guarantee infinite seamless wrapping buffer
   const displayItems = [...focusItems, ...focusItems, ...focusItems, ...focusItems];
@@ -272,7 +282,7 @@ export default function ImageSlideshow() {
               if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
               resumeTimeoutRef.current = setTimeout(() => {
                 isInteractingRef.current = false;
-              }, 1200);
+              }, 5000);
             }}
           >
             {/* Soft Edge Fade Masks */}
@@ -281,7 +291,7 @@ export default function ImageSlideshow() {
 
             <div
               ref={scrollRef}
-              className="flex items-center overflow-x-auto scrollbar-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] select-none cursor-grab active:cursor-grabbing px-4"
+              className="flex items-center overflow-x-auto scroll-smooth scrollbar-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] select-none cursor-grab active:cursor-grabbing px-4"
               style={{ gap: `${gap}px` }}
             >
               {displayItems.map((item, idx) => (
