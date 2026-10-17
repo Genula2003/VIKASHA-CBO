@@ -4,6 +4,7 @@ import { useState, useTransition } from 'react'
 import { processDemoPayment } from './actions'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
+import { motion, AnimatePresence } from 'framer-motion'
 import { 
   Droplet, 
   ShieldCheck, 
@@ -22,8 +23,11 @@ import {
   Phone,
   Clock,
   Shield,
-  Sparkles
+  RefreshCw
 } from 'lucide-react'
+
+// Silky smooth easing curve matching site design
+const smoothEase = [0.22, 1, 0.36, 1] as const
 
 interface PaymentClientPageProps {
   bill: {
@@ -89,453 +93,529 @@ export function PaymentClientPage({ bill }: PaymentClientPageProps) {
       <Navbar activeTab="billing" />
 
       {/* 2. Soft Ambient Lighting on White Canvas */}
-      <div className="fixed -top-40 right-1/4 w-[600px] h-[600px] bg-blue-100/50 rounded-full blur-[140px] pointer-events-none z-0" />
-      <div className="fixed bottom-10 left-10 w-[500px] h-[500px] bg-sky-100/40 rounded-full blur-[140px] pointer-events-none z-0" />
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.5, ease: "easeOut" }}
+        className="fixed -top-40 right-1/4 w-[600px] h-[600px] bg-blue-100/50 rounded-full blur-[140px] pointer-events-none z-0" 
+      />
+      <motion.div 
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 1.5, delay: 0.2, ease: "easeOut" }}
+        className="fixed bottom-10 left-10 w-[500px] h-[500px] bg-sky-100/40 rounded-full blur-[140px] pointer-events-none z-0" 
+      />
 
       {/* 3. Main Content Container */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-32 sm:pt-38 lg:pt-42 pb-16 flex-1 flex items-center">
         
         {/* If payment succeeded -> Frosted Glass E-Receipt */}
-        {success ? (
-          <div className="w-full max-w-xl mx-auto space-y-6">
-            <div className="backdrop-blur-2xl bg-white/85 border border-white/90 rounded-[36px] shadow-[0_25px_70px_rgba(8,27,56,0.12),inset_0_1px_2px_rgba(255,255,255,0.9)] overflow-hidden print:shadow-none print:border-none">
-              
-              {/* Receipt Header Badge */}
-              <div className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white p-6 sm:p-8 text-center space-y-3">
-                <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-md mx-auto flex items-center justify-center text-white shadow-inner">
-                  <CheckCircle2 size={36} strokeWidth={2.5} />
+        <AnimatePresence mode="wait">
+          {success ? (
+            <motion.div 
+              key="receipt-view"
+              initial={{ opacity: 0, scale: 0.93, y: 30, filter: "blur(8px)" }}
+              animate={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              transition={{ duration: 0.75, ease: smoothEase }}
+              className="w-full max-w-xl mx-auto space-y-6"
+            >
+              <div className="backdrop-blur-2xl bg-white/85 border border-white/90 rounded-[36px] shadow-[0_25px_70px_rgba(8,27,56,0.12),inset_0_1px_2px_rgba(255,255,255,0.9)] overflow-hidden print:shadow-none print:border-none">
+                
+                {/* Receipt Header Badge */}
+                <div className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white p-6 sm:p-8 text-center space-y-3">
+                  <motion.div 
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.2 }}
+                    className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-md mx-auto flex items-center justify-center text-white shadow-inner"
+                  >
+                    <CheckCircle2 size={36} strokeWidth={2.5} />
+                  </motion.div>
+                  <div>
+                    <span className="text-xs font-black uppercase tracking-widest text-emerald-100">
+                      Municipal Payment Succeeded
+                    </span>
+                    <h1 className="text-2xl sm:text-3xl font-black text-white mt-1">
+                      Official Payment Receipt
+                    </h1>
+                    <p className="text-xs text-emerald-100 font-medium mt-0.5">
+                      Vikasha CBO &bull; Magammana Community Water Project
+                    </p>
+                  </div>
                 </div>
-                <div>
-                  <span className="text-xs font-black uppercase tracking-widest text-emerald-100">
-                    Municipal Payment Succeeded
-                  </span>
-                  <h1 className="text-2xl sm:text-3xl font-black text-white mt-1">
-                    Official Payment Receipt
+
+                {/* Receipt Body */}
+                <div className="p-6 sm:p-8 space-y-6">
+                  
+                  {/* Amount Highlight */}
+                  <div className="bg-[#EDF5FF] rounded-2xl p-5 border border-blue-100 text-center">
+                    <span className="text-xs font-bold uppercase tracking-wider text-gray-500">Total Settled Amount</span>
+                    <div className="text-4xl font-black text-[#081B38] mt-1 font-mono">
+                      LKR {formattedAmount}
+                    </div>
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold mt-2 border border-emerald-200">
+                      <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                      Account Balance Cleared &bull; Reconciled
+                    </div>
+                  </div>
+
+                  {/* Receipt Details Table */}
+                  <div className="divide-y divide-gray-100 text-xs">
+                    <div className="py-2.5 flex justify-between items-center">
+                      <span className="text-gray-500 font-medium">Transaction ID</span>
+                      <span className="font-mono font-bold text-[#081B38]">{transactionId}</span>
+                    </div>
+                    <div className="py-2.5 flex justify-between items-center">
+                      <span className="text-gray-500 font-medium">Bill Reference</span>
+                      <span className="font-mono font-bold text-[#081B38]">#{bill.bill_number}</span>
+                    </div>
+                    <div className="py-2.5 flex justify-between items-center">
+                      <span className="text-gray-500 font-medium">Water Account</span>
+                      <span className="font-mono font-bold text-[#0066FF]">#{accountNum}</span>
+                    </div>
+                    <div className="py-2.5 flex justify-between items-center">
+                      <span className="text-gray-500 font-medium">Consumer Name</span>
+                      <span className="font-bold text-[#081B38] text-right">{accountHolder}</span>
+                    </div>
+                    <div className="py-2.5 flex justify-between items-center">
+                      <span className="text-gray-500 font-medium">Service Address</span>
+                      <span className="font-medium text-gray-700 text-right max-w-[240px] truncate">{address}</span>
+                    </div>
+                    <div className="py-2.5 flex justify-between items-center">
+                      <span className="text-gray-500 font-medium">Payment Channel</span>
+                      <span className="font-bold text-[#081B38]">{methodNames[method]}</span>
+                    </div>
+                    <div className="py-2.5 flex justify-between items-center">
+                      <span className="text-gray-500 font-medium">Payment Timestamp</span>
+                      <span className="font-medium text-gray-700">{paymentTimestamp}</span>
+                    </div>
+                    <div className="py-2.5 flex justify-between items-center">
+                      <span className="text-gray-500 font-medium">Gateway Provider</span>
+                      <span className="font-bold text-[#081B38]">PayHere (CBSL Regulated)</span>
+                    </div>
+                  </div>
+
+                  {/* Action Buttons */}
+                  <div className="space-y-3 pt-2 print:hidden">
+                    <button
+                      onClick={() => window.print()}
+                      className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold text-xs transition-colors cursor-pointer"
+                    >
+                      <Printer size={15} />
+                      Print / Save Official PDF Receipt
+                    </button>
+
+                    <div className="grid grid-cols-2 gap-3">
+                      <Link
+                        href={`/bill/${bill.access_token}`}
+                        className="inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-2xl bg-[#0066FF] text-white hover:bg-blue-600 font-bold text-xs transition-colors shadow-sm"
+                      >
+                        <FileText size={14} />
+                        View Updated Bill
+                      </Link>
+
+                      <Link
+                        href="/pay"
+                        className="inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-2xl bg-[#081B38] text-white hover:bg-[#1C2541] font-bold text-xs transition-colors shadow-sm"
+                      >
+                        <ArrowLeft size={14} />
+                        Quick Pay Home
+                      </Link>
+                    </div>
+                  </div>
+
+                </div>
+
+                {/* Receipt Footer Notice */}
+                <div className="bg-gray-50 border-t border-gray-100 p-4 text-center text-[11px] text-gray-500 space-y-1">
+                  <p>This is a computer-generated municipal receipt verified under DCWS / NWSDB standards.</p>
+                  <p className="font-bold text-gray-700">Need help? Contact support@vikashacbo.com &bull; Hotline: 011 289 4567</p>
+                </div>
+
+              </div>
+            </motion.div>
+          ) : (
+            /* Active Checkout Layout: 2 Columns with Smooth Landing Animations */
+            <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+              
+              {/* LEFT COLUMN: Clean White Theme with Dark Navy Blue Picture Showcase */}
+              <div className="lg:col-span-6 space-y-6 lg:space-y-8">
+                
+                {/* Brand Logo & Subtitle */}
+                <motion.div 
+                  initial={{ opacity: 0, y: -20, filter: "blur(4px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 0.8, delay: 0.1, ease: smoothEase }}
+                  className="flex items-center gap-3.5"
+                >
+                  <motion.div 
+                    whileHover={{ scale: 1.05 }}
+                    transition={{ duration: 0.2 }}
+                    className="w-12 h-12 rounded-2xl bg-[#0066FF] shadow-lg shadow-blue-500/25 flex items-center justify-center text-white"
+                  >
+                    <Droplet size={24} className="fill-white" />
+                  </motion.div>
+                  <div>
+                    <span className="text-xl font-black text-[#081B38] tracking-tight block">
+                      Vikasha CBO
+                    </span>
+                    <span className="text-xs text-gray-500 font-medium block">
+                      Magammana Community Water Project
+                    </span>
+                  </div>
+                </motion.div>
+
+                {/* Headline & Description with Staggered Entrance */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
+                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  transition={{ duration: 0.9, delay: 0.22, ease: smoothEase }}
+                  className="space-y-3"
+                >
+                  <h1 className="text-5xl sm:text-6xl lg:text-[66px] font-black tracking-tight leading-[1.06] text-[#081B38]">
+                    Pay Your <br />
+                    <span className="text-[#0066FF]">Water Bill Online</span>
                   </h1>
-                  <p className="text-xs text-emerald-100 font-medium mt-0.5">
-                    Vikasha CBO &bull; Magammana Community Water Project
+                  <p className="text-base sm:text-lg text-slate-600 font-normal max-w-lg leading-relaxed">
+                    Verified and secure payment for Magammana Community Water Supply Scheme
                   </p>
-                </div>
-              </div>
+                </motion.div>
 
-              {/* Receipt Body */}
-              <div className="p-6 sm:p-8 space-y-6">
-                
-                {/* Amount Highlight */}
-                <div className="bg-[#EDF5FF] rounded-2xl p-5 border border-blue-100 text-center">
-                  <span className="text-xs font-bold uppercase tracking-wider text-gray-500">Total Settled Amount</span>
-                  <div className="text-4xl font-black text-[#081B38] mt-1 font-mono">
-                    LKR {formattedAmount}
-                  </div>
-                  <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 text-xs font-bold mt-2 border border-emerald-200">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-                    Account Balance Cleared &bull; Reconciled
-                  </div>
-                </div>
+                {/* 3 Trust Badges with Staggered Fade & Hover Motion */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.38, ease: smoothEase }}
+                  className="flex items-start gap-6 sm:gap-8 pt-1"
+                >
+                  {[
+                    { icon: ShieldCheck, title: "Secure", subtitle: "Payments" },
+                    { icon: Zap, title: "Fast &", subtitle: "Convenient" },
+                    { icon: FileText, title: "View & Settle", subtitle: "Bills Easily" }
+                  ].map((badge, idx) => {
+                    const IconComp = badge.icon
+                    return (
+                      <motion.div 
+                        key={idx}
+                        initial={{ opacity: 0, y: 15, scale: 0.9 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        transition={{ duration: 0.55, delay: 0.42 + idx * 0.1, ease: smoothEase }}
+                        whileHover={{ y: -5, scale: 1.05 }}
+                        className="flex flex-col items-center text-center max-w-[105px] group cursor-default"
+                      >
+                        <div className="w-14 h-14 rounded-full bg-white/90 border border-blue-100 shadow-sm backdrop-blur-md flex items-center justify-center text-[#0066FF] transition-shadow duration-300 group-hover:shadow-md">
+                          <IconComp size={26} strokeWidth={2} />
+                        </div>
+                        <span className="text-xs font-bold text-[#081B38] mt-2.5 leading-snug">
+                          {badge.title}<br />{badge.subtitle}
+                        </span>
+                      </motion.div>
+                    )
+                  })}
+                </motion.div>
 
-                {/* Receipt Details Table */}
-                <div className="divide-y divide-gray-100 text-xs">
-                  <div className="py-2.5 flex justify-between items-center">
-                    <span className="text-gray-500 font-medium">Transaction ID</span>
-                    <span className="font-mono font-bold text-[#081B38]">{transactionId}</span>
-                  </div>
-                  <div className="py-2.5 flex justify-between items-center">
-                    <span className="text-gray-500 font-medium">Bill Reference</span>
-                    <span className="font-mono font-bold text-[#081B38]">#{bill.bill_number}</span>
-                  </div>
-                  <div className="py-2.5 flex justify-between items-center">
-                    <span className="text-gray-500 font-medium">Water Account</span>
-                    <span className="font-mono font-bold text-[#0066FF]">#{accountNum}</span>
-                  </div>
-                  <div className="py-2.5 flex justify-between items-center">
-                    <span className="text-gray-500 font-medium">Consumer Name</span>
-                    <span className="font-bold text-[#081B38] text-right">{accountHolder}</span>
-                  </div>
-                  <div className="py-2.5 flex justify-between items-center">
-                    <span className="text-gray-500 font-medium">Service Address</span>
-                    <span className="font-medium text-gray-700 text-right max-w-[240px] truncate">{address}</span>
-                  </div>
-                  <div className="py-2.5 flex justify-between items-center">
-                    <span className="text-gray-500 font-medium">Payment Channel</span>
-                    <span className="font-bold text-[#081B38]">{methodNames[method]}</span>
-                  </div>
-                  <div className="py-2.5 flex justify-between items-center">
-                    <span className="text-gray-500 font-medium">Payment Timestamp</span>
-                    <span className="font-medium text-gray-700">{paymentTimestamp}</span>
-                  </div>
-                  <div className="py-2.5 flex justify-between items-center">
-                    <span className="text-gray-500 font-medium">Gateway Provider</span>
-                    <span className="font-bold text-[#081B38]">PayHere (CBSL Regulated)</span>
-                  </div>
-                </div>
-
-                {/* Action Buttons */}
-                <div className="space-y-3 pt-2 print:hidden">
-                  <button
-                    onClick={() => window.print()}
-                    className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-2xl bg-gray-100 hover:bg-gray-200 text-gray-800 font-bold text-xs transition-colors cursor-pointer"
-                  >
-                    <Printer size={15} />
-                    Print / Save Official PDF Receipt
-                  </button>
-
-                  <div className="grid grid-cols-2 gap-3">
-                    <Link
-                      href={`/bill/${bill.access_token}`}
-                      className="inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-2xl bg-[#0066FF] text-white hover:bg-blue-600 font-bold text-xs transition-colors shadow-sm"
-                    >
-                      <FileText size={14} />
-                      View Updated Bill
-                    </Link>
-
-                    <Link
-                      href="/pay"
-                      className="inline-flex items-center justify-center gap-1.5 px-4 py-3 rounded-2xl bg-[#081B38] text-white hover:bg-[#1C2541] font-bold text-xs transition-colors shadow-sm"
-                    >
-                      <ArrowLeft size={14} />
-                      Quick Pay Home
-                    </Link>
-                  </div>
-                </div>
-
-              </div>
-
-              {/* Receipt Footer Notice */}
-              <div className="bg-gray-50 border-t border-gray-100 p-4 text-center text-[11px] text-gray-500 space-y-1">
-                <p>This is a computer-generated municipal receipt verified under DCWS / NWSDB standards.</p>
-                <p className="font-bold text-gray-700">Need help? Contact support@vikashacbo.com &bull; Hotline: 011 289 4567</p>
-              </div>
-
-            </div>
-          </div>
-        ) : (
-          /* Active Checkout Layout: 2 Columns */
-          <div className="w-full grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
-            
-            {/* LEFT COLUMN: Clean White Theme with Dark Navy Blue Picture Showcase */}
-            <div className="lg:col-span-6 space-y-6 lg:space-y-8">
-              
-              {/* Brand Logo & Subtitle */}
-              <div className="flex items-center gap-3.5">
-                <div className="w-12 h-12 rounded-2xl bg-[#0066FF] shadow-lg shadow-blue-500/25 flex items-center justify-center text-white">
-                  <Droplet size={24} className="fill-white" />
-                </div>
-                <div>
-                  <span className="text-xl font-black text-[#081B38] tracking-tight block">
-                    Vikasha CBO
-                  </span>
-                  <span className="text-xs text-gray-500 font-medium block">
-                    Magammana Community Water Project
-                  </span>
-                </div>
-              </div>
-
-              {/* Headline & Description */}
-              <div className="space-y-3">
-                <h1 className="text-5xl sm:text-6xl lg:text-[66px] font-black tracking-tight leading-[1.06] text-[#081B38]">
-                  Pay Your <br />
-                  <span className="text-[#0066FF]">Water Bill Online</span>
-                </h1>
-                <p className="text-base sm:text-lg text-slate-600 font-normal max-w-lg leading-relaxed">
-                  Verified and secure payment for Magammana Community Water Supply Scheme
-                </p>
-              </div>
-
-              {/* 3 Trust Badges with Frosted Glass Styling */}
-              <div className="flex items-start gap-6 sm:gap-8 pt-1">
-                
-                {/* Badge 1: Secure Payments */}
-                <div className="flex flex-col items-center text-center max-w-[105px] group">
-                  <div className="w-14 h-14 rounded-full bg-white/90 border border-blue-100 shadow-sm backdrop-blur-md flex items-center justify-center text-[#0066FF] transition-all duration-300 group-hover:scale-105 group-hover:shadow-md">
-                    <ShieldCheck size={26} strokeWidth={2} />
-                  </div>
-                  <span className="text-xs font-bold text-[#081B38] mt-2.5 leading-snug">
-                    Secure<br />Payments
-                  </span>
-                </div>
-
-                {/* Badge 2: Fast & Convenient */}
-                <div className="flex flex-col items-center text-center max-w-[105px] group">
-                  <div className="w-14 h-14 rounded-full bg-white/90 border border-blue-100 shadow-sm backdrop-blur-md flex items-center justify-center text-[#0066FF] transition-all duration-300 group-hover:scale-105 group-hover:shadow-md">
-                    <Zap size={26} strokeWidth={2} />
-                  </div>
-                  <span className="text-xs font-bold text-[#081B38] mt-2.5 leading-snug">
-                    Fast &amp;<br />Convenient
-                  </span>
-                </div>
-
-                {/* Badge 3: View & Settle Bills Easily */}
-                <div className="flex flex-col items-center text-center max-w-[115px] group">
-                  <div className="w-14 h-14 rounded-full bg-white/90 border border-blue-100 shadow-sm backdrop-blur-md flex items-center justify-center text-[#0066FF] transition-all duration-300 group-hover:scale-105 group-hover:shadow-md">
-                    <FileText size={26} strokeWidth={2} />
-                  </div>
-                  <span className="text-xs font-bold text-[#081B38] mt-2.5 leading-snug">
-                    View &amp; Settle<br />Bills Easily
-                  </span>
-                </div>
-
-              </div>
-
-              {/* DARK NAVY BLUE PICTURE SHOWCASE */}
-              <div className="relative rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(8,27,56,0.18)] border border-slate-200/90 group max-w-lg mt-2">
-                <div className="h-52 sm:h-56 w-full overflow-hidden relative bg-[#040D1A]">
-                  <img
-                    src="/pay-water-dark-navy.jpg"
-                    alt="Magammana Pristine Dark Navy Water Ripples"
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
-                  />
-                  {/* Subtle Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#081B38]/90 via-[#081B38]/30 to-transparent" />
-                  
-                  {/* Floating Glass Badge over Dark Navy Picture */}
-                  <div className="absolute bottom-4 inset-x-4 flex items-center justify-between">
-                    <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white text-xs font-mono font-medium shadow-lg">
-                      <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                      <span>SLS 614 &bull; DCWS Certified Water Scheme</span>
-                    </div>
-
-                    <span className="text-[11px] text-cyan-200 font-mono hidden sm:inline-block">
-                      Homagama, Sri Lanka
-                    </span>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
-            {/* RIGHT COLUMN: The Payment Card with Prominent Frosted Glass Effect */}
-            <div className="lg:col-span-6 flex justify-center lg:justify-end">
-              <div className="w-full max-w-[530px] backdrop-blur-2xl bg-white/85 border border-white/90 rounded-[32px] sm:rounded-[36px] p-6 sm:p-9 shadow-[0_25px_70px_rgba(8,27,56,0.12),inset_0_1px_2px_rgba(255,255,255,0.9)] space-y-6 relative">
-                
-                {/* Card Top Bar */}
-                <div className="flex items-center justify-between pb-3 border-b border-gray-100">
-                  <div className="flex items-center gap-2.5">
-                    <div className="w-9 h-9 rounded-xl bg-[#0066FF] flex items-center justify-center text-white shadow-sm">
-                      <Droplet size={18} className="fill-white" />
-                    </div>
-                    <div>
-                      <span className="text-sm font-black text-[#081B38] block leading-tight">Vikasha CBO</span>
-                      <span className="text-[10px] text-gray-400 font-medium block">Magammana Community Water Project</span>
-                    </div>
-                  </div>
-
-                  <Link 
-                    href={`/bill/${bill.access_token}`}
-                    className="inline-flex items-center gap-1.5 text-xs font-bold text-gray-500 hover:text-[#081B38] transition-colors"
-                  >
-                    <ArrowLeft size={14} /> Back to Bill
-                  </Link>
-                </div>
-
-                {/* Title Header */}
-                <div className="text-center pt-1">
-                  <h2 className="text-2xl sm:text-[26px] font-black text-[#081B38] tracking-tight">
-                    Confirm &amp; Settle Water Bill
-                  </h2>
-                  <p className="text-xs text-gray-500 font-medium mt-1">
-                    Verified online payment for Magammana Community Water Supply Scheme
-                  </p>
-                </div>
-
-                {/* Account & Total Payable Row with Frosted Sky-Blue Glass */}
-                <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center">
-                  
-                  {/* Account Details (Left) */}
-                  <div className="sm:col-span-6 space-y-1">
-                    <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">
-                      WATER ACCOUNT
-                    </span>
-                    <div className="text-xl font-black text-[#081B38] tracking-tight">
-                      Account #{accountNum}
-                    </div>
-                    <div className="text-xs font-extrabold text-[#081B38] uppercase">
-                      {accountHolder}
-                    </div>
-                    <div className="text-[10px] text-gray-500 uppercase font-semibold leading-relaxed">
-                      {address}
-                    </div>
-                  </div>
-
-                  {/* Total Payable Box (Right - Frosted Glass Container) */}
-                  <div className="sm:col-span-6 bg-[#EDF5FF]/90 backdrop-blur-md rounded-2xl p-4 text-center sm:text-right flex flex-col justify-center border border-blue-100/80 shadow-sm">
-                    <span className="text-[10px] font-black text-[#0066FF] uppercase tracking-wider block">
-                      TOTAL PAYABLE
-                    </span>
-                    <div className="text-xs font-black text-[#081B38] mt-0.5">
-                      LKR
-                    </div>
-                    <div className="text-3xl font-black text-[#081B38] tracking-tight leading-none mt-0.5 font-mono">
-                      {formattedAmount}
-                    </div>
-                    <span className="text-[10px] text-gray-500 font-medium mt-1 block">
-                      Invoice #{bill.bill_number}
-                    </span>
-                  </div>
-
-                </div>
-
-                {/* Select Payment Method */}
-                <div className="space-y-2.5 pt-1">
-                  <label className="text-[11px] font-extrabold uppercase tracking-wider text-gray-700 block">
-                    SELECT PAYMENT METHOD
-                  </label>
-
-                  <div className="space-y-2.5">
+                {/* DARK NAVY BLUE PICTURE SHOWCASE with Smooth Entrance */}
+                <motion.div 
+                  initial={{ opacity: 0, y: 35, scale: 0.96, filter: "blur(6px)" }}
+                  animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+                  transition={{ duration: 0.95, delay: 0.5, ease: smoothEase }}
+                  whileHover={{ y: -4, transition: { duration: 0.3 } }}
+                  className="relative rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(8,27,56,0.18)] border border-slate-200/90 group max-w-lg mt-2"
+                >
+                  <div className="h-52 sm:h-56 w-full overflow-hidden relative bg-[#040D1A]">
+                    <img
+                      src="/pay-water-dark-navy.jpg"
+                      alt="Magammana Pristine Dark Navy Water Ripples"
+                      className="w-full h-full object-cover object-center group-hover:scale-106 transition-transform duration-700"
+                    />
+                    {/* Subtle Gradient Overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#081B38]/90 via-[#081B38]/30 to-transparent" />
                     
-                    {/* Option 1: Credit / Debit Card */}
-                    <div 
-                      onClick={() => setMethod('card')}
-                      className={`p-3.5 rounded-2xl flex items-center justify-between cursor-pointer transition-all ${
-                        method === 'card' 
-                          ? 'border-2 border-[#0066FF] bg-blue-50/60 shadow-[0_4px_20px_rgba(0,102,255,0.08)] backdrop-blur-md' 
-                          : 'border border-slate-200/90 hover:border-slate-300 bg-white/60 backdrop-blur-md'
-                      }`}
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
-                          method === 'card' ? 'bg-[#0066FF] text-white shadow-sm' : 'bg-gray-100 text-gray-600'
-                        }`}>
-                          <CreditCard size={20} />
-                        </div>
-                        <div>
-                          <span className="text-sm font-bold text-[#081B38] block">
-                            Credit / Debit Card
-                          </span>
-                          <span className="text-[11px] text-gray-500 font-medium block">
-                            Visa, MasterCard &bull; 3D Secure 2.0 OTP Verified
-                          </span>
-                        </div>
+                    {/* Floating Glass Badge over Dark Navy Picture */}
+                    <div className="absolute bottom-4 inset-x-4 flex items-center justify-between">
+                      <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white text-xs font-mono font-medium shadow-lg">
+                        <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
+                        <span>SLS 614 &bull; DCWS Certified Water Scheme</span>
                       </div>
-                      
-                      {/* Custom Radio Button */}
-                      <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${
-                        method === 'card' ? 'border-[#0066FF]' : 'border-gray-300'
-                      }`}>
-                        {method === 'card' && (
-                          <div className="w-2.5 h-2.5 rounded-full bg-[#0066FF]" />
-                        )}
-                      </div>
+
+                      <span className="text-[11px] text-cyan-200 font-mono hidden sm:inline-block">
+                        Homagama, Sri Lanka
+                      </span>
                     </div>
-
-                    {/* Option 2: LankaQR / Mobile Wallets */}
-                    <div 
-                      onClick={() => setMethod('lankaqr')}
-                      className={`p-3.5 rounded-2xl flex items-center justify-between cursor-pointer transition-all ${
-                        method === 'lankaqr' 
-                          ? 'border-2 border-[#0066FF] bg-blue-50/60 shadow-[0_4px_20px_rgba(0,102,255,0.08)] backdrop-blur-md' 
-                          : 'border border-slate-200/90 hover:border-slate-300 bg-white/60 backdrop-blur-md'
-                      }`}
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
-                          method === 'lankaqr' ? 'bg-[#0066FF] text-white shadow-sm' : 'bg-gray-100 text-gray-600'
-                        }`}>
-                          <QrCode size={20} />
-                        </div>
-                        <div>
-                          <span className="text-sm font-bold text-[#081B38] block">
-                            LankaQR / Mobile Wallets
-                          </span>
-                          <span className="text-[11px] text-gray-500 font-medium block">
-                            FriMi, Genie, eZ Cash, Any Bank LankaQR App
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Custom Radio Button */}
-                      <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${
-                        method === 'lankaqr' ? 'border-[#0066FF]' : 'border-gray-300'
-                      }`}>
-                        {method === 'lankaqr' && (
-                          <div className="w-2.5 h-2.5 rounded-full bg-[#0066FF]" />
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Option 3: Internet Banking Direct Pay */}
-                    <div 
-                      onClick={() => setMethod('banking')}
-                      className={`p-3.5 rounded-2xl flex items-center justify-between cursor-pointer transition-all ${
-                        method === 'banking' 
-                          ? 'border-2 border-[#0066FF] bg-blue-50/60 shadow-[0_4px_20px_rgba(0,102,255,0.08)] backdrop-blur-md' 
-                          : 'border border-slate-200/90 hover:border-slate-300 bg-white/60 backdrop-blur-md'
-                      }`}
-                    >
-                      <div className="flex items-center gap-3">
-                        <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
-                          method === 'banking' ? 'bg-[#0066FF] text-white shadow-sm' : 'bg-gray-100 text-gray-600'
-                        }`}>
-                          <Building2 size={20} />
-                        </div>
-                        <div>
-                          <span className="text-sm font-bold text-[#081B38] block">
-                            Internet Banking Direct Pay
-                          </span>
-                          <span className="text-[11px] text-gray-500 font-medium block">
-                            Commercial Bank, Sampath Vishwa, BOC, People&apos;s Bank
-                          </span>
-                        </div>
-                      </div>
-
-                      {/* Custom Radio Button */}
-                      <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${
-                        method === 'banking' ? 'border-[#0066FF]' : 'border-gray-300'
-                      }`}>
-                        {method === 'banking' && (
-                          <div className="w-2.5 h-2.5 rounded-full bg-[#0066FF]" />
-                        )}
-                      </div>
-                    </div>
-
                   </div>
-                </div>
-
-                {/* Fee Breakdown */}
-                <div className="pt-2 border-t border-gray-100 space-y-2 text-xs">
-                  <div className="flex justify-between items-center text-gray-600 font-medium">
-                    <span>Water Tariff Charge</span>
-                    <span className="font-bold text-[#081B38] font-mono">LKR {formattedAmount}</span>
-                  </div>
-                  <div className="flex justify-between items-center text-gray-600 font-medium">
-                    <span>PayHere Gateway Fee</span>
-                    <span className="font-bold text-emerald-600">LKR 0.00 (Waived)</span>
-                  </div>
-                  <div className="flex justify-between items-center text-sm pt-1 border-t border-gray-100">
-                    <span className="font-extrabold text-[#081B38]">Net Settlement Amount</span>
-                    <span className="font-black text-[#0066FF] font-mono text-base">LKR {formattedAmount}</span>
-                  </div>
-                </div>
-
-                {/* Error Notice */}
-                {error && (
-                  <div className="p-3.5 rounded-2xl bg-red-50 border border-red-200 text-xs text-red-700 flex items-center gap-2">
-                    <AlertCircle size={16} className="shrink-0 text-red-600" />
-                    <span>{error}</span>
-                  </div>
-                )}
-
-                {/* Pay Button */}
-                <div>
-                  <button
-                    onClick={handlePay}
-                    disabled={isPending}
-                    className="w-full py-4 rounded-2xl bg-[#0066FF] hover:bg-blue-600 active:scale-[0.99] text-white font-black text-sm flex items-center justify-center gap-2 shadow-[0_12px_24px_-4px_rgba(0,102,255,0.4)] transition-all cursor-pointer disabled:opacity-50"
-                  >
-                    <Lock size={16} />
-                    <span>
-                      {isPending 
-                        ? 'Securing Payment Authorization...' 
-                        : `Pay LKR ${formattedAmount} via PayHere`
-                      }
-                    </span>
-                  </button>
-                </div>
+                </motion.div>
 
               </div>
-            </div>
 
-          </div>
-        )}
+              {/* RIGHT COLUMN: The Payment Card with Floating Smooth Entrance */}
+              <div className="lg:col-span-6 flex justify-center lg:justify-end">
+                <motion.div 
+                  initial={{ opacity: 0, y: 40, scale: 0.96, filter: "blur(8px)" }}
+                  animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+                  transition={{ duration: 1.0, delay: 0.28, ease: smoothEase }}
+                  className="w-full max-w-[530px] backdrop-blur-2xl bg-white/85 border border-white/90 rounded-[32px] sm:rounded-[36px] p-6 sm:p-9 shadow-[0_25px_70px_rgba(8,27,56,0.12),inset_0_1px_2px_rgba(255,255,255,0.9)] space-y-6 relative"
+                >
+                  
+                  {/* Card Top Bar */}
+                  <div className="flex items-center justify-between pb-3 border-b border-gray-100">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-9 h-9 rounded-xl bg-[#0066FF] flex items-center justify-center text-white shadow-sm">
+                        <Droplet size={18} className="fill-white" />
+                      </div>
+                      <div>
+                        <span className="text-sm font-black text-[#081B38] block leading-tight">Vikasha CBO</span>
+                        <span className="text-[10px] text-gray-400 font-medium block">Magammana Community Water Project</span>
+                      </div>
+                    </div>
+
+                    <Link 
+                      href={`/bill/${bill.access_token}`}
+                      className="inline-flex items-center gap-1.5 text-xs font-bold text-gray-500 hover:text-[#081B38] transition-colors"
+                    >
+                      <ArrowLeft size={14} /> Back to Bill
+                    </Link>
+                  </div>
+
+                  {/* Title Header */}
+                  <div className="text-center pt-1">
+                    <h2 className="text-2xl sm:text-[26px] font-black text-[#081B38] tracking-tight">
+                      Confirm &amp; Settle Water Bill
+                    </h2>
+                    <p className="text-xs text-gray-500 font-medium mt-1">
+                      Verified online payment for Magammana Community Water Supply Scheme
+                    </p>
+                  </div>
+
+                  {/* Account & Total Payable Row with Frosted Sky-Blue Glass */}
+                  <div className="grid grid-cols-1 sm:grid-cols-12 gap-3 items-center">
+                    
+                    {/* Account Details (Left) */}
+                    <div className="sm:col-span-6 space-y-1">
+                      <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider block">
+                        WATER ACCOUNT
+                      </span>
+                      <div className="text-xl font-black text-[#081B38] tracking-tight">
+                        Account #{accountNum}
+                      </div>
+                      <div className="text-xs font-extrabold text-[#081B38] uppercase">
+                        {accountHolder}
+                      </div>
+                      <div className="text-[10px] text-gray-500 uppercase font-semibold leading-relaxed">
+                        {address}
+                      </div>
+                    </div>
+
+                    {/* Total Payable Box (Right - Frosted Glass Container) */}
+                    <motion.div 
+                      whileHover={{ scale: 1.02 }}
+                      transition={{ duration: 0.2 }}
+                      className="sm:col-span-6 bg-[#EDF5FF]/90 backdrop-blur-md rounded-2xl p-4 text-center sm:text-right flex flex-col justify-center border border-blue-100/80 shadow-sm"
+                    >
+                      <span className="text-[10px] font-black text-[#0066FF] uppercase tracking-wider block">
+                        TOTAL PAYABLE
+                      </span>
+                      <div className="text-xs font-black text-[#081B38] mt-0.5">
+                        LKR
+                      </div>
+                      <div className="text-3xl font-black text-[#081B38] tracking-tight leading-none mt-0.5 font-mono">
+                        {formattedAmount}
+                      </div>
+                      <span className="text-[10px] text-gray-500 font-medium mt-1 block">
+                        Invoice #{bill.bill_number}
+                      </span>
+                    </motion.div>
+
+                  </div>
+
+                  {/* Select Payment Method */}
+                  <div className="space-y-2.5 pt-1">
+                    <label className="text-[11px] font-extrabold uppercase tracking-wider text-gray-700 block">
+                      SELECT PAYMENT METHOD
+                    </label>
+
+                    <div className="space-y-2.5">
+                      
+                      {/* Option 1: Credit / Debit Card */}
+                      <motion.div 
+                        whileHover={{ scale: 1.015 }}
+                        whileTap={{ scale: 0.99 }}
+                        onClick={() => setMethod('card')}
+                        className={`p-3.5 rounded-2xl flex items-center justify-between cursor-pointer transition-all ${
+                          method === 'card' 
+                            ? 'border-2 border-[#0066FF] bg-blue-50/60 shadow-[0_4px_20px_rgba(0,102,255,0.08)] backdrop-blur-md' 
+                            : 'border border-slate-200/90 hover:border-slate-300 bg-white/60 backdrop-blur-md'
+                        }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
+                            method === 'card' ? 'bg-[#0066FF] text-white shadow-sm' : 'bg-gray-100 text-gray-600'
+                          }`}>
+                            <CreditCard size={20} />
+                          </div>
+                          <div>
+                            <span className="text-sm font-bold text-[#081B38] block">
+                              Credit / Debit Card
+                            </span>
+                            <span className="text-[11px] text-gray-500 font-medium block">
+                              Visa, MasterCard &bull; 3D Secure 2.0 OTP Verified
+                            </span>
+                          </div>
+                        </div>
+                        
+                        {/* Custom Radio Button */}
+                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${
+                          method === 'card' ? 'border-[#0066FF]' : 'border-gray-300'
+                        }`}>
+                          {method === 'card' && (
+                            <motion.div 
+                              layoutId="radio-indicator"
+                              className="w-2.5 h-2.5 rounded-full bg-[#0066FF]" 
+                            />
+                          )}
+                        </div>
+                      </motion.div>
+
+                      {/* Option 2: LankaQR / Mobile Wallets */}
+                      <motion.div 
+                        whileHover={{ scale: 1.015 }}
+                        whileTap={{ scale: 0.99 }}
+                        onClick={() => setMethod('lankaqr')}
+                        className={`p-3.5 rounded-2xl flex items-center justify-between cursor-pointer transition-all ${
+                          method === 'lankaqr' 
+                            ? 'border-2 border-[#0066FF] bg-blue-50/60 shadow-[0_4px_20px_rgba(0,102,255,0.08)] backdrop-blur-md' 
+                            : 'border border-slate-200/90 hover:border-slate-300 bg-white/60 backdrop-blur-md'
+                        }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
+                            method === 'lankaqr' ? 'bg-[#0066FF] text-white shadow-sm' : 'bg-gray-100 text-gray-600'
+                          }`}>
+                            <QrCode size={20} />
+                          </div>
+                          <div>
+                            <span className="text-sm font-bold text-[#081B38] block">
+                              LankaQR / Mobile Wallets
+                            </span>
+                            <span className="text-[11px] text-gray-500 font-medium block">
+                              FriMi, Genie, eZ Cash, Any Bank LankaQR App
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Custom Radio Button */}
+                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${
+                          method === 'lankaqr' ? 'border-[#0066FF]' : 'border-gray-300'
+                        }`}>
+                          {method === 'lankaqr' && (
+                            <motion.div 
+                              layoutId="radio-indicator"
+                              className="w-2.5 h-2.5 rounded-full bg-[#0066FF]" 
+                            />
+                          )}
+                        </div>
+                      </motion.div>
+
+                      {/* Option 3: Internet Banking Direct Pay */}
+                      <motion.div 
+                        whileHover={{ scale: 1.015 }}
+                        whileTap={{ scale: 0.99 }}
+                        onClick={() => setMethod('banking')}
+                        className={`p-3.5 rounded-2xl flex items-center justify-between cursor-pointer transition-all ${
+                          method === 'banking' 
+                            ? 'border-2 border-[#0066FF] bg-blue-50/60 shadow-[0_4px_20px_rgba(0,102,255,0.08)] backdrop-blur-md' 
+                            : 'border border-slate-200/90 hover:border-slate-300 bg-white/60 backdrop-blur-md'
+                        }`}
+                      >
+                        <div className="flex items-center gap-3">
+                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
+                            method === 'banking' ? 'bg-[#0066FF] text-white shadow-sm' : 'bg-gray-100 text-gray-600'
+                          }`}>
+                            <Building2 size={20} />
+                          </div>
+                          <div>
+                            <span className="text-sm font-bold text-[#081B38] block">
+                              Internet Banking Direct Pay
+                            </span>
+                            <span className="text-[11px] text-gray-500 font-medium block">
+                              Commercial Bank, Sampath Vishwa, BOC, People&apos;s Bank
+                            </span>
+                          </div>
+                        </div>
+
+                        {/* Custom Radio Button */}
+                        <div className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ${
+                          method === 'banking' ? 'border-[#0066FF]' : 'border-gray-300'
+                        }`}>
+                          {method === 'banking' && (
+                            <motion.div 
+                              layoutId="radio-indicator"
+                              className="w-2.5 h-2.5 rounded-full bg-[#0066FF]" 
+                            />
+                          )}
+                        </div>
+                      </motion.div>
+
+                    </div>
+                  </div>
+
+                  {/* Fee Breakdown */}
+                  <div className="pt-2 border-t border-gray-100 space-y-2 text-xs">
+                    <div className="flex justify-between items-center text-gray-600 font-medium">
+                      <span>Water Tariff Charge</span>
+                      <span className="font-bold text-[#081B38] font-mono">LKR {formattedAmount}</span>
+                    </div>
+                    <div className="flex justify-between items-center text-gray-600 font-medium">
+                      <span>PayHere Gateway Fee</span>
+                      <span className="font-bold text-emerald-600">LKR 0.00 (Waived)</span>
+                    </div>
+                    <div className="flex justify-between items-center text-sm pt-1 border-t border-gray-100">
+                      <span className="font-extrabold text-[#081B38]">Net Settlement Amount</span>
+                      <span className="font-black text-[#0066FF] font-mono text-base">LKR {formattedAmount}</span>
+                    </div>
+                  </div>
+
+                  {/* Error Notice */}
+                  {error && (
+                    <motion.div 
+                      initial={{ opacity: 0, y: -5 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      className="p-3.5 rounded-2xl bg-red-50 border border-red-200 text-xs text-red-700 flex items-center gap-2"
+                    >
+                      <AlertCircle size={16} className="shrink-0 text-red-600" />
+                      <span>{error}</span>
+                    </motion.div>
+                  )}
+
+                  {/* Pay Button with Subtle Spring Animation */}
+                  <div>
+                    <motion.button
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      onClick={handlePay}
+                      disabled={isPending}
+                      className="w-full py-4 rounded-2xl bg-[#0066FF] hover:bg-blue-600 text-white font-black text-sm flex items-center justify-center gap-2 shadow-[0_12px_24px_-4px_rgba(0,102,255,0.4)] transition-colors cursor-pointer disabled:opacity-50"
+                    >
+                      {isPending ? (
+                        <>
+                          <RefreshCw size={16} className="animate-spin text-white" />
+                          <span>Securing Payment Authorization...</span>
+                        </>
+                      ) : (
+                        <>
+                          <Lock size={16} />
+                          <span>Pay LKR {formattedAmount} via PayHere</span>
+                        </>
+                      )}
+                    </motion.button>
+                  </div>
+
+                </motion.div>
+              </div>
+
+            </div>
+          )}
+        </AnimatePresence>
 
       </div>
 
