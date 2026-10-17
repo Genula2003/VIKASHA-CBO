@@ -68,9 +68,6 @@ export default function Home() {
   ];
   const [wordIndex, setWordIndex] = useState(0);
 
-  // Institutional Governance interactive state
-  const [activeGovPillar, setActiveGovPillar] = useState<"all" | "assembly" | "audit" | "purity" | "charter">("all");
-  const [showBylawsModal, setShowBylawsModal] = useState(false);
 
   // Rotate hero words every 3 seconds smoothly
   useEffect(() => {
@@ -833,416 +830,109 @@ export default function Home() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 5. INSTITUTIONAL GOVERNANCE & STATUTORY OVERSIGHT SECTION (#governance & #about) */}
+      {/* 5. ABOUT CBO / INSTITUTIONAL GOVERNANCE SECTION (#governance & #about) */}
       {/* ========================================================================= */}
-      <section id="about" className="py-24 sm:py-32 bg-gradient-to-b from-white via-slate-50/60 to-white relative z-10 border-b border-slate-200/90 overflow-hidden">
+      <section id="about" className="py-20 sm:py-28 bg-slate-50/70 relative z-10 border-b border-slate-200">
         {/* Invisible anchor for #governance navigation link */}
         <span id="governance" className="absolute -top-24" />
 
-        {/* Ambient Top Glow */}
-        <div className="absolute top-0 inset-x-0 h-48 bg-[radial-gradient(ellipse_70%_50%_at_50%_0%,rgba(8,27,56,0.05),transparent)] pointer-events-none" />
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
 
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
-
-          {/* Section Header with Staggered Scroll Animation */}
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-200 pb-8">
-            <div className="max-w-3xl space-y-3">
-              <motion.div
-                initial={{ opacity: 0, y: 16, filter: "blur(4px)" }}
-                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.8, ease: smoothEase }}
-                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-[#081B38] text-[11px] font-mono font-semibold"
-              >
-                <ShieldCheck size={14} className="text-[#081B38]" />
-                <span className="tracking-widest uppercase">
-                  INSTITUTIONAL GOVERNANCE &bull; ප්‍රජා පාලනය සහ ව්‍යවස්ථාපිත අධීක්ෂණය
-                </span>
-              </motion.div>
-
-              <motion.h2
-                initial={{ opacity: 0, y: 22, filter: "blur(6px)" }}
-                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.85, delay: 0.1, ease: smoothEase }}
-                className="font-serif text-3xl sm:text-4xl lg:text-[44px] font-normal text-[#081B38] tracking-tight leading-[1.16]"
-              >
-                Democratically Governed. Publicly Audited. Community Sustained.
-              </motion.h2>
-
-              <motion.p
-                initial={{ opacity: 0, y: 18 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.85, delay: 0.2, ease: smoothEase }}
-                className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal max-w-2xl"
-              >
-                Vikasha CBO operates under the constitutional authority of the Magammana General Assembly of Consumers and statutory regulations of the Department of Community Water Supply (DCWS). Operating on a non-profit cost-recovery model, every rupee is ring-fenced for public water infrastructure.
-              </motion.p>
-            </div>
-
-            {/* Quick Action Button to Inspect Bylaws Document */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.85, delay: 0.25, ease: smoothEase }}
-              className="shrink-0"
-            >
-              <button
-                type="button"
-                onClick={() => setShowBylawsModal(true)}
-                className="px-5 py-2.5 rounded-xl bg-white hover:bg-slate-100 text-[#081B38] border border-slate-300 font-semibold text-xs flex items-center gap-2 shadow-sm transition-all duration-200 hover:scale-[1.02] cursor-pointer"
-              >
-                <FileText size={15} className="text-[#081B38]" />
-                <span>View Bylaws &amp; Citizen Rights</span>
-                <ChevronRight size={14} className="text-slate-400" />
-              </button>
-            </motion.div>
-          </div>
-
-          {/* Interactive Pillar Filter Selector */}
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.7, delay: 0.2, ease: smoothEase }}
-            className="flex flex-wrap items-center gap-2"
-          >
-            <span className="text-xs font-mono uppercase tracking-wider text-slate-500 mr-2 flex items-center gap-1.5">
-              <Scale size={13} className="text-[#081B38]" /> Filter Pillars:
-            </span>
-            {[
-              { id: "all", label: "All 4 Governance Pillars" },
-              { id: "assembly", label: "1. Sovereign Assembly" },
-              { id: "audit", label: "2. Public Audit Ledger" },
-              { id: "purity", label: "3. SLS 614 Water Testing" },
-              { id: "charter", label: "4. Citizen Rights Charter" }
-            ].map((tab) => (
-              <button
-                key={tab.id}
-                type="button"
-                onClick={() => setActiveGovPillar(tab.id as any)}
-                className={`px-3.5 py-1.5 rounded-full text-xs font-medium transition-all duration-200 cursor-pointer ${
-                  activeGovPillar === tab.id
-                    ? "bg-[#081B38] text-white shadow-sm"
-                    : "bg-white hover:bg-slate-100 text-slate-700 border border-slate-200"
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
-          </motion.div>
-
-          {/* 4 Rich Architectural Pillar Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-            {/* Pillar 1: Sovereign General Assembly */}
-            {(activeGovPillar === "all" || activeGovPillar === "assembly") && (
-              <motion.div
-                layout
-                initial={{ opacity: 0, y: 32, filter: "blur(6px)" }}
-                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.85, delay: 0.1, ease: smoothEase }}
-                whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                className="rounded-3xl bg-white border border-slate-200/90 p-7 sm:p-8 shadow-[0_4px_20px_rgba(8,27,56,0.04)] hover:shadow-xl hover:border-[#081B38]/30 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
-              >
-                <div className="space-y-5">
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-[#081B38] text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
-                      <Users size={22} />
-                    </div>
-                    <span className="px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-[11px] font-mono font-bold border border-emerald-200 flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                      100% Resident Control
-                    </span>
-                  </div>
-
-                  <div>
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-semibold block mb-1">
-                      PILLAR 01 &bull; CONSTITUTIONAL AUTHORITY
-                    </span>
-                    <h3 className="font-serif text-2xl font-bold text-[#081B38] tracking-tight">
-                      Sovereign General Assembly of Consumers
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed font-normal">
-                      The supreme authority in Magammana rests with the General Assembly. Every registered household holds one equal vote to elect the executive council, review all capital spending, and approve tariff adjustments.
-                    </p>
-                  </div>
-
-                  {/* Highlights Grid */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
-                    {[
-                      "1 Registered Household = 1 Equal Vote",
-                      "Annual General Assembly (AGM)",
-                      "7-Member Elected Executive Council",
-                      "Zero Commercial Shareholders"
-                    ].map((item, i) => (
-                      <div key={i} className="flex items-center gap-2 p-2 rounded-xl bg-slate-50 border border-slate-100 text-xs text-slate-700">
-                        <Check size={14} className="text-emerald-600 shrink-0" />
-                        <span className="font-medium text-[11px] sm:text-xs">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between text-xs">
-                  <span className="text-slate-500 font-mono text-[11px]">Executive Council Term:</span>
-                  <span className="font-bold text-[#081B38] font-mono">2024–2026 (7 Resident Trustees)</span>
-                </div>
-              </motion.div>
-            )}
-
-            {/* Pillar 2: Statutory Public Audit & Zero-Profit Cost Recovery */}
-            {(activeGovPillar === "all" || activeGovPillar === "audit") && (
-              <motion.div
-                layout
-                initial={{ opacity: 0, y: 32, filter: "blur(6px)" }}
-                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.85, delay: 0.18, ease: smoothEase }}
-                whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                className="rounded-3xl bg-white border border-slate-200/90 p-7 sm:p-8 shadow-[0_4px_20px_rgba(8,27,56,0.04)] hover:shadow-xl hover:border-[#081B38]/30 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
-              >
-                <div className="space-y-5">
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-blue-900 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
-                      <Scale size={22} />
-                    </div>
-                    <span className="px-3 py-1 rounded-full bg-blue-50 text-blue-800 text-[11px] font-mono font-bold border border-blue-200 flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-                      Zero-Profit Model
-                    </span>
-                  </div>
-
-                  <div>
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-semibold block mb-1">
-                      PILLAR 02 &bull; STATUTORY AUDITING
-                    </span>
-                    <h3 className="font-serif text-2xl font-bold text-[#081B38] tracking-tight">
-                      100% Open Public Ledger &amp; DCWS Audits
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed font-normal">
-                      Water tariffs strictly cover pump electricity, sand filtration media, and pipeline depreciation. Financial records are co-monitored by the DCWS and published quarterly for open community inspection.
-                    </p>
-                  </div>
-
-                  {/* Highlights Grid */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
-                    {[
-                      "Quarterly Independent Certified Audits",
-                      "DCWS Statutory Ledger Validation",
-                      "Published Monthly Expense Postings",
-                      "Emergency Pipeline Capital Reserve"
-                    ].map((item, i) => (
-                      <div key={i} className="flex items-center gap-2 p-2 rounded-xl bg-slate-50 border border-slate-100 text-xs text-slate-700">
-                        <Check size={14} className="text-blue-600 shrink-0" />
-                        <span className="font-medium text-[11px] sm:text-xs">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between text-xs">
-                  <span className="text-slate-500 font-mono text-[11px]">Audit Compliance Rating:</span>
-                  <span className="font-bold text-emerald-700 font-mono">100% Clean Audit (Q3 2026)</span>
-                </div>
-              </motion.div>
-            )}
-
-            {/* Pillar 3: Certified SLS 614 Water Purity Standard */}
-            {(activeGovPillar === "all" || activeGovPillar === "purity") && (
-              <motion.div
-                layout
-                initial={{ opacity: 0, y: 32, filter: "blur(6px)" }}
-                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.85, delay: 0.26, ease: smoothEase }}
-                whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                className="rounded-3xl bg-white border border-slate-200/90 p-7 sm:p-8 shadow-[0_4px_20px_rgba(8,27,56,0.04)] hover:shadow-xl hover:border-[#081B38]/30 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
-              >
-                <div className="space-y-5">
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-cyan-700 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
-                      <Droplets size={22} />
-                    </div>
-                    <span className="px-3 py-1 rounded-full bg-cyan-50 text-cyan-800 text-[11px] font-mono font-bold border border-cyan-200 flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-600 animate-pulse" />
-                      SLS 614 Certified
-                    </span>
-                  </div>
-
-                  <div>
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-semibold block mb-1">
-                      PILLAR 03 &bull; CLINICAL QUALITY ASSURANCE
-                    </span>
-                    <h3 className="font-serif text-2xl font-bold text-[#081B38] tracking-tight">
-                      Rigorous Filtration &amp; Continuous Lab Testing
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed font-normal">
-                      Raw aquifer water undergoes deep-well extraction, high-capacity sand filtration, and automated chlorination dosing. Periodic laboratory microbiology and daily on-site testing guarantee clinical safety.
-                    </p>
-                  </div>
-
-                  {/* Highlights Grid with Quality Parameters */}
-                  <div className="grid grid-cols-2 gap-2.5 pt-2">
-                    <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100 text-xs">
-                      <span className="text-slate-400 text-[10px] uppercase font-mono block">pH Level</span>
-                      <span className="font-bold text-[#081B38] font-mono text-sm">6.8 &ndash; 7.4 pH</span>
-                      <span className="text-[10px] text-emerald-600 block mt-0.5">&bull; Optimal SLS Target</span>
-                    </div>
-                    <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100 text-xs">
-                      <span className="text-slate-400 text-[10px] uppercase font-mono block">Turbidity</span>
-                      <span className="font-bold text-[#081B38] font-mono text-sm">&lt; 1.0 NTU</span>
-                      <span className="text-[10px] text-emerald-600 block mt-0.5">&bull; Ultra-Clear Spec</span>
-                    </div>
-                    <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100 text-xs">
-                      <span className="text-slate-400 text-[10px] uppercase font-mono block">Residual Chlorine</span>
-                      <span className="font-bold text-[#081B38] font-mono text-sm">0.2 &ndash; 0.5 mg/L</span>
-                      <span className="text-[10px] text-cyan-600 block mt-0.5">&bull; Auto-Dosed Constant</span>
-                    </div>
-                    <div className="p-2.5 rounded-xl bg-slate-50 border border-slate-100 text-xs">
-                      <span className="text-slate-400 text-[10px] uppercase font-mono block">E. Coli / Coliform</span>
-                      <span className="font-bold text-[#081B38] font-mono text-sm">0 CFU / 100ml</span>
-                      <span className="text-[10px] text-emerald-600 block mt-0.5">&bull; 100% Sterile Bacteriology</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between text-xs">
-                  <span className="text-slate-500 font-mono text-[11px]">Lab Batch Testing:</span>
-                  <span className="font-bold text-[#081B38] font-mono">Batch #MGM-882 (Verified SLS)</span>
-                </div>
-              </motion.div>
-            )}
-
-            {/* Pillar 4: Citizen Service Charter & SLA Guarantees */}
-            {(activeGovPillar === "all" || activeGovPillar === "charter") && (
-              <motion.div
-                layout
-                initial={{ opacity: 0, y: 32, filter: "blur(6px)" }}
-                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                viewport={{ once: true, margin: "-60px" }}
-                transition={{ duration: 0.85, delay: 0.34, ease: smoothEase }}
-                whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                className="rounded-3xl bg-white border border-slate-200/90 p-7 sm:p-8 shadow-[0_4px_20px_rgba(8,27,56,0.04)] hover:shadow-xl hover:border-[#081B38]/30 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
-              >
-                <div className="space-y-5">
-                  <div className="flex items-center justify-between gap-3">
-                    <div className="w-12 h-12 rounded-2xl bg-slate-900 text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform duration-300">
-                      <ShieldCheck size={22} />
-                    </div>
-                    <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-800 text-[11px] font-mono font-bold border border-slate-300 flex items-center gap-1.5">
-                      <Clock size={12} className="text-slate-600" />
-                      24/7 Consumer SLA
-                    </span>
-                  </div>
-
-                  <div>
-                    <span className="text-[11px] font-mono uppercase tracking-wider text-slate-400 font-semibold block mb-1">
-                      PILLAR 04 &bull; CITIZEN CHARTER &amp; SLA
-                    </span>
-                    <h3 className="font-serif text-2xl font-bold text-[#081B38] tracking-tight">
-                      Contractual Service Guarantees &amp; Hotline
-                    </h3>
-                    <p className="text-xs sm:text-sm text-slate-600 mt-2 leading-relaxed font-normal">
-                      Every registered consumer is legally protected by the published Citizen Charter. Mainline bursts are contained within 4 hours, and transparent billing review procedures protect against discrepancies.
-                    </p>
-                  </div>
-
-                  {/* Highlights Grid */}
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 pt-2">
-                    {[
-                      "Minimum 0.5 Bar Pressure Guarantee",
-                      "Mainline Burst Repair under 4 Hours",
-                      "Billing Inquiry Resolution in 48 Hours",
-                      "24/7 Emergency Hotline (011 289 4567)"
-                    ].map((item, i) => (
-                      <div key={i} className="flex items-center gap-2 p-2 rounded-xl bg-slate-50 border border-slate-100 text-xs text-slate-700">
-                        <Check size={14} className="text-emerald-600 shrink-0" />
-                        <span className="font-medium text-[11px] sm:text-xs">{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="pt-6 mt-6 border-t border-slate-100 flex items-center justify-between text-xs">
-                  <span className="text-slate-500 font-mono text-[11px]">Average Emergency Response:</span>
-                  <span className="font-bold text-[#081B38] font-mono">1.8 Hours (YTD Field Log)</span>
-                </div>
-              </motion.div>
-            )}
-
-          </div>
-
-          {/* Institutional Credentials Ribbon (Sovereign Navy & Silver Metric Bar) */}
           <motion.div
             initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
             whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.85, ease: smoothEase }}
-            className="rounded-3xl bg-[#081B38] text-white p-7 sm:p-9 shadow-xl relative overflow-hidden border border-slate-700/60"
+            className="max-w-2xl space-y-2.5"
           >
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(56,189,248,0.12),transparent_60%)] pointer-events-none" />
-
-            <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 divide-y sm:divide-y-0 sm:divide-x divide-slate-700/60">
-              <div className="space-y-1.5 sm:pr-4">
-                <span className="text-[11px] font-mono uppercase tracking-wider text-slate-300 block">
-                  DCWS Registration Code
-                </span>
-                <p className="text-xl sm:text-2xl font-bold font-mono text-white tracking-tight">
-                  DCWS/WP/HOM/042
-                </p>
-                <p className="text-xs text-slate-400">
-                  Gazetted Department Scheme
-                </p>
-              </div>
-
-              <div className="space-y-1.5 sm:px-6 pt-4 sm:pt-0">
-                <span className="text-[11px] font-mono uppercase tracking-wider text-slate-300 block">
-                  Consumer Households
-                </span>
-                <p className="text-xl sm:text-2xl font-bold font-mono text-white tracking-tight">
-                  500+ Families
-                </p>
-                <p className="text-xs text-slate-400">
-                  Magammana, Homagama Division
-                </p>
-              </div>
-
-              <div className="space-y-1.5 sm:px-6 pt-4 sm:pt-0">
-                <span className="text-[11px] font-mono uppercase tracking-wider text-slate-300 block">
-                  Purity Accreditation
-                </span>
-                <p className="text-xl sm:text-2xl font-bold font-mono text-white tracking-tight">
-                  SLS 614 Certified
-                </p>
-                <p className="text-xs text-slate-400">
-                  National Drinking Water Norms
-                </p>
-              </div>
-
-              <div className="space-y-1.5 sm:pl-6 pt-4 sm:pt-0 flex flex-col justify-between">
-                <div>
-                  <span className="text-[11px] font-mono uppercase tracking-wider text-slate-300 block">
-                    Institutional Charter
-                  </span>
-                  <p className="text-sm font-semibold text-slate-200">
-                    Democratic Bylaws &amp; Consumer Rights
-                  </p>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setShowBylawsModal(true)}
-                  className="mt-2 inline-flex items-center gap-1.5 text-xs font-semibold text-cyan-300 hover:text-white transition-colors cursor-pointer"
-                >
-                  <span>Inspect Bylaws Document</span>
-                  <ArrowRight size={13} />
-                </button>
-              </div>
-            </div>
+            <span className="text-[#081B38] font-mono text-xs uppercase tracking-widest font-semibold block">
+              INSTITUTIONAL GOVERNANCE &bull; ප්‍රජා පාලනය සහ ව්‍යවස්ථාපිත අධීක්ෂණය
+            </span>
+            <h2 className="text-3xl sm:text-4xl font-extrabold text-[#081B38] tracking-tight font-serif">
+              Community Owned, Democratically Run
+            </h2>
+            <p className="text-sm text-slate-600 leading-relaxed font-normal">
+              Vikasha CBO operates under the constitutional oversight of the Magammana General Assembly and the Department of Community Water Supply (DCWS).
+            </p>
           </motion.div>
+
+          {/* 3 Previous Section Cards Updated to Content Card Architecture */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+            {[
+              {
+                category: "Democracy & Oversight",
+                title: "COMMUNITY GOVERNED",
+                desc: "Managed democratically by elected resident committee members to maintain uninterrupted water pressure, transparent budgeting, and rapid maintenance.",
+                image: "/magammana_water_scheme.jpg",
+                actionText: "General Assembly",
+                icon: Building2
+              },
+              {
+                category: "SLS 614 Standard",
+                title: "CERTIFIED WATER PURITY",
+                desc: "Deep-well extraction, high-capacity sand filtration, and automated chlorination compliant with National Drinking Water Standards (SLS 614).",
+                image: "/card-water-purity.jpg",
+                actionText: "Laboratory Certified",
+                icon: Droplets
+              },
+              {
+                category: "Public Transparency",
+                title: "100% DIGITAL RECONCILIATION",
+                desc: "Every meter reading, billing calculation, and payment is logged in real-time, preventing billing discrepancies or unverified receipts.",
+                image: "/pay-card-tariffs.jpg",
+                actionText: "DCWS Audited",
+                icon: FileCheck2
+              }
+            ].map((card, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 35, filter: "blur(6px)" }}
+                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                viewport={{ once: true, margin: "-40px" }}
+                transition={{ duration: 0.85, delay: 0.15 + i * 0.12, ease: smoothEase }}
+                whileHover={{ y: -8, transition: { duration: 0.25 } }}
+                className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(8,27,56,0.12)] bg-white border border-slate-200/90 flex flex-col group transition-all duration-300 hover:shadow-[0_25px_60px_rgba(8,27,56,0.18)] hover:border-slate-300"
+              >
+                <div className="flex flex-col h-full">
+                  {/* Upper Image Section (~60%) */}
+                  <div className="h-56 sm:h-64 lg:h-72 w-full overflow-hidden relative bg-slate-100">
+                    <img
+                      src={card.image}
+                      alt={card.title}
+                      className="w-full h-full object-cover group-hover:scale-106 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-60" />
+                    {/* Floating Silver & Navy Tag on Image */}
+                    <div className="absolute top-4 left-4">
+                      <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-slate-200 text-[11px] font-mono font-bold tracking-wider text-[#081B38] shadow-sm uppercase">
+                        {card.category}
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Lower White Panel (White is main, Navy Dark Blue title, Silver details) */}
+                  <div className="bg-white p-6 sm:p-7 text-slate-900 border-t border-slate-100 flex-1 flex flex-col justify-between">
+                    <div>
+                      <h3 className="text-xl sm:text-2xl font-bold text-[#081B38] tracking-tight font-serif mb-2.5 group-hover:text-[#004EEB] transition-colors">
+                        {card.title}
+                      </h3>
+                      <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
+                        {card.desc}
+                      </p>
+                    </div>
+
+                    {/* Silver Divider & Interactive Footer Badge */}
+                    <div className="pt-5 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#081B38] group-hover:text-[#004EEB] transition-colors">
+                      <span className="font-mono uppercase tracking-wider text-[11px]">{card.actionText}</span>
+                      <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-[#081B38] group-hover:text-white flex items-center justify-center transition-all duration-300">
+                        <card.icon size={15} />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
 
         </div>
       </section>
@@ -1494,133 +1184,6 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* ========================================================================= */}
-      {/* 9. INTERACTIVE MODAL: OFFICIAL BYLAWS & CITIZEN RIGHTS CHARTER */}
-      {/* ========================================================================= */}
-      <AnimatePresence>
-        {showBylawsModal && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            onClick={() => setShowBylawsModal(false)}
-            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-md flex items-center justify-center p-4 sm:p-6 overflow-y-auto"
-          >
-            <motion.div
-              initial={{ scale: 0.94, opacity: 0, y: 25 }}
-              animate={{ scale: 1, opacity: 1, y: 0 }}
-              exit={{ scale: 0.94, opacity: 0, y: 25 }}
-              transition={{ duration: 0.35, ease: smoothEase }}
-              onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-2xl border border-slate-200 relative overflow-hidden my-8"
-            >
-              <button
-                type="button"
-                onClick={() => setShowBylawsModal(false)}
-                className="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition-colors cursor-pointer"
-              >
-                <X size={18} />
-              </button>
-
-              <div className="flex items-center gap-3.5 mb-6">
-                <div className="w-12 h-12 rounded-2xl bg-[#081B38] text-white flex items-center justify-center shadow-md">
-                  <ShieldCheck size={24} />
-                </div>
-                <div>
-                  <span className="text-[10px] font-mono font-bold uppercase tracking-wider text-slate-400 block">
-                    DCWS/WP/HOM/042 &bull; STATUTORY BYLAWS
-                  </span>
-                  <h3 className="font-serif text-2xl font-bold text-[#081B38] tracking-tight">
-                    Citizen Rights &amp; CBO Bylaws
-                  </h3>
-                </div>
-              </div>
-
-              <div className="space-y-4 max-h-[60vh] overflow-y-auto pr-1 text-slate-700 text-xs sm:text-sm">
-                
-                {/* Statutory Registration Preamble */}
-                <div className="p-3.5 rounded-2xl bg-slate-50 border border-slate-200 text-xs font-mono text-slate-600 space-y-1">
-                  <p className="font-bold text-[#081B38]">REGULATORY JURISDICTION &bull; DCWS REGISTRATION</p>
-                  <p>
-                    Registered under Section 12 of the Community Water Supply Act, Sri Lanka. Operates under the joint oversight of the Magammana General Assembly and the Department of Community Water Supply.
-                  </p>
-                </div>
-
-                {/* 5 Core Consumer Rights */}
-                <div className="space-y-3 pt-2">
-                  <h4 className="font-bold text-sm text-[#081B38] uppercase tracking-wide">
-                    The 5 Guaranteed Consumer Rights:
-                  </h4>
-
-                  <div className="space-y-2">
-                    {[
-                      {
-                        title: "1. Right to Certified Safe Drinking Water (SLS 614)",
-                        desc: "Consumers are guaranteed water filtered and chlorinated to National Drinking Water Standards. Lab test records are accessible upon request."
-                      },
-                      {
-                        title: "2. Right to 100% Tariff Transparency & Open Ledger",
-                        desc: "Tariffs reflect exact operational costs with zero profit markup. Financial statements are published quarterly for citizen inspection."
-                      },
-                      {
-                        title: "3. Right to Accurate Digital Metering & Photographic Proof",
-                        desc: "Every reading is logged with timestamped photographs and units consumed. Discrepancies are reviewed free of charge within 48 hours."
-                      },
-                      {
-                        title: "4. Right to Due Notice Prior to Service Disconnection",
-                        desc: "Disconnection requires a mandatory 14-day statutory written notice with direct appeal channels through the elected council."
-                      },
-                      {
-                        title: "5. Right to General Assembly Vote & Committee Elections",
-                        desc: "Every registered family holds equal democratic voting rights to elect or recall members of the Executive Council."
-                      }
-                    ].map((right, idx) => (
-                      <div key={idx} className="p-3 rounded-xl bg-white border border-slate-200 space-y-1 shadow-sm">
-                        <p className="font-bold text-xs text-[#081B38] flex items-center gap-2">
-                          <CheckCircle2 size={14} className="text-emerald-600 shrink-0" />
-                          <span>{right.title}</span>
-                        </p>
-                        <p className="text-xs text-slate-600 pl-5.5 leading-relaxed">
-                          {right.desc}
-                        </p>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Committee Contact & Petition Channel */}
-                <div className="p-4 rounded-2xl bg-[#081B38] text-white space-y-2 mt-4">
-                  <p className="font-bold text-xs font-mono text-cyan-300 uppercase tracking-wider">
-                    CITIZEN OVERSIGHT &amp; PETITIONS HELPDESK
-                  </p>
-                  <p className="text-xs text-slate-200 leading-relaxed">
-                    To submit a governance resolution, petition for general assembly discussion, or request an audit ledger extract, contact the Secretariat:
-                  </p>
-                  <div className="flex flex-wrap gap-4 pt-1 font-mono text-xs text-cyan-100">
-                    <span>Phone: 011 289 4567</span>
-                    <span>&bull;</span>
-                    <span>Email: governance@vikashacbo.com</span>
-                  </div>
-                </div>
-
-              </div>
-
-              <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
-                <span className="text-[11px] font-mono text-slate-400">
-                  Magammana Water Project &bull; Constitution 2024
-                </span>
-                <button
-                  type="button"
-                  onClick={() => setShowBylawsModal(false)}
-                  className="px-5 py-2 rounded-xl bg-[#081B38] hover:bg-[#0b2548] text-white text-xs font-bold transition-all cursor-pointer"
-                >
-                  Close Document
-                </button>
-              </div>
-            </motion.div>
-          </motion.div>
-        )}
-      </AnimatePresence>
 
     </div>
   );
