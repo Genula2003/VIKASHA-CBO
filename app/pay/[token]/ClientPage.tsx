@@ -315,37 +315,6 @@ export function PaymentClientPage({ bill }: PaymentClientPageProps) {
                   })}
                 </motion.div>
 
-                {/* DARK NAVY BLUE PICTURE SHOWCASE with Smooth Entrance */}
-                <motion.div 
-                  initial={{ opacity: 0, y: 35, scale: 0.96, filter: "blur(6px)" }}
-                  animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
-                  transition={{ duration: 0.95, delay: 0.5, ease: smoothEase }}
-                  whileHover={{ y: -4, transition: { duration: 0.3 } }}
-                  className="relative rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(8,27,56,0.18)] border border-slate-200/90 group max-w-lg mt-2"
-                >
-                  <div className="h-52 sm:h-56 w-full overflow-hidden relative bg-[#040D1A]">
-                    <img
-                      src="/pay-water-dark-navy.jpg"
-                      alt="Magammana Pristine Dark Navy Water Ripples"
-                      className="w-full h-full object-cover object-center group-hover:scale-106 transition-transform duration-700"
-                    />
-                    {/* Subtle Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#081B38]/90 via-[#081B38]/30 to-transparent" />
-                    
-                    {/* Floating Glass Badge over Dark Navy Picture */}
-                    <div className="absolute bottom-4 inset-x-4 flex items-center justify-between">
-                      <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/15 backdrop-blur-md border border-white/25 text-white text-xs font-mono font-medium shadow-lg">
-                        <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse" />
-                        <span>SLS 614 &bull; DCWS Certified Water Scheme</span>
-                      </div>
-
-                      <span className="text-[11px] text-cyan-200 font-mono hidden sm:inline-block">
-                        Homagama, Sri Lanka
-                      </span>
-                    </div>
-                  </div>
-                </motion.div>
-
               </div>
 
               {/* RIGHT COLUMN: The Payment Card with Floating Smooth Entrance */}
