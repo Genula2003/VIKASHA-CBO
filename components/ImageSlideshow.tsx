@@ -6,10 +6,14 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 interface FocusItem {
   id: number;
   type: "text" | "image";
-  title?: string;
+  badge?: string;
+  tag?: string;
+  title: string;
   description?: string;
   image?: string;
   alt?: string;
+  location?: string;
+  metric?: string;
 }
 
 const focusItems: FocusItem[] = [
@@ -17,60 +21,81 @@ const focusItems: FocusItem[] = [
     id: 1,
     type: "image",
     image: "/focus-pipes-gallery.jpg",
-    alt: "Industrial Pipe Gallery & Infrastructure"
+    badge: "PRESSURE GRID",
+    title: "High-Pressure Booster Station & Ring-Main Valves",
+    location: "Magammana Intake Booster 01",
+    alt: "Industrial Water Pipeline Gallery and Pressure Valves"
   },
   {
     id: 2,
     type: "text",
-    title: "ENVIRONMENTAL PROTECTION\nWATER SYSTEMS",
+    tag: "INFRASTRUCTURE 01 • WATER PURITY",
+    title: "AUTOMATED CHLORINATION & PURITY STANDARDS",
     description:
-      "We collaborate with conservation groups, land trusts, and remediation firms to develop water systems that protect ecosystems and restore environmental health."
+      "Deep-well mountain aquifer water undergoes multi-stage silica sand filtration and continuous proportional chlorine dosing compliant with SLS 614 National Drinking Water standards.",
+    metric: "SLS 614 Certified"
   },
   {
     id: 3,
     type: "image",
     image: "/focus-canal-scenic.jpg",
-    alt: "Scenic Water Canal and Mountain Catchment"
+    badge: "NATURAL CATCHMENT",
+    title: "Protected Natural Mountain Catchment Basin",
+    location: "Magammana Catchment Reserve",
+    alt: "Scenic Mountain Water Canal and Catchment Reservoir"
   },
   {
     id: 4,
     type: "text",
-    title: "GOVERNMENT AGENCY\nWATER SYSTEMS",
+    tag: "INFRASTRUCTURE 02 • DISTRIBUTION",
+    title: "GRAVITY-FED RING-MAIN DISTRIBUTION GRID",
     description:
-      "We partner with federal, state, and local agencies to build mission-critical water infrastructure that supports growth, national security and resilience."
+      "Engineered heavy-duty ring-main pressure pipelines designed to maintain a minimum 0.5 Bar pressure across all residential sectors without seasonal supply interruptions.",
+    metric: "24/7 Gravity Pressure"
   },
   {
     id: 5,
     type: "image",
-    image: "/card-smart-meter.jpg",
-    alt: "Precision Smart Meter Telemetry"
+    image: "/gov-water-purification.jpg",
+    badge: "FILTRATION PLANT",
+    title: "Multi-Stage Sand & Carbon Filtration Works",
+    location: "Central Treatment Works",
+    alt: "Industrial Water Purification and Filtration Tanks"
   },
   {
     id: 6,
     type: "text",
-    title: "DIGITAL TELEMETRY &\nSMART E-BILLING",
+    tag: "INFRASTRUCTURE 03 • DIGITAL TELEMETRY",
+    title: "PRECISION SMART METER LOGGING & TELEMETRY",
     description:
-      "Providing real-time consumption auditing, mobile meter logging, and seamless 24/7 digital payments with zero convenience surcharges for all registered consumers."
+      "Optical mobile meter logging with digital timestamping, automated arrears reconciliation, and instantaneous online settlements with zero convenience fees.",
+    metric: "100% Audited Ledger"
   },
   {
     id: 7,
     type: "image",
-    image: "/card-water-purity.jpg",
-    alt: "SLS 614 Certified Water Quality Testing"
+    image: "/water_reservoir_hero.jpg",
+    badge: "STORAGE RESERVOIR",
+    title: "High-Capacity Elevated Mountain Reservoir",
+    location: "Summit Sector Reservoir",
+    alt: "Elevated Water Storage Reservoir"
   },
   {
     id: 8,
     type: "text",
-    title: "MUNICIPAL UTILITY\nDISTRIBUTION GRIDS",
+    tag: "INFRASTRUCTURE 04 • GOVERNANCE",
+    title: "COMMUNITY-OWNED & DCWS SUPERVISED",
     description:
-      "Engineering robust ring-main pipeline networks and automated pressure telemetry to guarantee uninterrupted supply for over 12,500+ community households."
+      "Operated democratically under the constitutional oversight of the Magammana General Assembly with published quarterly statements and emergency infrastructure reserves.",
+    metric: "DCWS Registered Scheme"
   }
 ];
 
 export default function ImageSlideshow() {
   const scrollRef = useRef<HTMLDivElement>(null);
   const [isPaused, setIsPaused] = useState(false);
-  const [cardWidth, setCardWidth] = useState(490);
+  const [cardWidth, setCardWidth] = useState(480);
+  const [cardHeight, setCardHeight] = useState(350);
   const [gap, setGap] = useState(24);
   const isInteractingRef = useRef(false);
   const resumeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
@@ -82,12 +107,15 @@ export default function ImageSlideshow() {
         const w = window.innerWidth;
         if (w < 640) {
           setCardWidth(290);
+          setCardHeight(300);
           setGap(16);
         } else if (w < 1024) {
           setCardWidth(380);
+          setCardHeight(320);
           setGap(20);
         } else {
-          setCardWidth(490);
+          setCardWidth(480);
+          setCardHeight(350);
           setGap(24);
         }
       }
@@ -184,47 +212,49 @@ export default function ImageSlideshow() {
   const displayItems = [...focusItems, ...focusItems, ...focusItems, ...focusItems];
 
   return (
-    <section className="py-16 sm:py-24 bg-[#E5E9EE] relative z-10 overflow-hidden">
-      <div className="max-w-[1400px] mx-auto px-3 sm:px-6 lg:px-8">
+    <section className="py-16 sm:py-24 bg-[#EAF0F6] relative z-10 border-b border-slate-200/90 overflow-hidden">
+      <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-8">
         
-        {/* White Rounded Main Card Container (Matching Reference Template) */}
-        <div className="bg-white rounded-[32px] sm:rounded-[44px] shadow-sm py-14 sm:py-20 relative overflow-hidden border border-slate-200/60">
+        {/* Main Grand Card Container (Architectural White Card Matching Reference Screenshot) */}
+        <div className="bg-white rounded-[32px] sm:rounded-[44px] shadow-[0_20px_60px_rgba(8,27,56,0.06)] py-14 sm:py-20 relative overflow-hidden border border-slate-200/90">
           
-          {/* Centered Eyebrow Badge: Icon + FOCUS AREAS */}
-          <div className="flex items-center justify-center gap-2 mb-3.5">
-            <svg
-              className="w-4 h-4 text-[#081B38]"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2.2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <circle cx="12" cy="12" r="3" />
-              <path d="M12 2v3m0 14v3M2 12h3m14 0h3m-3.5-6.5-2.1 2.1m-8.8 8.8-2.1 2.1m0-13 2.1 2.1m8.8 8.8 2.1 2.1" />
-            </svg>
-            <span className="text-xs font-bold tracking-[0.22em] text-[#081B38] uppercase font-mono">
-              FOCUS AREAS
-            </span>
+          {/* Ambient Top Glow */}
+          <div className="absolute top-0 inset-x-0 h-40 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(8,27,56,0.03),transparent)] pointer-events-none" />
+
+          {/* Centered Eyebrow Badge: Geometric Icon + FOCUS AREAS */}
+          <div className="flex items-center justify-center gap-2 mb-3.5 relative z-10">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-[#081B38] text-[11px] font-mono font-bold shadow-sm uppercase tracking-wider">
+              <svg
+                className="w-3.5 h-3.5 text-[#081B38]"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2.4"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <circle cx="12" cy="12" r="3" />
+                <path d="M12 2v3m0 14v3M2 12h3m14 0h3m-3.5-6.5-2.1 2.1m-8.8 8.8-2.1 2.1m0-13 2.1 2.1m8.8 8.8 2.1 2.1" />
+              </svg>
+              <span>FOCUS AREAS &bull; ජල සම්පාදන යටිතල පහසුකම්</span>
+            </div>
           </div>
 
-          {/* Centered Master Title (Exact Text from Reference Screenshot) */}
-          <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-bold text-[#081B38] tracking-tight text-center leading-[1.2] max-w-4xl mx-auto px-4 font-serif">
-            Scalable Solutions For Our Corporate
+          {/* Centered Master Title */}
+          <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-bold text-[#081B38] tracking-tight text-center leading-[1.2] max-w-4xl mx-auto px-4 font-serif relative z-10">
+            Engineering Resilient Water Infrastructure
             <br className="hidden sm:inline" />
-            {" "}And Government Partners
+            {" "}For Community Generations
           </h2>
 
-          {/* Centered Subtitle (Exact Text from Reference Screenshot) */}
-          <p className="text-slate-600 text-xs sm:text-sm text-center max-w-2xl mx-auto mt-3.5 px-6 leading-relaxed font-normal">
-            We specialize in delivering water infrastructure solutions across key sectors
-            where reliable and sustainable water management matters most.
+          {/* Centered Subtitle */}
+          <p className="text-slate-600 text-xs sm:text-sm text-center max-w-2xl mx-auto mt-3.5 px-6 leading-relaxed font-normal relative z-10">
+            Explore the physical engineering, advanced filtration systems, optical telemetry grids, and community reservoirs powering Magammana&apos;s 24/7 drinking water supply.
           </p>
 
           {/* Continuous Infinite Horizontal Carousel Track */}
           <div
-            className="relative mt-10 sm:mt-14 overflow-hidden py-3"
+            className="relative mt-10 sm:mt-14 overflow-hidden py-4"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
             onTouchStart={() => {
@@ -239,7 +269,7 @@ export default function ImageSlideshow() {
           >
             <div
               ref={scrollRef}
-              className="flex items-center overflow-x-auto scrollbar-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] select-none cursor-grab active:cursor-grabbing"
+              className="flex items-center overflow-x-auto scrollbar-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] select-none cursor-grab active:cursor-grabbing px-4"
               style={{ gap: `${gap}px` }}
             >
               {displayItems.map((item, idx) => (
@@ -247,28 +277,74 @@ export default function ImageSlideshow() {
                   key={`${item.id}-${idx}`}
                   style={{
                     width: `${cardWidth}px`,
-                    height: cardWidth > 400 ? "340px" : "300px"
+                    height: `${cardHeight}px`
                   }}
-                  className="flex-shrink-0 rounded-2xl overflow-hidden shadow-sm transition-transform duration-300 hover:scale-[1.01]"
+                  className="flex-shrink-0 rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_12px_36px_rgba(8,27,56,0.08)] border border-slate-200/90 transition-all duration-300 hover:shadow-[0_20px_50px_rgba(8,27,56,0.16)] hover:-translate-y-1.5 group select-none"
                 >
                   {item.type === "image" ? (
-                    <div className="relative w-full h-full bg-slate-900 group">
+                    <div className="relative w-full h-full bg-slate-900 overflow-hidden">
                       <img
                         src={item.image}
-                        alt={item.alt || "Water Infrastructure"}
-                        className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-700"
+                        alt={item.title || "Water Infrastructure"}
+                        className="w-full h-full object-cover object-center group-hover:scale-108 transition-transform duration-700"
                         loading="lazy"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-40" />
+                      {/* Directional navy scrim for crystal clear readability */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-[#081B38]/95 via-[#081B38]/30 to-transparent" />
+                      
+                      {/* Floating Glass Pill Badge on Top Left */}
+                      <div className="absolute top-4 left-4 z-10">
+                        <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-slate-200 text-[10px] sm:text-[11px] font-mono font-bold tracking-wider text-[#081B38] shadow-sm uppercase flex items-center gap-1.5">
+                          <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse" />
+                          {item.badge}
+                        </span>
+                      </div>
+
+                      {/* Bottom Title & Location Info */}
+                      <div className="absolute bottom-5 left-5 right-5 z-10 space-y-1 text-white">
+                        <span className="text-[10px] font-mono uppercase tracking-wider text-cyan-300 font-semibold block">
+                          {item.location}
+                        </span>
+                        <h3 className="text-lg sm:text-xl font-bold font-serif text-white tracking-tight leading-snug">
+                          {item.title}
+                        </h3>
+                      </div>
                     </div>
                   ) : (
-                    <div className="w-full h-full bg-[#081B38] text-white p-7 sm:p-9 flex flex-col justify-between border border-white/10">
-                      <h3 className="text-base sm:text-lg lg:text-xl font-bold tracking-wider uppercase text-white leading-snug whitespace-pre-line font-sans">
-                        {item.title}
-                      </h3>
-                      <p className="text-xs sm:text-[13px] text-slate-300 leading-relaxed font-light">
-                        {item.description}
-                      </p>
+                    <div className="w-full h-full bg-gradient-to-br from-[#081B38] via-[#0B2548] to-[#0A1F3D] text-white p-7 sm:p-9 flex flex-col justify-between border border-white/10 relative overflow-hidden">
+                      {/* Ambient radial water glow in background */}
+                      <div className="absolute -top-12 -right-12 w-48 h-48 bg-cyan-500/10 rounded-full blur-2xl pointer-events-none" />
+
+                      {/* Upper Content Area */}
+                      <div className="space-y-3.5 relative z-10">
+                        <div className="flex items-center justify-between">
+                          <span className="text-[10px] font-mono tracking-widest text-cyan-300 uppercase font-bold">
+                            {item.tag}
+                          </span>
+                          <span className="px-2.5 py-0.5 rounded-full bg-white/10 border border-white/15 text-[10px] font-mono text-cyan-200">
+                            Core Sector
+                          </span>
+                        </div>
+
+                        <h3 className="text-lg sm:text-xl lg:text-[22px] font-bold tracking-wider uppercase text-white leading-snug whitespace-pre-line font-sans">
+                          {item.title}
+                        </h3>
+
+                        <p className="text-xs sm:text-[13px] text-slate-300 leading-relaxed font-normal">
+                          {item.description}
+                        </p>
+                      </div>
+
+                      {/* Lower Footer with Silver Line & Metric Badge */}
+                      <div className="pt-4 border-t border-white/15 flex items-center justify-between text-xs relative z-10">
+                        <span className="font-mono text-xs font-semibold text-cyan-200 flex items-center gap-1.5">
+                          <span className="w-2 h-2 rounded-full bg-cyan-400" />
+                          {item.metric}
+                        </span>
+                        <div className="w-8 h-8 rounded-full bg-white/10 group-hover:bg-white group-hover:text-[#081B38] text-white flex items-center justify-center transition-all duration-300 border border-white/20">
+                          <ChevronRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                        </div>
+                      </div>
                     </div>
                   )}
                 </div>
@@ -276,21 +352,33 @@ export default function ImageSlideshow() {
             </div>
           </div>
 
-          {/* Centered Left & Right Navigation Buttons (Matching Reference Screenshot) */}
-          <div className="flex items-center justify-center gap-2 mt-8 sm:mt-10">
+          {/* Centered Navigation Controls (Faithful to Reference Screenshot media_1792062486831.png) */}
+          <div className="flex items-center justify-center gap-3 mt-8 sm:mt-10 relative z-10">
             <button
               type="button"
               onClick={handlePrev}
-              className="w-10 h-10 rounded-md bg-[#eaedf0] hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-sm"
+              className="w-11 h-11 rounded-xl bg-slate-100 hover:bg-[#081B38] hover:text-white text-[#081B38] border border-slate-200/90 shadow-sm flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer"
               aria-label="Previous Slide"
               title="Previous Slide"
             >
               <ChevronLeft size={18} />
             </button>
+
+            {/* Live Glide Stream Indicator Badge */}
+            <div className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-slate-100 border border-slate-200 text-slate-600 text-xs font-mono font-medium shadow-inner">
+              <span className="relative flex h-2 w-2">
+                <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isPaused ? "bg-amber-400" : "bg-emerald-400"}`} />
+                <span className={`relative inline-flex rounded-full h-2 w-2 ${isPaused ? "bg-amber-500" : "bg-emerald-500"}`} />
+              </span>
+              <span className="text-[11px] font-semibold text-[#081B38]">
+                {isPaused ? "Paused" : "Auto-Glide Active"}
+              </span>
+            </div>
+
             <button
               type="button"
               onClick={handleNext}
-              className="w-10 h-10 rounded-md bg-[#eaedf0] hover:bg-slate-200 text-slate-700 flex items-center justify-center transition-all cursor-pointer active:scale-95 shadow-sm"
+              className="w-11 h-11 rounded-xl bg-slate-100 hover:bg-[#081B38] hover:text-white text-[#081B38] border border-slate-200/90 shadow-sm flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer"
               aria-label="Next Slide"
               title="Next Slide"
             >
