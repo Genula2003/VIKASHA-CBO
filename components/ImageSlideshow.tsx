@@ -212,14 +212,22 @@ export default function ImageSlideshow() {
   const displayItems = [...focusItems, ...focusItems, ...focusItems, ...focusItems];
 
   return (
-    <section className="py-16 sm:py-24 bg-[#EAF0F6] relative z-10 border-b border-slate-200/90 overflow-hidden">
-      <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-8">
+    <section className="py-16 sm:py-24 bg-gradient-to-b from-[#F1F5F9] via-[#E6EDF5] to-[#F1F5F9] relative z-10 border-t border-b border-slate-200/90 overflow-hidden">
+      {/* Background Architectural Grid Pattern */}
+      <div className="absolute inset-0 bg-[radial-gradient(#081B38_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.035] pointer-events-none" />
+
+      {/* Ambient Lighting Orbs */}
+      <div className="absolute -top-32 left-1/4 w-[520px] h-[520px] bg-gradient-to-br from-cyan-400/10 via-sky-300/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-32 right-1/4 w-[520px] h-[520px] bg-gradient-to-tl from-[#081B38]/8 via-slate-400/5 to-transparent rounded-full blur-3xl pointer-events-none" />
+
+      <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
         
         {/* Main Grand Card Container (Architectural White Card Matching Reference Screenshot) */}
-        <div className="bg-white rounded-[32px] sm:rounded-[44px] shadow-[0_20px_60px_rgba(8,27,56,0.06)] py-14 sm:py-20 relative overflow-hidden border border-slate-200/90">
+        <div className="bg-gradient-to-b from-white via-white to-slate-50/70 rounded-[32px] sm:rounded-[44px] shadow-[0_24px_70px_rgba(8,27,56,0.06),0_1px_3px_rgba(8,27,56,0.03)] py-14 sm:py-20 relative overflow-hidden border border-slate-200/90">
           
-          {/* Ambient Top Glow */}
-          <div className="absolute top-0 inset-x-0 h-40 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(8,27,56,0.03),transparent)] pointer-events-none" />
+          {/* Ambient Top Glow & Sheen */}
+          <div className="absolute top-0 inset-x-0 h-44 bg-gradient-to-b from-cyan-50/50 via-transparent to-transparent pointer-events-none" />
+          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-64 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(6,182,212,0.05),transparent)] pointer-events-none" />
 
           {/* Centered Eyebrow Badge: Geometric Icon + FOCUS AREAS */}
           <div className="flex items-center justify-center gap-2 mb-3.5 relative z-10">
@@ -267,6 +275,10 @@ export default function ImageSlideshow() {
               }, 1200);
             }}
           >
+            {/* Soft Edge Fade Masks */}
+            <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-6 sm:w-12 bg-gradient-to-r from-white via-white/80 to-transparent z-10" />
+            <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-6 sm:w-12 bg-gradient-to-l from-white via-white/80 to-transparent z-10" />
+
             <div
               ref={scrollRef}
               className="flex items-center overflow-x-auto scrollbar-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] select-none cursor-grab active:cursor-grabbing px-4"
@@ -352,7 +364,7 @@ export default function ImageSlideshow() {
             </div>
           </div>
 
-          {/* Centered Navigation Controls (Faithful to Reference Screenshot media_1792062486831.png) */}
+          {/* Centered Navigation Controls (Matching Reference Screenshot) */}
           <div className="flex items-center justify-center gap-3 mt-8 sm:mt-10 relative z-10">
             <button
               type="button"
@@ -363,18 +375,6 @@ export default function ImageSlideshow() {
             >
               <ChevronLeft size={18} />
             </button>
-
-            {/* Live Glide Stream Indicator Badge */}
-            <div className="flex items-center gap-2 px-3.5 py-2 rounded-full bg-slate-100 border border-slate-200 text-slate-600 text-xs font-mono font-medium shadow-inner">
-              <span className="relative flex h-2 w-2">
-                <span className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${isPaused ? "bg-amber-400" : "bg-emerald-400"}`} />
-                <span className={`relative inline-flex rounded-full h-2 w-2 ${isPaused ? "bg-amber-500" : "bg-emerald-500"}`} />
-              </span>
-              <span className="text-[11px] font-semibold text-[#081B38]">
-                {isPaused ? "Paused" : "Auto-Glide Active"}
-              </span>
-            </div>
-
             <button
               type="button"
               onClick={handleNext}
