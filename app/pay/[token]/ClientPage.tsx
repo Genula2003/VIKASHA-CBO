@@ -29,6 +29,49 @@ import {
 // Silky smooth easing curve matching site design
 const smoothEase = [0.22, 1, 0.36, 1] as const
 
+// Official MasterCard Logo Component (Interlocking Red & Orange/Yellow circles)
+function MasterCardLogo({ className = "w-7 h-auto" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 38 24" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="13" cy="12" r="9" fill="#EB001B" />
+      <circle cx="25" cy="12" r="9" fill="#F79E1B" fillOpacity="0.92" />
+      <path d="M19 5.8a8.9 8.9 0 0 1 4.2 6.2 8.9 8.9 0 0 1-4.2 6.2 8.9 8.9 0 0 1-4.2-6.2A8.9 8.9 0 0 1 19 5.8z" fill="#FF5F00" />
+    </svg>
+  )
+}
+
+// Official CBSL LankaQR 4-Color National Logo Component
+function LankaQRLogo({ className = "w-7 h-7" }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 36 36" className={className} fill="none" xmlns="http://www.w3.org/2000/svg">
+      {/* 4 Colored Finder Patterns */}
+      <rect x="2" y="2" width="13" height="13" rx="3" fill="#F47920" />
+      <rect x="5" y="5" width="7" height="7" rx="1.5" fill="#FFFFFF" />
+      <rect x="7" y="7" width="3" height="3" rx="0.5" fill="#F47920" />
+
+      <rect x="21" y="2" width="13" height="13" rx="3" fill="#005BAC" />
+      <rect x="24" y="5" width="7" height="7" rx="1.5" fill="#FFFFFF" />
+      <rect x="26" y="7" width="3" height="3" rx="0.5" fill="#005BAC" />
+
+      <rect x="2" y="21" width="13" height="13" rx="3" fill="#8D1B3D" />
+      <rect x="5" y="24" width="7" height="7" rx="1.5" fill="#FFFFFF" />
+      <rect x="7" y="26" width="3" height="3" rx="0.5" fill="#8D1B3D" />
+
+      {/* QR Data Pattern */}
+      <rect x="21" y="21" width="5" height="5" rx="1" fill="#008542" />
+      <rect x="28" y="21" width="6" height="5" rx="1" fill="#005BAC" />
+      <rect x="21" y="28" width="6" height="6" rx="1" fill="#8D1B3D" />
+      <rect x="29" y="28" width="5" height="6" rx="1" fill="#008542" />
+
+      {/* Center QR Matrix */}
+      <rect x="12" y="12" width="3.5" height="3.5" rx="0.5" fill="#F47920" />
+      <rect x="17.5" y="12" width="3.5" height="3.5" rx="0.5" fill="#005BAC" />
+      <rect x="12" y="17.5" width="3.5" height="3.5" rx="0.5" fill="#8D1B3D" />
+      <rect x="17.5" y="17.5" width="3.5" height="3.5" rx="0.5" fill="#008542" />
+    </svg>
+  )
+}
+
 interface PaymentClientPageProps {
   bill: {
     bill_number: string
@@ -405,7 +448,7 @@ export function PaymentClientPage({ bill }: PaymentClientPageProps) {
 
                     <div className="space-y-2.5">
                       
-                      {/* Option 1: Credit / Debit Card */}
+                      {/* Option 1: Credit / Debit Card (MasterCard / Visa) */}
                       <motion.div 
                         whileHover={{ scale: 1.015 }}
                         whileTap={{ scale: 0.99 }}
@@ -417,17 +460,17 @@ export function PaymentClientPage({ bill }: PaymentClientPageProps) {
                         }`}
                       >
                         <div className="flex items-center gap-3">
-                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
-                            method === 'card' ? 'bg-[#0066FF] text-white shadow-sm' : 'bg-gray-100 text-gray-600'
+                          <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 border transition-all ${
+                            method === 'card' ? 'bg-white border-blue-200 shadow-sm' : 'bg-white border-slate-200'
                           }`}>
-                            <CreditCard size={20} />
+                            <MasterCardLogo className="w-8 h-auto" />
                           </div>
                           <div>
                             <span className="text-sm font-bold text-[#081B38] block">
                               Credit / Debit Card
                             </span>
                             <span className="text-[11px] text-gray-500 font-medium block">
-                              Visa, MasterCard &bull; 3D Secure 2.0 OTP Verified
+                              MasterCard, Visa &bull; 3D Secure 2.0 OTP Verified
                             </span>
                           </div>
                         </div>
@@ -457,10 +500,10 @@ export function PaymentClientPage({ bill }: PaymentClientPageProps) {
                         }`}
                       >
                         <div className="flex items-center gap-3">
-                          <div className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${
-                            method === 'lankaqr' ? 'bg-[#0066FF] text-white shadow-sm' : 'bg-gray-100 text-gray-600'
+                          <div className={`w-11 h-11 rounded-xl flex items-center justify-center shrink-0 border transition-all ${
+                            method === 'lankaqr' ? 'bg-white border-blue-200 shadow-sm' : 'bg-white border-slate-200'
                           }`}>
-                            <QrCode size={20} />
+                            <LankaQRLogo className="w-7 h-7" />
                           </div>
                           <div>
                             <span className="text-sm font-bold text-[#081B38] block">
