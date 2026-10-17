@@ -86,7 +86,10 @@ export default function Home() {
       "/card-water-purity.jpg",
       "/service-water-supply.jpg",
       "/service-meter-reading.jpg",
-      "/service-water-quality.jpg"
+      "/service-water-quality.jpg",
+      "/gov-community-assembly.jpg",
+      "/gov-water-purification.jpg",
+      "/gov-digital-reconciliation.jpg"
     ];
 
     criticalImages.forEach((src) => {
@@ -863,7 +866,7 @@ export default function Home() {
                 category: "Democracy & Oversight",
                 title: "COMMUNITY GOVERNED",
                 desc: "Managed democratically by elected resident committee members to maintain uninterrupted water pressure, transparent budgeting, and rapid maintenance.",
-                image: "/magammana_water_scheme.jpg",
+                image: "/gov-community-assembly.jpg",
                 actionText: "General Assembly",
                 icon: Building2
               },
@@ -871,7 +874,7 @@ export default function Home() {
                 category: "SLS 614 Standard",
                 title: "CERTIFIED WATER PURITY",
                 desc: "Deep-well extraction, high-capacity sand filtration, and automated chlorination compliant with National Drinking Water Standards (SLS 614).",
-                image: "/card-water-purity.jpg",
+                image: "/gov-water-purification.jpg",
                 actionText: "Laboratory Certified",
                 icon: Droplets
               },
@@ -879,7 +882,7 @@ export default function Home() {
                 category: "Public Transparency",
                 title: "100% DIGITAL RECONCILIATION",
                 desc: "Every meter reading, billing calculation, and payment is logged in real-time, preventing billing discrepancies or unverified receipts.",
-                image: "/pay-card-tariffs.jpg",
+                image: "/gov-digital-reconciliation.jpg",
                 actionText: "DCWS Audited",
                 icon: FileCheck2
               }
