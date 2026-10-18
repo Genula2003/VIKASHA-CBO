@@ -153,16 +153,12 @@ export default function Navbar({ activeTab = "home" }: NavbarProps) {
             onClick={() => setCurrentTab("home")}
             className="flex items-center gap-3 group"
           >
-            <div className="w-10 h-10 rounded-xl bg-[#081B38] text-white border border-slate-300/40 flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform duration-300">
-              <svg
-                viewBox="0 0 24 24"
-                className="w-5 h-5 text-white fill-white/20"
-                stroke="currentColor"
-                strokeWidth="2"
-              >
-                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z" />
-                <path d="M12 11a3 3 0 0 0-3 3" strokeWidth="2" strokeLinecap="round" />
-              </svg>
+            <div className="w-10 h-10 rounded-xl bg-white border border-slate-200/90 shadow-sm flex items-center justify-center p-0.5 group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+              <img
+                src="/logo.png"
+                alt="Vikasha CBO Official Logo"
+                className="w-full h-full object-contain"
+              />
             </div>
             <div className="flex flex-col">
               <span className="font-serif text-2xl font-bold tracking-tight text-[#081B38] leading-none group-hover:text-[#0B2548] transition-colors">

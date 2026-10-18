@@ -29,8 +29,12 @@ export function MeterReaderSidebar({ profile }: { profile: { name?: string; emai
         {/* App Title */}
         <div className="p-6 border-b border-white/10">
           <Link href="/meter-reader/dashboard" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-cyan-500 to-[#0066FF] text-white flex items-center justify-center shadow-lg shadow-cyan-500/25 group-hover:scale-105 transition-transform">
-              <Droplet size={22} strokeWidth={2.5} />
+            <div className="w-10 h-10 rounded-xl bg-white border border-slate-200/90 shadow-sm flex items-center justify-center p-0.5 group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+              <img
+                src="/logo.png"
+                alt="Vikasha CBO Official Logo"
+                className="w-full h-full object-contain"
+              />
             </div>
             <div>
               <div className="text-base font-black tracking-tight text-white flex items-center gap-1.5">

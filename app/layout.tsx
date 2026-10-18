@@ -15,6 +15,13 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Vikasha CBO | Magammana Community Water Management Portal",
   description: "Official online portal for Vikasha Community Based Organisation (CBO) Water Supply Project, Magammana, Homagama. Real-time meter reading, billing, and secure online payments.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/logo-icon.png", type: "image/png" },
+    ],
+    apple: "/logo-icon.png",
+  },
 };
 
 export default function RootLayout({

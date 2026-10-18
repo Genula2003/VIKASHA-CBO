@@ -955,8 +955,12 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="space-y-4 md:col-span-2">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-cyan-500/20 border border-cyan-400 flex items-center justify-center">
-                  <Droplet size={20} className="text-cyan-300" />
+                <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 p-1 flex items-center justify-center overflow-hidden shadow-inner">
+                  <img
+                    src="/logo.png"
+                    alt="Vikasha CBO Official Logo"
+                    className="w-full h-full object-contain drop-shadow"
+                  />
                 </div>
                 <div>
                   <h4 className="text-base font-bold text-white tracking-tight">Vikasha CBO</h4>

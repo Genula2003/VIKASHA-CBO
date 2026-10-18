@@ -44,15 +44,17 @@ export default function PageLoader({ onComplete, minDuration = 850 }: PageLoader
           <div className="relative z-10 flex items-center justify-center mb-5">
             <motion.div
               animate={{
-                scale: [1, 1.15, 1],
-                opacity: [0.9, 1, 0.9]
+                scale: [1, 1.08, 1],
+                opacity: [0.95, 1, 0.95]
               }}
-              transition={{ repeat: Infinity, duration: 1.6, ease: "easeInOut" }}
-              className="w-16 h-16 rounded-2xl bg-gradient-to-tr from-[#032a56] via-[#0284c7] to-[#38bdf8] p-0.5 shadow-[0_0_30px_rgba(56,189,248,0.45)] flex items-center justify-center"
+              transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
+              className="w-20 h-20 rounded-2xl bg-white/10 border border-white/20 p-2.5 shadow-[0_0_35px_rgba(56,189,248,0.35)] backdrop-blur-md flex items-center justify-center overflow-hidden"
             >
-              <div className="w-full h-full rounded-[14px] bg-[#031d3d] flex items-center justify-center text-cyan-300">
-                <Droplet size={28} className="fill-cyan-400/30 text-cyan-300" />
-              </div>
+              <img
+                src="/logo.png"
+                alt="Vikasha CBO Official Logo"
+                className="w-full h-full object-contain drop-shadow"
+              />
             </motion.div>
           </div>
 

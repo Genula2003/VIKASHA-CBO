@@ -50,7 +50,7 @@ export default async function PayPage({
 
   if (bill.status === 'PAID') {
     return (
-      <div className="min-h-screen bg-[#F8FAFC] text-[#081B38] flex flex-col justify-between relative font-sans">Working
+      <div className="min-h-screen bg-[#F8FAFC] text-[#081B38] flex flex-col justify-between relative font-sans">
         <Navbar activeTab="billing" />
 
         <div className="relative z-10 max-w-md w-full mx-auto px-4 pt-36 pb-20 flex-1 flex items-center justify-center">

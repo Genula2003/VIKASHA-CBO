@@ -295,9 +295,13 @@ export function PaymentClientPage({ bill }: PaymentClientPageProps) {
                   <motion.div 
                     whileHover={{ scale: 1.05 }}
                     transition={{ duration: 0.2 }}
-                    className="w-12 h-12 rounded-2xl bg-[#0066FF] shadow-lg shadow-blue-500/25 flex items-center justify-center text-white"
+                    className="w-12 h-12 rounded-2xl bg-white border border-slate-200/90 shadow-md p-1 flex items-center justify-center overflow-hidden"
                   >
-                    <Droplet size={24} className="fill-white" />
+                    <img
+                      src="/logo.png"
+                      alt="Vikasha CBO Official Logo"
+                      className="w-full h-full object-contain"
+                    />
                   </motion.div>
                   <div>
                     <span className="text-xl font-black text-[#081B38] tracking-tight block">
@@ -372,8 +376,12 @@ export function PaymentClientPage({ bill }: PaymentClientPageProps) {
                   {/* Card Top Bar */}
                   <div className="flex items-center justify-between pb-3 border-b border-gray-100">
                     <div className="flex items-center gap-2.5">
-                      <div className="w-9 h-9 rounded-xl bg-[#0066FF] flex items-center justify-center text-white shadow-sm">
-                        <Droplet size={18} className="fill-white" />
+                      <div className="w-9 h-9 rounded-xl bg-white border border-slate-200/90 p-0.5 flex items-center justify-center shadow-sm overflow-hidden">
+                        <img
+                          src="/logo.png"
+                          alt="Vikasha CBO Logo"
+                          className="w-full h-full object-contain"
+                        />
                       </div>
                       <div>
                         <span className="text-sm font-black text-[#081B38] block leading-tight">Vikasha CBO</span>
@@ -638,8 +646,12 @@ export function PaymentClientPage({ bill }: PaymentClientPageProps) {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="space-y-4 md:col-span-2">
               <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-cyan-500/20 border border-cyan-400 flex items-center justify-center">
-                  <Droplet size={20} className="text-cyan-300" />
+                <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 p-1 flex items-center justify-center overflow-hidden shadow-inner">
+                  <img
+                    src="/logo.png"
+                    alt="Vikasha CBO Official Logo"
+                    className="w-full h-full object-contain drop-shadow"
+                  />
                 </div>
                 <div>
                   <h4 className="text-base font-bold text-white tracking-tight">Vikasha CBO</h4>
