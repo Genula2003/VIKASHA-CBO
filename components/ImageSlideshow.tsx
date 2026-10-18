@@ -1,419 +1,298 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronLeft, ChevronRight, Sparkles, MapPin, ShieldCheck, ArrowRight, Pause, Play } from "lucide-react";
+import { Sparkles, MapPin, ShieldCheck, ArrowRight, X, ExternalLink, CheckCircle2 } from "lucide-react";
+import Link from "next/link";
 
-interface FocusItem {
-  id: number;
-  badge: string;
-  tag: string;
-  title: string;
-  description: string;
-  image: string;
-  alt: string;
+interface PillarItem {
+  id: string;
+  name: string;
+  subtitle: string;
+  category: string;
+  studioImage: string;
+  realPhoto: string;
   location: string;
   metric: string;
+  specs: string[];
+  description: string;
+  badge?: string;
+  isCenter?: boolean;
 }
 
-const focusItems: FocusItem[] = [
+const pillars: PillarItem[] = [
   {
-    id: 1,
-    badge: "PRESSURE GRID",
-    tag: "INFRASTRUCTURE 01 • HYDRAULIC NETWORK",
-    title: "High-Pressure Booster Station & Ring-Main Valves",
-    location: "Magammana Intake Booster 01",
-    metric: "0.5 Bar Min • SLS 614",
-    description: "Industrial centrifugal pumps and heavy-duty ring-main pressure pipelines engineered to maintain uniform hydrostatic pressure across all residential sectors without seasonal drops.",
-    image: "/focus-pipes-gallery.jpg",
-    alt: "Industrial Water Pipeline Gallery and Pressure Valves"
+    id: "filtration",
+    name: "FILTRATION WORKS",
+    subtitle: "The SLS 614 certified multi-stage silica and chlorine purification works",
+    category: "WATER PURIFICATION",
+    studioImage: "/showcase-filtration.jpg",
+    realPhoto: "/gov-water-purification.jpg",
+    location: "Magammana Central Treatment Works",
+    metric: "SLS 614 Certified • 0.00 NTU Purity",
+    description: "Deep-well mountain water undergoes continuous multi-stage silica filtration, activated carbon absorption, and automated proportional chlorine dosing meeting Sri Lanka National Drinking Water standards.",
+    specs: [
+      "Multi-stage high-capacity silica sand filtration beds",
+      "Activated carbon organic pollutant absorption",
+      "Automated proportional sodium hypochlorite dosing",
+      "24/7 continuous residual chlorine monitoring (0.2–0.5 ppm)"
+    ]
   },
   {
-    id: 2,
-    badge: "NATURAL CATCHMENT",
-    tag: "INFRASTRUCTURE 02 • MOUNTAIN AQUIFER",
-    title: "Protected Natural Mountain Catchment Basin",
-    location: "Magammana Catchment Reserve",
-    metric: "Highland Spring Aquifer",
-    description: "Pristine mountain watershed preserved under community conservation covenants, guaranteeing continuous natural gravity-fed aquifer recharge even during prolonged dry spells.",
-    image: "/focus-canal-scenic.jpg",
-    alt: "Scenic Mountain Water Canal and Catchment Reservoir"
+    id: "reservoir",
+    name: "MAGAMMANA RESERVOIR",
+    subtitle: "The reinforced elevated gravity storage ensuring 24/7 continuous water pressure",
+    category: "GRAVITY STORAGE",
+    badge: "PRIMARY HUB",
+    isCenter: true,
+    studioImage: "/showcase-reservoir.jpg",
+    realPhoto: "/water_reservoir_hero.jpg",
+    location: "Summit Sector Ridge, Magammana",
+    metric: "48-Hour Gravity Reserve • 0.5 Bar Min",
+    description: "Engineered reinforced concrete elevated mountain reservoir providing hydrostatic gravity pressure to all connected households, ensuring uninterrupted community water supply even during power grid outages.",
+    specs: [
+      "Elevated high-capacity hydrostatic pressure head",
+      "48-hour continuous emergency community storage",
+      "Dual intake chamber with sediment purge valves",
+      "Protected mountain perimeter with watershed covenants"
+    ]
   },
   {
-    id: 3,
-    badge: "PURIFICATION PLANT",
-    tag: "INFRASTRUCTURE 03 • WATER PURITY",
-    title: "Multi-Stage Silica Sand & Carbon Filtration Works",
-    location: "Central Treatment Works",
-    metric: "SLS 614 Certified Purity",
-    description: "Deep-well mountain water undergoes continuous multi-stage silica filtration and automated proportional chlorine dosing matching SLS 614 National Drinking Water standards.",
-    image: "/gov-water-purification.jpg",
-    alt: "Industrial Water Purification and Filtration Tanks"
-  },
-  {
-    id: 4,
-    badge: "STORAGE RESERVOIR",
-    tag: "INFRASTRUCTURE 04 • GRAVITY RESERVES",
-    title: "High-Capacity Elevated Mountain Reservoir",
-    location: "Summit Sector Reservoir",
-    metric: "48-Hour Gravity Reserve",
-    description: "Reinforced concrete elevated mountain storage ensuring 24/7 pressurized gravity flow and uninterrupted community emergency reserves for all connected households.",
-    image: "/water_reservoir_hero.jpg",
-    alt: "Elevated Water Storage Reservoir"
-  },
-  {
-    id: 5,
-    badge: "DIGITAL TELEMETRY",
-    tag: "INFRASTRUCTURE 05 • SMART METERING",
-    title: "Precision Smart Meter Logging & Telemetry",
-    location: "Sector-Wide Metering Grid",
-    metric: "100% Audited Ledger",
-    description: "Optical mobile meter logging with digital timestamping, automated arrears reconciliation, and instantaneous online settlements with zero convenience fees.",
-    image: "/card-smart-meter.jpg",
-    alt: "Optical Smart Meter Telemetry and Digital Logging"
-  },
-  {
-    id: 6,
-    badge: "QUALITY CONTROL",
-    tag: "INFRASTRUCTURE 06 • LAB SAFETY",
-    title: "Continuous Water Quality & Residual Chlorine Testing",
-    location: "Municipal Quality Laboratory",
-    metric: "0.00 NTU Clarity Target",
-    description: "Independent periodic microbiological culture testing, turbidity validation, and real-time residual chlorine calibration ensuring safe, crystalline water at every tap.",
-    image: "/water_quality_lab.jpg",
-    alt: "Certified Water Testing Laboratory with Quality Inspection"
+    id: "telemetry",
+    name: "SMART TELEMETRY",
+    subtitle: "The advanced optical meter telemetry with instant real-time audit ledger reconciliation",
+    category: "DIGITAL GRID",
+    studioImage: "/showcase-telemetry.jpg",
+    realPhoto: "/card-smart-meter.jpg",
+    location: "Sector-Wide Metering Infrastructure",
+    metric: "100% Audited Ledger • Zero Delay",
+    description: "Optical mobile smart meter reading app equipped with digital timestamping, automated slab tariff calculations, photographic proof of reading, and zero-convenience-fee online bill settlement.",
+    specs: [
+      "Precision optical reader with photographic verification",
+      "Automated tier-based tariff calculation per NWSDB guidelines",
+      "Instantaneous online ledger settlement via LankaQR / Cards",
+      "Transparent monthly billing history with SMS telemetry"
+    ]
   }
 ];
 
 export default function ImageSlideshow() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-  const [containerWidth, setContainerWidth] = useState(1200);
-  const [cardWidth, setCardWidth] = useState(540);
-  const [cardHeight, setCardHeight] = useState(380);
-  const gap = 24;
-
-  const containerRef = useRef<HTMLDivElement>(null);
-  const touchStartX = useRef<number>(0);
-  const touchEndX = useRef<number>(0);
-
-  // Responsive card dimension measurement
-  useEffect(() => {
-    const updateDimensions = () => {
-      if (typeof window !== "undefined") {
-        const w = window.innerWidth;
-        if (containerRef.current) {
-          setContainerWidth(containerRef.current.offsetWidth);
-        }
-        if (w < 640) {
-          setCardWidth(Math.min(w - 48, 360));
-          setCardHeight(360);
-        } else if (w < 1024) {
-          setCardWidth(460);
-          setCardHeight(370);
-        } else {
-          setCardWidth(540);
-          setCardHeight(380);
-        }
-      }
-    };
-
-    updateDimensions();
-    window.addEventListener("resize", updateDimensions);
-    return () => window.removeEventListener("resize", updateDimensions);
-  }, []);
-
-  // Preload all slideshow images for zero lag
-  useEffect(() => {
-    focusItems.forEach((item) => {
-      if (item.image) {
-        const img = new Image();
-        img.src = item.image;
-      }
-    });
-  }, []);
-
-  // Next Slide Handler
-  const handleNext = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % focusItems.length);
-  }, []);
-
-  // Prev Slide Handler
-  const handlePrev = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + focusItems.length) % focusItems.length);
-  }, []);
-
-  // Auto-slide smoothly every 5 seconds
-  useEffect(() => {
-    if (isPaused) return;
-
-    const intervalId = setInterval(() => {
-      handleNext();
-    }, 5000);
-
-    return () => clearInterval(intervalId);
-  }, [isPaused, handleNext]);
-
-  // Touch Swipe Handlers for mobile & tablet
-  const handleTouchStart = (e: React.TouchEvent) => {
-    touchStartX.current = e.targetTouches[0].clientX;
-  };
-
-  const handleTouchMove = (e: React.TouchEvent) => {
-    touchEndX.current = e.targetTouches[0].clientX;
-  };
-
-  const handleTouchEnd = () => {
-    const diff = touchStartX.current - touchEndX.current;
-    if (diff > 50) {
-      handleNext();
-    } else if (diff < -50) {
-      handlePrev();
-    }
-  };
-
-  // Exact centered offset calculation
-  const cardTotalWidth = cardWidth + gap;
-  const trackOffset = (containerWidth / 2) - (currentIndex * cardTotalWidth + cardWidth / 2);
-
-  const currentItem = focusItems[currentIndex];
+  const [selectedPillar, setSelectedPillar] = useState<PillarItem | null>(null);
 
   return (
-    <section className="py-16 sm:py-24 bg-gradient-to-b from-[#F1F5F9] via-[#E6EDF5] to-[#F1F5F9] relative z-10 border-t border-b border-slate-200/90 overflow-hidden">
-      {/* Background Architectural Grid Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(#081B38_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.035] pointer-events-none" />
-
-      {/* Ambient Lighting Orbs */}
-      <div className="absolute -top-32 left-1/4 w-[520px] h-[520px] bg-gradient-to-br from-cyan-400/10 via-sky-300/5 to-transparent rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-32 right-1/4 w-[520px] h-[520px] bg-gradient-to-tl from-[#081B38]/8 via-slate-400/5 to-transparent rounded-full blur-3xl pointer-events-none" />
-
-      <div className="max-w-[1440px] mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
+    <section className="py-20 sm:py-28 bg-[#FFFFFF] relative z-10 border-t border-b border-slate-200/80">
+      <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         
-        {/* Main Grand Card Container */}
-        <div className="bg-gradient-to-b from-white via-white to-slate-50/70 rounded-[32px] sm:rounded-[44px] shadow-[0_24px_70px_rgba(8,27,56,0.06),0_1px_3px_rgba(8,27,56,0.03)] py-12 sm:py-18 relative overflow-hidden border border-slate-200/90">
-          
-          {/* Ambient Top Glow & Sheen */}
-          <div className="absolute top-0 inset-x-0 h-44 bg-gradient-to-b from-cyan-50/50 via-transparent to-transparent pointer-events-none" />
-          <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[700px] h-64 bg-[radial-gradient(ellipse_60%_50%_at_50%_0%,rgba(6,182,212,0.05),transparent)] pointer-events-none" />
-
-          {/* Centered Eyebrow Badge */}
-          <div className="flex items-center justify-center gap-2 mb-3.5 relative z-10">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-[#081B38] text-[11px] font-mono font-bold shadow-sm uppercase tracking-wider">
-              <Sparkles size={13} className="text-[#0066FF]" />
-              <span>FOCUS AREAS &bull; ජල සම්පාදන යටිතල පහසුකම්</span>
-            </div>
+        {/* Centered Eyebrow Badge */}
+        <div className="flex items-center justify-center gap-2 mb-3.5">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-100 border border-slate-200 text-[#081B38] text-[11px] font-mono font-bold uppercase tracking-wider">
+            <Sparkles size={13} className="text-[#0066FF]" />
+            <span>CORE INFRASTRUCTURE &bull; යටිතල පහසුකම් ත්‍රිත්වය</span>
           </div>
+        </div>
 
-          {/* Centered Master Title */}
-          <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-bold text-[#081B38] tracking-tight text-center leading-[1.2] max-w-4xl mx-auto px-4 font-serif relative z-10">
-            Engineering Resilient Water Infrastructure
-            <br className="hidden sm:inline" />
-            {" "}For Community Generations
-          </h2>
+        {/* Centered Master Title */}
+        <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-bold text-[#081B38] tracking-tight text-center leading-[1.2] max-w-4xl mx-auto px-4 font-serif">
+          Engineering Resilient Water Infrastructure
+          <br className="hidden sm:inline" />
+          {" "}For Community Generations
+        </h2>
 
-          {/* Centered Subtitle */}
-          <p className="text-slate-600 text-xs sm:text-sm text-center max-w-2xl mx-auto mt-3.5 px-6 leading-relaxed font-normal relative z-10">
-            Explore the physical engineering, advanced filtration systems, optical telemetry grids, and community reservoirs powering Magammana&apos;s 24/7 drinking water supply.
-          </p>
+        {/* Centered Subtitle */}
+        <p className="text-slate-600 text-xs sm:text-sm text-center max-w-2xl mx-auto mt-3.5 px-6 leading-relaxed font-normal">
+          Explore the physical engineering, advanced filtration systems, elevated community storage, and optical telemetry grids powering Magammana&apos;s 24/7 drinking water supply.
+        </p>
 
-          {/* Continuous Hardware-Accelerated Sliding Track Container */}
-          <div
-            ref={containerRef}
-            className="relative mt-8 sm:mt-12 overflow-hidden py-4 select-none"
-            onMouseEnter={() => setIsPaused(true)}
-            onMouseLeave={() => setIsPaused(false)}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
-          >
-            {/* Edge Blur & Fade Gradients */}
-            <div className="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-r from-white via-white/80 to-transparent z-20" />
-            <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-16 bg-gradient-to-l from-white via-white/80 to-transparent z-20" />
+        {/* 3-Card Organized Showcase (Framery Design Paradigm) */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 items-center max-w-6xl mx-auto mt-12 sm:mt-16 px-2">
+          {pillars.map((pillar) => {
+            const isCenter = pillar.isCenter;
 
-            {/* Sliding Track with Smooth Centered Offset */}
-            <div
-              className="flex items-center transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
-              style={{
-                transform: `translateX(${trackOffset}px)`,
-                gap: `${gap}px`
-              }}
-            >
-              {focusItems.map((item, idx) => {
-                const isActive = idx === currentIndex;
+            return (
+              <div
+                key={pillar.id}
+                className={`flex flex-col items-center text-center transition-all duration-300 relative overflow-hidden group select-none ${
+                  isCenter
+                    ? "rounded-[36px] sm:rounded-[42px] bg-[#F5ECE1] border border-[#EBDDCF] p-8 sm:p-12 md:py-16 md:-my-6 shadow-xl md:shadow-2xl z-10 hover:shadow-2xl"
+                    : "rounded-[32px] sm:rounded-[38px] bg-[#FAF5EE] border border-[#F0E8DC] p-8 sm:p-10 hover:shadow-xl shadow-sm z-0"
+                }`}
+              >
+                {/* Top Highlight Badge for Center Card */}
+                {pillar.badge && (
+                  <span className="absolute top-4 sm:top-5 px-3 py-1 rounded-full bg-white/80 backdrop-blur-sm text-[10px] font-mono font-bold tracking-wider text-[#081B38] uppercase border border-white/60 shadow-xs">
+                    {pillar.badge}
+                  </span>
+                )}
 
-                return (
-                  <div
-                    key={item.id}
-                    onClick={() => setCurrentIndex(idx)}
-                    style={{
-                      width: `${cardWidth}px`,
-                      height: `${cardHeight}px`
-                    }}
-                    className={`flex-shrink-0 rounded-[28px] overflow-hidden cursor-pointer transition-all duration-700 select-none relative group ${
-                      isActive
-                        ? "scale-100 opacity-100 shadow-[0_20px_50px_rgba(8,27,56,0.22)] border-2 border-[#0066FF] ring-4 ring-[#0066FF]/10 z-10"
-                        : "scale-[0.93] opacity-60 hover:opacity-85 hover:scale-[0.96] shadow-[0_10px_30px_rgba(8,27,56,0.08)] border border-slate-200"
+                {/* Staged Circular Background Disk & Clean Product Visual */}
+                <div
+                  className={`rounded-full flex items-center justify-center relative transition-transform duration-500 group-hover:scale-105 ${
+                    isCenter
+                      ? "w-56 h-56 sm:w-64 sm:h-64 bg-[#E8DDD0] mb-8 mt-2"
+                      : "w-48 h-48 sm:w-52 sm:h-52 bg-[#EFE6DC] mb-6 mt-1"
+                  }`}
+                >
+                  <img
+                    src={pillar.studioImage}
+                    alt={pillar.name}
+                    className={`object-contain mix-blend-multiply relative z-10 transition-transform duration-500 group-hover:scale-105 ${
+                      isCenter
+                        ? "w-56 h-56 sm:w-64 sm:h-64"
+                        : "w-48 h-44 sm:w-52 sm:h-48"
                     }`}
-                  >
-                    {/* Background Infrastructure Photo */}
-                    <img
-                      src={item.image}
-                      alt={item.title}
-                      className="w-full h-full object-cover object-center group-hover:scale-106 transition-transform duration-700"
-                      loading="lazy"
-                    />
-
-                    {/* Rich Directional Gradient Scrim */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#081B38] via-[#081B38]/50 to-[#081B38]/15" />
-
-                    {/* Top Floating Glass Badges */}
-                    <div className="absolute top-4 inset-x-4 flex items-center justify-between z-10">
-                      {/* Left Badge: Category */}
-                      <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-white/60 text-[10px] sm:text-[11px] font-mono font-bold tracking-wider text-[#081B38] shadow-sm uppercase flex items-center gap-1.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-cyan-500 animate-pulse" />
-                        {item.badge}
-                      </span>
-
-                      {/* Right Badge: SLS Metric */}
-                      <span className="px-2.5 py-1 rounded-full bg-[#081B38]/80 backdrop-blur-md border border-white/20 text-[10px] font-mono text-cyan-200 font-semibold shadow-sm">
-                        {item.metric}
-                      </span>
-                    </div>
-
-                    {/* Bottom Content Panel with Glass Backdrop */}
-                    <div className="absolute bottom-0 inset-x-0 p-5 sm:p-7 z-10 text-white space-y-2 bg-gradient-to-t from-[#081B38] via-[#081B38]/90 to-transparent">
-                      {/* Location Tag */}
-                      <div className="flex items-center gap-1.5 text-cyan-300 text-[11px] font-mono uppercase tracking-wider font-semibold">
-                        <MapPin size={12} className="text-cyan-400" />
-                        <span>{item.location}</span>
-                      </div>
-
-                      {/* Title */}
-                      <h3 className="text-lg sm:text-xl lg:text-[22px] font-bold font-serif text-white tracking-tight leading-snug line-clamp-1 group-hover:text-cyan-100 transition-colors">
-                        {item.title}
-                      </h3>
-
-                      {/* Description */}
-                      <p className="text-xs sm:text-[13px] text-slate-200 leading-relaxed font-normal line-clamp-2">
-                        {item.description}
-                      </p>
-
-                      {/* Bottom Micro Action */}
-                      <div className="pt-2 flex items-center justify-between text-xs text-cyan-300 font-mono font-semibold border-t border-white/10">
-                        <span>{item.tag}</span>
-                        <div className="w-7 h-7 rounded-full bg-white/10 group-hover:bg-[#0066FF] text-white flex items-center justify-center transition-all duration-300">
-                          <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Interactive Navigation & Live 5s Progress Bar */}
-          <div className="max-w-xl mx-auto px-4 mt-6 sm:mt-8 relative z-10 flex flex-col sm:flex-row items-center justify-between gap-4">
-            
-            {/* Left: Slide Counter (e.g. 01 / 06) */}
-            <div className="flex items-center gap-2 text-xs font-mono font-bold text-[#081B38]">
-              <span className="text-sm sm:text-base font-black text-[#0066FF]">
-                {String(currentIndex + 1).padStart(2, "0")}
-              </span>
-              <span className="text-slate-400">/</span>
-              <span className="text-slate-500">
-                {String(focusItems.length).padStart(2, "0")}
-              </span>
-            </div>
-
-            {/* Center: Interactive Pills & Auto-Slide Progress Bar */}
-            <div className="flex items-center gap-2">
-              {focusItems.map((_, idx) => {
-                const isActive = idx === currentIndex;
-                return (
-                  <button
-                    key={idx}
-                    type="button"
-                    onClick={() => setCurrentIndex(idx)}
-                    className={`h-2.5 rounded-full transition-all duration-300 cursor-pointer ${
-                      isActive 
-                        ? "w-8 bg-[#0066FF] shadow-sm shadow-blue-500/40" 
-                        : "w-2.5 bg-slate-300 hover:bg-slate-400"
-                    }`}
-                    aria-label={`Go to slide ${idx + 1}`}
+                    loading="lazy"
                   />
-                );
-              })}
-            </div>
+                </div>
 
-            {/* Right: Previous & Next Controls */}
-            <div className="flex items-center gap-2">
-              <button
-                type="button"
-                onClick={handlePrev}
-                className="w-10 h-10 rounded-xl bg-slate-100 hover:bg-[#081B38] hover:text-white text-[#081B38] border border-slate-200/90 shadow-sm flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer"
-                aria-label="Previous Slide"
-                title="Previous Slide"
-              >
-                <ChevronLeft size={18} />
-              </button>
+                {/* Title (Bold, Uppercase, Clean Modern Letter-Spacing) */}
+                <h3
+                  className={`font-bold tracking-[0.14em] uppercase text-[#1B1B1B] font-sans ${
+                    isCenter ? "text-base sm:text-lg" : "text-sm sm:text-base"
+                  }`}
+                >
+                  {pillar.name}
+                </h3>
 
-              <button
-                type="button"
-                onClick={() => setIsPaused(!isPaused)}
-                className="w-10 h-10 rounded-xl bg-slate-100 hover:bg-slate-200 text-[#081B38] border border-slate-200/90 shadow-sm flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer text-xs"
-                aria-label={isPaused ? "Resume auto-slide" : "Pause auto-slide"}
-                title={isPaused ? "Resume auto-slide" : "Pause auto-slide"}
-              >
-                {isPaused ? <Play size={14} className="fill-current" /> : <Pause size={14} className="fill-current" />}
-              </button>
+                {/* Subtitle / Descriptive Copy */}
+                <p
+                  className={`text-[#666666] leading-relaxed font-normal ${
+                    isCenter
+                      ? "text-xs sm:text-sm max-w-[260px] mt-2.5 mb-8"
+                      : "text-xs sm:text-[13px] max-w-[240px] mt-2 mb-7"
+                  }`}
+                >
+                  {pillar.subtitle}
+                </p>
 
-              <button
-                type="button"
-                onClick={handleNext}
-                className="w-10 h-10 rounded-xl bg-slate-100 hover:bg-[#081B38] hover:text-white text-[#081B38] border border-slate-200/90 shadow-sm flex items-center justify-center transition-all duration-200 active:scale-95 cursor-pointer"
-                aria-label="Next Slide"
-                title="Next Slide"
-              >
-                <ChevronRight size={18} />
-              </button>
-            </div>
-
-          </div>
-
-          {/* Live 5-Second Timer Progress Bar at Bottom of Card */}
-          <div className="absolute bottom-0 inset-x-0 h-1 bg-slate-100 overflow-hidden">
-            <div
-              key={`${currentIndex}-${isPaused}`}
-              className={`h-full bg-gradient-to-r from-[#0066FF] to-cyan-400 ${
-                isPaused ? "w-0 opacity-40" : "animate-progress"
-              }`}
-              style={{
-                animationDuration: "5000ms",
-                animationTimingFunction: "linear",
-                animationFillMode: "forwards"
-              }}
-            />
-          </div>
-
+                {/* Framery-Style Sleek Dark Pill Button */}
+                <button
+                  type="button"
+                  onClick={() => setSelectedPillar(pillar)}
+                  className={`rounded-full bg-black hover:bg-neutral-800 text-white inline-flex items-center gap-2 transition-all shadow-sm hover:scale-105 active:scale-95 cursor-pointer font-sans ${
+                    isCenter
+                      ? "text-xs sm:text-sm font-semibold px-8 py-3.5"
+                      : "text-xs font-medium px-7 py-2.5"
+                  }`}
+                >
+                  <span>Explore</span>
+                  <span className="text-sm leading-none">&rarr;</span>
+                </button>
+              </div>
+            );
+          })}
         </div>
 
       </div>
 
-      {/* Embedded CSS for smooth progress animation */}
-      <style jsx>{`
-        @keyframes progress {
-          from {
-            width: 0%;
-          }
-          to {
-            width: 100%;
-          }
-        }
-        .animate-progress {
-          animation-name: progress;
-        }
-      `}</style>
+      {/* Interactive Detail Modal on "Explore →" Click */}
+      <AnimatePresence>
+        {selectedPillar && (
+          <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedPillar(null)}
+              className="fixed inset-0 bg-[#081B38]/60 backdrop-blur-md"
+            />
+
+            {/* Modal Dialog Card */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 20 }}
+              transition={{ duration: 0.3 }}
+              className="relative w-full max-w-2xl bg-white rounded-[32px] shadow-2xl border border-slate-200 overflow-hidden z-10 max-h-[90vh] flex flex-col"
+            >
+              {/* Modal Header Photo */}
+              <div className="relative h-56 sm:h-64 w-full bg-slate-900 overflow-hidden shrink-0">
+                <img
+                  src={selectedPillar.realPhoto}
+                  alt={selectedPillar.name}
+                  className="w-full h-full object-cover object-center"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#081B38] via-[#081B38]/40 to-transparent" />
+
+                {/* Close Button */}
+                <button
+                  type="button"
+                  onClick={() => setSelectedPillar(null)}
+                  className="absolute top-4 right-4 w-9 h-9 rounded-full bg-black/40 hover:bg-black/70 text-white backdrop-blur-md flex items-center justify-center transition-colors cursor-pointer"
+                  aria-label="Close modal"
+                >
+                  <X size={18} />
+                </button>
+
+                {/* Modal Title & Category */}
+                <div className="absolute bottom-4 left-6 right-6 text-white">
+                  <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[10px] font-mono tracking-wider uppercase border border-white/30 text-cyan-200">
+                    {selectedPillar.category}
+                  </span>
+                  <h3 className="text-2xl sm:text-3xl font-black font-serif mt-2 tracking-tight">
+                    {selectedPillar.name}
+                  </h3>
+                  <p className="flex items-center gap-1.5 text-xs text-slate-300 font-medium mt-1">
+                    <MapPin size={13} className="text-cyan-400" />
+                    {selectedPillar.location}
+                  </p>
+                </div>
+              </div>
+
+              {/* Modal Body */}
+              <div className="p-6 sm:p-8 overflow-y-auto space-y-6">
+                <div>
+                  <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 font-bold mb-1.5">
+                    Engineering Specifications
+                  </h4>
+                  <p className="text-sm text-slate-700 leading-relaxed font-normal">
+                    {selectedPillar.description}
+                  </p>
+                </div>
+
+                {/* Specifications Checklist */}
+                <div className="rounded-2xl bg-slate-50 border border-slate-200/80 p-4 sm:p-5 space-y-2.5">
+                  <div className="text-xs font-mono font-bold text-[#081B38] uppercase tracking-wider flex items-center gap-2">
+                    <ShieldCheck size={16} className="text-emerald-600" />
+                    <span>Technical Architecture &bull; {selectedPillar.metric}</span>
+                  </div>
+                  <ul className="space-y-2 pt-1 text-xs text-slate-600 font-medium">
+                    {selectedPillar.specs.map((spec, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <CheckCircle2 size={14} className="text-emerald-500 shrink-0 mt-0.5" />
+                        <span>{spec}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Action Buttons */}
+                <div className="flex flex-col sm:flex-row items-center justify-between gap-3 pt-2">
+                  <button
+                    type="button"
+                    onClick={() => setSelectedPillar(null)}
+                    className="w-full sm:w-auto px-6 py-2.5 rounded-full border border-slate-300 text-slate-700 text-xs font-semibold hover:bg-slate-50 transition-colors cursor-pointer text-center"
+                  >
+                    Close Window
+                  </button>
+
+                  <div className="flex items-center gap-2 w-full sm:w-auto">
+                    <Link
+                      href="/pay"
+                      onClick={() => setSelectedPillar(null)}
+                      className="w-full sm:w-auto px-6 py-2.5 rounded-full bg-[#0066FF] hover:bg-blue-600 text-white text-xs font-bold transition-all shadow-sm text-center inline-flex items-center justify-center gap-1.5"
+                    >
+                      <span>Quick Pay Portal</span>
+                      <ArrowRight size={14} />
+                    </Link>
+                  </div>
+                </div>
+
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }
