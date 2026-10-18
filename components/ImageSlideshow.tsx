@@ -123,13 +123,13 @@ export default function ImageSlideshow() {
   const [isPaused, setIsPaused] = useState(false);
   const [selectedPillar, setSelectedPillar] = useState<FocusItem | null>(null);
 
-  // 5-Second Auto-Rotation Timer
+  // 4-Second Auto-Rotation Timer
   useEffect(() => {
     if (isPaused || selectedPillar) return;
 
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % focusItems.length);
-    }, 5000);
+    }, 4000);
 
     return () => clearInterval(timer);
   }, [isPaused, selectedPillar]);
@@ -266,19 +266,6 @@ export default function ImageSlideshow() {
               <span>Explore</span>
               <span className="text-sm leading-none">&rarr;</span>
             </button>
-
-            {/* Sleek 5-Second Progress Hairline Indicator */}
-            <div className="w-28 h-1 bg-blue-100 rounded-full overflow-hidden mt-6" title="Auto-rotates every 5 seconds">
-              <div
-                key={`${currentIndex}-${isPaused}`}
-                className={`h-full bg-[#0066FF] ${isPaused ? "w-0 opacity-40" : "animate-progress"}`}
-                style={{
-                  animationDuration: "5000ms",
-                  animationTimingFunction: "linear",
-                  animationFillMode: "forwards"
-                }}
-              />
-            </div>
           </div>
 
           {/* ============================================================== */}
@@ -459,20 +446,6 @@ export default function ImageSlideshow() {
         )}
       </AnimatePresence>
 
-      {/* Embedded CSS for smooth 5s progress line */}
-      <style jsx>{`
-        @keyframes progress {
-          from {
-            width: 0%;
-          }
-          to {
-            width: 100%;
-          }
-        }
-        .animate-progress {
-          animation-name: progress;
-        }
-      `}</style>
     </section>
   );
 }
