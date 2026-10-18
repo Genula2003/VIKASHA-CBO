@@ -180,14 +180,14 @@ export default function ImageSlideshow() {
             onClick={() => setCurrentIndex(leftIndex)}
             className="flex flex-col items-center text-center rounded-[32px] sm:rounded-[38px] bg-white border border-slate-200/90 p-7 sm:p-9 shadow-[0_4px_20px_rgba(8,27,56,0.05)] hover:shadow-[0_12px_32px_rgba(8,27,56,0.1)] transition-all duration-500 cursor-pointer group relative overflow-hidden select-none"
           >
-            {/* Soft Circular Disc Staging the Full-Color Image */}
-            <div className="w-44 h-44 sm:w-48 sm:h-48 rounded-full bg-gradient-to-tr from-blue-50/70 to-slate-100/80 border border-blue-100/60 flex items-center justify-center relative mb-5 transition-transform duration-500 group-hover:scale-105 shadow-inner">
-              <div className="w-38 h-26 sm:w-42 sm:h-30 rounded-2xl overflow-hidden shadow-md border-2 border-white relative">
+            {/* Circular Image Portal - Matching into the Circle */}
+            <div className="w-44 h-44 sm:w-48 sm:h-48 rounded-full p-1.5 bg-gradient-to-tr from-blue-100/70 via-slate-100 to-blue-50/80 shadow-[0_8px_25px_rgba(8,27,56,0.08)] mb-5 relative transition-transform duration-500 group-hover:scale-105">
+              <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-inner relative bg-slate-100">
                 <img
                   key={leftItem.id}
                   src={leftItem.image}
                   alt={leftItem.name}
-                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
                   loading="lazy"
                 />
               </div>
@@ -228,19 +228,19 @@ export default function ImageSlideshow() {
               {centerItem.badge || "FEATURED INFRASTRUCTURE"}
             </span>
 
-            {/* Soft Circular Disc Staging the Full-Color Image */}
-            <div className="w-56 h-56 sm:w-64 sm:h-64 rounded-full bg-gradient-to-tr from-blue-50 via-sky-50/90 to-cyan-50 border border-blue-100 flex items-center justify-center relative mb-7 mt-3 transition-transform duration-500 group-hover:scale-105 shadow-inner">
-              <div className="w-50 h-34 sm:w-58 sm:h-40 rounded-2xl overflow-hidden shadow-lg border-2 border-white relative">
+            {/* Circular Image Portal - Matching into the Circle */}
+            <div className="w-56 h-56 sm:w-64 sm:h-64 rounded-full p-2 bg-gradient-to-tr from-blue-500/25 via-sky-400/20 to-cyan-300/35 shadow-[0_16px_36px_rgba(0,102,255,0.18)] mb-7 mt-3 relative transition-transform duration-500 group-hover:scale-105">
+              <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-inner relative bg-slate-100">
                 <AnimatePresence mode="wait">
                   <motion.img
                     key={centerItem.id}
                     src={centerItem.image}
                     alt={centerItem.name}
-                    initial={{ opacity: 0, scale: 0.95 }}
+                    initial={{ opacity: 0, scale: 1.08 }}
                     animate={{ opacity: 1, scale: 1 }}
-                    exit={{ opacity: 0, scale: 1.03 }}
+                    exit={{ opacity: 0, scale: 0.96 }}
                     transition={{ duration: 0.45 }}
-                    className="w-full h-full object-cover object-center"
+                    className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
                     loading="lazy"
                   />
                 </AnimatePresence>
@@ -288,14 +288,14 @@ export default function ImageSlideshow() {
             onClick={() => setCurrentIndex(rightIndex)}
             className="flex flex-col items-center text-center rounded-[32px] sm:rounded-[38px] bg-white border border-slate-200/90 p-7 sm:p-9 shadow-[0_4px_20px_rgba(8,27,56,0.05)] hover:shadow-[0_12px_32px_rgba(8,27,56,0.1)] transition-all duration-500 cursor-pointer group relative overflow-hidden select-none"
           >
-            {/* Soft Circular Disc Staging the Full-Color Image */}
-            <div className="w-44 h-44 sm:w-48 sm:h-48 rounded-full bg-gradient-to-tr from-blue-50/70 to-slate-100/80 border border-blue-100/60 flex items-center justify-center relative mb-5 transition-transform duration-500 group-hover:scale-105 shadow-inner">
-              <div className="w-38 h-26 sm:w-42 sm:h-30 rounded-2xl overflow-hidden shadow-md border-2 border-white relative">
+            {/* Circular Image Portal - Matching into the Circle */}
+            <div className="w-44 h-44 sm:w-48 sm:h-48 rounded-full p-1.5 bg-gradient-to-tr from-blue-100/70 via-slate-100 to-blue-50/80 shadow-[0_8px_25px_rgba(8,27,56,0.08)] mb-5 relative transition-transform duration-500 group-hover:scale-105">
+              <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-inner relative bg-slate-100">
                 <img
                   key={rightItem.id}
                   src={rightItem.image}
                   alt={rightItem.name}
-                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover object-center group-hover:scale-110 transition-transform duration-700"
                   loading="lazy"
                 />
               </div>
