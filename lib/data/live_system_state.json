@@ -24654,7 +24654,7 @@
       "previous_reading": 5507,
       "current_reading": 5518,
       "amount": 1236,
-      "status": "UNPAID",
+      "status": "PAID",
       "due_date": "2026-09-02",
       "access_token": "tok-ledger-68-2026",
       "pdf_url": null,
@@ -32027,6 +32027,18 @@
       "method": "Online Card (Visa/Mastercard)",
       "status": "SUCCESS",
       "paid_at": "2026-10-18T16:13:15.556Z"
+    },
+    {
+      "id": "payment-1792344761318-68",
+      "transaction_id": "TXN-202662172-68",
+      "bill_id": "bill-baseline-68",
+      "bill_number": "INV-2026-05-0068",
+      "account_number": "68",
+      "account_holder_name": "MRS J.A. SANI JAYAKODI",
+      "amount": 1236,
+      "method": "Visa / MasterCard / Debit Card",
+      "status": "SUCCESS",
+      "paid_at": "2026-10-18T17:32:41.318Z"
     }
   ],
   "audit_logs": [],
