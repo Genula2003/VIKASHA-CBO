@@ -707,52 +707,25 @@ function ConsumerPayPortalContent() {
 
                       {/* FAST DIRECT PAYMENT DRAWER */}
                       {result.bill.status === 'UNPAID' && (
-                        <div className="pt-4 border-t border-slate-100 space-y-4">
-                          <div className="text-[11px] font-mono uppercase tracking-wider text-slate-500 font-bold">
-                            Select Payment Channel:
-                          </div>
-
-                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
-                            {[
-                              'Online Card (Visa/Mastercard)',
-                              'Sampath Vishwa / Commercial Bank',
-                              'LANKAQR / Genie / FriMi'
-                            ].map((method) => (
-                              <button
-                                key={method}
-                                type="button"
-                                onClick={() => setSelectedPaymentMethod(method)}
-                                className={`text-left p-3.5 rounded-xl border text-xs transition-all cursor-pointer ${
-                                  selectedPaymentMethod === method
-                                    ? 'bg-[#081B38] border-[#081B38] text-white font-bold shadow-md'
-                                    : 'bg-white border-slate-200 text-slate-700 hover:bg-slate-50'
-                                }`}
-                              >
-                                {method}
-                              </button>
-                            ))}
-                          </div>
-
-                          <div className="pt-2 flex flex-col sm:flex-row items-center gap-3">
-                            <button
-                              type="button"
-                              onClick={handleDirectPayment}
-                              disabled={isPaying}
-                              className="w-full sm:w-auto flex-1 inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#081B38] hover:bg-[#0c2b59] text-white rounded-xl font-bold text-sm sm:text-base transition-all shadow-lg hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 cursor-pointer border border-slate-300/30"
-                            >
-                              {isPaying ? (
-                                <>
-                                  <RefreshCw size={17} className="animate-spin text-white" />
-                                  <span>Processing Instant Payment...</span>
-                                </>
-                              ) : (
-                                <>
-                                  <CreditCard size={18} />
-                                  <span>Pay LKR {Number(result.bill.amount).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} Now &rarr;</span>
-                                </>
-                              )}
-                            </button>
-                          </div>
+                        <div className="pt-4 border-t border-slate-100">
+                          <button
+                            type="button"
+                            onClick={handleDirectPayment}
+                            disabled={isPaying}
+                            className="w-full inline-flex items-center justify-center gap-2 px-8 py-4 bg-[#081B38] hover:bg-[#0c2b59] text-white rounded-xl font-bold text-sm sm:text-base transition-all shadow-lg hover:shadow-xl hover:scale-[1.01] active:scale-[0.99] disabled:opacity-50 cursor-pointer border border-slate-300/30"
+                          >
+                            {isPaying ? (
+                              <>
+                                <RefreshCw size={17} className="animate-spin text-white" />
+                                <span>Processing Instant Payment...</span>
+                              </>
+                            ) : (
+                              <>
+                                <CreditCard size={18} />
+                                <span>Pay LKR {Number(result.bill.amount).toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 })} Now &rarr;</span>
+                              </>
+                            )}
+                          </button>
                         </div>
                       )}
                     </div>
