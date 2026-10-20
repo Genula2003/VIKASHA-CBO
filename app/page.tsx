@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import ImageSlideshow from "@/components/ImageSlideshow";
+import PageLoader from "@/components/PageLoader";
 import VideoShowcase from "@/components/VideoShowcase";
 import {
   CreditCard,
@@ -89,6 +90,10 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-cyan-500 selection:text-slate-950 overflow-x-hidden">
 
+      {/* ========================================================================= */}
+      {/* 0. INITIAL PAGE WHITE THEME LANDING ANIMATION */}
+      {/* ========================================================================= */}
+      <PageLoader minDuration={850} />
 
       {/* ========================================================================= */}
       {/* 1. HERO SECTION (NATURE WATER LAKE & METER ACCOUNT SEARCH) */}
