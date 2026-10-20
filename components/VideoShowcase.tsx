@@ -37,7 +37,6 @@ export default function VideoShowcase() {
           muted
           loop
           playsInline
-          preload="auto"
           className="w-full h-full object-cover pointer-events-none"
         >
           <source src="/Water_supply_commercial_concept_1080p_20261015003757.mp4" type="video/mp4" />

@@ -6,6 +6,7 @@ import { lookupConsumerBill, payConsumerBillDirect } from './actions'
 import { formatDate } from '@/lib/format'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
+import { ConsumerBillCardSkeleton } from '@/components/ui/Skeleton'
 import { 
   Search, 
   CreditCard, 
@@ -183,11 +184,12 @@ function ConsumerPayPortalContent() {
           className="absolute inset-0 z-0"
         >
           <img
-            src="/pay-hero-serene.jpg"
+            src="/pay-hero-serene.webp"
             alt="Magammana Serene Water Reservoir"
             className="w-full h-full object-cover object-center"
             loading="eager"
             fetchPriority="high"
+            decoding="async"
           />
           {/* Subtle Directional Navy Scrim on left for crystal clear typography */}
           <div className="absolute inset-0 bg-gradient-to-r from-[#081B38]/90 via-[#081B38]/60 to-[#081B38]/25" />
@@ -405,31 +407,9 @@ function ConsumerPayPortalContent() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
-            className="bg-white rounded-2xl p-6 sm:p-8 border border-slate-200 shadow-[0_20px_50px_rgba(8,27,56,0.08)] space-y-6 animate-pulse"
+            transition={{ duration: 0.35, ease: smoothEase }}
           >
-            <div className="flex flex-wrap items-center justify-between gap-2 pb-5 border-b border-slate-100">
-              <div className="h-6 w-44 bg-slate-200 rounded-md" />
-              <div className="h-4 w-32 bg-slate-100 rounded-md" />
-            </div>
-
-            <div className="pt-2 grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div className="space-y-3">
-                <div className="h-3 w-28 bg-slate-200 rounded" />
-                <div className="h-8 w-56 bg-slate-200 rounded-lg" />
-                <div className="h-5 w-32 bg-slate-100 rounded" />
-              </div>
-
-              <div className="bg-slate-50 rounded-xl p-5 border border-slate-200 space-y-3">
-                <div className="h-3 w-32 bg-slate-200 rounded" />
-                <div className="h-5 w-48 bg-slate-200 rounded" />
-                <div className="h-4 w-36 bg-slate-100 rounded" />
-              </div>
-            </div>
-
-            <div className="pt-4 border-t border-slate-100 flex items-center justify-between">
-              <div className="h-4 w-48 bg-slate-200 rounded" />
-              <div className="h-10 w-32 bg-slate-200 rounded-lg" />
-            </div>
+            <ConsumerBillCardSkeleton />
           </motion.div>
         )}
 
@@ -785,19 +765,19 @@ function ConsumerPayPortalContent() {
                 category: "Civic Identification",
                 title: "Meter Ledger Verification",
                 desc: "Cryptographically guarantees all payments apply strictly to your verified residential meter and registered resident account.",
-                image: "/pay-card-verify.jpg"
+                image: "/pay-card-verify.webp"
               },
               {
                 category: "Instant Settlement",
                 title: "Real-Time Clearance",
                 desc: "Sub-second ledger clearance and automated electronic receipts supported via LankaQR, Visa, Mastercard, and CEFT.",
-                image: "/pay-card-settle.jpg"
+                image: "/pay-card-settle.webp"
               },
               {
                 category: "Audited Volumetric",
                 title: "Official NWSDB Slabs",
                 desc: "Statutory progressive volumetric tariffs audited under the Department of Community Water Supply with full itemized transparency.",
-                image: "/pay-card-tariffs.jpg"
+                image: "/pay-card-tariffs.webp"
               }
             ].map((card, i) => (
               <motion.div
@@ -869,8 +849,12 @@ function ConsumerPayPortalContent() {
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 p-1 flex items-center justify-center overflow-hidden shadow-inner">
                   <img
-                    src="/logo.png"
+                    src="/logo.webp"
                     alt="Vikasha CBO Official Logo"
+                    width={40}
+                    height={40}
+                    decoding="async"
+                    loading="lazy"
                     className="w-full h-full object-contain drop-shadow"
                   />
                 </div>

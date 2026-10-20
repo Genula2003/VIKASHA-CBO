@@ -51,8 +51,11 @@ export default function PageLoader({ onComplete, minDuration = 850 }: PageLoader
               className="w-20 h-20 rounded-2xl bg-white/10 border border-white/20 p-2.5 shadow-[0_0_35px_rgba(56,189,248,0.35)] backdrop-blur-md flex items-center justify-center overflow-hidden"
             >
               <img
-                src="/logo.png"
+                src="/logo.webp"
                 alt="Vikasha CBO Official Logo"
+                width={60}
+                height={60}
+                decoding="async"
                 className="w-full h-full object-contain drop-shadow"
               />
             </motion.div>

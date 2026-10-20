@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import ImageSlideshow from "@/components/ImageSlideshow";
-import PageLoader from "@/components/PageLoader";
 import VideoShowcase from "@/components/VideoShowcase";
 import {
   CreditCard,
@@ -77,48 +76,19 @@ export default function Home() {
     return () => clearInterval(timer);
   }, [rotatingWords.length]);
 
-  // Preload critical hero background and slideshow images for instantaneous zero-lag display
-  useEffect(() => {
-    const criticalImages = [
-      "/hero-nature-water.jpg",
-      "/card-smart-meter.jpg",
-      "/card-ebill-pay.jpg",
-      "/card-water-purity.jpg",
-      "/service-water-supply.jpg",
-      "/service-meter-reading.jpg",
-      "/service-water-quality.jpg",
-      "/gov-community-assembly.jpg",
-      "/gov-water-purification.jpg",
-      "/gov-digital-reconciliation.jpg"
-    ];
-
-    criticalImages.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-    });
-  }, []);
-
   const handleQuickSearch = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSearching(true);
-
-    // Smooth transition with micro-loading animation
-    setTimeout(() => {
-      if (quickAccount.trim()) {
-        router.push(`/pay?acc=${encodeURIComponent(quickAccount.trim())}`);
-      } else {
-        router.push("/pay");
-      }
-    }, 450);
+    if (quickAccount.trim()) {
+      router.push(`/pay?acc=${encodeURIComponent(quickAccount.trim())}`);
+    } else {
+      router.push("/pay");
+    }
   };
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-cyan-500 selection:text-slate-950 overflow-x-hidden">
 
-      {/* ========================================================================= */}
-      {/* 0. INITIAL PAGE WATER-RIPPLE PRELOADER ANIMATION */}
-      {/* ========================================================================= */}
-      <PageLoader minDuration={800} />
 
       {/* ========================================================================= */}
       {/* 1. HERO SECTION (NATURE WATER LAKE & METER ACCOUNT SEARCH) */}
@@ -134,11 +104,12 @@ export default function Home() {
           {/* Background Nature Water Lake Photo */}
           <div className="absolute inset-0 z-0">
             <img
-              src="/hero-nature-water.jpg"
+              src="/hero-nature-water.webp"
               alt="Magammana Nature Water Reservoir"
               className="w-full h-full object-cover object-center"
               loading="eager"
               fetchPriority="high"
+              decoding="async"
             />
             {/* Reduced-Darkness & Reduced-Blue Scrims: Clean Navy Scrim on the left for contrast, pure natural lake & greenery glowing through */}
             <div className="absolute inset-0 bg-gradient-to-r from-[#081B38]/80 via-[#081B38]/45 to-transparent" />
@@ -367,21 +338,21 @@ export default function Home() {
               category: "Smart Telemetry",
               title: "SMART METERING",
               desc: "High-precision optical telemetry logging and automated consumption tracking.",
-              image: "/card-smart-meter.jpg",
+              image: "/card-smart-meter.webp",
               href: "/pay"
             },
             {
               category: "Digital E-Billing",
               title: "ONLINE BILL PAY",
               desc: "Instant zero-surcharge settlement via LankaQR, Visa, Mastercard, and CEFT.",
-              image: "/card-ebill-pay.jpg",
+              image: "/card-ebill-pay.webp",
               href: "/pay"
             },
             {
               category: "Water Quality",
               title: "WATER PURITY",
               desc: "Continuous deep-well filtration and automated chlorination compliant with SLS 614.",
-              image: "/card-water-purity.jpg",
+              image: "/card-water-purity.webp",
               href: "#services"
             }
           ].map((card, i) => (
@@ -498,8 +469,10 @@ export default function Home() {
               className="group relative rounded-3xl overflow-hidden shadow-lg h-[320px] border border-slate-200"
             >
               <img
-                src="/service-water-supply.jpg"
+                src="/service-water-supply.webp"
                 alt="Potable Water Distribution Network"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#081B38]/90 via-[#081B38]/30 to-transparent" />
@@ -552,8 +525,10 @@ export default function Home() {
               className="group relative rounded-3xl overflow-hidden shadow-lg h-[320px] border border-slate-200"
             >
               <img
-                src="/service-meter-reading.jpg"
+                src="/service-meter-reading.webp"
                 alt="Optical Smart Meter Reading"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#081B38]/90 via-[#081B38]/30 to-transparent" />
@@ -606,8 +581,10 @@ export default function Home() {
               className="group relative rounded-3xl overflow-hidden shadow-lg h-[320px] border border-slate-200"
             >
               <img
-                src="/service-water-quality.jpg"
+                src="/service-water-quality.webp"
                 alt="Water Quality Purification Lab"
+                loading="lazy"
+                decoding="async"
                 className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#081B38]/90 via-[#081B38]/30 to-transparent" />
@@ -866,7 +843,7 @@ export default function Home() {
                 category: "Democracy & Oversight",
                 title: "COMMUNITY GOVERNED",
                 desc: "Managed democratically by elected resident committee members to maintain uninterrupted water pressure, transparent budgeting, and rapid maintenance.",
-                image: "/gov-community-assembly.jpg",
+                image: "/gov-community-assembly.webp",
                 actionText: "General Assembly",
                 icon: Building2
               },
@@ -874,7 +851,7 @@ export default function Home() {
                 category: "SLS 614 Standard",
                 title: "CERTIFIED WATER PURITY",
                 desc: "Deep-well extraction, high-capacity sand filtration, and automated chlorination compliant with National Drinking Water Standards (SLS 614).",
-                image: "/gov-water-purification.jpg",
+                image: "/gov-water-purification.webp",
                 actionText: "Laboratory Certified",
                 icon: Droplets
               },
@@ -882,7 +859,7 @@ export default function Home() {
                 category: "Public Transparency",
                 title: "100% DIGITAL RECONCILIATION",
                 desc: "Every meter reading, billing calculation, and payment is logged in real-time, preventing billing discrepancies or unverified receipts.",
-                image: "/gov-digital-reconciliation.jpg",
+                image: "/gov-digital-reconciliation.webp",
                 actionText: "DCWS Audited",
                 icon: FileCheck2
               }
@@ -957,8 +934,12 @@ export default function Home() {
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 p-1 flex items-center justify-center overflow-hidden shadow-inner">
                   <img
-                    src="/logo.png"
+                    src="/logo.webp"
                     alt="Vikasha CBO Official Logo"
+                    width={40}
+                    height={40}
+                    decoding="async"
+                    loading="lazy"
                     className="w-full h-full object-contain drop-shadow"
                   />
                 </div>

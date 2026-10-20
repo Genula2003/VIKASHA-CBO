@@ -40,8 +40,11 @@ export default function LoginPage() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/login-bg.jpg" 
+          src="/login-bg.webp" 
           alt="Login Background" 
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
           className="w-full h-full object-cover"
         />
         {/* Deep navy blue gradient overlay */}
@@ -59,8 +62,11 @@ export default function LoginPage() {
           <div className="flex flex-col items-center mb-8">
             <div className="w-16 h-16 rounded-2xl bg-white/95 border border-white/40 p-2 shadow-xl flex items-center justify-center mb-5 overflow-hidden">
               <img
-                src="/logo.png"
+                src="/logo.webp"
                 alt="Vikasha CBO Official Logo"
+                width={64}
+                height={64}
+                decoding="async"
                 className="w-full h-full object-contain"
               />
             </div>

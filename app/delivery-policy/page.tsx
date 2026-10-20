@@ -17,8 +17,11 @@ export default function DeliveryPolicyPage() {
           <Link href="/" className="flex items-center gap-3 group">
             <div className="w-10 h-10 rounded-xl bg-white border border-slate-200/90 shadow-sm flex items-center justify-center p-0.5 overflow-hidden">
               <img
-                src="/logo.png"
+                src="/logo.webp"
                 alt="Vikasha CBO Official Logo"
+                width={40}
+                height={40}
+                decoding="async"
                 className="w-full h-full object-contain"
               />
             </div>

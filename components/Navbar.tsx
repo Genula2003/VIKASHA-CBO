@@ -155,8 +155,11 @@ export default function Navbar({ activeTab = "home" }: NavbarProps) {
           >
             <div className="w-10 h-10 rounded-xl bg-white border border-slate-200/90 shadow-sm flex items-center justify-center p-0.5 group-hover:scale-105 transition-transform duration-300 overflow-hidden">
               <img
-                src="/logo.png"
+                src="/logo.webp"
                 alt="Vikasha CBO Official Logo"
+                width={40}
+                height={40}
+                decoding="async"
                 className="w-full h-full object-contain"
               />
             </div>
