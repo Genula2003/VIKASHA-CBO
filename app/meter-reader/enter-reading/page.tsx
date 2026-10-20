@@ -5,6 +5,7 @@ import { searchConsumer, submitReading } from './actions'
 import { formatDate } from '@/lib/format'
 import Link from 'next/link'
 import { Search, User, Hash, Calendar, Activity, CheckCircle2, ArrowRight, AlertCircle, Loader2, RotateCcw, Receipt, Droplets, MapPin, Printer } from 'lucide-react'
+import { ConsumerRecordSkeleton } from '@/components/ui/Skeleton'
 
 export default function EnterReadingPage() {
   const [accountNumber, setAccountNumber] = useState('')
@@ -129,6 +130,11 @@ export default function EnterReadingPage() {
               )}
             </form>
           </div>
+        )}
+
+        {/* Searching Consumer Skeleton */}
+        {isPendingSearch && !consumer && (
+          <ConsumerRecordSkeleton />
         )}
 
         {/* Step 2: Enter Reading */}

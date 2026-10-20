@@ -40,8 +40,11 @@ export default function LoginPage() {
       {/* Background Image */}
       <div className="absolute inset-0 z-0">
         <img 
-          src="/login-bg.jpg" 
+          src="/login-bg.webp" 
           alt="Login Background" 
+          loading="eager"
+          fetchPriority="high"
+          decoding="async"
           className="w-full h-full object-cover"
         />
         {/* Deep navy blue gradient overlay */}
@@ -57,8 +60,15 @@ export default function LoginPage() {
         <div className="rounded-[32px] bg-white/10 backdrop-blur-2xl border border-white/20 p-8 sm:p-10 shadow-[0_32px_80px_-16px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.1)_inset]">
           
           <div className="flex flex-col items-center mb-8">
-            <div className="bg-gradient-to-br from-[#0B132B] to-[#1C2541] text-white p-3.5 rounded-2xl shadow-lg shadow-[#0B132B]/20 mb-5">
-              <Droplet size={28} strokeWidth={2.5} className="text-[#0066FF]" />
+            <div className="w-16 h-16 rounded-2xl bg-white/95 border border-white/40 p-2 shadow-xl flex items-center justify-center mb-5 overflow-hidden">
+              <img
+                src="/logo.webp"
+                alt="Vikasha CBO Official Logo"
+                width={64}
+                height={64}
+                decoding="async"
+                className="w-full h-full object-contain"
+              />
             </div>
             <h2 className="text-3xl font-extrabold tracking-tight text-white mb-2">
               Vikasha CBO Portal

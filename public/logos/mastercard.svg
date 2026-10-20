@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 28" width="40" height="28" fill="none">
+  <rect width="40" height="28" rx="5" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1"/>
+  <!-- Red Circle -->
+  <circle cx="15.5" cy="14" r="8.5" fill="#EB001B"/>
+  <!-- Orange/Yellow Circle -->
+  <circle cx="24.5" cy="14" r="8.5" fill="#F79E1B" fill-opacity="0.92"/>
+  <!-- Center Intersection Blend -->
+  <path d="M20 7.828a8.47 8.47 0 0 1 4 6.172 8.47 8.47 0 0 1-4 6.172 8.47 8.47 0 0 1-4-6.172 8.47 8.47 0 0 1 4-6.172z" fill="#FF5F00"/>
+</svg>

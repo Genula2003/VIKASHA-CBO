@@ -15,8 +15,15 @@ export default function DeliveryPolicyPage() {
       <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
         <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-[#0B132B] to-[#0066FF] text-white flex items-center justify-center shadow-md">
-              <Droplet size={20} strokeWidth={2.5} />
+            <div className="w-10 h-10 rounded-xl bg-white border border-slate-200/90 shadow-sm flex items-center justify-center p-0.5 overflow-hidden">
+              <img
+                src="/logo.webp"
+                alt="Vikasha CBO Official Logo"
+                width={40}
+                height={40}
+                decoding="async"
+                className="w-full h-full object-contain"
+              />
             </div>
             <div>
               <span className="text-lg font-black tracking-tight text-[#0B132B]">Vikasha CBO</span>

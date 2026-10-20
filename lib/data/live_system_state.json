@@ -3939,6 +3939,32 @@
       "last_reading_value": 1,
       "last_reading_date": "2026-04-30"
     },
+    "500": {
+      "id": "f29c0693-302d-4166-ad08-12f46d26a5ab",
+      "account_number": "500",
+      "account_holder_name": "Dinidu sachintha",
+      "address": "jayanthi mawatha",
+      "area": "Magammana",
+      "mobile": "0719008719",
+      "email": "dinidusachintha7@gmail.com",
+      "status": "ACTIVE",
+      "created_at": "2026-10-20T17:15:15.032Z",
+      "last_reading_value": 106,
+      "last_reading_date": "2026-10-20"
+    },
+    "501": {
+      "id": "40d16694-dbb3-4f6d-a5c7-f40b5f91a7a6",
+      "account_number": "501",
+      "account_holder_name": "Dinidu sachintha",
+      "address": "athurugiriya",
+      "area": "Magammana",
+      "mobile": "0727839803",
+      "email": "dinidusachintha7@gmail.com",
+      "status": "ACTIVE",
+      "created_at": "2026-10-20T17:45:03.866Z",
+      "last_reading_value": 5,
+      "last_reading_date": "2026-10-20"
+    },
     "98.1": {
       "id": "591a59b4-7424-4701-a459-8e148c1b470a",
       "account_number": "98.1",
@@ -8867,6 +8893,45 @@
       "units_consumed": 2,
       "status": "VALID",
       "created_at": "2026-04-30T00:00:00Z"
+    },
+    {
+      "id": "reading-1792516515047-500",
+      "consumer_id": "f29c0693-302d-4166-ad08-12f46d26a5ab",
+      "account_number": "500",
+      "reader_id": "admin-console",
+      "reader_name": "Municipal Admin Terminal",
+      "reading_date": "2026-10-20",
+      "previous_reading": 0,
+      "current_reading": 96,
+      "units_consumed": 96,
+      "status": "VALID",
+      "created_at": "2026-10-20T17:15:15.047Z"
+    },
+    {
+      "id": "reading-1792518303882-501",
+      "consumer_id": "40d16694-dbb3-4f6d-a5c7-f40b5f91a7a6",
+      "account_number": "501",
+      "reader_id": "admin-console",
+      "reader_name": "Municipal Admin Terminal",
+      "reading_date": "2026-10-20",
+      "previous_reading": 0,
+      "current_reading": 5,
+      "units_consumed": 5,
+      "status": "VALID",
+      "created_at": "2026-10-20T17:45:03.882Z"
+    },
+    {
+      "id": "reading-1792524523209-500",
+      "consumer_id": "f29c0693-302d-4166-ad08-12f46d26a5ab",
+      "account_number": "500",
+      "reader_id": "b0eebc99-9c0b-4ef8-bb6d-6bb9bd380a22",
+      "reader_name": "Sunil Shantha",
+      "reading_date": "2026-10-20",
+      "previous_reading": 96,
+      "current_reading": 106,
+      "units_consumed": 10,
+      "status": "VALID",
+      "created_at": "2026-10-20T19:28:43.209Z"
     }
   ],
   "bills": [
@@ -21616,7 +21681,7 @@
       "previous_reading": 1520,
       "current_reading": 1530,
       "amount": 1121,
-      "status": "UNPAID",
+      "status": "PAID",
       "due_date": "2026-10-02",
       "access_token": "tok-ledger-79-2026",
       "pdf_url": null,
@@ -22328,7 +22393,7 @@
       "previous_reading": 3221,
       "current_reading": 3238,
       "amount": 2036,
-      "status": "UNPAID",
+      "status": "PAID",
       "due_date": "2026-10-02",
       "access_token": "tok-ledger-95-2026",
       "pdf_url": null,
@@ -23672,7 +23737,7 @@
       "previous_reading": 2060,
       "current_reading": 2072,
       "amount": 1351,
-      "status": "UNPAID",
+      "status": "PAID",
       "due_date": "2026-09-02",
       "access_token": "tok-ledger-39-2026",
       "pdf_url": null,
@@ -23868,7 +23933,7 @@
       "previous_reading": 1532,
       "current_reading": 1534,
       "amount": 454,
-      "status": "UNPAID",
+      "status": "PAID",
       "due_date": "2026-09-02",
       "access_token": "tok-ledger-46-2026",
       "pdf_url": null,
@@ -23908,7 +23973,7 @@
       "previous_reading": 380,
       "current_reading": 381,
       "amount": 385,
-      "status": "UNPAID",
+      "status": "PAID",
       "due_date": "2026-09-02",
       "access_token": "tok-ledger-47-2026",
       "pdf_url": null,
@@ -23948,7 +24013,7 @@
       "previous_reading": 88,
       "current_reading": 100,
       "amount": 1351,
-      "status": "UNPAID",
+      "status": "PAID",
       "due_date": "2026-09-02",
       "access_token": "tok-ledger-48-2026",
       "pdf_url": null,
@@ -24608,7 +24673,7 @@
       "previous_reading": 1118,
       "current_reading": 1124,
       "amount": 753,
-      "status": "UNPAID",
+      "status": "PAID",
       "due_date": "2026-09-02",
       "access_token": "tok-ledger-65-2026",
       "pdf_url": null,
@@ -24654,7 +24719,7 @@
       "previous_reading": 5507,
       "current_reading": 5518,
       "amount": 1236,
-      "status": "UNPAID",
+      "status": "PAID",
       "due_date": "2026-09-02",
       "access_token": "tok-ledger-68-2026",
       "pdf_url": null,
@@ -24822,7 +24887,7 @@
       "previous_reading": 2743,
       "current_reading": 2755,
       "amount": 1351,
-      "status": "UNPAID",
+      "status": "PAID",
       "due_date": "2026-09-02",
       "access_token": "tok-ledger-72-2026",
       "pdf_url": null,
@@ -25130,7 +25195,7 @@
       "previous_reading": 1093,
       "current_reading": 1098,
       "amount": 661,
-      "status": "UNPAID",
+      "status": "PAID",
       "due_date": "2026-09-02",
       "access_token": "tok-ledger-78-2026",
       "pdf_url": null,
@@ -25821,7 +25886,7 @@
       "previous_reading": 80,
       "current_reading": 96,
       "amount": 1554,
-      "status": "UNPAID",
+      "status": "PAID",
       "due_date": "2026-09-05",
       "access_token": "tok-ledger-25-aug",
       "created_at": "2026-08-16T00:00:00Z",
@@ -26013,7 +26078,7 @@
       "previous_reading": 2206,
       "current_reading": 2222,
       "amount": 601,
-      "status": "UNPAID",
+      "status": "PAID",
       "due_date": "2026-09-05",
       "access_token": "tok-ledger-27-aug",
       "created_at": "2026-08-16T00:00:00Z",
@@ -26733,7 +26798,7 @@
       "previous_reading": 2344,
       "current_reading": 2360,
       "amount": 866,
-      "status": "UNPAID",
+      "status": "PAID",
       "due_date": "2026-09-05",
       "access_token": "tok-ledger-34-aug",
       "created_at": "2026-08-16T00:00:00Z",
@@ -28771,6 +28836,183 @@
           "units": 1,
           "amount": 350,
           "order_index": 7
+        }
+      ]
+    },
+    {
+      "id": "bill-1792516515047-500",
+      "bill_number": "INV-2026-914824",
+      "consumer_id": "f29c0693-302d-4166-ad08-12f46d26a5ab",
+      "account_number": "500",
+      "account_holder_name": "Dinidu sachintha",
+      "address": "jayanthi mawatha",
+      "reading_id": "reading-1792516515047-500",
+      "billing_period_start": "2026-10-20",
+      "billing_period_end": "2026-10-20",
+      "units_consumed": 96,
+      "previous_reading": 0,
+      "current_reading": 96,
+      "amount": 26071,
+      "status": "PAID",
+      "due_date": "2026-11-10T17:15:15.039Z",
+      "access_token": "tok-ledger-500-mvgy1uxz",
+      "created_at": "2026-10-20T17:15:15.047Z",
+      "items": [
+        {
+          "description": "01 - 05 Units (5 units @ LKR 60)",
+          "units": 5,
+          "amount": 300,
+          "order_index": 1
+        },
+        {
+          "description": "06 - 10 Units (5 units @ LKR 80)",
+          "units": 5,
+          "amount": 400,
+          "order_index": 2
+        },
+        {
+          "description": "11 - 15 Units (5 units @ LKR 100)",
+          "units": 5,
+          "amount": 500,
+          "order_index": 3
+        },
+        {
+          "description": "16 - 20 Units (5 units @ LKR 110)",
+          "units": 5,
+          "amount": 550,
+          "order_index": 4
+        },
+        {
+          "description": "21 - 25 Units (5 units @ LKR 130)",
+          "units": 5,
+          "amount": 650,
+          "order_index": 5
+        },
+        {
+          "description": "26 - 30 Units (5 units @ LKR 160)",
+          "units": 5,
+          "amount": 800,
+          "order_index": 6
+        },
+        {
+          "description": "31 - 40 Units (10 units @ LKR 180)",
+          "units": 10,
+          "amount": 1800,
+          "order_index": 7
+        },
+        {
+          "description": "41 - 50 Units (10 units @ LKR 210)",
+          "units": 10,
+          "amount": 2100,
+          "order_index": 8
+        },
+        {
+          "description": "51 - 75 Units (25 units @ LKR 240)",
+          "units": 25,
+          "amount": 6000,
+          "order_index": 9
+        },
+        {
+          "description": "76+ Units (21 units @ LKR 270)",
+          "units": 21,
+          "amount": 5670,
+          "order_index": 10
+        },
+        {
+          "description": "Monthly Fixed Charge (ස්ථාවර ගාස්තුව)",
+          "units": 1,
+          "amount": 3900,
+          "order_index": 11
+        },
+        {
+          "description": "VAT / Tax (15% බදු)",
+          "units": 1,
+          "amount": 3401,
+          "order_index": 12
+        }
+      ]
+    },
+    {
+      "id": "bill-1792518303882-501",
+      "bill_number": "INV-2026-752204",
+      "consumer_id": "40d16694-dbb3-4f6d-a5c7-f40b5f91a7a6",
+      "account_number": "501",
+      "account_holder_name": "Dinidu sachintha",
+      "address": "athurugiriya",
+      "reading_id": "reading-1792518303882-501",
+      "billing_period_start": "2026-10-20",
+      "billing_period_end": "2026-10-20",
+      "units_consumed": 5,
+      "previous_reading": 0,
+      "current_reading": 5,
+      "amount": 661,
+      "status": "UNPAID",
+      "due_date": "2026-11-10T17:45:03.873Z",
+      "access_token": "tok-ledger-501-mvgz477u",
+      "created_at": "2026-10-20T17:45:03.882Z",
+      "items": [
+        {
+          "description": "01 - 05 Units (5 units @ LKR 60)",
+          "units": 5,
+          "amount": 300,
+          "order_index": 1
+        },
+        {
+          "description": "Monthly Fixed Charge (ස්ථාවර ගාස්තුව)",
+          "units": 1,
+          "amount": 275,
+          "order_index": 2
+        },
+        {
+          "description": "VAT / Tax (15% බදු)",
+          "units": 1,
+          "amount": 86,
+          "order_index": 3
+        }
+      ]
+    },
+    {
+      "id": "bill-1792524523210-500",
+      "bill_number": "INV-2026-181574",
+      "consumer_id": "f29c0693-302d-4166-ad08-12f46d26a5ab",
+      "account_number": "500",
+      "account_holder_name": "Dinidu sachintha",
+      "address": "jayanthi mawatha",
+      "reading_id": "reading-1792524523209-500",
+      "billing_period_start": "2026-10-20",
+      "billing_period_end": "2026-10-20",
+      "units_consumed": 10,
+      "previous_reading": 96,
+      "current_reading": 106,
+      "amount": 1121,
+      "status": "UNPAID",
+      "due_date": "2026-11-10T19:28:43.202Z",
+      "access_token": "tok-ledger-500-mvh2ti2y",
+      "created_at": "2026-10-20T19:28:43.210Z",
+      "items": [
+        {
+          "description": "01 - 05 Units (5 units @ LKR 60)",
+          "units": 5,
+          "amount": 300,
+          "order_index": 1
+        },
+        {
+          "description": "06 - 10 Units (5 units @ LKR 80)",
+          "units": 5,
+          "amount": 400,
+          "order_index": 2
+        },
+        {
+          "description": "Monthly Fixed Charge (ස්ථාවර ගාස්තුව)",
+          "units": 1,
+          "amount": 275,
+          "order_index": 3
+        },
+        {
+          "description": "VAT / Tax (15% බදු)",
+          "units": 1,
+          "amount": 146,
+          "order_index": 4
         }
       ]
     }
@@ -31883,6 +32125,174 @@
       "method": "Online Card (Visa/Mastercard)",
       "status": "SUCCESS",
       "paid_at": "2026-10-13T00:41:28.344Z"
+    },
+    {
+      "id": "payment-1792316689211-34",
+      "transaction_id": "TXN-202669103-34",
+      "bill_id": "bill-2026-08-34",
+      "bill_number": "INV-2026-08-0034",
+      "account_number": "34",
+      "account_holder_name": "MR R.P.D. නවින්ද්‍ර විලාන්",
+      "amount": 866,
+      "method": "Online Card (Visa/Mastercard)",
+      "status": "SUCCESS",
+      "paid_at": "2026-10-18T09:44:49.211Z"
+    },
+    {
+      "id": "payment-1792329698391-46",
+      "transaction_id": "TXN-202625191-46",
+      "bill_id": "bill-baseline-46",
+      "bill_number": "INV-2026-05-0046",
+      "account_number": "46",
+      "account_holder_name": "MRS L.A.W. CHANDRIKA",
+      "amount": 454,
+      "method": "Online Card (Visa/Mastercard)",
+      "status": "SUCCESS",
+      "paid_at": "2026-10-18T13:21:38.391Z"
+    },
+    {
+      "id": "payment-1792329717216-47",
+      "transaction_id": "TXN-202643679-47",
+      "bill_id": "bill-baseline-47",
+      "bill_number": "INV-2026-05-0047",
+      "account_number": "47",
+      "account_holder_name": "MR RANGA N. ATTHANAYAKE",
+      "amount": 385,
+      "method": "Online Card (Visa/Mastercard)",
+      "status": "SUCCESS",
+      "paid_at": "2026-10-18T13:21:57.216Z"
+    },
+    {
+      "id": "payment-1792329750425-48",
+      "transaction_id": "TXN-202623107-48",
+      "bill_id": "bill-baseline-48",
+      "bill_number": "INV-2026-05-0048",
+      "account_number": "48",
+      "account_holder_name": "MR W.S. FERNANDO",
+      "amount": 1351,
+      "method": "Sampath Vishwa / Commercial Bank",
+      "status": "SUCCESS",
+      "paid_at": "2026-10-18T13:22:30.425Z"
+    },
+    {
+      "id": "payment-1792329931608-78",
+      "transaction_id": "TXN-202631381-78",
+      "bill_id": "bill-baseline-78",
+      "bill_number": "INV-2026-05-0078",
+      "account_number": "78",
+      "account_holder_name": "MR D. CHANDIMA PEIRIS",
+      "amount": 661,
+      "method": "Online Card (Visa/Mastercard)",
+      "status": "SUCCESS",
+      "paid_at": "2026-10-18T13:25:31.608Z"
+    },
+    {
+      "id": "payment-1792329946332-79",
+      "transaction_id": "TXN-202616828-79",
+      "bill_id": "bill-baseline-79",
+      "bill_number": "INV-2026-05-0079",
+      "account_number": "79",
+      "account_holder_name": "MR SOMASIRI JAYAKODY",
+      "amount": 1121,
+      "method": "Online Card (Visa/Mastercard)",
+      "status": "SUCCESS",
+      "paid_at": "2026-10-18T13:25:46.332Z"
+    },
+    {
+      "id": "payment-1792329971402-65",
+      "transaction_id": "TXN-202664311-65",
+      "bill_id": "bill-baseline-65",
+      "bill_number": "INV-2026-05-0065",
+      "account_number": "65",
+      "account_holder_name": "MR UPUL NISHANTHA",
+      "amount": 753,
+      "method": "Online Card (Visa/Mastercard)",
+      "status": "SUCCESS",
+      "paid_at": "2026-10-18T13:26:11.402Z"
+    },
+    {
+      "id": "payment-1792329990588-27",
+      "transaction_id": "TXN-202657628-27",
+      "bill_id": "bill-2026-08-27",
+      "bill_number": "INV-2026-08-0027",
+      "account_number": "27",
+      "account_holder_name": "MRS D.A. අනුලාවතී",
+      "amount": 601,
+      "method": "LANKAQR / Genie / FriMi",
+      "status": "SUCCESS",
+      "paid_at": "2026-10-18T13:26:30.588Z"
+    },
+    {
+      "id": "payment-1792330007253-95",
+      "transaction_id": "TXN-202684308-95",
+      "bill_id": "bill-baseline-95",
+      "bill_number": "INV-2026-05-0095",
+      "account_number": "95",
+      "account_holder_name": "MRS K.M.G. DAMMIKA",
+      "amount": 2036,
+      "method": "Online Card (Visa/Mastercard)",
+      "status": "SUCCESS",
+      "paid_at": "2026-10-18T13:26:47.253Z"
+    },
+    {
+      "id": "payment-1792330098506-72",
+      "transaction_id": "TXN-202654515-72",
+      "bill_id": "bill-baseline-72",
+      "bill_number": "INV-2026-05-0072",
+      "account_number": "72",
+      "account_holder_name": "MR J.P.C. ABEYSINGHE",
+      "amount": 1351,
+      "method": "Online Card (Visa/Mastercard)",
+      "status": "SUCCESS",
+      "paid_at": "2026-10-18T13:28:18.506Z"
+    },
+    {
+      "id": "payment-1792339212818-25",
+      "transaction_id": "TXN-202625893-25",
+      "bill_id": "bill-2026-08-25",
+      "bill_number": "INV-2026-08-0025",
+      "account_number": "25",
+      "account_holder_name": "MR මංජුල සංජීව",
+      "amount": 1554,
+      "method": "Visa / MasterCard / Debit Card",
+      "status": "SUCCESS",
+      "paid_at": "2026-10-18T16:00:12.818Z"
+    },
+    {
+      "id": "payment-1792339995556-39",
+      "transaction_id": "TXN-202671955-39",
+      "bill_id": "bill-baseline-39",
+      "bill_number": "INV-2026-05-0039",
+      "account_number": "39",
+      "account_holder_name": "MR JAYANTHA GALLAHEWA",
+      "amount": 1351,
+      "method": "Online Card (Visa/Mastercard)",
+      "status": "SUCCESS",
+      "paid_at": "2026-10-18T16:13:15.556Z"
+    },
+    {
+      "id": "payment-1792344761318-68",
+      "transaction_id": "TXN-202662172-68",
+      "bill_id": "bill-baseline-68",
+      "bill_number": "INV-2026-05-0068",
+      "account_number": "68",
+      "account_holder_name": "MRS J.A. SANI JAYAKODI",
+      "amount": 1236,
+      "method": "Visa / MasterCard / Debit Card",
+      "status": "SUCCESS",
+      "paid_at": "2026-10-18T17:32:41.318Z"
+    },
+    {
+      "id": "payment-1792516547023-500",
+      "transaction_id": "TXN-202637925-500",
+      "bill_id": "bill-1792516515047-500",
+      "bill_number": "INV-2026-914824",
+      "account_number": "500",
+      "account_holder_name": "Dinidu sachintha",
+      "amount": 26071,
+      "method": "Visa / MasterCard / Debit Card",
+      "status": "SUCCESS",
+      "paid_at": "2026-10-20T17:15:47.023Z"
     }
   ],
   "audit_logs": [],
