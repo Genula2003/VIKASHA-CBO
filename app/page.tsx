@@ -8,6 +8,7 @@ import Navbar from "@/components/Navbar";
 import ImageSlideshow from "@/components/ImageSlideshow";
 import PageLoader from "@/components/PageLoader";
 import VideoShowcase from "@/components/VideoShowcase";
+import WaterServicesShowcase from "@/components/WaterServicesShowcase";
 import {
   CreditCard,
   Search,
@@ -454,307 +455,241 @@ export default function Home() {
             </motion.div>
           </div>
 
+          {/* ===================================================================== */}
+          {/* 6-CARD SERVICES MOSAIC GRID (GLASS CARDS) */}
+          {/* ===================================================================== */}
+          <div className="pt-2">
+            <WaterServicesShowcase />
+          </div>
+
           {/* Cinematic Water Services Video Showcase */}
-          <div className="pt-2 pb-2">
+          <div className="pt-4 pb-2">
             <VideoShowcase />
           </div>
 
-          {/* ===================================================================== */}
-          {/* 6-CARD SERVICES MOSAIC GRID (MATCHING USER TEMPLATE) */}
-          {/* ===================================================================== */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 pt-2">
-
-            {/* Row 1, Card 1: Water Supply Image */}
-            <motion.div
-              initial={{ opacity: 0, y: 35, filter: "blur(6px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.85, delay: 0.05, ease: smoothEase }}
-              whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              className="group relative rounded-3xl overflow-hidden shadow-lg h-[320px] border border-slate-200"
-            >
-              <img
-                src="/service-water-supply.webp"
-                alt="Potable Water Distribution Network"
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#081B38]/90 via-[#081B38]/30 to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5 text-white">
-                <span className="text-[10px] font-mono tracking-widest text-cyan-300 uppercase font-bold block mb-1">
-                  INFRASTRUCTURE
-                </span>
-                <h4 className="text-lg font-bold text-white">Municipal Ring-Main Distribution</h4>
-              </div>
-            </motion.div>
-
-            {/* Row 1, Card 2: Navy Text Card 01 */}
-            <motion.div
-              initial={{ opacity: 0, y: 35, filter: "blur(6px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.85, delay: 0.15, ease: smoothEase }}
-              whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              className="rounded-3xl bg-gradient-to-br from-[#081B38] via-[#0B2548] to-[#0A1E3C] p-7 text-white shadow-xl flex flex-col justify-between border border-white/10 group"
-            >
-              <div className="space-y-3">
-                <span className="text-[10px] font-mono tracking-widest text-amber-300 uppercase font-bold block">
-                  SERVICE 01 &bull; POTABLE DISTRIBUTION
-                </span>
-                <h3 className="text-xl font-bold text-white tracking-tight leading-snug">
-                  Potable Water Distribution Grids
-                </h3>
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  Engineering continuous 24/7 municipal water supply to 12,500+ households with automated pressure balancing, zoned telemetry, and rapid leak dispatch.
-                </p>
-              </div>
-              <div className="pt-6">
-                <Link
-                  href="/pay"
-                  className="inline-flex items-center gap-2 text-xs font-bold text-cyan-300 group-hover:text-cyan-200 transition-colors"
-                >
-                  <span>Explore Service</span>
-                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </motion.div>
-
-            {/* Row 1, Card 3: Smart Meter Image */}
-            <motion.div
-              initial={{ opacity: 0, y: 35, filter: "blur(6px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.85, delay: 0.25, ease: smoothEase }}
-              whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              className="group relative rounded-3xl overflow-hidden shadow-lg h-[320px] border border-slate-200"
-            >
-              <img
-                src="/service-meter-reading.webp"
-                alt="Optical Smart Meter Reading"
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#081B38]/90 via-[#081B38]/30 to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5 text-white">
-                <span className="text-[10px] font-mono tracking-widest text-cyan-300 uppercase font-bold block mb-1">
-                  DIGITAL METERS
-                </span>
-                <h4 className="text-lg font-bold text-white">Precision Field Telemetry</h4>
-              </div>
-            </motion.div>
-
-            {/* Row 2, Card 4: Navy Text Card 02 */}
-            <motion.div
-              initial={{ opacity: 0, y: 35, filter: "blur(6px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.85, delay: 0.1, ease: smoothEase }}
-              whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              className="rounded-3xl bg-gradient-to-br from-[#081B38] via-[#0B2548] to-[#0A1E3C] p-7 text-white shadow-xl flex flex-col justify-between border border-white/10 group"
-            >
-              <div className="space-y-3">
-                <span className="text-[10px] font-mono tracking-widest text-amber-300 uppercase font-bold block">
-                  SERVICE 02 &bull; SMART AUDITING
-                </span>
-                <h3 className="text-xl font-bold text-white tracking-tight leading-snug">
-                  Digital Metering &amp; Arrears Audit
-                </h3>
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  Transparent optical &amp; mobile meter logging with instant consumption auditing, automated arrears reconciliation, and verified digital receipts.
-                </p>
-              </div>
-              <div className="pt-6">
-                <Link
-                  href="/pay"
-                  className="inline-flex items-center gap-2 text-xs font-bold text-cyan-300 group-hover:text-cyan-200 transition-colors"
-                >
-                  <span>Explore Service</span>
-                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                </Link>
-              </div>
-            </motion.div>
-
-            {/* Row 2, Card 5: Water Quality Lab Image */}
-            <motion.div
-              initial={{ opacity: 0, y: 35, filter: "blur(6px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.85, delay: 0.2, ease: smoothEase }}
-              whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              className="group relative rounded-3xl overflow-hidden shadow-lg h-[320px] border border-slate-200"
-            >
-              <img
-                src="/service-water-quality.webp"
-                alt="Water Quality Purification Lab"
-                loading="lazy"
-                decoding="async"
-                className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-[#081B38]/90 via-[#081B38]/30 to-transparent" />
-              <div className="absolute bottom-5 left-5 right-5 text-white">
-                <span className="text-[10px] font-mono tracking-widest text-emerald-300 uppercase font-bold block mb-1">
-                  SLS 614 CERTIFIED
-                </span>
-                <h4 className="text-lg font-bold text-white">Purification &amp; Testing Facility</h4>
-              </div>
-            </motion.div>
-
-            {/* Row 2, Card 6: Navy Text Card 03 */}
-            <motion.div
-              initial={{ opacity: 0, y: 35, filter: "blur(6px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.85, delay: 0.3, ease: smoothEase }}
-              whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              className="rounded-3xl bg-gradient-to-br from-[#081B38] via-[#0B2548] to-[#0A1E3C] p-7 text-white shadow-xl flex flex-col justify-between border border-white/10 group"
-            >
-              <div className="space-y-3">
-                <span className="text-[10px] font-mono tracking-widest text-amber-300 uppercase font-bold block">
-                  SERVICE 03 &bull; WATER PURITY
-                </span>
-                <h3 className="text-xl font-bold text-white tracking-tight leading-snug">
-                  Purity &amp; SLS 614 Certification
-                </h3>
-                <p className="text-xs text-slate-300 leading-relaxed">
-                  Rigorous multi-stage sand filtration, deep aquifer extraction, and continuous chlorination compliant with National Drinking Water Standards.
-                </p>
-              </div>
-              <div className="pt-6">
-                <a
-                  href="#about"
-                  className="inline-flex items-center gap-2 text-xs font-bold text-cyan-300 group-hover:text-cyan-200 transition-colors"
-                >
-                  <span>Explore Service</span>
-                  <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
-                </a>
-              </div>
-            </motion.div>
-
-          </div>
-
-          {/* 4 Interactive Clean White Bento Cards with Staggered Scroll Entrance */}
+          {/* 4 Bespoke Consumer Utility Action Cards (Human-Crafted, Non-Generic Architecture) */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 pt-4">
 
             {/* Card 1: Pay Water Bill */}
             <motion.div
-              initial={{ opacity: 0, y: 38, filter: "blur(6px)" }}
+              initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.85, delay: 0.08, ease: smoothEase }}
-              whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.25, ease: "easeOut" } }}
-              className="rounded-3xl bg-slate-50/80 border border-slate-200/90 p-6 shadow-sm hover:border-[#0284c7] hover:bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.75, delay: 0.08, ease: smoothEase }}
+              whileHover={{ y: -6, transition: { duration: 0.25 } }}
+              className="rounded-2xl bg-white border border-slate-200/90 p-6 sm:p-7 shadow-[0_12px_32px_rgba(8,27,56,0.06)] hover:shadow-[0_22px_50px_rgba(0,78,235,0.14)] hover:border-[#0057E7]/40 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
             >
-              <div className="space-y-4">
-                <div className="w-13 h-13 rounded-2xl bg-blue-100/90 border border-blue-200 flex items-center justify-center text-[#0284c7] group-hover:scale-110 transition-transform duration-300">
-                  <ReceiptText size={26} />
-                </div>
+              {/* Subtle ambient light glow */}
+              <div className="absolute -top-16 -right-16 w-32 h-32 rounded-full bg-blue-400/10 blur-2xl pointer-events-none group-hover:bg-blue-400/20 transition-all duration-500" />
+
+              <Link href="/pay" className="flex flex-col justify-between h-full">
                 <div>
-                  <h3 className="text-lg font-bold text-[#0c1f38] tracking-tight">Pay Water Bill</h3>
-                  <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                    Pay your current or past bills securely online.
+                  {/* Top Bar: Eyebrow Tag & Layered Gradient Icon */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-blue-50 text-[#0057E7] border border-blue-200/60 shadow-xs">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#0057E7] animate-pulse" />
+                      Instant Pay
+                    </span>
+                    <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-blue-500 to-[#0057E7] text-white flex items-center justify-center shadow-[0_6px_16px_rgba(0,87,231,0.32)] group-hover:scale-110 transition-transform duration-300">
+                      <ReceiptText size={20} />
+                    </div>
+                  </div>
+
+                  {/* Title & Authentic Copy */}
+                  <h3 className="text-lg font-bold text-[#081B38] tracking-tight group-hover:text-[#0057E7] transition-colors">
+                    Pay Water Bill
+                  </h3>
+                  <p className="text-xs text-slate-500 mt-1.5 leading-relaxed font-normal">
+                    Settle monthly tariffs securely via LankaQR, Visa, Mastercard, or direct CEFT with zero surcharges.
                   </p>
+
+                  {/* Trust & Guarantee Micro-Chips */}
+                  <div className="mt-4 pt-3.5 border-t border-slate-100 flex flex-wrap gap-1.5 text-[11px]">
+                    <span className="inline-flex items-center gap-1 text-slate-600 font-medium bg-slate-50 px-2 py-0.5 rounded-md border border-slate-100">
+                      <Lock size={10} className="text-emerald-600" /> 256-Bit SSL
+                    </span>
+                    <span className="inline-flex items-center gap-1 text-slate-600 font-medium bg-slate-50 px-2 py-0.5 rounded-md border border-slate-100">
+                      <CheckCircle2 size={10} className="text-blue-600" /> Instant PDF Receipt
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div className="pt-6 flex justify-end">
-                <Link
-                  href="/pay"
-                  className="w-10 h-10 rounded-full bg-white border border-slate-200 group-hover:bg-[#0284c7] group-hover:text-white text-slate-700 flex items-center justify-center transition-all duration-300 shadow-sm"
-                >
-                  <ArrowRight size={16} />
-                </Link>
-              </div>
+
+                {/* Bottom Interactive Trigger */}
+                <div className="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#081B38] group-hover:text-[#0057E7] transition-colors">
+                  <span className="font-mono uppercase tracking-wider text-[11px]">Pay Bill Now</span>
+                  <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-[#0057E7] group-hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm">
+                    <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </div>
+              </Link>
             </motion.div>
 
             {/* Card 2: View Bill History */}
             <motion.div
-              initial={{ opacity: 0, y: 38, filter: "blur(6px)" }}
+              initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.85, delay: 0.18, ease: smoothEase }}
-              whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.25, ease: "easeOut" } }}
-              className="rounded-3xl bg-slate-50/80 border border-slate-200/90 p-6 shadow-sm hover:border-[#0284c7] hover:bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.75, delay: 0.16, ease: smoothEase }}
+              whileHover={{ y: -6, transition: { duration: 0.25 } }}
+              className="rounded-2xl bg-white border border-slate-200/90 p-6 sm:p-7 shadow-[0_12px_32px_rgba(8,27,56,0.06)] hover:shadow-[0_22px_50px_rgba(6,182,212,0.14)] hover:border-cyan-500/40 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
             >
-              <div className="space-y-4">
-                <div className="w-13 h-13 rounded-2xl bg-cyan-100/90 border border-cyan-200 flex items-center justify-center text-cyan-700 group-hover:scale-110 transition-transform duration-300">
-                  <Search size={26} />
-                </div>
+              {/* Subtle ambient light glow */}
+              <div className="absolute -top-16 -right-16 w-32 h-32 rounded-full bg-cyan-400/10 blur-2xl pointer-events-none group-hover:bg-cyan-400/20 transition-all duration-500" />
+
+              <Link href="/pay" className="flex flex-col justify-between h-full">
                 <div>
-                  <h3 className="text-lg font-bold text-[#0c1f38] tracking-tight">View Bill History</h3>
-                  <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                    Check and download your previous bills.
+                  {/* Top Bar: Eyebrow Tag & Layered Gradient Icon */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-cyan-50 text-cyan-700 border border-cyan-200/60 shadow-xs">
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
+                      E-Statements
+                    </span>
+                    <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-cyan-500 to-sky-600 text-white flex items-center justify-center shadow-[0_6px_16px_rgba(6,182,212,0.32)] group-hover:scale-110 transition-transform duration-300">
+                      <Search size={20} />
+                    </div>
+                  </div>
+
+                  {/* Title & Authentic Copy */}
+                  <h3 className="text-lg font-bold text-[#081B38] tracking-tight group-hover:text-cyan-700 transition-colors">
+                    Bill &amp; Audit History
+                  </h3>
+                  <p className="text-xs text-slate-500 mt-1.5 leading-relaxed font-normal">
+                    Inspect past optical meter readings, track arrears reconciliations, and retrieve certified public ledgers.
                   </p>
+
+                  {/* Micro-Features */}
+                  <div className="mt-4 pt-3.5 border-t border-slate-100 flex flex-wrap gap-1.5 text-[11px]">
+                    <span className="inline-flex items-center gap-1 text-slate-600 font-medium bg-slate-50 px-2 py-0.5 rounded-md border border-slate-100">
+                      <FileText size={10} className="text-cyan-600" /> 12-Month Archive
+                    </span>
+                    <span className="inline-flex items-center gap-1 text-slate-600 font-medium bg-slate-50 px-2 py-0.5 rounded-md border border-slate-100">
+                      <CheckCircle2 size={10} className="text-emerald-600" /> Optical Photo Proof
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div className="pt-6 flex justify-end">
-                <Link
-                  href="/pay"
-                  className="w-10 h-10 rounded-full bg-white border border-slate-200 group-hover:bg-[#0284c7] group-hover:text-white text-slate-700 flex items-center justify-center transition-all duration-300 shadow-sm"
-                >
-                  <ArrowRight size={16} />
-                </Link>
-              </div>
+
+                {/* Bottom Interactive Trigger */}
+                <div className="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#081B38] group-hover:text-cyan-700 transition-colors">
+                  <span className="font-mono uppercase tracking-wider text-[11px]">Search Records</span>
+                  <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-cyan-600 group-hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm">
+                    <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </div>
+              </Link>
             </motion.div>
 
-            {/* Card 3: Usage Details */}
+            {/* Card 3: Usage Details & Analytics */}
             <motion.div
-              initial={{ opacity: 0, y: 38, filter: "blur(6px)" }}
+              initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.85, delay: 0.28, ease: smoothEase }}
-              whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.25, ease: "easeOut" } }}
-              className="rounded-3xl bg-slate-50/80 border border-slate-200/90 p-6 shadow-sm hover:border-[#0284c7] hover:bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.75, delay: 0.24, ease: smoothEase }}
+              whileHover={{ y: -6, transition: { duration: 0.25 } }}
+              className="rounded-2xl bg-white border border-slate-200/90 p-6 sm:p-7 shadow-[0_12px_32px_rgba(8,27,56,0.06)] hover:shadow-[0_22px_50px_rgba(99,102,241,0.14)] hover:border-indigo-500/40 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
             >
-              <div className="space-y-4">
-                <div className="w-13 h-13 rounded-2xl bg-blue-100/90 border border-blue-200 flex items-center justify-center text-[#0284c7] group-hover:scale-110 transition-transform duration-300">
-                  <BarChart3 size={26} />
-                </div>
+              {/* Subtle ambient light glow */}
+              <div className="absolute -top-16 -right-16 w-32 h-32 rounded-full bg-indigo-400/10 blur-2xl pointer-events-none group-hover:bg-indigo-400/20 transition-all duration-500" />
+
+              <Link href="/pay" className="flex flex-col justify-between h-full">
                 <div>
-                  <h3 className="text-lg font-bold text-[#0c1f38] tracking-tight">Usage Details</h3>
-                  <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                    Track your water consumption and usage history.
+                  {/* Top Bar: Eyebrow Tag & Layered Gradient Icon */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-indigo-50 text-indigo-700 border border-indigo-200/60 shadow-xs">
+                      <span className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+                      Telemetry Hub
+                    </span>
+                    <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-indigo-500 to-sky-600 text-white flex items-center justify-center shadow-[0_6px_16px_rgba(99,102,241,0.32)] group-hover:scale-110 transition-transform duration-300">
+                      <BarChart3 size={20} />
+                    </div>
+                  </div>
+
+                  {/* Title & Authentic Copy */}
+                  <h3 className="text-lg font-bold text-[#081B38] tracking-tight group-hover:text-indigo-700 transition-colors">
+                    Usage &amp; Consumption
+                  </h3>
+                  <p className="text-xs text-slate-500 mt-1.5 leading-relaxed font-normal">
+                    Track household cubic meter flow patterns, compare billing periods, and receive automated leak warning alerts.
                   </p>
+
+                  {/* Micro Sparkline & Tariff Chips */}
+                  <div className="mt-4 pt-3.5 border-t border-slate-100 flex items-center justify-between text-[11px]">
+                    <div className="flex items-end gap-1 h-5 px-1">
+                      {[30, 55, 40, 80, 60, 95].map((val, idx) => (
+                        <div
+                          key={idx}
+                          style={{ height: `${val}%` }}
+                          className="w-1.5 bg-indigo-400 rounded-t-xs opacity-75 group-hover:opacity-100 transition-opacity"
+                        />
+                      ))}
+                    </div>
+                    <span className="font-mono text-slate-600 font-semibold text-[10px] bg-slate-50 px-2 py-0.5 rounded-md border border-slate-100">
+                      14.2 m³ / Mo Avg
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div className="pt-6 flex justify-end">
-                <Link
-                  href="/pay"
-                  className="w-10 h-10 rounded-full bg-white border border-slate-200 group-hover:bg-[#0284c7] group-hover:text-white text-slate-700 flex items-center justify-center transition-all duration-300 shadow-sm"
-                >
-                  <ArrowRight size={16} />
-                </Link>
-              </div>
+
+                {/* Bottom Interactive Trigger */}
+                <div className="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#081B38] group-hover:text-indigo-700 transition-colors">
+                  <span className="font-mono uppercase tracking-wider text-[11px]">Track Usage</span>
+                  <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-indigo-600 group-hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm">
+                    <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </div>
+              </Link>
             </motion.div>
 
-            {/* Card 4: Service Requests */}
+            {/* Card 4: Service Requests & Citizen Helpdesk */}
             <motion.div
-              initial={{ opacity: 0, y: 38, filter: "blur(6px)" }}
+              initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.85, delay: 0.38, ease: smoothEase }}
-              whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.25, ease: "easeOut" } }}
-              className="rounded-3xl bg-slate-50/80 border border-slate-200/90 p-6 shadow-sm hover:border-[#0284c7] hover:bg-white hover:shadow-xl transition-all duration-300 flex flex-col justify-between group"
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.75, delay: 0.32, ease: smoothEase }}
+              whileHover={{ y: -6, transition: { duration: 0.25 } }}
+              className="rounded-2xl bg-white border border-slate-200/90 p-6 sm:p-7 shadow-[0_12px_32px_rgba(8,27,56,0.06)] hover:shadow-[0_22px_50px_rgba(16,185,129,0.14)] hover:border-emerald-500/40 transition-all duration-300 flex flex-col justify-between group relative overflow-hidden"
             >
-              <div className="space-y-4">
-                <div className="w-13 h-13 rounded-2xl bg-indigo-100/90 border border-indigo-200 flex items-center justify-center text-indigo-700 group-hover:scale-110 transition-transform duration-300">
-                  <Wrench size={26} />
-                </div>
+              {/* Subtle ambient light glow */}
+              <div className="absolute -top-16 -right-16 w-32 h-32 rounded-full bg-emerald-400/10 blur-2xl pointer-events-none group-hover:bg-emerald-400/20 transition-all duration-500" />
+
+              <a href="#about" className="flex flex-col justify-between h-full">
                 <div>
-                  <h3 className="text-lg font-bold text-[#0c1f38] tracking-tight">Service Requests</h3>
-                  <p className="text-xs text-slate-500 mt-1 leading-relaxed">
-                    Request new connections, complaints and more.
+                  {/* Top Bar: Eyebrow Tag & Layered Gradient Icon */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold tracking-wider uppercase bg-emerald-50 text-emerald-700 border border-emerald-200/60 shadow-xs">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                      24/7 Citizen Desk
+                    </span>
+                    <div className="w-11 h-11 rounded-2xl bg-gradient-to-br from-emerald-500 to-teal-600 text-white flex items-center justify-center shadow-[0_6px_16px_rgba(16,185,129,0.32)] group-hover:scale-110 transition-transform duration-300">
+                      <Wrench size={20} />
+                    </div>
+                  </div>
+
+                  {/* Title & Authentic Copy */}
+                  <h3 className="text-lg font-bold text-[#081B38] tracking-tight group-hover:text-emerald-700 transition-colors">
+                    Service Requests
+                  </h3>
+                  <p className="text-xs text-slate-500 mt-1.5 leading-relaxed font-normal">
+                    Apply for new water connections, request meter calibration, report pipe leaks, or dispatch rapid on-call technicians.
                   </p>
+
+                  {/* SLA & Hotline Chips */}
+                  <div className="mt-4 pt-3.5 border-t border-slate-100 flex flex-wrap gap-1.5 text-[11px]">
+                    <span className="inline-flex items-center gap-1 text-slate-600 font-medium bg-slate-50 px-2 py-0.5 rounded-md border border-slate-100">
+                      <Zap size={10} className="text-amber-500" /> Rapid Dispatch &lt; 45m
+                    </span>
+                    <span className="inline-flex items-center gap-1 text-slate-600 font-medium bg-slate-50 px-2 py-0.5 rounded-md border border-slate-100">
+                      <Clock size={10} className="text-emerald-600" /> 24/7 Hotline
+                    </span>
+                  </div>
                 </div>
-              </div>
-              <div className="pt-6 flex justify-end">
-                <a
-                  href="#leaks"
-                  className="w-10 h-10 rounded-full bg-white border border-slate-200 group-hover:bg-[#0284c7] group-hover:text-white text-slate-700 flex items-center justify-center transition-all duration-300 shadow-sm"
-                >
-                  <ArrowRight size={16} />
-                </a>
-              </div>
+
+                {/* Bottom Interactive Trigger */}
+                <div className="pt-4 mt-3 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#081B38] group-hover:text-emerald-700 transition-colors">
+                  <span className="font-mono uppercase tracking-wider text-[11px]">Submit Request</span>
+                  <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-emerald-600 group-hover:text-white flex items-center justify-center transition-all duration-300 shadow-sm">
+                    <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                  </div>
+                </div>
+              </a>
             </motion.div>
 
           </div>
