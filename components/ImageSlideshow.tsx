@@ -308,10 +308,10 @@ export default function ImageSlideshow() {
             {/* 2. CENTER CARD (Elevated Hero with Smooth Progress & Clickable Image) */}
             {/* ============================================================== */}
             <div
-              className="flex flex-col items-center text-center rounded-[36px] sm:rounded-[42px] bg-gradient-to-b from-white via-white to-blue-50/25 border-2 border-blue-500/30 p-8 sm:p-10 md:py-14 md:-my-5 shadow-[0_20px_50px_rgba(0,102,255,0.12),0_4px_20px_rgba(8,27,56,0.06)] hover:shadow-[0_25px_60px_rgba(0,102,255,0.18)] transition-all duration-500 z-10 relative overflow-hidden group select-none"
+              className="flex flex-col items-center text-center rounded-[28px] sm:rounded-[42px] bg-gradient-to-b from-white via-white to-blue-50/25 border-2 border-blue-500/30 p-5 sm:p-10 md:py-14 md:-my-5 shadow-[0_20px_50px_rgba(0,102,255,0.12),0_4px_20px_rgba(8,27,56,0.06)] hover:shadow-[0_25px_60px_rgba(0,102,255,0.18)] transition-all duration-500 z-10 relative overflow-hidden group select-none"
             >
               {/* Top Badge */}
-              <span className="absolute top-4 sm:top-5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-[10px] font-mono font-bold tracking-wider text-[#0066FF] uppercase shadow-xs">
+              <span className="absolute top-3.5 sm:top-5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-[10px] font-mono font-bold tracking-wider text-[#0066FF] uppercase shadow-xs">
                 {centerItem.badge || "FEATURED INFRASTRUCTURE"}
               </span>
 
@@ -319,7 +319,7 @@ export default function ImageSlideshow() {
               <div
                 onClick={() => setSelectedPillar(centerItem)}
                 title="Click image to explore detailed specifications smoothly"
-                className="w-56 h-56 sm:w-64 sm:h-64 rounded-full p-2 bg-gradient-to-tr from-blue-500/25 via-sky-400/20 to-cyan-300/35 shadow-[0_16px_36px_rgba(0,102,255,0.18)] mb-7 mt-3 relative transition-transform duration-500 group-hover:scale-105 cursor-pointer"
+                className="w-44 h-44 sm:w-64 sm:h-64 rounded-full p-1.5 sm:p-2 bg-gradient-to-tr from-blue-500/25 via-sky-400/20 to-cyan-300/35 shadow-[0_16px_36px_rgba(0,102,255,0.18)] mb-5 sm:mb-7 mt-3 relative transition-transform duration-500 group-hover:scale-105 cursor-pointer"
               >
                 <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-inner relative bg-slate-100">
                   <AnimatePresence mode="wait">
@@ -356,11 +356,11 @@ export default function ImageSlideshow() {
                   transition={{ duration: 0.35 }}
                   className="flex flex-col items-center"
                 >
-                  <h3 className="font-bold tracking-[0.14em] uppercase text-[#081B38] font-sans text-sm sm:text-base group-hover:text-[#0066FF] transition-colors">
+                  <h3 className="font-bold tracking-[0.14em] uppercase text-[#081B38] font-sans text-xs sm:text-base group-hover:text-[#0066FF] transition-colors">
                     {centerItem.name}
                   </h3>
 
-                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-[280px] mt-2.5 mb-7 font-normal">
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-[280px] mt-2 mb-6 sm:mb-7 font-normal">
                     {centerItem.subtitle}
                   </p>
                 </motion.div>
@@ -370,14 +370,14 @@ export default function ImageSlideshow() {
               <button
                 type="button"
                 onClick={() => setSelectedPillar(centerItem)}
-                className="rounded-full bg-[#0066FF] hover:bg-blue-600 text-white font-bold text-xs sm:text-sm px-8 py-3.5 inline-flex items-center gap-2 transition-all duration-300 shadow-md shadow-blue-500/25 hover:scale-105 active:scale-95 cursor-pointer"
+                className="rounded-full bg-[#0066FF] hover:bg-blue-600 text-white font-bold text-xs sm:text-sm px-7 sm:px-8 py-3 sm:py-3.5 inline-flex items-center gap-2 transition-all duration-300 shadow-md shadow-blue-500/25 hover:scale-105 active:scale-95 cursor-pointer"
               >
                 <span>Explore</span>
                 <span className="text-sm leading-none">&rarr;</span>
               </button>
 
               {/* Sleek 4-Second Auto-Slide Progress Bar */}
-              <div className="w-28 h-1 bg-blue-100 rounded-full overflow-hidden mt-6" title="Auto-rotates every 4 seconds">
+              <div className="w-28 h-1 bg-blue-100 rounded-full overflow-hidden mt-5 sm:mt-6" title="Auto-rotates every 4 seconds">
                 <div
                   key={`${currentIndex}-${isPaused}`}
                   className={`h-full bg-[#0066FF] ${isPaused ? "w-0 opacity-40" : "animate-progress"}`}
@@ -390,11 +390,11 @@ export default function ImageSlideshow() {
               </div>
 
               {/* Mobile Prev/Next Controls */}
-              <div className="flex md:hidden items-center justify-between w-full mt-6 px-4">
+              <div className="flex md:hidden items-center justify-between w-full mt-5 px-2">
                 <button
                   type="button"
                   onClick={handlePrev}
-                  className="px-4 py-2 rounded-full border border-slate-200 text-xs font-semibold text-slate-700 bg-white shadow-xs flex items-center gap-1"
+                  className="px-4 py-2 rounded-full border border-slate-200 text-xs font-semibold text-slate-700 bg-white shadow-xs flex items-center gap-1 active:scale-95 transition-transform"
                 >
                   <ChevronLeft size={14} />
                   <span>Prev</span>
@@ -402,7 +402,7 @@ export default function ImageSlideshow() {
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="px-4 py-2 rounded-full border border-slate-200 text-xs font-semibold text-slate-700 bg-white shadow-xs flex items-center gap-1"
+                  className="px-4 py-2 rounded-full border border-slate-200 text-xs font-semibold text-slate-700 bg-white shadow-xs flex items-center gap-1 active:scale-95 transition-transform"
                 >
                   <span>Next</span>
                   <ChevronRight size={14} />
@@ -516,44 +516,44 @@ export default function ImageSlideshow() {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.94, y: 20 }}
                 transition={{ duration: 0.32, ease: smoothEase }}
-                className="relative w-full max-w-2xl bg-white rounded-[32px] shadow-2xl border border-slate-200 overflow-hidden z-10 my-auto flex flex-col max-h-[90vh]"
+                className="relative w-full max-w-2xl bg-white rounded-2xl sm:rounded-[32px] shadow-2xl border border-slate-200 overflow-hidden z-10 my-auto flex flex-col max-h-[92vh]"
               >
                 {/* Modal Header Photo */}
-                <div className="relative h-60 sm:h-72 w-full bg-slate-900 overflow-hidden shrink-0">
+                <div className="relative h-48 sm:h-72 w-full bg-slate-900 overflow-hidden shrink-0">
                   <img
                     src={selectedPillar.image}
                     alt={selectedPillar.name}
                     className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#081B38] via-[#081B38]/45 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#081B38] via-[#081B38]/50 to-transparent" />
 
                   {/* Close Button */}
                   <button
                     type="button"
                     onClick={() => setSelectedPillar(null)}
-                    className="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/40 hover:bg-black/70 text-white backdrop-blur-md flex items-center justify-center transition-colors cursor-pointer z-10"
+                    className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black/50 hover:bg-black/75 text-white backdrop-blur-md flex items-center justify-center transition-colors cursor-pointer z-10"
                     aria-label="Close modal"
                   >
-                    <X size={18} />
+                    <X size={17} />
                   </button>
 
                   {/* Modal Title & Category */}
-                  <div className="absolute bottom-5 left-6 right-6 text-white">
-                    <span className="px-3 py-1 rounded-full bg-white/20 backdrop-blur-md text-[10px] font-mono tracking-wider uppercase border border-white/30 text-cyan-200 font-bold">
+                  <div className="absolute bottom-4 sm:bottom-5 left-4 sm:left-6 right-4 sm:right-6 text-white">
+                    <span className="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-white/20 backdrop-blur-md text-[9px] sm:text-[10px] font-mono tracking-wider uppercase border border-white/30 text-cyan-200 font-bold">
                       {selectedPillar.category}
                     </span>
-                    <h3 className="text-2xl sm:text-3xl font-black font-serif mt-2 tracking-tight">
+                    <h3 className="text-xl sm:text-3xl font-black font-serif mt-1.5 sm:mt-2 tracking-tight">
                       {selectedPillar.name}
                     </h3>
-                    <p className="flex items-center gap-1.5 text-xs text-slate-300 font-medium mt-1">
-                      <MapPin size={13} className="text-cyan-400" />
-                      {selectedPillar.location}
+                    <p className="flex items-center gap-1.5 text-[11px] sm:text-xs text-slate-300 font-medium mt-1">
+                      <MapPin size={12} className="text-cyan-400 shrink-0" />
+                      <span className="truncate">{selectedPillar.location}</span>
                     </p>
                   </div>
                 </div>
 
                 {/* Modal Body */}
-                <div className="p-6 sm:p-8 overflow-y-auto space-y-6">
+                <div className="p-4 sm:p-8 overflow-y-auto space-y-4 sm:space-y-6">
                   <div>
                     <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 font-bold mb-1.5">
                       Engineering Specifications

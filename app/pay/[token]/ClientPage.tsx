@@ -150,7 +150,7 @@ export function PaymentClientPage({ bill }: PaymentClientPageProps) {
       />
 
       {/* 3. Main Content Container */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-32 sm:pt-38 lg:pt-42 pb-16 flex-1 flex items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-28 sm:pt-36 lg:pt-42 pb-12 sm:pb-16 flex-1 flex items-center">
         
         {/* If payment succeeded -> Frosted Glass E-Receipt */}
         <AnimatePresence mode="wait">
@@ -163,10 +163,10 @@ export function PaymentClientPage({ bill }: PaymentClientPageProps) {
               transition={{ duration: 0.75, ease: smoothEase }}
               className="w-full max-w-xl mx-auto space-y-6"
             >
-              <div className="backdrop-blur-2xl bg-white/85 border border-white/90 rounded-[36px] shadow-[0_25px_70px_rgba(8,27,56,0.12),inset_0_1px_2px_rgba(255,255,255,0.9)] overflow-hidden print:shadow-none print:border-none">
+              <div className="backdrop-blur-2xl bg-white/85 border border-white/90 rounded-2xl sm:rounded-[36px] shadow-[0_25px_70px_rgba(8,27,56,0.12),inset_0_1px_2px_rgba(255,255,255,0.9)] overflow-hidden print:shadow-none print:border-none">
                 
                 {/* Receipt Header Badge */}
-                <div className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white p-6 sm:p-8 text-center space-y-3">
+                <div className="bg-gradient-to-r from-emerald-600 to-teal-600 text-white p-5 sm:p-8 text-center space-y-3">
                   <motion.div 
                     initial={{ scale: 0 }}
                     animate={{ scale: 1 }}
@@ -320,11 +320,11 @@ export function PaymentClientPage({ bill }: PaymentClientPageProps) {
                   transition={{ duration: 0.9, delay: 0.22, ease: smoothEase }}
                   className="space-y-3"
                 >
-                  <h1 className="text-5xl sm:text-6xl lg:text-[66px] font-black tracking-tight leading-[1.06] text-[#081B38]">
+                  <h1 className="text-3xl sm:text-5xl lg:text-[66px] font-black tracking-tight leading-[1.08] sm:leading-[1.06] text-[#081B38]">
                     Pay Your <br />
                     <span className="text-[#0066FF]">Water Bill Online</span>
                   </h1>
-                  <p className="text-base sm:text-lg text-slate-600 font-normal max-w-lg leading-relaxed">
+                  <p className="text-sm sm:text-lg text-slate-600 font-normal max-w-lg leading-relaxed">
                     Verified and secure payment for Magammana Community Water Supply Scheme
                   </p>
                 </motion.div>
@@ -334,7 +334,7 @@ export function PaymentClientPage({ bill }: PaymentClientPageProps) {
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.8, delay: 0.38, ease: smoothEase }}
-                  className="flex items-start gap-6 sm:gap-8 pt-1"
+                  className="flex items-start gap-4 sm:gap-8 pt-1"
                 >
                   {[
                     { icon: ShieldCheck, title: "Secure", subtitle: "Payments" },
@@ -349,12 +349,12 @@ export function PaymentClientPage({ bill }: PaymentClientPageProps) {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         transition={{ duration: 0.55, delay: 0.42 + idx * 0.1, ease: smoothEase }}
                         whileHover={{ y: -5, scale: 1.05 }}
-                        className="flex flex-col items-center text-center max-w-[105px] group cursor-default"
+                        className="flex flex-col items-center text-center max-w-[95px] sm:max-w-[105px] group cursor-default"
                       >
-                        <div className="w-14 h-14 rounded-full bg-white/90 border border-blue-100 shadow-sm backdrop-blur-md flex items-center justify-center text-[#0066FF] transition-shadow duration-300 group-hover:shadow-md">
-                          <IconComp size={26} strokeWidth={2} />
+                        <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-white/90 border border-blue-100 shadow-sm backdrop-blur-md flex items-center justify-center text-[#0066FF] transition-shadow duration-300 group-hover:shadow-md">
+                          <IconComp size={22} className="sm:w-[26px] sm:h-[26px]" strokeWidth={2} />
                         </div>
-                        <span className="text-xs font-bold text-[#081B38] mt-2.5 leading-snug">
+                        <span className="text-[11px] sm:text-xs font-bold text-[#081B38] mt-2 leading-snug">
                           {badge.title}<br />{badge.subtitle}
                         </span>
                       </motion.div>
@@ -370,7 +370,7 @@ export function PaymentClientPage({ bill }: PaymentClientPageProps) {
                   initial={{ opacity: 0, y: 40, scale: 0.96, filter: "blur(8px)" }}
                   animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
                   transition={{ duration: 1.0, delay: 0.28, ease: smoothEase }}
-                  className="w-full max-w-[530px] backdrop-blur-2xl bg-white/85 border border-white/90 rounded-[32px] sm:rounded-[36px] p-6 sm:p-9 shadow-[0_25px_70px_rgba(8,27,56,0.12),inset_0_1px_2px_rgba(255,255,255,0.9)] space-y-6 relative"
+                  className="w-full max-w-[530px] backdrop-blur-2xl bg-white/85 border border-white/90 rounded-2xl sm:rounded-[36px] p-4 sm:p-9 shadow-[0_25px_70px_rgba(8,27,56,0.12),inset_0_1px_2px_rgba(255,255,255,0.9)] space-y-5 sm:space-y-6 relative"
                 >
                   
                   {/* Card Top Bar */}

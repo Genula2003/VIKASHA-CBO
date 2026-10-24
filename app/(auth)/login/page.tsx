@@ -55,12 +55,12 @@ export default function LoginPage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="relative z-10 w-full max-w-lg mx-auto px-6"
+        className="relative z-10 w-full max-w-lg mx-auto px-4 sm:px-6"
       >
-        <div className="rounded-[32px] bg-white/10 backdrop-blur-2xl border border-white/20 p-8 sm:p-10 shadow-[0_32px_80px_-16px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.1)_inset]">
+        <div className="rounded-2xl sm:rounded-[32px] bg-white/10 backdrop-blur-2xl border border-white/20 p-5 sm:p-8 md:p-10 shadow-[0_32px_80px_-16px_rgba(0,0,0,0.5),0_0_0_1px_rgba(255,255,255,0.1)_inset]">
           
-          <div className="flex flex-col items-center mb-8">
-            <div className="w-16 h-16 rounded-2xl bg-white/95 border border-white/40 p-2 shadow-xl flex items-center justify-center mb-5 overflow-hidden">
+          <div className="flex flex-col items-center mb-6 sm:mb-8 text-center">
+            <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-white/95 border border-white/40 p-2 shadow-xl flex items-center justify-center mb-4 sm:mb-5 overflow-hidden">
               <img
                 src="/logo.webp"
                 alt="Vikasha CBO Official Logo"
@@ -70,10 +70,10 @@ export default function LoginPage() {
                 className="w-full h-full object-contain"
               />
             </div>
-            <h2 className="text-3xl font-extrabold tracking-tight text-white mb-2">
+            <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-white mb-1.5 sm:mb-2">
               Vikasha CBO Portal
             </h2>
-            <p className="text-sm text-gray-300 font-medium">
+            <p className="text-xs sm:text-sm text-gray-300 font-medium">
               Magammana Community Water Management &bull; Staff Login
             </p>
           </div>
@@ -89,7 +89,7 @@ export default function LoginPage() {
               </span>
             </div>
 
-            <div className="grid grid-cols-2 gap-2.5">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
               <button
                 type="button"
                 onClick={() => handleQuickFill('admin@example.com', 'admin123', 'admin')}
@@ -131,7 +131,7 @@ export default function LoginPage() {
               <button
                 type="button"
                 onClick={() => handleQuickFill('support@vikashacbo.com', 'admin123', 'support')}
-                className={`w-full flex items-center justify-between p-2 rounded-xl border text-left transition-all ${
+                className={`w-full flex flex-col xs:flex-row xs:items-center justify-between p-2.5 rounded-xl border text-left transition-all gap-1.5 ${
                   selectedRole === 'support'
                     ? 'bg-[#0066FF]/30 border-[#0066FF] text-white'
                     : 'bg-white/5 border-white/10 text-gray-300 hover:bg-white/10'

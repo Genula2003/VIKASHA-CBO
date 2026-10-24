@@ -207,13 +207,13 @@ function ConsumerPayPortalContent() {
             initial={{ opacity: 0, y: -15, filter: "blur(4px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.8, delay: 0.1, ease: smoothEase }}
-            className="flex items-center justify-center gap-3"
+            className="flex items-center justify-center gap-2 sm:gap-3"
           >
-            <span className="w-10 h-[1.5px] bg-slate-300/80" />
-            <span className="text-xs uppercase tracking-[0.22em] text-slate-200 font-semibold font-mono">
+            <span className="w-6 sm:w-10 h-[1.5px] bg-slate-300/80" />
+            <span className="text-[10px] sm:text-xs uppercase tracking-[0.14em] sm:tracking-[0.22em] text-slate-200 font-semibold font-mono">
               DEPARTMENT OF COMMUNITY WATER SUPPLY &bull; DCWS
             </span>
-            <span className="w-10 h-[1.5px] bg-slate-300/80" />
+            <span className="w-6 sm:w-10 h-[1.5px] bg-slate-300/80" />
           </motion.div>
 
           {/* Master Headline in Playfair Serif */}
@@ -221,7 +221,7 @@ function ConsumerPayPortalContent() {
             initial={{ opacity: 0, y: 25, filter: "blur(6px)" }}
             animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
             transition={{ duration: 0.9, delay: 0.22, ease: smoothEase }}
-            className="font-serif text-3xl sm:text-5xl lg:text-6xl text-white font-normal leading-[1.12] tracking-tight"
+            className="font-serif text-2xl sm:text-4xl lg:text-6xl text-white font-normal leading-[1.18] sm:leading-[1.12] tracking-tight"
           >
             Search &amp; Settle Consumer Water Bills
           </motion.h1>
@@ -231,7 +231,7 @@ function ConsumerPayPortalContent() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.85, delay: 0.35, ease: smoothEase }}
-            className="text-slate-200 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed font-normal"
+            className="text-slate-200 text-xs sm:text-sm md:text-base max-w-2xl mx-auto leading-relaxed font-normal px-2 sm:px-0"
           >
             Instant online settlement portal for Magammana water consumers. Verify your registered meter ledger, check itemized charges, and settle with zero convenience fees.
           </motion.p>
@@ -241,15 +241,15 @@ function ConsumerPayPortalContent() {
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.48, ease: smoothEase }}
-            className="pt-2 flex flex-wrap items-center justify-center gap-4 text-xs text-slate-300 font-mono"
+            className="pt-2 flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 text-[11px] sm:text-xs text-slate-300 font-mono"
           >
             <span className="inline-flex items-center gap-1.5">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
               <span>256-Bit SSL Encrypted</span>
             </span>
-            <span className="text-slate-400">&bull;</span>
+            <span className="text-slate-400 hidden xs:inline">&bull;</span>
             <span>SLS 614 Audit Compliant</span>
-            <span className="text-slate-400">&bull;</span>
+            <span className="text-slate-400 hidden xs:inline">&bull;</span>
             <span>Real-Time Ledger Settlement</span>
           </motion.div>
 
@@ -264,10 +264,10 @@ function ConsumerPayPortalContent() {
         initial={{ opacity: 0, y: 35, scale: 0.97, filter: "blur(6px)" }}
         animate={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
         transition={{ duration: 0.95, delay: 0.3, ease: smoothEase }}
-        className="relative z-20 max-w-3xl mx-auto px-4 -mt-16 sm:-mt-20 mb-10 w-full"
+        className="relative z-20 max-w-3xl mx-auto px-4 -mt-12 sm:-mt-20 mb-8 sm:mb-10 w-full"
       >
         <div className="rounded-2xl p-[1px] bg-gradient-to-b from-white/60 via-white/20 to-transparent shadow-[0_20px_50px_rgba(8,27,56,0.14)]">
-          <div className="backdrop-blur-xl bg-[#081B38]/90 border border-white/20 rounded-2xl p-5 sm:p-7 text-white">
+          <div className="backdrop-blur-xl bg-[#081B38]/90 border border-white/20 rounded-2xl p-4 sm:p-7 text-white">
             
             {/* Widget Header with Silver/White Accents */}
             <div className="flex items-center justify-between mb-3.5 text-xs">
@@ -324,7 +324,7 @@ function ConsumerPayPortalContent() {
                 <button
                   type="submit"
                   disabled={isPending}
-                  className="h-12 px-7 rounded-xl bg-white hover:bg-slate-100 text-[#081B38] font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shrink-0 cursor-pointer disabled:opacity-75 border border-slate-200"
+                  className="h-12 px-6 sm:px-7 rounded-xl bg-white hover:bg-slate-100 text-[#081B38] font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shrink-0 cursor-pointer disabled:opacity-75 border border-slate-200 w-full sm:w-auto"
                 >
                   {isPending ? (
                     <>
@@ -481,10 +481,10 @@ function ConsumerPayPortalContent() {
                 {/* THE CONFIRMATION STEP: "Is this your account?" */}
                 {!isAccountConfirmed && (
                   <div className="mt-8 pt-6 border-t border-slate-100">
-                    <div className="bg-slate-50 rounded-xl p-5 sm:p-6 border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-5">
+                    <div className="bg-slate-50 rounded-xl p-4 sm:p-6 border border-slate-200 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-5">
                       <div className="space-y-1 text-center md:text-left">
                         <div className="text-sm sm:text-base font-bold text-[#081B38] flex items-center justify-center md:justify-start gap-2">
-                          <CheckCircle2 size={18} className="text-emerald-600" />
+                          <CheckCircle2 size={18} className="text-emerald-600 shrink-0" />
                           <span>Is this your municipal water account?</span>
                         </div>
                         <p className="text-xs text-slate-500 max-w-md">
@@ -493,11 +493,11 @@ function ConsumerPayPortalContent() {
                       </div>
 
                       {/* Yes & No Buttons */}
-                      <div className="flex items-center gap-2.5 w-full md:w-auto justify-center">
+                      <div className="flex flex-col sm:flex-row items-center gap-2.5 w-full md:w-auto justify-center">
                         <button
                           type="button"
                           onClick={handleRejectAccount}
-                          className="flex-1 md:flex-none inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-700 hover:text-red-700 hover:bg-red-50 hover:border-red-200 text-xs font-bold transition-all shadow-sm cursor-pointer"
+                          className="w-full sm:w-auto inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl border border-slate-200 bg-white text-slate-700 hover:text-red-700 hover:bg-red-50 hover:border-red-200 text-xs font-bold transition-all shadow-sm cursor-pointer"
                         >
                           <X size={14} />
                           No, not my account
@@ -506,7 +506,7 @@ function ConsumerPayPortalContent() {
                         <button
                           type="button"
                           onClick={handleConfirmAccount}
-                          className="flex-1 md:flex-none inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-[#081B38] hover:bg-[#0c2b59] text-white text-xs font-bold transition-all shadow-md hover:shadow-lg cursor-pointer border border-slate-300/30"
+                          className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-xl bg-[#081B38] hover:bg-[#0c2b59] text-white text-xs font-bold transition-all shadow-md hover:shadow-lg cursor-pointer border border-slate-300/30"
                         >
                           <Check size={14} strokeWidth={2.5} />
                           Yes, this is my account
@@ -636,17 +636,17 @@ function ConsumerPayPortalContent() {
                         </div>
 
                         {/* Top quick links */}
-                        <div className="flex items-center gap-2">
+                        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto">
                           <Link
                             href={`/bill/${result.bill.access_token}`}
-                            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-[#081B38] text-xs font-bold transition-all shadow-sm"
+                            className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 text-[#081B38] text-xs font-bold transition-all shadow-sm"
                           >
                             <Receipt size={14} />
                             View E-Bill
                           </Link>
                           <Link
                             href={`/pay/${result.bill.access_token}`}
-                            className="inline-flex items-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#081B38] hover:bg-[#0c2b59] text-white text-xs font-bold transition-all shadow-md border border-slate-300/30"
+                            className="inline-flex items-center justify-center gap-1.5 px-4 py-2.5 rounded-xl bg-[#081B38] hover:bg-[#0c2b59] text-white text-xs font-bold transition-all shadow-md border border-slate-300/30"
                           >
                             <CreditCard size={14} />
                             Direct Settle

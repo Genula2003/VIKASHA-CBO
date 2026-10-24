@@ -191,16 +191,34 @@ const allServices: ServiceCard[] = [
 ];
 
 export default function WaterServicesShowcase() {
-  // Slideshow pages: 2 slides of 3 cards each (shows 3 cards per slide)
-  const slides = [
-    allServices.slice(0, 3), // Slide 0: Cards 01, 02, 03
-    allServices.slice(3, 6)  // Slide 1: Cards 04, 05, 06
-  ];
-
+  const [itemsPerSlide, setItemsPerSlide] = useState(3);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState<1 | -1>(1);
   const [isPaused, setIsPaused] = useState(false);
-  const totalSlides = slides.length;
+
+  // Responsive slide layout detection
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth < 768) {
+        setItemsPerSlide(1);
+      } else if (window.innerWidth < 1024) {
+        setItemsPerSlide(2);
+      } else {
+        setItemsPerSlide(3);
+      }
+    };
+    handleResize();
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  // Compute slides array dynamically:
+  const slides: ServiceCard[][] = [];
+  for (let i = 0; i < allServices.length; i += itemsPerSlide) {
+    slides.push(allServices.slice(i, i + itemsPerSlide));
+  }
+  const totalSlides = Math.max(slides.length, 1);
+  const safeSlideIndex = currentSlide % totalSlides;
 
   // Auto slide every 5 seconds (5000ms) with pause-on-hover
   useEffect(() => {
@@ -225,9 +243,11 @@ export default function WaterServicesShowcase() {
   };
 
   const handleSelectSlide = (index: number) => {
-    setDirection(index > currentSlide ? 1 : -1);
+    setDirection(index > safeSlideIndex ? 1 : -1);
     setCurrentSlide(index);
   };
+
+  const currentCards = slides[safeSlideIndex] || slides[0] || [];
 
   return (
     <div
@@ -235,25 +255,41 @@ export default function WaterServicesShowcase() {
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* Slideshow Display Area with Smooth Animation */}
-      <div className="relative overflow-hidden min-h-[340px]">
+      {/* Slideshow Display Area with Smooth Animation & Touch Swipe */}
+      <div className="relative overflow-hidden min-h-[330px] sm:min-h-[340px]">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
-            key={currentSlide}
+            key={`${safeSlideIndex}-${itemsPerSlide}`}
             custom={direction}
             initial={{ opacity: 0, x: direction * 40 }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: direction * -40 }}
             transition={{ duration: 0.55, ease: smoothEase }}
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7"
+            drag="x"
+            dragConstraints={{ left: 0, right: 0 }}
+            dragElastic={0.2}
+            onDragEnd={(_, info) => {
+              if (info.offset.x > 50) {
+                handlePrev();
+              } else if (info.offset.x < -50) {
+                handleNext();
+              }
+            }}
+            className={`grid gap-5 sm:gap-6 lg:gap-7 ${
+              itemsPerSlide === 1
+                ? "grid-cols-1 max-w-lg mx-auto"
+                : itemsPerSlide === 2
+                ? "grid-cols-2"
+                : "grid-cols-1 md:grid-cols-2 lg:grid-cols-3"
+            }`}
           >
-            {slides[currentSlide].map((card) => {
+            {currentCards.map((card) => {
               const isDark = card.theme === "dark";
 
               return (
                 <div
                   key={card.id}
-                  className={`group relative rounded-3xl overflow-hidden border transition-all duration-300 min-h-[310px] sm:min-h-[320px] flex flex-col justify-between hover:shadow-2xl hover:-translate-y-1.5 ${
+                  className={`group relative rounded-2xl sm:rounded-3xl overflow-hidden border transition-all duration-300 min-h-[320px] sm:min-h-[330px] flex flex-col justify-between hover:shadow-2xl hover:-translate-y-1.5 ${
                     isDark
                       ? "border-white/10 shadow-[0_20px_50px_rgba(7,23,46,0.25)] bg-[#07172e]"
                       : "border-slate-200/90 shadow-[0_20px_50px_rgba(8,27,56,0.08)] bg-white"
@@ -286,9 +322,9 @@ export default function WaterServicesShowcase() {
                     {card.extraVisual}
                   </div>
 
-                  {/* Left Content Area (~65-70% width for readability) */}
-                  <div className="relative z-10 p-6 sm:p-7 flex flex-col justify-between h-full max-w-[70%] sm:max-w-[65%] space-y-4">
-                    <div className="space-y-3.5">
+                  {/* Left Content Area (~65-75% width for readability) */}
+                  <div className="relative z-10 p-5 sm:p-7 flex flex-col justify-between h-full max-w-[78%] sm:max-w-[65%] space-y-4">
+                    <div className="space-y-3">
                       {/* Top Marker: e.g. 01 ── */}
                       <div className="flex items-center gap-2">
                         <span
@@ -308,12 +344,12 @@ export default function WaterServicesShowcase() {
                       {/* Badge Pill with Icon */}
                       <div className="flex items-center gap-2">
                         <div
-                          className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 ${card.badge.colorClasses}`}
+                          className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center shrink-0 ${card.badge.colorClasses}`}
                         >
                           {card.badge.icon}
                         </div>
                         <span
-                          className={`text-[11px] font-mono font-bold tracking-[0.18em] uppercase ${
+                          className={`text-[10px] sm:text-[11px] font-mono font-bold tracking-[0.16em] sm:tracking-[0.18em] uppercase ${
                             isDark ? "text-slate-200" : "text-slate-700"
                           }`}
                         >
@@ -323,7 +359,7 @@ export default function WaterServicesShowcase() {
 
                       {/* Title */}
                       <h3
-                        className={`text-xl sm:text-[22px] font-extrabold tracking-tight leading-[1.2] ${
+                        className={`text-lg sm:text-[22px] font-extrabold tracking-tight leading-[1.2] ${
                           isDark ? "text-white" : "text-[#081B38]"
                         }`}
                       >
@@ -336,7 +372,7 @@ export default function WaterServicesShowcase() {
 
                       {/* Description */}
                       <p
-                        className={`text-xs sm:text-[13px] leading-relaxed font-normal ${
+                        className={`text-xs sm:text-[13px] leading-relaxed font-normal line-clamp-3 sm:line-clamp-none ${
                           isDark ? "text-slate-300" : "text-slate-600"
                         }`}
                       >
@@ -348,13 +384,13 @@ export default function WaterServicesShowcase() {
                     <div className="pt-2">
                       <Link
                         href="/pay"
-                        className={`inline-flex items-center gap-2.5 pl-5 pr-1.5 py-1.5 rounded-full text-xs font-bold shadow-md transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] ${card.button.bgClass} ${card.button.textClass}`}
+                        className={`inline-flex items-center gap-2 sm:gap-2.5 pl-4 sm:pl-5 pr-1.5 py-1.5 rounded-full text-xs font-bold shadow-md transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] ${card.button.bgClass} ${card.button.textClass}`}
                       >
                         <span>Explore Service</span>
                         <div
-                          className={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 ${card.button.arrowBgClass} ${card.button.arrowColorClass}`}
+                          className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center shrink-0 ${card.button.arrowBgClass} ${card.button.arrowColorClass}`}
                         >
-                          <ArrowRight size={13} className="group-hover:translate-x-0.5 transition-transform" />
+                          <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
                         </div>
                       </Link>
                     </div>
@@ -367,46 +403,79 @@ export default function WaterServicesShowcase() {
       </div>
 
       {/* Slideshow Bottom Navigation Controls & 5-Second Auto-Slide Indicators */}
-      <div className="flex items-center justify-between pt-6 px-1">
+      <div className="flex items-center justify-between pt-6 px-1 flex-wrap gap-3">
         {/* Slide Pagination Tabs with Labels */}
-        <div className="flex items-center gap-2 sm:gap-3">
-          {slides.map((_, index) => {
-            const isActive = currentSlide === index;
-            return (
-              <button
-                key={index}
-                onClick={() => handleSelectSlide(index)}
-                className={`relative px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 cursor-pointer flex items-center gap-2 ${
-                  isActive
-                    ? "bg-[#081B38] text-white shadow-md"
-                    : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900"
-                }`}
-              >
-                <span
-                  className={`w-2 h-2 rounded-full ${
-                    isActive ? "bg-cyan-400 animate-pulse" : "bg-slate-400"
+        <div className="flex items-center gap-1.5 sm:gap-2.5">
+          {itemsPerSlide === 1 ? (
+            // Mobile: 6 Sleek Numbered Indicator Pills
+            <div className="flex items-center gap-1.5">
+              {slides.map((_, index) => {
+                const isActive = safeSlideIndex === index;
+                return (
+                  <button
+                    key={index}
+                    type="button"
+                    onClick={() => handleSelectSlide(index)}
+                    aria-label={`Slide ${index + 1}`}
+                    className={`h-7 px-2.5 rounded-full text-[11px] font-mono font-bold transition-all duration-300 cursor-pointer flex items-center gap-1 ${
+                      isActive
+                        ? "bg-[#081B38] text-white shadow-sm"
+                        : "bg-slate-100 text-slate-500 hover:bg-slate-200"
+                    }`}
+                  >
+                    <span>0{index + 1}</span>
+                    {isActive && (
+                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
+                    )}
+                  </button>
+                );
+              })}
+            </div>
+          ) : (
+            // Desktop & Tablet: Full descriptive tabs with progress hairlines
+            slides.map((_, index) => {
+              const isActive = safeSlideIndex === index;
+              return (
+                <button
+                  key={index}
+                  type="button"
+                  onClick={() => handleSelectSlide(index)}
+                  className={`relative px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 cursor-pointer flex items-center gap-2 overflow-hidden ${
+                    isActive
+                      ? "bg-[#081B38] text-white shadow-md"
+                      : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900"
                   }`}
-                />
-                <span>
-                  {index === 0 ? "Services 01 – 03" : "Services 04 – 06"}
-                </span>
-
-                {/* Animated 5s Progress Bar when active and not paused */}
-                {isActive && !isPaused && (
-                  <motion.span
-                    initial={{ width: 0 }}
-                    animate={{ width: "100%" }}
-                    transition={{ duration: 5, ease: "linear" }}
-                    className="absolute bottom-0 left-0 h-[2px] bg-cyan-400 rounded-full"
+                >
+                  <span
+                    className={`w-2 h-2 rounded-full ${
+                      isActive ? "bg-cyan-400 animate-pulse" : "bg-slate-400"
+                    }`}
                   />
-                )}
-              </button>
-            );
-          })}
+                  <span>
+                    {itemsPerSlide === 3
+                      ? index === 0
+                        ? "Services 01 – 03"
+                        : "Services 04 – 06"
+                      : `Part 0${index + 1}`}
+                  </span>
+
+                  {/* Animated 5s Progress Bar when active and not paused */}
+                  {isActive && !isPaused && (
+                    <motion.span
+                      initial={{ width: 0 }}
+                      animate={{ width: "100%" }}
+                      transition={{ duration: 5, ease: "linear" }}
+                      className="absolute bottom-0 left-0 h-[2px] bg-cyan-400 rounded-full"
+                    />
+                  )}
+                </button>
+              );
+            })
+          )}
         </div>
 
         {/* Prev / Next Chevrons & Pause Indicator */}
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 ml-auto">
           {/* Pause / Playing Micro-Indicator */}
           <div
             className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 text-slate-500 text-[11px] font-mono font-medium"
@@ -427,18 +496,20 @@ export default function WaterServicesShowcase() {
 
           {/* Left Arrow Button */}
           <button
+            type="button"
             onClick={handlePrev}
             aria-label="Previous services slide"
-            className="w-9 h-9 rounded-full bg-white border border-slate-200 text-[#081B38] hover:bg-[#081B38] hover:text-white hover:border-[#081B38] flex items-center justify-center transition-all duration-300 shadow-sm cursor-pointer active:scale-95"
+            className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white border border-slate-200 text-[#081B38] hover:bg-[#081B38] hover:text-white hover:border-[#081B38] flex items-center justify-center transition-all duration-300 shadow-sm cursor-pointer active:scale-95"
           >
             <ChevronLeft size={16} />
           </button>
 
           {/* Right Arrow Button */}
           <button
+            type="button"
             onClick={handleNext}
             aria-label="Next services slide"
-            className="w-9 h-9 rounded-full bg-white border border-slate-200 text-[#081B38] hover:bg-[#081B38] hover:text-white hover:border-[#081B38] flex items-center justify-center transition-all duration-300 shadow-sm cursor-pointer active:scale-95"
+            className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-white border border-slate-200 text-[#081B38] hover:bg-[#081B38] hover:text-white hover:border-[#081B38] flex items-center justify-center transition-all duration-300 shadow-sm cursor-pointer active:scale-95"
           >
             <ChevronRight size={16} />
           </button>

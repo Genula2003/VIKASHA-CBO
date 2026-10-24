@@ -44,23 +44,23 @@ export default async function PublicBillPage({
         {/* Top bar */}
         <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
           <div className="flex items-center gap-3">
-            <Link href="/pay" className="p-2.5 rounded-lg bg-white border border-[#E2E0D8] text-[#475467] hover:text-[#0A1120] transition-colors shadow-sm">
+            <Link href="/pay" className="p-2.5 rounded-lg bg-white border border-[#E2E0D8] text-[#475467] hover:text-[#0A1120] transition-colors shadow-sm shrink-0">
               <ArrowLeft size={16} />
             </Link>
             <div>
-              <h1 className="text-2xl font-semibold text-[#0A1120] tracking-tight">Official Municipal E-Bill</h1>
-              <p className="text-xs text-[#667085] font-medium">Verified by National Water Supply &amp; Drainage Board Standard</p>
+              <h1 className="text-xl sm:text-2xl font-semibold text-[#0A1120] tracking-tight">Official Municipal E-Bill</h1>
+              <p className="text-[11px] sm:text-xs text-[#667085] font-medium">Verified by National Water Supply &amp; Drainage Board Standard</p>
             </div>
           </div>
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center gap-2.5 sm:gap-3 w-full sm:w-auto">
             {bill.pdf_url && (
-              <a href={bill.pdf_url} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-x-1.5 rounded-lg bg-white px-4 py-2.5 text-xs font-semibold text-[#0A1120] shadow-sm border border-[#D0D5DD] hover:bg-[#F0EFEA] transition-colors">
+              <a href={bill.pdf_url} target="_blank" rel="noopener noreferrer" className="flex-1 sm:flex-none inline-flex items-center justify-center gap-x-1.5 rounded-lg bg-white px-4 py-2.5 text-xs font-semibold text-[#0A1120] shadow-sm border border-[#D0D5DD] hover:bg-[#F0EFEA] transition-colors">
                 <Download className="h-4 w-4" />
                 Download PDF
               </a>
             )}
             {!isPaid && (
-              <Link href={`/pay/${token}`} className="rounded-lg bg-[#004EEB] hover:bg-[#003CC7] px-5 py-2.5 text-xs font-semibold text-white shadow-sm transition-colors">
+              <Link href={`/pay/${token}`} className="flex-1 sm:flex-none inline-flex items-center justify-center rounded-lg bg-[#004EEB] hover:bg-[#003CC7] px-5 py-2.5 text-xs font-semibold text-white shadow-sm transition-colors">
                 Pay Bill Now
               </Link>
             )}
@@ -69,15 +69,16 @@ export default async function PublicBillPage({
 
         {/* Bill Container */}
         <Card className="border border-[#E2E0D8] shadow-sm rounded-2xl overflow-hidden bg-white">
-          <CardHeader className="bg-[#0A1120] text-white p-6 sm:p-8 flex flex-row justify-between items-center relative overflow-hidden">
+          <CardHeader className="bg-[#0A1120] text-white p-5 sm:p-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 relative overflow-hidden">
             <div className="relative z-10">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold mb-2 border border-blue-400/20">
-                <Droplet size={14} /> Vikasha CBO &bull; Magammana Community Water Project
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/20 text-blue-300 text-xs font-bold mb-2 border border-blue-400/20">
+                <Droplet size={14} className="shrink-0" />
+                <span>Vikasha CBO &bull; Magammana</span>
               </div>
-              <CardTitle className="text-2xl font-black text-white">Invoice #{bill.bill_number}</CardTitle>
+              <CardTitle className="text-xl sm:text-2xl font-black text-white">Invoice #{bill.bill_number}</CardTitle>
               <p className="text-xs text-gray-400 mt-1 font-medium">Issued for Account {consumer.account_number}</p>
             </div>
-            <div className={`relative z-10 px-4 py-1.5 rounded-full text-xs font-black uppercase tracking-wider ${
+            <div className={`relative z-10 px-3.5 py-1 rounded-full text-xs font-black uppercase tracking-wider self-start sm:self-auto ${
               isPaid ? 'bg-emerald-500 text-white shadow-sm' : 'bg-amber-400 text-gray-900 shadow-sm'
             }`}>
               {bill.status}

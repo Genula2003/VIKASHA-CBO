@@ -151,9 +151,9 @@ export default function Navbar({ activeTab = "home" }: NavbarProps) {
           <Link
             href="/"
             onClick={() => setCurrentTab("home")}
-            className="flex items-center gap-3 group"
+            className="flex items-center gap-2 sm:gap-3 group shrink-0"
           >
-            <div className="w-10 h-10 rounded-xl bg-white border border-slate-200/90 shadow-sm flex items-center justify-center p-0.5 group-hover:scale-105 transition-transform duration-300 overflow-hidden">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-slate-200/90 shadow-sm flex items-center justify-center p-0.5 group-hover:scale-105 transition-transform duration-300 overflow-hidden shrink-0">
               <img
                 src="/logo.webp"
                 alt="Vikasha CBO Official Logo"
@@ -164,10 +164,10 @@ export default function Navbar({ activeTab = "home" }: NavbarProps) {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-serif text-2xl font-bold tracking-tight text-[#081B38] leading-none group-hover:text-[#0B2548] transition-colors">
+              <span className="font-serif text-lg sm:text-2xl font-bold tracking-tight text-[#081B38] leading-none group-hover:text-[#0B2548] transition-colors">
                 Vikasha
               </span>
-              <span className="font-sans text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-500 leading-none mt-1">
+              <span className="font-sans text-[8.5px] sm:text-[10px] font-semibold uppercase tracking-[0.16em] sm:tracking-[0.22em] text-slate-500 leading-none mt-0.5 sm:mt-1">
                 CBO &bull; WATER UTILITY
               </span>
             </div>
@@ -213,10 +213,10 @@ export default function Navbar({ activeTab = "home" }: NavbarProps) {
           </nav>
 
           {/* RIGHT: Navy Dark Blue CTA Button + Frosted Glass Controls */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-1.5 sm:gap-3 shrink-0">
 
             {/* Language Toggle (EN / SI) in Frosted Glass */}
-            <div className="relative hidden sm:block">
+            <div className="relative hidden md:block">
               <button
                 type="button"
                 onClick={() => setIsLangMenuOpen(!isLangMenuOpen)}
@@ -270,11 +270,11 @@ export default function Navbar({ activeTab = "home" }: NavbarProps) {
             <button
               type="button"
               onClick={() => setIsSearchOpen(!isSearchOpen)}
-              className="w-9 h-9 rounded-lg border border-slate-200/90 bg-white/70 backdrop-blur-md hover:bg-white flex items-center justify-center text-[#081B38] transition-all cursor-pointer shadow-sm"
+              className="w-8 h-8 sm:w-9 sm:h-9 rounded-lg border border-slate-200/90 bg-white/70 backdrop-blur-md hover:bg-white flex items-center justify-center text-[#081B38] transition-all cursor-pointer shadow-sm"
               title="Search Account / Quick Bill"
               aria-label="Search Account"
             >
-              <Search size={16} />
+              <Search size={15} />
             </button>
 
             {/* Staff Login Link */}
@@ -286,22 +286,24 @@ export default function Navbar({ activeTab = "home" }: NavbarProps) {
               <span>Login</span>
             </Link>
 
-            {/* CTA Button: NAVY DARK BLUE WITH SILVER HIGHLIGHT */}
+            {/* CTA Button: Mobile Responsive text & padding */}
             <Link
               href="/pay"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-[#081B38] hover:bg-[#0B2548] text-white text-xs sm:text-[13px] font-bold shadow-sm border border-slate-300/40 transition-all hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-5 py-2 sm:py-2.5 rounded-lg bg-[#081B38] hover:bg-[#0B2548] text-white text-[11px] sm:text-[13px] font-bold shadow-sm border border-slate-300/40 transition-all hover:shadow-md hover:scale-[1.02] active:scale-[0.98]"
             >
-              <CreditCard size={15} className="text-slate-200" />
-              <span>Pay Water Bill</span>
+              <CreditCard size={14} className="text-slate-200" />
+              <span className="hidden sm:inline">Pay Water Bill</span>
+              <span className="sm:hidden">Pay Bill</span>
             </Link>
 
             {/* Mobile Hamburger Button */}
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden w-9 h-9 rounded-lg border border-slate-200 bg-white flex items-center justify-center text-[#081B38]"
+              className="lg:hidden w-8 h-8 sm:w-9 sm:h-9 rounded-lg border border-slate-200 bg-white flex items-center justify-center text-[#081B38] active:scale-95 transition-transform cursor-pointer"
+              aria-label="Toggle navigation menu"
             >
-              {mobileMenuOpen ? <X size={18} /> : <Menu size={18} />}
+              {mobileMenuOpen ? <X size={17} /> : <Menu size={17} />}
             </button>
           </div>
 
@@ -317,7 +319,7 @@ export default function Navbar({ activeTab = "home" }: NavbarProps) {
             exit={{ opacity: 0, y: -10 }}
             className="bg-white/95 backdrop-blur-xl border-b border-slate-200 p-3 shadow-xl"
           >
-            <div className="max-w-xl mx-auto">
+            <div className="max-w-xl mx-auto px-2">
               <form onSubmit={handleSearchSubmit} className="flex gap-2">
                 <div className="relative flex-1">
                   <Search size={16} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400" />
@@ -332,7 +334,7 @@ export default function Navbar({ activeTab = "home" }: NavbarProps) {
                 </div>
                 <button
                   type="submit"
-                  className="px-5 rounded-lg bg-[#081B38] hover:bg-[#0B2548] text-white font-bold text-xs transition-colors cursor-pointer border border-slate-300/30"
+                  className="px-4 sm:px-5 rounded-lg bg-[#081B38] hover:bg-[#0B2548] text-white font-bold text-xs transition-colors cursor-pointer border border-slate-300/30 shrink-0"
                 >
                   Search
                 </button>
@@ -349,46 +351,111 @@ export default function Navbar({ activeTab = "home" }: NavbarProps) {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white/95 backdrop-blur-2xl border-b border-slate-200 px-6 py-4 space-y-3 shadow-xl"
+            className="lg:hidden bg-white/98 backdrop-blur-2xl border-b border-slate-200 px-5 py-5 space-y-4 shadow-2xl max-h-[calc(100vh-80px)] overflow-y-auto"
           >
-            <nav className="flex flex-col space-y-2 text-sm font-semibold text-[#081B38]">
+            <nav className="flex flex-col space-y-1 text-sm font-semibold text-[#081B38]">
               <button
+                type="button"
                 onClick={() => handleNavClick("about", "#about")}
-                className="text-left py-2 border-b border-slate-100"
+                className="text-left py-2.5 px-3 rounded-lg hover:bg-slate-100 flex items-center justify-between border-b border-slate-100"
               >
-                About
+                <span>About</span>
+                <span className="text-slate-400 text-xs font-normal">Magammana CBO</span>
               </button>
               <button
+                type="button"
                 onClick={() => handleNavClick("services", "#services")}
-                className="text-left py-2 border-b border-slate-100"
+                className="text-left py-2.5 px-3 rounded-lg hover:bg-slate-100 flex items-center justify-between border-b border-slate-100"
               >
-                Services
+                <span>Services</span>
+                <span className="text-slate-400 text-xs font-normal">Water Supply</span>
               </button>
               <button
+                type="button"
                 onClick={() => handleNavClick("billing", "/pay")}
-                className="text-left py-2 border-b border-slate-100"
+                className="text-left py-2.5 px-3 rounded-lg hover:bg-slate-100 flex items-center justify-between border-b border-slate-100"
               >
-                Billing &amp; Payments
+                <span>Billing &amp; Payments</span>
+                <span className="text-cyan-600 text-xs font-mono font-bold">Quick Pay</span>
               </button>
               <button
-                onClick={() => handleNavClick("about", "#about")}
-                className="text-left py-2 border-b border-slate-100"
+                type="button"
+                onClick={() => handleNavClick("about", "#governance")}
+                className="text-left py-2.5 px-3 rounded-lg hover:bg-slate-100 flex items-center justify-between border-b border-slate-100"
               >
-                Governance
+                <span>Governance</span>
+                <span className="text-slate-400 text-xs font-normal">DCWS Regulated</span>
               </button>
               <button
+                type="button"
                 onClick={() => handleNavClick("support", "#leaks")}
-                className="text-left py-2 border-b border-slate-100"
+                className="text-left py-2.5 px-3 rounded-lg hover:bg-slate-100 flex items-center justify-between border-b border-slate-100"
               >
-                Customer Support
+                <span>Customer Support</span>
+                <span className="text-amber-600 text-xs font-semibold">Report Leaks</span>
               </button>
-              <Link
-                href="/login"
-                className="text-left py-2 text-[#004EEB]"
-              >
-                Staff Portal Login
-              </Link>
             </nav>
+
+            {/* Mobile Drawer Actions & Utilities */}
+            <div className="pt-2 space-y-3 border-t border-slate-100">
+              {/* Pay Water Bill Primary Button */}
+              <Link
+                href="/pay"
+                onClick={() => setMobileMenuOpen(false)}
+                className="w-full py-3 rounded-xl bg-[#081B38] hover:bg-[#0B2548] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm"
+              >
+                <CreditCard size={15} />
+                <span>Pay Water Bill Online</span>
+              </Link>
+
+              {/* Language Selector in Mobile Drawer */}
+              <div className="flex items-center justify-between p-2 rounded-xl bg-slate-50 border border-slate-200">
+                <div className="flex items-center gap-2 text-xs font-semibold text-slate-700">
+                  <Globe size={14} className="text-[#081B38]" />
+                  <span>Language / භාෂාව</span>
+                </div>
+                <div className="flex items-center gap-1">
+                  <button
+                    type="button"
+                    onClick={() => setCurrentLang("EN")}
+                    className={`px-2.5 py-1 rounded-md text-[11px] font-bold transition-colors ${
+                      currentLang === "EN" ? "bg-[#081B38] text-white" : "text-slate-600 hover:bg-slate-200"
+                    }`}
+                  >
+                    EN
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setCurrentLang("SI")}
+                    className={`px-2.5 py-1 rounded-md text-[11px] font-bold transition-colors ${
+                      currentLang === "SI" ? "bg-[#081B38] text-white" : "text-slate-600 hover:bg-slate-200"
+                    }`}
+                  >
+                    සිංහල
+                  </button>
+                </div>
+              </div>
+
+              {/* Staff Portal & Hotline Quick Access */}
+              <div className="grid grid-cols-2 gap-2 text-xs">
+                <Link
+                  href="/login"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="flex items-center justify-center gap-1.5 p-2.5 rounded-xl border border-slate-200 bg-white text-[#081B38] font-semibold hover:bg-slate-50"
+                >
+                  <User size={13} className="text-slate-500" />
+                  <span>Staff Login</span>
+                </Link>
+
+                <a
+                  href="tel:0112894567"
+                  className="flex items-center justify-center gap-1.5 p-2.5 rounded-xl border border-emerald-200 bg-emerald-50 text-emerald-800 font-semibold"
+                >
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                  <span>Hotline: 011 289</span>
+                </a>
+              </div>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

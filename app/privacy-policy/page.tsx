@@ -13,9 +13,9 @@ export default function PrivacyPolicyPage() {
       
       {/* Navigation Header */}
       <header className="bg-white border-b border-gray-100 sticky top-0 z-50">
-        <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-3 group">
-            <div className="w-10 h-10 rounded-xl bg-white border border-slate-200/90 shadow-sm flex items-center justify-center p-0.5 overflow-hidden">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 py-3.5 sm:py-4 flex items-center justify-between gap-3">
+          <Link href="/" className="flex items-center gap-2.5 sm:gap-3 group shrink-0">
+            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-slate-200/90 shadow-sm flex items-center justify-center p-0.5 overflow-hidden">
               <img
                 src="/logo.webp"
                 alt="Vikasha CBO Official Logo"
@@ -26,37 +26,37 @@ export default function PrivacyPolicyPage() {
               />
             </div>
             <div>
-              <span className="text-lg font-black tracking-tight text-[#0B132B]">Vikasha CBO</span>
-              <p className="text-[11px] font-medium text-gray-400">Magammana Community Water Project</p>
+              <span className="text-base sm:text-lg font-black tracking-tight text-[#0B132B]">Vikasha CBO</span>
+              <p className="text-[10px] sm:text-[11px] font-medium text-gray-400 hidden xs:block">Magammana Community Water</p>
             </div>
           </Link>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-2 sm:gap-4 shrink-0">
             <Link 
               href="/pay" 
-              className="text-xs font-bold px-4 py-2 rounded-xl bg-[#0066FF] text-white hover:bg-blue-600 transition-colors shadow-sm"
+              className="text-xs font-bold px-3 sm:px-4 py-2 rounded-xl bg-[#0066FF] text-white hover:bg-blue-600 transition-colors shadow-sm"
             >
-              Pay Water Bill
+              Pay Bill
             </Link>
             <Link 
               href="/" 
-              className="inline-flex items-center gap-1.5 text-xs font-bold text-gray-600 hover:text-[#0B132B] transition-colors"
+              className="inline-flex items-center gap-1 text-xs font-bold text-gray-600 hover:text-[#0B132B] transition-colors"
             >
-              <ArrowLeft size={14} /> Back to Home
+              <ArrowLeft size={14} /> <span className="hidden sm:inline">Back to</span> Home
             </Link>
           </div>
         </div>
       </header>
 
       {/* Main Content Area */}
-      <main className="max-w-4xl mx-auto px-6 py-12 md:py-16 space-y-10">
+      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-8 sm:py-12 md:py-16 space-y-8 sm:space-y-10">
         
         {/* Document Header */}
         <div className="space-y-3 pb-8 border-b border-gray-200">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-[#0066FF] text-xs font-black">
             Personal Data Protection Act (PDPA) &bull; PayHere Compliance
           </div>
-          <h1 className="text-3xl md:text-4xl lg:text-5xl font-black text-[#0B132B] tracking-tight">
+          <h1 className="text-2xl sm:text-4xl md:text-5xl font-black text-[#0B132B] tracking-tight">
             Privacy Policy
           </h1>
           <p className="text-sm font-medium text-gray-500">
@@ -176,22 +176,22 @@ export default function PrivacyPolicyPage() {
           </div>
 
           {/* Contact Box */}
-          <div className="bg-gradient-to-br from-[#0B132B] to-[#1C2541] rounded-3xl p-8 text-white space-y-4 shadow-xl">
-            <h3 className="text-lg font-black text-white">Privacy Officer &amp; Inquiries</h3>
+          <div className="bg-gradient-to-br from-[#0B132B] to-[#1C2541] rounded-2xl sm:rounded-3xl p-5 sm:p-8 text-white space-y-4 shadow-xl">
+            <h3 className="text-base sm:text-lg font-black text-white">Privacy Officer &amp; Inquiries</h3>
             <p className="text-xs text-gray-300">
               If you have any questions regarding your data privacy, please contact:
             </p>
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2 text-xs">
-              <div className="flex items-center gap-2.5">
-                <Mail size={16} className="text-cyan-400" />
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 pt-2 text-xs">
+              <div className="flex items-center gap-2.5 break-all">
+                <Mail size={16} className="text-cyan-400 shrink-0" />
                 <span>support@vikashacbo.com</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <Phone size={16} className="text-emerald-400" />
+                <Phone size={16} className="text-emerald-400 shrink-0" />
                 <span>011 289 4567</span>
               </div>
               <div className="flex items-center gap-2.5">
-                <MapPin size={16} className="text-amber-400" />
+                <MapPin size={16} className="text-amber-400 shrink-0" />
                 <span>Magammana, Homagama, Sri Lanka</span>
               </div>
             </div>
@@ -202,12 +202,12 @@ export default function PrivacyPolicyPage() {
       </main>
 
       {/* Footer with legal navigation */}
-      <footer className="bg-white border-t border-gray-100 py-8">
-        <div className="max-w-5xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500 font-medium">
+      <footer className="bg-white border-t border-gray-100 py-6 sm:py-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500 font-medium text-center sm:text-left">
           <div>
             &copy; {new Date().getFullYear()} Vikasha CBO (Magammana Community Water Supply Project). All rights reserved.
           </div>
-          <div className="flex items-center gap-6">
+          <div className="flex flex-wrap items-center justify-center gap-4 sm:gap-6">
             <Link href="/privacy-policy" className="text-[#0066FF] font-bold">Privacy Policy</Link>
             <Link href="/terms" className="hover:text-[#0B132B] transition-colors">Terms &amp; Conditions</Link>
             <Link href="/refund-policy" className="hover:text-[#0B132B] transition-colors">Refund Policy</Link>

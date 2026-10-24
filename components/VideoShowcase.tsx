@@ -29,7 +29,7 @@ export default function VideoShowcase() {
         whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.9, ease: smoothEase }}
-        className="relative rounded-3xl overflow-hidden shadow-[0_25px_70px_rgba(2,24,50,0.14)] border border-slate-200/90 bg-[#021832] aspect-[16/9] max-h-[580px] w-full"
+        className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_25px_70px_rgba(2,24,50,0.14)] border border-slate-200/90 bg-[#021832] aspect-[16/9] max-h-[580px] w-full"
       >
         <video
           ref={videoRef}
@@ -47,16 +47,16 @@ export default function VideoShowcase() {
       </motion.div>
 
       {/* 3 Human-Crafted Frosted Infrastructure Status Badges */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-1">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4 pt-1">
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1, ease: smoothEase }}
-          className="p-4 rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200/90 hover:border-blue-300 hover:shadow-[0_12px_28px_rgba(8,27,56,0.08)] flex items-center gap-3.5 transition-all duration-300 group"
+          className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-white/95 backdrop-blur-md border border-slate-200/90 hover:border-blue-300 hover:shadow-[0_12px_28px_rgba(8,27,56,0.08)] flex items-center gap-3 sm:gap-3.5 transition-all duration-300 group"
         >
-          <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200/80 text-[#0057E7] flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 group-hover:bg-[#0057E7] group-hover:text-white transition-all duration-300">
-            <Droplets size={20} />
+          <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-blue-50 to-blue-100 border border-blue-200/80 text-[#0057E7] flex items-center justify-center shrink-0 shadow-sm group-hover:scale-105 group-hover:bg-[#0057E7] group-hover:text-white transition-all duration-300">
+            <Droplets size={18} />
           </div>
           <div className="flex-1 min-w-0">
             <div className="flex items-center gap-2">
