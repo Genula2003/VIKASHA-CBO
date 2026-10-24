@@ -13,9 +13,7 @@ import {
   ArrowRight,
   Wifi,
   ChevronLeft,
-  ChevronRight,
-  Pause,
-  Play
+  ChevronRight
 } from "lucide-react";
 
 // Silky smooth momentum cubic-bezier easing curve
@@ -256,7 +254,7 @@ export default function WaterServicesShowcase() {
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Slideshow Display Area with Smooth Animation & Touch Swipe */}
-      <div className="relative overflow-hidden min-h-[330px] sm:min-h-[340px]">
+      <div className="relative overflow-hidden min-h-[205px] sm:min-h-[340px]">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={`${safeSlideIndex}-${itemsPerSlide}`}
@@ -275,7 +273,7 @@ export default function WaterServicesShowcase() {
                 handleNext();
               }
             }}
-            className={`grid gap-5 sm:gap-6 lg:gap-7 ${
+            className={`grid gap-4 sm:gap-6 lg:gap-7 ${
               itemsPerSlide === 1
                 ? "grid-cols-1 max-w-lg mx-auto"
                 : itemsPerSlide === 2
@@ -289,14 +287,14 @@ export default function WaterServicesShowcase() {
               return (
                 <div
                   key={card.id}
-                  className={`group relative rounded-2xl sm:rounded-3xl overflow-hidden border transition-all duration-300 min-h-[320px] sm:min-h-[330px] flex flex-col justify-between hover:shadow-2xl hover:-translate-y-1.5 ${
+                  className={`group relative rounded-2xl sm:rounded-3xl overflow-hidden border transition-all duration-300 min-h-[200px] sm:min-h-[330px] flex flex-col justify-between hover:shadow-2xl hover:-translate-y-1.5 ${
                     isDark
                       ? "border-white/10 shadow-[0_20px_50px_rgba(7,23,46,0.25)] bg-[#07172e]"
                       : "border-slate-200/90 shadow-[0_20px_50px_rgba(8,27,56,0.08)] bg-white"
                   }`}
                 >
-                  {/* Right Photographic Background (~50-55% width) */}
-                  <div className="absolute inset-y-0 right-0 w-[55%] sm:w-[50%] overflow-hidden">
+                  {/* Right Photographic Background (~45-50% width) */}
+                  <div className="absolute inset-y-0 right-0 w-[45%] sm:w-[50%] overflow-hidden">
                     <img
                       src={card.image}
                       alt={card.title.join(" ")}
@@ -322,57 +320,55 @@ export default function WaterServicesShowcase() {
                     {card.extraVisual}
                   </div>
 
-                  {/* Left Content Area (~65-75% width for readability) */}
-                  <div className="relative z-10 p-5 sm:p-7 flex flex-col justify-between h-full max-w-[78%] sm:max-w-[65%] space-y-4">
-                    <div className="space-y-3">
-                      {/* Top Marker: e.g. 01 ── */}
-                      <div className="flex items-center gap-2">
+                  {/* Left Content Area (~72-76% width on mobile, 65% on desktop) */}
+                  <div className="relative z-10 p-3.5 sm:p-7 flex flex-col justify-between h-full max-w-[74%] sm:max-w-[65%] space-y-2 sm:space-y-4">
+                    <div className="space-y-1.5 sm:space-y-3">
+                      {/* Top Marker & Badge Row (Inline on mobile to save vertical space) */}
+                      <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">
                         <span
-                          className={`text-xs font-mono font-bold tracking-wider ${
+                          className={`text-[10px] sm:text-xs font-mono font-bold tracking-wider ${
                             isDark ? "text-slate-400" : "text-slate-400"
                           }`}
                         >
                           {card.number}
                         </span>
                         <span
-                          className={`w-7 h-[1.5px] ${
+                          className={`w-3 sm:w-7 h-[1.5px] ${
                             isDark ? "bg-slate-500/60" : "bg-slate-300"
                           }`}
                         />
-                      </div>
-
-                      {/* Badge Pill with Icon */}
-                      <div className="flex items-center gap-2">
-                        <div
-                          className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center shrink-0 ${card.badge.colorClasses}`}
-                        >
-                          {card.badge.icon}
+                        <div className="flex items-center gap-1 sm:gap-1.5">
+                          <div
+                            className={`w-4 h-4 sm:w-6 sm:h-6 rounded-full flex items-center justify-center shrink-0 ${card.badge.colorClasses}`}
+                          >
+                            {card.badge.icon}
+                          </div>
+                          <span
+                            className={`text-[9px] sm:text-[11px] font-mono font-bold tracking-[0.12em] sm:tracking-[0.18em] uppercase ${
+                              isDark ? "text-slate-200" : "text-slate-700"
+                            }`}
+                          >
+                            {card.badge.label}
+                          </span>
                         </div>
-                        <span
-                          className={`text-[10px] sm:text-[11px] font-mono font-bold tracking-[0.16em] sm:tracking-[0.18em] uppercase ${
-                            isDark ? "text-slate-200" : "text-slate-700"
-                          }`}
-                        >
-                          {card.badge.label}
-                        </span>
                       </div>
 
                       {/* Title */}
                       <h3
-                        className={`text-lg sm:text-[22px] font-extrabold tracking-tight leading-[1.2] ${
+                        className={`text-sm sm:text-[22px] font-extrabold tracking-tight leading-[1.18] sm:leading-[1.2] ${
                           isDark ? "text-white" : "text-[#081B38]"
                         }`}
                       >
                         {card.title.map((line, idx) => (
-                          <span key={idx} className="block">
+                          <span key={idx} className="sm:block inline mr-1 sm:mr-0">
                             {line}
                           </span>
                         ))}
                       </h3>
 
-                      {/* Description */}
+                      {/* Description (2 lines on mobile, full on desktop) */}
                       <p
-                        className={`text-xs sm:text-[13px] leading-relaxed font-normal line-clamp-3 sm:line-clamp-none ${
+                        className={`text-[11px] sm:text-[13px] leading-snug sm:leading-relaxed font-normal line-clamp-2 sm:line-clamp-none ${
                           isDark ? "text-slate-300" : "text-slate-600"
                         }`}
                       >
@@ -381,16 +377,16 @@ export default function WaterServicesShowcase() {
                     </div>
 
                     {/* Action Button */}
-                    <div className="pt-2">
+                    <div className="pt-1 sm:pt-2">
                       <Link
                         href="/pay"
-                        className={`inline-flex items-center gap-2 sm:gap-2.5 pl-4 sm:pl-5 pr-1.5 py-1.5 rounded-full text-xs font-bold shadow-md transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] ${card.button.bgClass} ${card.button.textClass}`}
+                        className={`inline-flex items-center gap-1.5 sm:gap-2.5 pl-3 sm:pl-5 pr-1 sm:pr-1.5 py-1 sm:py-1.5 rounded-full text-[10px] sm:text-xs font-bold shadow-md transition-all duration-300 hover:scale-[1.03] active:scale-[0.98] ${card.button.bgClass} ${card.button.textClass}`}
                       >
                         <span>Explore Service</span>
                         <div
-                          className={`w-5 h-5 sm:w-6 sm:h-6 rounded-full flex items-center justify-center shrink-0 ${card.button.arrowBgClass} ${card.button.arrowColorClass}`}
+                          className={`w-4 h-4 sm:w-6 sm:h-6 rounded-full flex items-center justify-center shrink-0 ${card.button.arrowBgClass} ${card.button.arrowColorClass}`}
                         >
-                          <ArrowRight size={12} className="group-hover:translate-x-0.5 transition-transform" />
+                          <ArrowRight size={10} className="sm:w-3 sm:h-3 group-hover:translate-x-0.5 transition-transform" />
                         </div>
                       </Link>
                     </div>
@@ -402,98 +398,30 @@ export default function WaterServicesShowcase() {
         </AnimatePresence>
       </div>
 
-      {/* Slideshow Bottom Navigation Controls & 5-Second Auto-Slide Indicators */}
-      <div className="flex items-center justify-between pt-6 px-1 flex-wrap gap-3">
-        {/* Slide Pagination Tabs with Labels */}
-        <div className="flex items-center gap-1.5 sm:gap-2.5">
-          {itemsPerSlide === 1 ? (
-            // Mobile: 6 Sleek Numbered Indicator Pills
-            <div className="flex items-center gap-1.5">
-              {slides.map((_, index) => {
-                const isActive = safeSlideIndex === index;
-                return (
-                  <button
-                    key={index}
-                    type="button"
-                    onClick={() => handleSelectSlide(index)}
-                    aria-label={`Slide ${index + 1}`}
-                    className={`h-7 px-2.5 rounded-full text-[11px] font-mono font-bold transition-all duration-300 cursor-pointer flex items-center gap-1 ${
-                      isActive
-                        ? "bg-[#081B38] text-white shadow-sm"
-                        : "bg-slate-100 text-slate-500 hover:bg-slate-200"
-                    }`}
-                  >
-                    <span>0{index + 1}</span>
-                    {isActive && (
-                      <span className="w-1.5 h-1.5 rounded-full bg-cyan-400 animate-pulse" />
-                    )}
-                  </button>
-                );
-              })}
-            </div>
-          ) : (
-            // Desktop & Tablet: Full descriptive tabs with progress hairlines
-            slides.map((_, index) => {
-              const isActive = safeSlideIndex === index;
-              return (
-                <button
-                  key={index}
-                  type="button"
-                  onClick={() => handleSelectSlide(index)}
-                  className={`relative px-4 py-2 rounded-full text-xs font-bold transition-all duration-300 cursor-pointer flex items-center gap-2 overflow-hidden ${
-                    isActive
-                      ? "bg-[#081B38] text-white shadow-md"
-                      : "bg-slate-100 text-slate-600 hover:bg-slate-200 hover:text-slate-900"
-                  }`}
-                >
-                  <span
-                    className={`w-2 h-2 rounded-full ${
-                      isActive ? "bg-cyan-400 animate-pulse" : "bg-slate-400"
-                    }`}
-                  />
-                  <span>
-                    {itemsPerSlide === 3
-                      ? index === 0
-                        ? "Services 01 – 03"
-                        : "Services 04 – 06"
-                      : `Part 0${index + 1}`}
-                  </span>
-
-                  {/* Animated 5s Progress Bar when active and not paused */}
-                  {isActive && !isPaused && (
-                    <motion.span
-                      initial={{ width: 0 }}
-                      animate={{ width: "100%" }}
-                      transition={{ duration: 5, ease: "linear" }}
-                      className="absolute bottom-0 left-0 h-[2px] bg-cyan-400 rounded-full"
-                    />
-                  )}
-                </button>
-              );
-            })
-          )}
+      {/* Slideshow Minimal Navigation (Prev / Next Chevrons without bulky tabs or number pills) */}
+      <div className="flex items-center justify-between pt-3.5 sm:pt-6 px-1">
+        {/* Sleek Minimal Progress Dots */}
+        <div className="flex items-center gap-1.5 sm:gap-2">
+          {slides.map((_, index) => {
+            const isActive = safeSlideIndex === index;
+            return (
+              <button
+                key={index}
+                type="button"
+                onClick={() => handleSelectSlide(index)}
+                aria-label={`Go to slide ${index + 1}`}
+                className={`h-1.5 sm:h-2 rounded-full transition-all duration-300 cursor-pointer ${
+                  isActive
+                    ? "w-6 sm:w-8 bg-[#081B38]"
+                    : "w-2 bg-slate-300 hover:bg-slate-400"
+                }`}
+              />
+            );
+          })}
         </div>
 
-        {/* Prev / Next Chevrons & Pause Indicator */}
-        <div className="flex items-center gap-2 ml-auto">
-          {/* Pause / Playing Micro-Indicator */}
-          <div
-            className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-slate-100 text-slate-500 text-[11px] font-mono font-medium"
-            title={isPaused ? "Slideshow paused on hover" : "Auto-sliding every 5 seconds"}
-          >
-            {isPaused ? (
-              <>
-                <Pause size={10} className="text-amber-500" />
-                <span>Paused</span>
-              </>
-            ) : (
-              <>
-                <Play size={10} className="text-emerald-500 fill-emerald-500" />
-                <span>Auto (5s)</span>
-              </>
-            )}
-          </div>
-
+        {/* Prev / Next Chevrons */}
+        <div className="flex items-center gap-2">
           {/* Left Arrow Button */}
           <button
             type="button"
