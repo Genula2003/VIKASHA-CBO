@@ -210,99 +210,125 @@ export default function Home() {
               </motion.div>
 
               {/* =================================================================== */}
-              {/* METER ACCOUNT NUMBER ENTERING PART (FROSTED GLASS WIDGET) */}
+              {/* METER ACCOUNT NUMBER ENTERING PART (ULTRA-PREMIUM FROSTED GLASS WIDGET) */}
               {/* =================================================================== */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.96, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.85, delay: 0.15, ease: smoothEase }}
-                className="rounded-2xl p-[1px] bg-gradient-to-b from-white/40 via-white/15 to-transparent shadow-2xl max-w-xl"
+                className="relative rounded-3xl p-[1px] bg-gradient-to-b from-white/60 via-white/20 to-white/5 shadow-[0_25px_60px_rgba(4,18,40,0.6),0_0_40px_rgba(6,182,212,0.12)] max-w-xl overflow-hidden group/glass"
               >
-                <div className="backdrop-blur-xl bg-[#081B38]/75 border border-white/20 rounded-2xl p-4 sm:p-5 text-white">
+                {/* Specular Top Prismatic Highlight Sheen */}
+                <div className="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-cyan-300/80 to-transparent pointer-events-none z-20" />
 
-                  {/* Widget Header with Silver/White Accents */}
-                  <div className="flex items-center justify-between mb-3 text-xs">
-                    <span className="font-mono uppercase tracking-wider font-bold text-white flex items-center gap-2">
-                      <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-slate-200 opacity-75" />
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-white" />
+                <div className="relative rounded-[23px] backdrop-blur-2xl bg-[#081B38]/65 border border-white/20 p-5 sm:p-6 text-white overflow-hidden">
+
+                  {/* Ambient Light Blooms inside Glass */}
+                  <div className="absolute -top-20 -left-20 w-48 h-48 rounded-full bg-cyan-400/15 blur-3xl pointer-events-none" />
+                  <div className="absolute -bottom-20 -right-20 w-48 h-48 rounded-full bg-blue-500/20 blur-3xl pointer-events-none" />
+
+                  {/* Widget Header with Cyan Beacon & Live Pill */}
+                  <div className="relative z-10 flex items-center justify-between mb-3.5 text-xs">
+                    <div className="flex items-center gap-2.5">
+                      <span className="relative flex h-2.5 w-2.5">
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
+                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-300 shadow-[0_0_8px_rgba(34,211,238,0.9)]" />
                       </span>
-                      ENTER METER ACCOUNT NUMBER
-                    </span>
-                    <span className="text-slate-300 font-mono text-[11px] hidden sm:inline">
-                      Instant 24/7 E-Bill Search
-                    </span>
+                      <span className="font-mono uppercase tracking-[0.18em] font-extrabold text-white">
+                        ENTER METER ACCOUNT NUMBER
+                      </span>
+                    </div>
+
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-cyan-200 font-mono text-[11px] font-semibold shadow-xs hidden sm:inline-flex">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                      <span>Instant 24/7 E-Bill</span>
+                    </div>
                   </div>
 
-                  {/* Account Input & Search Button (White Main, Navy Dark Blue & Silver) */}
-                  <form onSubmit={handleQuickSearch} className="space-y-3">
+                  {/* Account Input & Search Button in Frosted Glass */}
+                  <form onSubmit={handleQuickSearch} className="relative z-10 space-y-3.5">
                     <div className="flex flex-col sm:flex-row gap-2.5">
-                      <div className="relative flex-1">
-                        <div className="absolute left-3.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-[#081B38]">
-                          <User size={16} />
+                      {/* Frosted Glass Input Field */}
+                      <div className="relative flex-1 group/input">
+                        <div className="absolute left-3.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-cyan-300 shadow-sm pointer-events-none transition-transform group-focus-within/input:scale-110">
+                          <User size={15} />
                         </div>
                         <input
                           type="text"
                           value={quickAccount}
                           onChange={(e) => setQuickAccount(e.target.value)}
                           placeholder="e.g. 135 (or Consumer Account #)"
-                          className="w-full h-12 pl-13 pr-4 rounded-xl bg-white text-[#081B38] placeholder:text-slate-400 font-mono text-sm font-bold shadow-inner focus:outline-none focus:ring-2 focus:ring-[#081B38] border border-slate-200"
+                          className="w-full h-13 pl-13 pr-4 rounded-xl bg-white/[0.12] hover:bg-white/[0.16] focus:bg-[#081B38]/90 backdrop-blur-xl text-white placeholder:text-slate-300 font-mono text-sm font-bold border border-white/25 focus:border-cyan-400/90 focus:outline-none shadow-[inset_0_2px_4px_rgba(0,0,0,0.35),0_0_0_1px_rgba(255,255,255,0.06)] focus:shadow-[0_0_25px_rgba(34,211,238,0.35),inset_0_2px_4px_rgba(0,0,0,0.2)] transition-all duration-300"
                         />
                       </div>
 
+                      {/* Electric Blue Frosted Glass Action Button */}
                       <button
                         type="submit"
                         disabled={isSearching}
-                        className="h-12 px-6 rounded-xl bg-white hover:bg-slate-100 text-[#081B38] font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-lg transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shrink-0 cursor-pointer disabled:opacity-75 border border-slate-200"
+                        className="h-13 px-6 rounded-xl bg-gradient-to-r from-[#0057E7] via-[#0066FF] to-[#0080FF] hover:from-[#004EEB] hover:to-[#0070e0] text-white font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2.5 shadow-[0_8px_24px_rgba(0,87,231,0.45),inset_0_1px_1px_rgba(255,255,255,0.4)] hover:shadow-[0_12px_32px_rgba(0,87,231,0.65)] hover:scale-[1.02] active:scale-[0.98] shrink-0 cursor-pointer disabled:opacity-75 border border-white/30 backdrop-blur-md transition-all duration-300 group/btn"
                       >
                         {isSearching ? (
                           <>
-                            <Loader2 size={16} className="animate-spin text-[#081B38]" />
+                            <Loader2 size={16} className="animate-spin text-white" />
                             <span>Verifying...</span>
                           </>
                         ) : (
                           <>
-                            <CreditCard size={16} className="text-[#081B38]" />
-                            <span>View &amp; Pay Bill</span>
-                            <ArrowRight size={15} />
+                            <CreditCard size={16} className="text-white drop-shadow-sm" />
+                            <span className="tracking-wide">View &amp; Pay Bill</span>
+                            <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-white shrink-0 group-hover/btn:translate-x-0.5 transition-transform">
+                              <ArrowRight size={12} strokeWidth={3} />
+                            </div>
                           </>
                         )}
                       </button>
                     </div>
 
-                    {/* Quick Sample Clickable Accounts */}
+                    {/* Quick Sample Clickable Accounts with Glass Chips */}
                     <div className="flex items-center gap-2 pt-0.5 text-xs text-slate-300">
-                      <span className="text-[11px] text-slate-400 font-mono">Quick test:</span>
-                      {["135", "102", "189"].map((acc) => (
-                        <button
-                          key={acc}
-                          type="button"
-                          onClick={() => setQuickAccount(acc)}
-                          className="px-2.5 py-0.5 rounded-md bg-white/10 hover:bg-white hover:text-[#081B38] text-white font-mono text-[11px] font-semibold border border-white/20 transition-all cursor-pointer"
-                        >
-                          #{acc}
-                        </button>
-                      ))}
+                      <span className="text-[11px] text-slate-300/90 font-mono">Quick test:</span>
+                      {["135", "102", "189"].map((acc) => {
+                        const isSelected = quickAccount === acc;
+                        return (
+                          <button
+                            key={acc}
+                            type="button"
+                            onClick={() => setQuickAccount(acc)}
+                            className={`px-3 py-1 rounded-lg font-mono text-[11px] font-bold border backdrop-blur-md transition-all duration-200 cursor-pointer shadow-xs active:scale-95 ${
+                              isSelected
+                                ? "bg-cyan-500/35 border-cyan-400 text-cyan-200 shadow-[0_0_12px_rgba(34,211,238,0.5)]"
+                                : "bg-white/[0.08] hover:bg-white/[0.18] text-white/90 border-white/20 hover:border-cyan-400/50 hover:text-white"
+                            }`}
+                          >
+                            #{acc}
+                          </button>
+                        );
+                      })}
                     </div>
 
-                    {/* Modal Helpers with Silver Icons */}
-                    <div className="pt-3 border-t border-white/15 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-300">
+                    {/* Modal Helpers with Glass Badges */}
+                    <div className="pt-3.5 border-t border-white/15 flex flex-wrap items-center justify-between gap-3 text-xs text-slate-300">
                       <button
                         type="button"
                         onClick={() => setShowAccountHelp(true)}
-                        className="flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer"
+                        className="flex items-center gap-2 hover:text-cyan-300 transition-colors cursor-pointer group/help"
                       >
-                        <HelpCircle size={14} className="text-slate-300" />
-                        <span>Need help finding your account number?</span>
+                        <div className="w-5 h-5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-slate-300 group-hover/help:text-cyan-300 group-hover/help:border-cyan-400/50 transition-colors">
+                          <HelpCircle size={12} />
+                        </div>
+                        <span className="text-xs text-slate-300 group-hover/help:text-white transition-colors">
+                          Need help finding your account number?
+                        </span>
                       </button>
 
                       <button
                         type="button"
                         onClick={() => setShowHowToPay(true)}
-                        className="flex items-center gap-1.5 hover:text-white transition-colors font-medium cursor-pointer"
+                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white font-medium text-xs transition-all duration-200 hover:border-white/40 cursor-pointer shadow-xs"
                       >
                         <span>How to Pay?</span>
-                        <Play size={12} className="text-slate-300" />
+                        <Play size={11} className="fill-white text-white" />
                       </button>
                     </div>
                   </form>
