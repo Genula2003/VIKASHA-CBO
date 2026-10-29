@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
@@ -10,9 +10,6 @@ import PageLoader from "@/components/PageLoader";
 import VideoShowcase from "@/components/VideoShowcase";
 import WaterServicesShowcase from "@/components/WaterServicesShowcase";
 import {
-  CreditCard,
-  Search,
-  Receipt,
   User,
   ArrowRight,
   Clock,
@@ -31,21 +28,45 @@ import {
   X,
   FileText,
   ChevronRight,
-  Check
+  Sparkles,
+  ShieldCheck,
+  Zap,
+  CheckCircle2
 } from "lucide-react";
 
-// Silky smooth momentum cubic-bezier easing curve
+// Silky momentum cubic-bezier easing curve
 const smoothEase = [0.22, 1, 0.36, 1] as const;
+
+// Staggered motion container variants
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, y: 24 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.85,
+      ease: smoothEase,
+    },
+  },
+};
 
 export default function Home() {
   const router = useRouter();
   const [quickAccount, setQuickAccount] = useState("");
-  const [activeHeroTab, setActiveHeroTab] = useState<"quick" | "enquiry" | "receipt">("quick");
   const [isSearching, setIsSearching] = useState(false);
   const [showHowToPay, setShowHowToPay] = useState(false);
   const [showAccountHelp, setShowAccountHelp] = useState(false);
-
-
 
   const handleQuickSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -68,134 +89,121 @@ export default function Home() {
       {/* ========================================================================= */}
       {/* 1. HERO SECTION (NATURE WATER RESERVOIR & NEON GLASS QUICK PAY) */}
       {/* ========================================================================= */}
-      <section className="relative w-full overflow-visible bg-[#03152d] text-white">
+      <section className="relative w-full overflow-hidden bg-[#03152d] text-white">
 
         {/* Top Navbar */}
         <Navbar />
 
-        {/* Full-Width Nature Water Background Container */}
-        <div className="relative min-h-[580px] sm:min-h-[700px] lg:min-h-[800px] w-full flex items-center pt-24 sm:pt-32 lg:pt-36 pb-24 sm:pb-36 lg:pb-48 overflow-hidden">
+        {/* Full-Width Reservoir Container with Rich Cinematic Lighting */}
+        <div className="relative min-h-[640px] sm:min-h-[720px] lg:min-h-[820px] w-full flex items-center pt-24 sm:pt-32 lg:pt-36 pb-20 sm:pb-32 lg:pb-44">
 
-          {/* Background Nature Water Lake Photo */}
+          {/* Background Nature Water Lake Photo with Multi-Layered Scrim */}
           <div className="absolute inset-0 z-0">
             <img
               src="/hero-reservoir-bg.jpg"
               alt="Magammana Nature Water Reservoir"
-              className="w-full h-full object-cover object-center"
+              className="w-full h-full object-cover object-center scale-105 motion-safe:animate-[subtleZoom_20s_infinite_alternate_ease-in-out]"
               loading="eager"
               fetchPriority="high"
               decoding="async"
             />
-            {/* Elegant Scrims: Soft left navy scrim for crisp text contrast, letting sunlight and reservoir shine on the right */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#03152d]/95 via-[#03152d]/80 sm:via-[#03152d]/40 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#03152d] via-[#03152d]/60 sm:via-transparent to-transparent" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.1),transparent_60%)]" />
+            {/* Cinematic Scrims: Left dark navy backdrop for crystal clear readability; transparent right for sunlight & reservoir */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#03152d]/98 via-[#03152d]/85 sm:via-[#03152d]/60 to-[#03152d]/30" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#03152d] via-transparent to-[#03152d]/50" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(0,192,247,0.15),transparent_65%)]" />
           </div>
 
-          {/* Left Content Area (Matching Template with Meter Account Input) */}
+          {/* Hero Content Area */}
           <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <motion.div
-              initial={{ opacity: 0, y: 25 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.85, ease: smoothEase }}
-              className="max-w-2xl space-y-4 sm:space-y-6"
+              variants={containerVariants}
+              initial="hidden"
+              animate="visible"
+              className="max-w-2xl space-y-5 sm:space-y-6"
             >
               {/* Eyebrow Pill Badge */}
-              <motion.div
-                initial={{ opacity: 0, y: 15 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.1, ease: smoothEase }}
-                className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-slate-900/60 backdrop-blur-md border border-sky-400/50 shadow-[0_0_15px_rgba(56,189,248,0.3)] text-[10px] sm:text-xs font-mono font-bold tracking-wider text-white"
-              >
-                <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-white shadow-xs">
-                  <Droplet size={10} className="fill-white" />
+              <motion.div variants={itemVariants}>
+                <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/70 backdrop-blur-md border border-sky-400/40 shadow-[0_0_20px_rgba(56,189,248,0.25)] text-[11px] sm:text-xs font-mono font-bold tracking-wider text-sky-100">
+                  <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-white shadow-xs shrink-0">
+                    <Droplet size={11} className="fill-white" />
+                  </div>
+                  <span className="uppercase tracking-wider">DEMOCRATICALLY GOVERNED CBO &bull; MAGAMMANA</span>
                 </div>
-                <span className="uppercase tracking-wider">DEMOCRATICALLY GOVERNED CBO</span>
               </motion.div>
 
-              {/* Master Headline: Bold Modern Sans-Serif Typography matching reference */}
-              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold text-white leading-[1.15] sm:leading-[1.12] tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.5)] select-none">
+              {/* Master Headline */}
+              <motion.h1
+                variants={itemVariants}
+                className="text-3xl sm:text-4xl md:text-5xl lg:text-[56px] font-extrabold text-white leading-[1.12] sm:leading-[1.1] tracking-tight drop-shadow-[0_4px_20px_rgba(0,0,0,0.6)] select-none"
+              >
                 <span className="block">A Legacy of Trust</span>
                 <span className="block">Built on a Sophisticated</span>
-                <span className="block text-[#00c0f7] drop-shadow-[0_0_24px_rgba(0,192,247,0.55)]">
+                <span className="block bg-gradient-to-r from-[#00c0f7] via-[#38bdf8] to-[#60a5fa] bg-clip-text text-transparent drop-shadow-[0_0_28px_rgba(0,192,247,0.45)]">
                   Water Community.
                 </span>
-              </h1>
+              </motion.h1>
 
               {/* Subtitle */}
-              <p className="text-xs sm:text-base text-slate-100/95 max-w-xl leading-relaxed drop-shadow-md font-medium">
-                Reliable water services, transparent billing and a sustainable tomorrow for every home.
-              </p>
+              <motion.p
+                variants={itemVariants}
+                className="text-sm sm:text-base text-slate-200/95 max-w-xl leading-relaxed drop-shadow-md font-normal"
+              >
+                Continuous SLS 614 certified drinking water, instant online e-bill settlements, and transparent community stewardship for every household in Magammana.
+              </motion.p>
 
               {/* =================================================================== */}
-              {/* METER ACCOUNT NUMBER ENTERING CARD (NEON GLOWING GLASS WIDGET) */}
+              {/* CLEAN GLASSMORPHIC QUICK BILL PAY CARD */}
               {/* =================================================================== */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.96, y: 20 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 0.85, delay: 0.2, ease: smoothEase }}
-                className="relative rounded-2xl sm:rounded-3xl p-[2px] bg-gradient-to-b from-sky-300 via-sky-500/70 to-blue-600/80 shadow-[0_0_40px_rgba(14,165,233,0.4),0_20px_50px_rgba(2,18,44,0.7)] max-w-2xl w-full overflow-hidden group/card"
+                variants={itemVariants}
+                className="relative rounded-2xl sm:rounded-3xl p-[1.5px] bg-gradient-to-b from-sky-300/80 via-sky-500/40 to-blue-600/70 shadow-[0_20px_60px_rgba(2,18,44,0.7),0_0_35px_rgba(14,165,233,0.25)] max-w-xl w-full overflow-hidden group/card"
               >
-                {/* Outer Glass Card Container */}
-                <div className="relative rounded-[20px] sm:rounded-[22px] backdrop-blur-2xl bg-gradient-to-br from-[#0c2e5e]/95 via-[#071f42]/95 to-[#031127]/98 p-4 sm:p-7 text-white overflow-hidden">
+                <div className="relative rounded-[22px] backdrop-blur-2xl bg-[#071933]/90 sm:bg-[#071933]/85 p-4 sm:p-6 text-white overflow-hidden border border-white/10">
                   
                   {/* Subtle Corner Glow Blooms */}
-                  <div className="absolute -top-16 -left-16 w-40 h-40 rounded-full bg-sky-400/20 blur-3xl pointer-events-none" />
-                  <div className="absolute -bottom-16 -right-16 w-48 h-48 rounded-full bg-blue-500/25 blur-3xl pointer-events-none" />
+                  <div className="absolute -top-16 -left-16 w-36 h-36 rounded-full bg-sky-400/20 blur-3xl pointer-events-none" />
+                  <div className="absolute -bottom-16 -right-16 w-44 h-44 rounded-full bg-blue-500/20 blur-3xl pointer-events-none" />
 
-                  {/* 3D Crystalline Water Teardrop & Wave in Bottom Right Corner (Responsive Sizing) */}
-                  <div className="absolute bottom-0 right-0 w-28 sm:w-44 lg:w-56 pointer-events-none select-none z-0 opacity-40 sm:opacity-90">
-                    <img
-                      src="/hero-water-splash-corner.png"
-                      alt=""
-                      className="w-full h-auto object-contain pointer-events-none"
-                    />
-                  </div>
-
-                  {/* Widget Top Bar: Water Drop Icon + Title + Instant 24/7 E-Bill Pill */}
-                  <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between mb-3.5 sm:mb-5 gap-2.5 sm:gap-2">
-                    <div className="flex items-center gap-2.5 sm:gap-3">
-                      <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl overflow-hidden shrink-0 shadow-[0_0_15px_rgba(56,189,248,0.45)] border border-sky-300/40 bg-sky-950/60">
-                        <img
-                          src="/card-water-icon.png"
-                          alt="Water Icon"
-                          className="w-full h-full object-cover"
-                        />
+                  {/* Header Row: Title & Live Pulse */}
+                  <div className="relative z-10 flex items-center justify-between gap-3 mb-4">
+                    <div className="flex items-center gap-2.5">
+                      <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-gradient-to-br from-sky-400/30 to-blue-600/30 border border-sky-400/50 flex items-center justify-center text-sky-300 shadow-inner shrink-0">
+                        <Droplets size={18} className="text-sky-300" />
                       </div>
-                      <h2 className="text-sm sm:text-lg font-bold text-white tracking-tight">
-                        Enter Meter Account Number
+                      <h2 className="text-sm sm:text-base font-bold text-white tracking-tight">
+                        Quick Bill Verification &amp; Payment
                       </h2>
                     </div>
 
-                    <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-slate-900/60 border border-sky-500/40 text-slate-200 text-[10px] sm:text-xs font-semibold shadow-xs shrink-0 self-start sm:self-auto">
+                    <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-slate-950/60 border border-emerald-500/40 text-emerald-300 text-[10px] sm:text-[11px] font-semibold shrink-0">
                       <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399] animate-pulse" />
-                      <span>Instant 24/7 E-Bill</span>
+                      <span>24/7 E-Bill Active</span>
                     </div>
                   </div>
 
                   {/* Form: White Pill Input + Royal Electric Blue Action Button */}
-                  <form onSubmit={handleQuickSearch} className="relative z-10 space-y-3 sm:space-y-4">
-                    <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3">
+                  <form onSubmit={handleQuickSearch} className="relative z-10 space-y-3.5">
+                    <div className="flex flex-col sm:flex-row gap-2.5">
                       
-                      {/* White / Soft Ice Pill Input Field (Spacious & Full-Text Clear, 16px on mobile to avoid iOS Safari auto-zoom) */}
+                      {/* Input Field: min 16px font-size to prevent mobile auto-zoom */}
                       <div className="relative flex-1 min-w-0 group/input">
-                        <div className="absolute left-3.5 top-1/2 -translate-y-1/2 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-sky-100 flex items-center justify-center text-sky-600 pointer-events-none transition-transform group-focus-within/input:scale-110">
+                        <div className="absolute left-3.5 top-1/2 -translate-y-1/2 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-sky-50 flex items-center justify-center text-sky-600 pointer-events-none transition-transform group-focus-within/input:scale-110">
                           <User size={15} />
                         </div>
                         <input
                           type="text"
                           value={quickAccount}
                           onChange={(e) => setQuickAccount(e.target.value)}
-                          placeholder="e.g. 135 (or Consumer Account No.)"
-                          className="w-full h-11 sm:h-13 pl-11 sm:pl-12 pr-4 rounded-xl sm:rounded-2xl bg-white text-slate-900 placeholder:text-slate-500 text-base sm:text-[13px] font-semibold border border-white shadow-[inset_0_2px_4px_rgba(0,0,0,0.06),0_4px_12px_rgba(0,0,0,0.15)] focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all duration-200"
+                          placeholder="Enter Account No. (e.g. 135)"
+                          className="w-full h-12 sm:h-13 pl-11 sm:pl-12 pr-4 rounded-xl sm:rounded-2xl bg-white text-slate-900 placeholder:text-slate-400 text-base sm:text-sm font-semibold border border-white/80 shadow-[inset_0_2px_4px_rgba(0,0,0,0.06),0_4px_12px_rgba(0,0,0,0.15)] focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all duration-200"
                         />
                       </div>
 
-                      {/* Electric Royal Blue Button */}
+                      {/* Primary Action Button */}
                       <button
                         type="submit"
                         disabled={isSearching}
-                        className="h-11 sm:h-13 px-5 sm:px-6 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#0052e0] via-[#0066ff] to-[#0084ff] hover:from-[#0047cc] hover:to-[#0073e6] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2.5 shadow-[0_8px_24px_rgba(0,102,255,0.45),inset_0_1px_1px_rgba(255,255,255,0.4)] hover:shadow-[0_12px_32px_rgba(0,102,255,0.65)] hover:scale-[1.02] active:scale-[0.98] shrink-0 cursor-pointer disabled:opacity-75 border border-sky-300/40 transition-all duration-300 group/btn w-full sm:w-auto whitespace-nowrap"
+                        className="h-12 sm:h-13 px-5 sm:px-6 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#0052e0] via-[#0066ff] to-[#0084ff] hover:from-[#0047cc] hover:to-[#0073e6] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-[0_8px_24px_rgba(0,102,255,0.45)] hover:shadow-[0_12px_32px_rgba(0,102,255,0.65)] hover:scale-[1.02] active:scale-[0.98] shrink-0 cursor-pointer disabled:opacity-75 border border-sky-300/40 transition-all duration-300 group/btn w-full sm:w-auto whitespace-nowrap"
                       >
                         {isSearching ? (
                           <>
@@ -205,7 +213,7 @@ export default function Home() {
                         ) : (
                           <>
                             <FileText size={16} className="text-white drop-shadow-sm" />
-                            <span className="tracking-wide">View &amp; Pay Bill</span>
+                            <span>View &amp; Pay Bill</span>
                             <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-white shrink-0 group-hover/btn:translate-x-0.5 transition-transform">
                               <ArrowRight size={12} strokeWidth={2.5} />
                             </div>
@@ -214,9 +222,9 @@ export default function Home() {
                       </button>
                     </div>
 
-                    {/* Quick test row */}
-                    <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-0.5 text-xs text-slate-200">
-                      <span className="text-[11px] sm:text-[12px] font-semibold text-slate-200">Quick test:</span>
+                    {/* Quick Test Numbers */}
+                    <div className="flex flex-wrap items-center gap-2 pt-0.5">
+                      <span className="text-[11px] sm:text-xs font-medium text-slate-300">Quick Test:</span>
                       {["135", "102", "189"].map((acc) => {
                         const isSelected = quickAccount === acc;
                         return (
@@ -224,9 +232,9 @@ export default function Home() {
                             key={acc}
                             type="button"
                             onClick={() => setQuickAccount(acc)}
-                            className={`px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full font-mono text-[10px] sm:text-[11px] font-bold border transition-all duration-200 cursor-pointer shadow-xs active:scale-95 ${
+                            className={`px-2.5 py-1 rounded-full font-mono text-[11px] font-bold border transition-all duration-200 cursor-pointer active:scale-95 ${
                               isSelected
-                                ? "bg-sky-500/40 border-sky-300 text-white shadow-[0_0_12px_rgba(56,189,248,0.6)]"
+                                ? "bg-sky-500/50 border-sky-300 text-white shadow-[0_0_12px_rgba(56,189,248,0.5)]"
                                 : "bg-[#062042]/80 hover:bg-sky-600/30 text-sky-200 hover:text-white border-sky-400/40 hover:border-sky-300"
                             }`}
                           >
@@ -236,36 +244,55 @@ export default function Home() {
                       })}
                     </div>
 
-                    {/* Bottom Row: Grouped cleanly on the left so the 3D water teardrop on the right is unobstructed */}
-                    <div className="pt-3 sm:pt-3.5 border-t border-sky-400/20 flex flex-wrap items-center gap-2 sm:gap-3 text-xs relative z-10">
+                    {/* Bottom Helper Links */}
+                    <div className="pt-3 border-t border-sky-400/20 flex flex-wrap items-center justify-between gap-2 text-xs">
                       <button
                         type="button"
                         onClick={() => setShowAccountHelp(true)}
-                        className="flex items-center gap-1.5 sm:gap-2 hover:text-sky-300 transition-colors cursor-pointer group/help text-left"
+                        className="flex items-center gap-1.5 text-slate-300 hover:text-sky-300 transition-colors cursor-pointer group/help text-left text-[11px] sm:text-xs"
                       >
-                        <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-sky-500/30 border border-sky-400/60 flex items-center justify-center text-sky-200 font-bold text-[10px] sm:text-xs group-hover/help:border-sky-300 transition-colors shrink-0 shadow-xs">
-                          ?
-                        </div>
-                        <span className="text-[10px] sm:text-xs text-slate-200 group-hover/help:text-white transition-colors">
-                          Need help finding your account number?
-                        </span>
+                        <HelpCircle size={14} className="text-sky-400 group-hover/help:text-sky-300 transition-colors shrink-0" />
+                        <span>Where is my account number?</span>
                       </button>
-
-                      <span className="text-sky-300/40 text-sm hidden sm:inline">|</span>
 
                       <button
                         type="button"
                         onClick={() => setShowHowToPay(true)}
-                        className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-slate-900/60 hover:bg-sky-900/50 border border-sky-400/40 hover:border-sky-300 text-slate-200 hover:text-white font-medium text-[10px] sm:text-xs transition-all duration-200 cursor-pointer shadow-xs shrink-0"
+                        className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-slate-900/60 hover:bg-sky-900/50 border border-sky-400/40 hover:border-sky-300 text-slate-200 hover:text-white font-medium text-[10px] sm:text-[11px] transition-all duration-200 cursor-pointer shrink-0"
                       >
-                        <span>How to Pay?</span>
-                        <ChevronRight size={12} className="text-sky-300" />
+                        <span>How to Pay Online</span>
+                        <ChevronRight size={11} className="text-sky-300" />
                       </button>
                     </div>
 
                   </form>
                 </div>
               </motion.div>
+
+              {/* Floating Trust Pillars Bar */}
+              <motion.div
+                variants={itemVariants}
+                className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2 max-w-xl text-slate-200 text-xs"
+              >
+                {[
+                  { icon: ShieldCheck, label: "SLS 614 Certified", sub: "Purity Standard" },
+                  { icon: Clock, label: "24/7 Supply", sub: "Gravity Reservoir" },
+                  { icon: Zap, label: "Zero Fee Pay", sub: "LankaQR / Cards" },
+                  { icon: CheckCircle2, label: "Instant Receipt", sub: "Official Stamped" }
+                ].map((item, idx) => (
+                  <div
+                    key={idx}
+                    className="flex items-center gap-2 p-2 rounded-xl bg-slate-900/50 backdrop-blur-md border border-white/10"
+                  >
+                    <item.icon size={15} className="text-sky-400 shrink-0" />
+                    <div className="min-w-0">
+                      <p className="font-bold text-[11px] leading-tight text-white truncate">{item.label}</p>
+                      <p className="text-[9px] text-slate-400 leading-tight truncate">{item.sub}</p>
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+
             </motion.div>
           </div>
 
@@ -274,15 +301,15 @@ export default function Home() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 3 OVERLAPPING SPOTLIGHT CARDS (MATCHING HERO OCEANIC NEON GLASS THEME) */}
+      {/* 2. OVERLAPPING SPOTLIGHT CARDS */}
       {/* ========================================================================= */}
-      <section className="relative z-30 max-w-[1360px] mx-auto px-4 sm:px-6 -mt-10 sm:-mt-20 lg:-mt-28 mb-10 sm:mb-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-7">
+      <section className="relative z-30 max-w-[1360px] mx-auto px-4 sm:px-6 -mt-8 sm:-mt-16 lg:-mt-24 mb-12 sm:mb-20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
           {[
             {
               category: "Smart Telemetry",
               title: "SMART METERING",
-              desc: "High-precision optical telemetry logging and automated consumption tracking.",
+              desc: "High-precision optical telemetry logging and automated consumption tracking across households.",
               image: "/card-smart-meter.webp",
               href: "/pay",
               dotColor: "bg-cyan-400 shadow-[0_0_8px_#22d3ee]",
@@ -292,7 +319,7 @@ export default function Home() {
             {
               category: "Digital E-Billing",
               title: "ONLINE BILL PAY",
-              desc: "Instant zero-surcharge settlement via LankaQR, Visa, Mastercard, and direct CEFT.",
+              desc: "Instant zero-surcharge settlement via LankaQR, Visa, Mastercard, and direct CEFT transfer.",
               image: "/card-ebill-pay.webp",
               href: "/pay",
               dotColor: "bg-blue-400 shadow-[0_0_8px_#60a5fa]",
@@ -302,7 +329,7 @@ export default function Home() {
             {
               category: "Water Quality",
               title: "WATER PURITY",
-              desc: "Continuous deep-well filtration and automated chlorination compliant with SLS 614.",
+              desc: "Continuous deep-well filtration and automated chlorination compliant with SLS 614 standard.",
               image: "/card-water-purity.webp",
               href: "#services",
               dotColor: "bg-emerald-400 shadow-[0_0_8px_#34d399]",
@@ -312,31 +339,27 @@ export default function Home() {
           ].map((card, i) => (
             <motion.div
               key={i}
-              initial={{ opacity: 0, y: 35, filter: "blur(6px)" }}
-              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+              initial={{ opacity: 0, y: 35 }}
+              whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.85, delay: 0.15 + i * 0.12, ease: smoothEase }}
-              whileHover={{ y: -8, transition: { duration: 0.25 } }}
-              className="relative rounded-3xl p-[2px] bg-gradient-to-b from-sky-400/70 via-sky-500/35 to-blue-600/50 shadow-[0_18px_50px_rgba(2,18,44,0.45),0_0_30px_rgba(14,165,233,0.18)] hover:shadow-[0_22px_60px_rgba(0,102,255,0.35),0_0_40px_rgba(0,192,247,0.35)] hover:border-sky-300 transition-all duration-300 group flex flex-col"
+              transition={{ duration: 0.85, delay: 0.1 + i * 0.1, ease: smoothEase }}
+              whileHover={{ y: -6, transition: { duration: 0.25 } }}
+              className="relative rounded-2xl sm:rounded-3xl p-[1.5px] bg-gradient-to-b from-sky-400/60 via-sky-500/25 to-blue-600/40 shadow-[0_18px_45px_rgba(2,18,44,0.4)] hover:shadow-[0_22px_55px_rgba(0,102,255,0.3)] transition-all duration-300 group flex flex-col"
             >
-              <div className="relative rounded-[22px] overflow-hidden bg-gradient-to-br from-[#0c2e5e]/95 via-[#071f42]/95 to-[#031127]/98 backdrop-blur-2xl flex flex-col h-full border border-white/10">
+              <div className="relative rounded-[22px] overflow-hidden bg-gradient-to-br from-[#0c2e5e] via-[#071f42] to-[#031127] backdrop-blur-2xl flex flex-col h-full border border-white/10">
                 
-                {/* Subtle ambient light blooms */}
-                <div className="absolute -top-14 -right-14 w-36 h-36 rounded-full bg-sky-400/15 blur-2xl pointer-events-none group-hover:bg-sky-400/25 transition-all duration-500" />
-                <div className="absolute -bottom-14 -left-14 w-36 h-36 rounded-full bg-blue-600/20 blur-2xl pointer-events-none" />
-
                 <Link href={card.href} className="flex flex-col h-full relative z-10">
                   {/* Upper Image Section */}
-                  <div className="h-44 sm:h-56 lg:h-60 w-full overflow-hidden relative bg-[#04142b]">
+                  <div className="h-44 sm:h-52 lg:h-56 w-full overflow-hidden relative bg-[#04142b]">
                     <img
                       src={card.image}
                       alt={card.title}
-                      className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
-                    {/* Seamless Gradient Blend into Card Body */}
+                    {/* Gradient blend */}
                     <div className="absolute inset-0 bg-gradient-to-t from-[#071f42] via-[#071f42]/30 to-transparent opacity-90" />
                     
-                    {/* Floating Hero-Style Glass Pill on Image */}
+                    {/* Floating Glass Pill */}
                     <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4">
                       <span className="px-3 py-1 rounded-full bg-[#031127]/85 backdrop-blur-md border border-sky-400/50 text-sky-200 text-[10px] sm:text-[11px] font-mono font-bold tracking-wider shadow-md flex items-center gap-1.5 uppercase">
                         <span className={`w-1.5 h-1.5 rounded-full ${card.dotColor} animate-pulse`} />
@@ -345,18 +368,18 @@ export default function Home() {
                     </div>
                   </div>
 
-                  {/* Lower Panel matching Hero Palette */}
-                  <div className="p-4.5 sm:p-6 text-white flex-1 flex flex-col justify-between space-y-3 sm:space-y-4">
+                  {/* Card Body */}
+                  <div className="p-5 sm:p-6 text-white flex-1 flex flex-col justify-between space-y-3.5">
                     <div>
-                      <h3 className="text-lg sm:text-xl font-extrabold text-white tracking-tight font-sans mb-1.5 group-hover:text-[#00c0f7] transition-colors">
+                      <h3 className="text-lg sm:text-xl font-extrabold text-white tracking-tight mb-1.5 group-hover:text-[#00c0f7] transition-colors">
                         {card.title}
                       </h3>
                       <p className="text-xs sm:text-[13px] text-slate-200/90 leading-relaxed font-normal">
                         {card.desc}
                       </p>
 
-                      {/* Matching Micro Feature Chips */}
-                      <div className="mt-3.5 flex flex-wrap gap-1.5 text-[11px]">
+                      {/* Micro Feature Chips */}
+                      <div className="mt-3.5 flex flex-wrap gap-1.5">
                         {card.chips.map((chip, idx) => (
                           <span
                             key={idx}
@@ -368,7 +391,7 @@ export default function Home() {
                       </div>
                     </div>
 
-                    {/* Divider & Glowing Interactive Link */}
+                    {/* Divider & Action Link */}
                     <div className="pt-3.5 border-t border-sky-400/20 flex items-center justify-between text-xs font-bold text-sky-300 group-hover:text-white transition-colors">
                       <span className="font-mono uppercase tracking-wider text-[11px]">{card.cta}</span>
                       <div className="w-8 h-8 rounded-full bg-sky-500/20 border border-sky-400/40 group-hover:bg-[#0066ff] group-hover:border-sky-300 group-hover:text-white text-sky-200 flex items-center justify-center transition-all duration-300 shadow-[0_0_12px_rgba(14,165,233,0.3)]">
@@ -384,19 +407,19 @@ export default function Home() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 2. "OUR SERVICES — Water Services at Your Fingertips" (MATCHING SCREENSHOT) */}
+      {/* 3. OUR SERVICES SECTION */}
       {/* ========================================================================= */}
-      <section id="services" className="pt-6 sm:pt-8 pb-16 sm:pb-20 bg-white relative z-10">
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
+      <section id="services" className="pt-4 sm:pt-6 pb-16 sm:pb-24 bg-white relative z-10">
+        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-12">
 
-          {/* Header Strip with Eyebrow and "View All Services ->" Pill Button */}
+          {/* Section Header */}
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <motion.div
-              initial={{ opacity: 0, x: -30, filter: "blur(6px)" }}
-              whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-              viewport={{ once: true, margin: "-60px" }}
+              initial={{ opacity: 0, x: -25 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.85, ease: smoothEase }}
-              className="space-y-1.5"
+              className="space-y-2"
             >
               <div className="flex items-center gap-2">
                 <span className="text-[#081B38] font-mono text-xs uppercase tracking-widest font-bold">
@@ -410,14 +433,14 @@ export default function Home() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 30, filter: "blur(6px)" }}
-              whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-              viewport={{ once: true, margin: "-60px" }}
-              transition={{ duration: 0.85, delay: 0.15, ease: smoothEase }}
+              initial={{ opacity: 0, x: 25 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-50px" }}
+              transition={{ duration: 0.85, delay: 0.1, ease: smoothEase }}
             >
               <Link
                 href="/pay"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-300 text-slate-700 hover:bg-slate-50 text-xs font-semibold shadow-sm transition-all duration-300 hover:scale-105 active:scale-95 w-fit"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-300 text-slate-700 hover:bg-slate-50 text-xs font-semibold shadow-xs transition-all duration-300 hover:scale-105 active:scale-95 w-fit"
               >
                 <span>View All Services</span>
                 <ArrowRight size={14} />
@@ -425,15 +448,13 @@ export default function Home() {
             </motion.div>
           </div>
 
-          {/* ===================================================================== */}
-          {/* 6-CARD SERVICES MOSAIC GRID (GLASS CARDS) */}
-          {/* ===================================================================== */}
-          <div className="pt-2">
+          {/* Services Mosaic Showcase */}
+          <div>
             <WaterServicesShowcase />
           </div>
 
-          {/* Cinematic Water Services Video Showcase */}
-          <div className="pt-4 pb-2">
+          {/* Auto-Playing Video Showcase */}
+          <div className="pt-2">
             <VideoShowcase />
           </div>
 
@@ -441,20 +462,20 @@ export default function Home() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 3. IMAGE SLIDESHOW SECTION (AUTO 5 SECONDS, CLEAN LIGHT THEME) */}
+      {/* 4. INFRASTRUCTURE & FACILITY SLIDESHOW */}
       {/* ========================================================================= */}
       <ImageSlideshow />
 
       {/* ========================================================================= */}
-      {/* 4. EMERGENCY LEAK REPORTING CALLOUT (#leaks) */}
+      {/* 5. EMERGENCY LEAK & PIPE DAMAGE HOTLINE */}
       {/* ========================================================================= */}
-      <section id="leaks" className="py-12 sm:py-20 bg-white relative z-10 border-b border-slate-200">
+      <section id="leaks" className="py-12 sm:py-16 bg-white relative z-10 border-b border-slate-200">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
-            initial={{ opacity: 0, scale: 0.96, y: 32, filter: "blur(6px)" }}
-            whileInView={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}
-            viewport={{ once: true, margin: "-60px" }}
-            transition={{ duration: 0.9, ease: smoothEase }}
+            initial={{ opacity: 0, scale: 0.97, y: 24 }}
+            whileInView={{ opacity: 1, scale: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
+            transition={{ duration: 0.85, ease: smoothEase }}
             className="rounded-2xl sm:rounded-3xl bg-gradient-to-r from-amber-500/15 via-orange-500/10 to-amber-50/50 border border-amber-300/80 p-5 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-5 sm:gap-6 shadow-sm"
           >
             <div className="flex items-start gap-3.5 sm:gap-4">
@@ -493,18 +514,17 @@ export default function Home() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 5. ABOUT CBO / INSTITUTIONAL GOVERNANCE SECTION (#governance & #about) */}
+      {/* 6. INSTITUTIONAL GOVERNANCE & COMMUNITY TRUST */}
       {/* ========================================================================= */}
       <section id="about" className="py-14 sm:py-24 bg-slate-50/70 relative z-10 border-b border-slate-200">
-        {/* Invisible anchor for #governance navigation link */}
         <span id="governance" className="absolute -top-24" />
 
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
 
           <motion.div
-            initial={{ opacity: 0, y: 30, filter: "blur(6px)" }}
-            whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-            viewport={{ once: true, margin: "-60px" }}
+            initial={{ opacity: 0, y: 25 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-50px" }}
             transition={{ duration: 0.85, ease: smoothEase }}
             className="max-w-2xl space-y-2.5"
           >
@@ -519,7 +539,7 @@ export default function Home() {
             </p>
           </motion.div>
 
-          {/* 3 Previous Section Cards Updated to Content Card Architecture */}
+          {/* 3 Governance Pillars */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
             {[
               {
@@ -549,34 +569,33 @@ export default function Home() {
             ].map((card, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 35, filter: "blur(6px)" }}
-                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.85, delay: 0.15 + i * 0.12, ease: smoothEase }}
-                whileHover={{ y: -8, transition: { duration: 0.25 } }}
-                className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(8,27,56,0.12)] bg-white border border-slate-200/90 flex flex-col group transition-all duration-300 hover:shadow-[0_25px_60px_rgba(8,27,56,0.18)] hover:border-slate-300"
+                transition={{ duration: 0.85, delay: 0.1 + i * 0.1, ease: smoothEase }}
+                whileHover={{ y: -6, transition: { duration: 0.25 } }}
+                className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_15px_40px_rgba(8,27,56,0.08)] bg-white border border-slate-200/90 flex flex-col group transition-all duration-300 hover:shadow-[0_20px_50px_rgba(8,27,56,0.15)] hover:border-slate-300"
               >
                 <div className="flex flex-col h-full">
-                  {/* Upper Image Section (~60%) */}
-                  <div className="h-44 sm:h-64 lg:h-72 w-full overflow-hidden relative bg-slate-100">
+                  {/* Image */}
+                  <div className="h-44 sm:h-56 lg:h-64 w-full overflow-hidden relative bg-slate-100">
                     <img
                       src={card.image}
                       alt={card.title}
-                      className="w-full h-full object-cover group-hover:scale-106 transition-transform duration-700"
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-60" />
-                    {/* Floating Silver & Navy Tag on Image */}
                     <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4">
-                      <span className="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-white/95 backdrop-blur-md border border-slate-200 text-[10px] sm:text-[11px] font-mono font-bold tracking-wider text-[#081B38] shadow-sm uppercase">
+                      <span className="px-2.5 sm:px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-slate-200 text-[10px] sm:text-[11px] font-mono font-bold tracking-wider text-[#081B38] shadow-xs uppercase">
                         {card.category}
                       </span>
                     </div>
                   </div>
 
-                  {/* Lower White Panel (White is main, Navy Dark Blue title, Silver details) */}
-                  <div className="bg-white p-4.5 sm:p-7 text-slate-900 border-t border-slate-100 flex-1 flex flex-col justify-between">
+                  {/* Body */}
+                  <div className="bg-white p-5 sm:p-6 text-slate-900 border-t border-slate-100 flex-1 flex flex-col justify-between">
                     <div>
-                      <h3 className="text-lg sm:text-2xl font-bold text-[#081B38] tracking-tight font-serif mb-2 sm:mb-2.5 group-hover:text-[#004EEB] transition-colors">
+                      <h3 className="text-lg sm:text-xl font-bold text-[#081B38] tracking-tight font-serif mb-2 group-hover:text-[#004EEB] transition-colors">
                         {card.title}
                       </h3>
                       <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
@@ -584,8 +603,7 @@ export default function Home() {
                       </p>
                     </div>
 
-                    {/* Silver Divider & Interactive Footer Badge */}
-                    <div className="pt-4 sm:pt-5 mt-4 sm:mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#081B38] group-hover:text-[#004EEB] transition-colors">
+                    <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#081B38] group-hover:text-[#004EEB] transition-colors">
                       <span className="font-mono uppercase tracking-wider text-[11px]">{card.actionText}</span>
                       <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-[#081B38] group-hover:text-white flex items-center justify-center transition-all duration-300">
                         <card.icon size={15} />
@@ -601,14 +619,14 @@ export default function Home() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 6. SOVEREIGN INSTITUTIONAL FOOTER */}
+      {/* 7. SOVEREIGN INSTITUTIONAL FOOTER */}
       {/* ========================================================================= */}
       <footer className="bg-[#020e1e] text-white pt-12 sm:pt-16 pb-10 sm:pb-12 border-t border-slate-800 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30, filter: "blur(4px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.9, ease: smoothEase }}
+          transition={{ duration: 0.85, ease: smoothEase }}
           className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12"
         >
 
@@ -676,7 +694,7 @@ export default function Home() {
       </footer>
 
       {/* ========================================================================= */}
-      {/* 7. INTERACTIVE MODAL: "HOW TO PAY?" STEP-BY-STEP GUIDE */}
+      {/* 8. INTERACTIVE MODAL: "HOW TO PAY?" STEP-BY-STEP GUIDE */}
       {/* ========================================================================= */}
       <AnimatePresence>
         {showHowToPay && (
@@ -693,7 +711,7 @@ export default function Home() {
               exit={{ scale: 0.92, opacity: 0, y: 20 }}
               transition={{ duration: 0.35, ease: smoothEase }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full p-4.5 sm:p-8 shadow-2xl border border-slate-200 relative overflow-hidden max-h-[90vh] overflow-y-auto my-auto"
+              className="bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full p-5 sm:p-7 shadow-2xl border border-slate-200 relative overflow-hidden max-h-[90vh] overflow-y-auto my-auto"
             >
               <button
                 type="button"
@@ -704,7 +722,7 @@ export default function Home() {
                 <X size={17} />
               </button>
 
-              <div className="flex items-center gap-3 mb-5 sm:mb-6 pr-8">
+              <div className="flex items-center gap-3 mb-5 pr-8">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center shrink-0">
                   <Play size={20} className="ml-0.5" />
                 </div>
@@ -714,61 +732,48 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="space-y-3 sm:space-y-4">
-                <div className="flex items-start gap-3 p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-slate-50 border border-slate-200/80">
-                  <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#04244d] text-white text-xs font-bold flex items-center justify-center shrink-0">
-                    1
-                  </span>
-                  <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-800">Enter Your Account Number</h4>
-                    <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 leading-relaxed">
-                      Type your 3 or 4-digit consumer account ID (e.g. 135) in the search field above and click &quot;View Bill&quot;.
-                    </p>
+              <div className="space-y-3 sm:space-y-3.5">
+                {[
+                  {
+                    step: "1",
+                    title: "Enter Your Account Number",
+                    desc: "Type your consumer account ID (e.g. 135) in the search field and click 'View & Pay Bill'."
+                  },
+                  {
+                    step: "2",
+                    title: "Verify Bill Amount & Units",
+                    desc: "Check your consumption details, current meter reading, and total outstanding due balance."
+                  },
+                  {
+                    step: "3",
+                    title: "Select Instant Gateway",
+                    desc: "Pay securely with Visa, Mastercard, LankaQR mobile scan, or direct CEFT transfer."
+                  },
+                  {
+                    step: "4",
+                    title: "Instant Digital Receipt",
+                    desc: "Download your official stamped PDF receipt instantly and receive an SMS notification."
+                  }
+                ].map((item) => (
+                  <div key={item.step} className="flex items-start gap-3 p-3 rounded-xl sm:rounded-2xl bg-slate-50 border border-slate-200/80">
+                    <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#081B38] text-white text-xs font-bold flex items-center justify-center shrink-0">
+                      {item.step}
+                    </span>
+                    <div>
+                      <h4 className="text-xs sm:text-sm font-bold text-slate-800">{item.title}</h4>
+                      <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 leading-relaxed">
+                        {item.desc}
+                      </p>
+                    </div>
                   </div>
-                </div>
-
-                <div className="flex items-start gap-3 p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-slate-50 border border-slate-200/80">
-                  <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#04244d] text-white text-xs font-bold flex items-center justify-center shrink-0">
-                    2
-                  </span>
-                  <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-800">Verify Bill Amount &amp; Units</h4>
-                    <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 leading-relaxed">
-                      Check your consumption details, current meter reading, and total outstanding due balance.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-slate-50 border border-slate-200/80">
-                  <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#04244d] text-white text-xs font-bold flex items-center justify-center shrink-0">
-                    3
-                  </span>
-                  <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-800">Select Instant Gateway</h4>
-                    <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 leading-relaxed">
-                      Pay securely with Visa, Mastercard, LankaQR mobile scan, or direct bank payment transfer.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-3 p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-slate-50 border border-slate-200/80">
-                  <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-emerald-600 text-white text-xs font-bold flex items-center justify-center shrink-0">
-                    4
-                  </span>
-                  <div>
-                    <h4 className="text-xs sm:text-sm font-bold text-slate-800">Instant Digital Receipt</h4>
-                    <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 leading-relaxed">
-                      Download your official stamped PDF receipt instantly and receive an SMS notification.
-                    </p>
-                  </div>
-                </div>
+                ))}
               </div>
 
-              <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-slate-100 flex justify-end">
+              <div className="mt-5 pt-3.5 border-t border-slate-100 flex justify-end">
                 <button
                   type="button"
                   onClick={() => setShowHowToPay(false)}
-                  className="px-6 py-2.5 rounded-xl bg-[#04244d] hover:bg-[#021835] text-white text-xs font-bold transition-all cursor-pointer"
+                  className="px-6 py-2.5 rounded-xl bg-[#081B38] hover:bg-[#06152d] text-white text-xs font-bold transition-all cursor-pointer"
                 >
                   Got It
                 </button>
@@ -779,7 +784,7 @@ export default function Home() {
       </AnimatePresence>
 
       {/* ========================================================================= */}
-      {/* 8. INTERACTIVE MODAL: "WHERE IS MY ACCOUNT NUMBER?" HELPER */}
+      {/* 9. INTERACTIVE MODAL: "WHERE IS MY ACCOUNT NUMBER?" HELPER */}
       {/* ========================================================================= */}
       <AnimatePresence>
         {showAccountHelp && (
@@ -796,7 +801,7 @@ export default function Home() {
               exit={{ scale: 0.92, opacity: 0, y: 20 }}
               transition={{ duration: 0.35, ease: smoothEase }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full p-4.5 sm:p-8 shadow-2xl border border-slate-200 relative overflow-hidden max-h-[90vh] overflow-y-auto my-auto"
+              className="bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full p-5 sm:p-7 shadow-2xl border border-slate-200 relative overflow-hidden max-h-[90vh] overflow-y-auto my-auto"
             >
               <button
                 type="button"
@@ -807,7 +812,7 @@ export default function Home() {
                 <X size={17} />
               </button>
 
-              <div className="flex items-center gap-3 mb-5 sm:mb-6 pr-8">
+              <div className="flex items-center gap-3 mb-5 pr-8">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-blue-100 text-blue-700 flex items-center justify-center shrink-0">
                   <HelpCircle size={20} />
                 </div>
@@ -818,10 +823,10 @@ export default function Home() {
               </div>
 
               {/* Visual Simulated Bill Snippet */}
-              <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50 border-2 border-dashed border-cyan-400/70 space-y-2.5 sm:space-y-3 font-mono text-xs">
+              <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50 border-2 border-dashed border-sky-400/70 space-y-2.5 font-mono text-xs">
                 <div className="flex items-center justify-between pb-2 border-b border-slate-200">
                   <span className="font-bold text-slate-800 text-[11px] sm:text-xs">VIKASHA CBO &bull; WATER BILL</span>
-                  <span className="px-2 py-0.5 rounded bg-cyan-100 text-cyan-800 font-bold border border-cyan-300 text-[10px]">
+                  <span className="px-2 py-0.5 rounded bg-sky-100 text-sky-800 font-bold border border-sky-300 text-[10px]">
                     MONTHLY STATEMENT
                   </span>
                 </div>
@@ -830,11 +835,11 @@ export default function Home() {
                     <span className="text-slate-400 block text-[10px]">Consumer Name:</span>
                     <span className="font-semibold text-slate-700">W. M. Perera</span>
                   </div>
-                  <div className="bg-cyan-50 p-1.5 sm:p-2 rounded-xl border border-cyan-400 animate-pulse">
-                    <span className="text-cyan-800 block font-bold text-[9px] uppercase">
+                  <div className="bg-sky-50 p-2 rounded-xl border border-sky-400">
+                    <span className="text-sky-800 block font-bold text-[9px] uppercase">
                       Account No &larr;
                     </span>
-                    <span className="font-extrabold text-cyan-900 text-xs sm:text-sm">135</span>
+                    <span className="font-extrabold text-sky-900 text-xs sm:text-sm">135</span>
                   </div>
                 </div>
               </div>
@@ -843,11 +848,11 @@ export default function Home() {
                 Your Account Number is 3 or 4 digits long. If you do not have your physical paper bill, contact our Magammana community helpdesk at <a href="tel:0112894567" className="text-[#0284c7] font-bold underline">011 289 4567</a> with your NIC number.
               </p>
 
-              <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-slate-100 flex justify-end">
+              <div className="mt-5 pt-3.5 border-t border-slate-100 flex justify-end">
                 <button
                   type="button"
                   onClick={() => setShowAccountHelp(false)}
-                  className="px-6 py-2.5 rounded-xl bg-[#04244d] hover:bg-[#021835] text-white text-xs font-bold transition-all cursor-pointer"
+                  className="px-6 py-2.5 rounded-xl bg-[#081B38] hover:bg-[#06152d] text-white text-xs font-bold transition-all cursor-pointer"
                 >
                   Understood
                 </button>
@@ -856,7 +861,6 @@ export default function Home() {
           </motion.div>
         )}
       </AnimatePresence>
-
 
     </div>
   );
