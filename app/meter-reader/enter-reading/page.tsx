@@ -65,20 +65,20 @@ export default function EnterReadingPage() {
   }
 
   return (
-    <div className="space-y-8 bg-[#F8FAFC] min-h-[calc(100vh-4rem)] p-4 md:p-8 -m-4 md:-m-8">
+    <div className="space-y-6 sm:space-y-8 bg-[#F8FAFC] min-h-[calc(100vh-4rem)] p-3 sm:p-4 md:p-8 -m-3 sm:-m-4 md:-m-8">
       
       {/* Page Header */}
-      <div className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-[#0B132B] to-[#1C2541] p-8 md:p-10 shadow-xl border border-gray-800">
+      <div className="relative overflow-hidden rounded-2xl sm:rounded-[28px] bg-gradient-to-br from-[#0B132B] to-[#1C2541] p-5 sm:p-8 md:p-10 shadow-xl border border-gray-800">
         <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-[#0066FF]/20 blur-[80px] pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-cyan-400/10 blur-[80px] pointer-events-none"></div>
         
         <div className="relative z-10">
-          <div className="inline-flex items-center gap-2.5 px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/90 text-[13px] font-semibold mb-6 shadow-sm">
-            <MapPin size={14} className="text-cyan-400" />
+          <div className="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white/90 text-xs sm:text-[13px] font-semibold mb-4 sm:mb-6 shadow-sm">
+            <MapPin size={13} className="text-cyan-400" />
             Field Data Collection
           </div>
-          <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white mb-3">Record Meter Reading</h1>
-          <p className="text-gray-300 font-medium max-w-xl text-[15px]">Search for a consumer, verify past records, and enter the current reading to generate a bill instantly.</p>
+          <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold tracking-tight text-white mb-2 sm:mb-3">Record Meter Reading</h1>
+          <p className="text-gray-300 font-medium max-w-xl text-xs sm:text-[15px] leading-relaxed">Search for a consumer, verify past records, and enter the current reading to generate a bill instantly.</p>
         </div>
       </div>
 
@@ -86,7 +86,7 @@ export default function EnterReadingPage() {
         
         {/* Step 1: Search */}
         {!consumer && !resultBill && (
-          <div className="bg-white rounded-[28px] p-8 md:p-10 shadow-sm border border-gray-100">
+          <div className="bg-white rounded-2xl sm:rounded-[28px] p-5 sm:p-8 md:p-10 shadow-sm border border-gray-100">
             <div className="flex items-center gap-4 mb-8">
               <div className="w-12 h-12 rounded-2xl bg-blue-50 flex items-center justify-center text-[#0066FF]">
                 <Search size={24} strokeWidth={2.5} />
@@ -173,7 +173,7 @@ export default function EnterReadingPage() {
             </div>
 
             {/* Reading Input Card */}
-            <div className="bg-gradient-to-br from-[#0B132B] to-[#1C2541] rounded-[28px] p-8 md:p-10 shadow-xl border border-gray-800 text-white relative overflow-hidden">
+            <div className="bg-gradient-to-br from-[#0B132B] to-[#1C2541] rounded-2xl sm:rounded-[28px] p-5 sm:p-8 md:p-10 shadow-xl border border-gray-800 text-white relative overflow-hidden">
               <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-[40px] pointer-events-none -mr-20 -mt-20"></div>
               
               <div className="flex items-center gap-4 mb-8 relative z-10">
@@ -252,7 +252,7 @@ export default function EnterReadingPage() {
 
         {/* Step 3: Success Result */}
         {resultBill && (
-          <div className="bg-white rounded-[28px] p-8 md:p-12 shadow-xl border border-gray-100 text-center animate-in zoom-in-95 duration-500 relative overflow-hidden">
+          <div className="bg-white rounded-2xl sm:rounded-[28px] p-5 sm:p-8 md:p-12 shadow-xl border border-gray-100 text-center animate-in zoom-in-95 duration-500 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-full h-2 bg-gradient-to-r from-emerald-400 to-teal-500"></div>
             
             <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full bg-emerald-50 mb-6 border-8 border-emerald-50/50">

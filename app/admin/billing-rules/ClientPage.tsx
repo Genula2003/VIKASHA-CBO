@@ -61,9 +61,9 @@ export function BillingRulesClientPage({ existingRules }: { existingRules: any[]
   const preview = calculateBill(previewUnits, { id: 'preview', name: 'Preview', slabs })
 
   return (
-    <div className="space-y-8 bg-[#F8FAFC] min-h-[calc(100vh-4rem)] p-4 md:p-8 -m-4 md:-m-8">
+    <div className="space-y-6 sm:space-y-8 bg-[#F8FAFC] min-h-[calc(100vh-4rem)] p-3 sm:p-4 md:p-8 -m-3 sm:-m-4 md:-m-8">
       {/* Page Header */}
-      <div className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-[#0B132B] to-[#1C2541] p-8 md:p-10 shadow-xl border border-gray-800">
+      <div className="relative overflow-hidden rounded-2xl sm:rounded-[28px] bg-gradient-to-br from-[#0B132B] to-[#1C2541] p-5 sm:p-8 md:p-10 shadow-xl border border-gray-800">
         <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-[#0066FF]/20 blur-[80px] pointer-events-none"></div>
         <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-cyan-400/10 blur-[80px] pointer-events-none"></div>
         

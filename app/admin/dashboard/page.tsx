@@ -36,7 +36,7 @@ export default async function AdminDashboard() {
   return (
     <div className="space-y-8 bg-[#F8FAFC]">
       {/* Executive Command Header */}
-      <div className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-[#0B132B] to-[#1C2541] p-8 md:p-10 shadow-xl border border-gray-800 text-white">
+      <div className="relative overflow-hidden rounded-2xl sm:rounded-[28px] bg-gradient-to-br from-[#0B132B] to-[#1C2541] p-5 sm:p-8 md:p-10 shadow-xl border border-gray-800 text-white">
         <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-[#0066FF]/20 blur-[80px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-cyan-400/10 blur-[80px] pointer-events-none" />
         

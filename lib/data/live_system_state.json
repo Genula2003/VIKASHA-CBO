@@ -32702,6 +32702,18 @@
       "committee_notes": "1st automated SMS payment reminder dispatched.",
       "notice_sent_at": "2026-10-02T14:00:00Z",
       "updated_at": "2026-10-12T23:48:26.996Z"
+    },
+    "500": {
+      "account_number": "500",
+      "action_status": "FIRST_NOTICE_SENT",
+      "updated_at": "2026-10-29T18:22:59.524Z"
+    },
+    "501": {
+      "account_number": "501",
+      "action_status": "RED_NOTICE_ISSUED",
+      "updated_at": "2026-10-29T18:24:02.656Z",
+      "committee_notes": "Formal Red Notice SMS sent to 0727839803 on 10/29/2026.",
+      "notice_sent_at": "2026-10-29T18:24:02.656Z"
     }
   }
 }

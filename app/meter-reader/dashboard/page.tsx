@@ -24,7 +24,7 @@ export default async function MeterReaderDashboard() {
   return (
     <div className="space-y-8 bg-[#F8FAFC]">
       {/* Page Header */}
-      <div className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-[#0B132B] to-[#1C2541] p-8 md:p-10 shadow-xl border border-gray-800 text-white">
+      <div className="relative overflow-hidden rounded-2xl sm:rounded-[28px] bg-gradient-to-br from-[#0B132B] to-[#1C2541] p-5 sm:p-8 md:p-10 shadow-xl border border-gray-800 text-white">
         <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-[#0066FF]/20 blur-[80px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-cyan-400/10 blur-[80px] pointer-events-none" />
         
@@ -34,10 +34,10 @@ export default async function MeterReaderDashboard() {
               <UserCheck size={14} className="text-cyan-400" />
               Field Officer Data Terminal
             </div>
-            <h1 className="text-3xl md:text-4xl font-black tracking-tight text-white mb-2">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-black tracking-tight text-white mb-2">
               Welcome back, Sunil Shantha
             </h1>
-            <p className="text-gray-300 font-medium max-w-xl text-sm leading-relaxed">
+            <p className="text-gray-300 font-medium max-w-xl text-xs sm:text-sm leading-relaxed">
               Assigned Zone: <span className="text-cyan-300 font-bold">Magammana Regional Grid</span>.
               Capture field readings, issue immediate digital invoices, and log utility records seamlessly.
             </p>
@@ -46,7 +46,7 @@ export default async function MeterReaderDashboard() {
           <div className="flex items-center gap-3">
             <Link
               href="/meter-reader/enter-reading"
-              className="inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-cyan-500 to-[#0066FF] text-white rounded-2xl font-black text-xs shadow-lg shadow-cyan-500/25 hover:-translate-y-0.5 transition-all"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-cyan-500 to-[#0066FF] text-white rounded-2xl font-black text-xs shadow-lg shadow-cyan-500/25 hover:-translate-y-0.5 transition-all text-center"
             >
               <PlusCircle size={16} /> Record Reading
             </Link>
@@ -56,7 +56,7 @@ export default async function MeterReaderDashboard() {
 
       <div className="grid gap-6 md:grid-cols-2">
         {/* Today's Stats */}
-        <div className="bg-white rounded-3xl p-8 shadow-sm border border-gray-100 relative overflow-hidden group">
+        <div className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-sm border border-gray-100 relative overflow-hidden group">
           <div className="flex items-center justify-between mb-4">
             <span className="text-xs font-bold text-gray-400 uppercase tracking-wider">Today&apos;s Field Records</span>
             <div className="w-10 h-10 rounded-xl bg-blue-50 flex items-center justify-center text-[#0066FF]">

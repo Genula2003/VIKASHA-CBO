@@ -150,7 +150,7 @@ export function PaymentClientPage({ bill }: PaymentClientPageProps) {
       />
 
       {/* 3. Main Content Container */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-28 sm:pt-36 lg:pt-42 pb-12 sm:pb-16 flex-1 flex items-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-12 pt-24 sm:pt-36 lg:pt-42 pb-12 sm:pb-16 flex-1 flex items-center">
         
         {/* If payment succeeded -> Frosted Glass E-Receipt */}
         <AnimatePresence mode="wait">
@@ -320,7 +320,7 @@ export function PaymentClientPage({ bill }: PaymentClientPageProps) {
                   transition={{ duration: 0.9, delay: 0.22, ease: smoothEase }}
                   className="space-y-3"
                 >
-                  <h1 className="text-3xl sm:text-5xl lg:text-[66px] font-black tracking-tight leading-[1.08] sm:leading-[1.06] text-[#081B38]">
+                  <h1 className="text-2xl sm:text-5xl lg:text-[66px] font-black tracking-tight leading-[1.08] sm:leading-[1.06] text-[#081B38]">
                     Pay Your <br />
                     <span className="text-[#0066FF]">Water Bill Online</span>
                   </h1>

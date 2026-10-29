@@ -302,7 +302,7 @@ function ConsumerPayPortalContent() {
                     value={query}
                     onChange={handleInputChange}
                     placeholder="e.g. 135 (or Consumer Account #)"
-                    className="w-full h-12 pl-13 pr-10 rounded-xl bg-white text-[#081B38] placeholder:text-slate-400 font-mono text-sm font-bold shadow-inner focus:outline-none focus:ring-2 focus:ring-[#081B38] border border-slate-200"
+                    className="w-full h-12 pl-13 pr-10 rounded-xl bg-white text-[#081B38] placeholder:text-slate-400 font-mono text-base sm:text-sm font-bold shadow-inner focus:outline-none focus:ring-2 focus:ring-[#081B38] border border-slate-200"
                   />
                   {query && (
                     <button

@@ -82,7 +82,7 @@ export default function Navbar({ activeTab = "home" }: NavbarProps) {
       {/* ===================================================================== */}
       <div
         className={`bg-[#081B38] text-slate-300 text-[11px] sm:text-xs transition-all duration-300 border-b border-white/10 ${
-          isScrolled ? "hidden" : "block"
+          isScrolled ? "hidden" : "hidden sm:block"
         }`}
       >
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 py-2 flex items-center justify-between flex-wrap gap-2">
@@ -145,7 +145,7 @@ export default function Navbar({ activeTab = "home" }: NavbarProps) {
             : "bg-white/80 backdrop-blur-2xl border-b border-white/70 shadow-[0_4px_25px_rgba(8,27,56,0.05)]"
         }`}
       >
-        <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between">
+        <div className="max-w-[1440px] mx-auto px-3.5 sm:px-6 lg:px-8 h-16 sm:h-20 flex items-center justify-between">
 
           {/* LEFT: Logo in Navy Dark Blue & Silver */}
           <Link
@@ -153,7 +153,7 @@ export default function Navbar({ activeTab = "home" }: NavbarProps) {
             onClick={() => setCurrentTab("home")}
             className="flex items-center gap-2 sm:gap-3 group shrink-0"
           >
-            <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-slate-200/90 shadow-sm flex items-center justify-center p-0.5 group-hover:scale-105 transition-transform duration-300 overflow-hidden shrink-0">
+            <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-xl bg-white border border-slate-200/90 shadow-sm flex items-center justify-center p-0.5 group-hover:scale-105 transition-transform duration-300 overflow-hidden shrink-0">
               <img
                 src="/logo.webp"
                 alt="Vikasha CBO Official Logo"
@@ -164,10 +164,10 @@ export default function Navbar({ activeTab = "home" }: NavbarProps) {
               />
             </div>
             <div className="flex flex-col">
-              <span className="font-serif text-lg sm:text-2xl font-bold tracking-tight text-[#081B38] leading-none group-hover:text-[#0B2548] transition-colors">
+              <span className="font-serif text-base sm:text-2xl font-bold tracking-tight text-[#081B38] leading-none group-hover:text-[#0B2548] transition-colors">
                 Vikasha
               </span>
-              <span className="font-sans text-[8.5px] sm:text-[10px] font-semibold uppercase tracking-[0.16em] sm:tracking-[0.22em] text-slate-500 leading-none mt-0.5 sm:mt-1">
+              <span className="font-sans text-[7.5px] sm:text-[10px] font-semibold uppercase tracking-[0.14em] sm:tracking-[0.22em] text-slate-500 leading-none mt-0.5 sm:mt-1">
                 CBO &bull; WATER UTILITY
               </span>
             </div>
@@ -328,7 +328,7 @@ export default function Navbar({ activeTab = "home" }: NavbarProps) {
                     value={searchAccount}
                     onChange={(e) => setSearchAccount(e.target.value)}
                     placeholder="Enter Account Number (e.g. 135)..."
-                    className="w-full h-10 pl-10 pr-4 rounded-lg bg-slate-50 border border-slate-300 text-slate-900 placeholder:text-slate-400 font-mono text-xs focus:outline-none focus:ring-2 focus:ring-[#081B38]"
+                    className="w-full h-10 pl-10 pr-4 rounded-lg bg-slate-50 border border-slate-300 text-slate-900 placeholder:text-slate-400 font-mono text-base sm:text-xs focus:outline-none focus:ring-2 focus:ring-[#081B38]"
                     autoFocus
                   />
                 </div>

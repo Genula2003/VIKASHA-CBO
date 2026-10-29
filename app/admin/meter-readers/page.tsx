@@ -58,7 +58,7 @@ export default async function MeterReadersPage() {
   return (
     <div className="space-y-8 bg-[#F8FAFC]">
       {/* Page Header */}
-      <div className="relative overflow-hidden rounded-[28px] bg-gradient-to-br from-[#0B132B] to-[#1C2541] p-8 md:p-10 shadow-xl border border-gray-800 text-white">
+      <div className="relative overflow-hidden rounded-2xl sm:rounded-[28px] bg-gradient-to-br from-[#0B132B] to-[#1C2541] p-5 sm:p-8 md:p-10 shadow-xl border border-gray-800 text-white">
         <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 rounded-full bg-[#0066FF]/20 blur-[80px] pointer-events-none" />
         <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-80 h-80 rounded-full bg-cyan-400/10 blur-[80px] pointer-events-none" />
         
@@ -105,7 +105,7 @@ export default async function MeterReadersPage() {
                 name="name" 
                 type="text" 
                 placeholder="Officer Name"
-                className="block w-full px-3.5 rounded-xl border border-gray-200 bg-gray-50/60 py-2.5 text-xs font-semibold text-[#0B132B] focus:border-[#0066FF] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#0066FF] transition-all" 
+                className="block w-full px-3.5 rounded-xl border border-gray-200 bg-gray-50/60 py-2.5 text-base sm:text-xs font-semibold text-[#0B132B] focus:border-[#0066FF] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#0066FF] transition-all" 
               />
             </div>
 
@@ -120,7 +120,7 @@ export default async function MeterReadersPage() {
                   name="email" 
                   type="email" 
                   placeholder="officer@waterboard.lk"
-                  className="block w-full pl-10 pr-3 rounded-xl border border-gray-200 bg-gray-50/60 py-2.5 text-xs font-semibold text-[#0B132B] focus:border-[#0066FF] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#0066FF] transition-all" 
+                  className="block w-full pl-10 pr-3 rounded-xl border border-gray-200 bg-gray-50/60 py-2.5 text-base sm:text-xs font-semibold text-[#0B132B] focus:border-[#0066FF] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#0066FF] transition-all" 
                 />
               </div>
             </div>
@@ -135,7 +135,7 @@ export default async function MeterReadersPage() {
                   name="area" 
                   type="text" 
                   placeholder="e.g. Zone 1: Main Road & Magammana"
-                  className="block w-full pl-10 pr-3 rounded-xl border border-gray-200 bg-gray-50/60 py-2.5 text-xs font-semibold text-[#0B132B] focus:border-[#0066FF] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#0066FF] transition-all" 
+                  className="block w-full pl-10 pr-3 rounded-xl border border-gray-200 bg-gray-50/60 py-2.5 text-base sm:text-xs font-semibold text-[#0B132B] focus:border-[#0066FF] focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#0066FF] transition-all" 
                 />
               </div>
             </div>

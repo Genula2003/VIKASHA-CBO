@@ -161,7 +161,7 @@ export default function LoginPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 autoComplete="email"
                 required
-                className="w-full rounded-xl bg-white/10 border border-white/20 px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0066FF] focus:bg-white/15 transition-all text-sm"
+                className="w-full rounded-xl bg-white/10 border border-white/20 px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0066FF] focus:bg-white/15 transition-all text-base sm:text-sm"
                 placeholder="name@example.com"
               />
             </div>
@@ -178,7 +178,7 @@ export default function LoginPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 autoComplete="current-password"
                 required
-                className="w-full rounded-xl bg-white/10 border border-white/20 px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0066FF] focus:bg-white/15 transition-all text-sm"
+                className="w-full rounded-xl bg-white/10 border border-white/20 px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0066FF] focus:bg-white/15 transition-all text-base sm:text-sm"
                 placeholder="••••••••"
               />
             </div>

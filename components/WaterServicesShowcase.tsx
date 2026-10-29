@@ -254,7 +254,7 @@ export default function WaterServicesShowcase() {
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Slideshow Display Area with Smooth Animation & Touch Swipe */}
-      <div className="relative overflow-hidden min-h-[205px] sm:min-h-[340px]">
+      <div className="relative overflow-hidden min-h-[220px] sm:min-h-[340px]">
         <AnimatePresence mode="wait" custom={direction}>
           <motion.div
             key={`${safeSlideIndex}-${itemsPerSlide}`}
@@ -273,7 +273,7 @@ export default function WaterServicesShowcase() {
                 handleNext();
               }
             }}
-            className={`grid gap-4 sm:gap-6 lg:gap-7 ${
+            className={`grid gap-4 sm:gap-6 lg:gap-7 touch-pan-y ${
               itemsPerSlide === 1
                 ? "grid-cols-1 max-w-lg mx-auto"
                 : itemsPerSlide === 2
@@ -287,7 +287,7 @@ export default function WaterServicesShowcase() {
               return (
                 <div
                   key={card.id}
-                  className={`group relative rounded-2xl sm:rounded-3xl overflow-hidden border transition-all duration-300 min-h-[200px] sm:min-h-[330px] flex flex-col justify-between hover:shadow-2xl hover:-translate-y-1.5 ${
+                  className={`group relative rounded-2xl sm:rounded-3xl overflow-hidden border transition-all duration-300 min-h-[220px] sm:min-h-[330px] flex flex-col justify-between hover:shadow-2xl hover:-translate-y-1.5 ${
                     isDark
                       ? "border-white/10 shadow-[0_20px_50px_rgba(7,23,46,0.25)] bg-[#07172e]"
                       : "border-slate-200/90 shadow-[0_20px_50px_rgba(8,27,56,0.08)] bg-white"
@@ -320,8 +320,8 @@ export default function WaterServicesShowcase() {
                     {card.extraVisual}
                   </div>
 
-                  {/* Left Content Area (~72-76% width on mobile, 65% on desktop) */}
-                  <div className="relative z-10 p-3.5 sm:p-7 flex flex-col justify-between h-full max-w-[74%] sm:max-w-[65%] space-y-2 sm:space-y-4">
+                  {/* Left Content Area (~76-78% width on mobile, 65% on desktop) */}
+                  <div className="relative z-10 p-4 sm:p-7 flex flex-col justify-between h-full max-w-[78%] sm:max-w-[65%] space-y-2 sm:space-y-4">
                     <div className="space-y-1.5 sm:space-y-3">
                       {/* Top Marker & Badge Row (Inline on mobile to save vertical space) */}
                       <div className="flex items-center gap-1.5 sm:gap-2 flex-wrap">

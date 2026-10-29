@@ -319,7 +319,7 @@ export default function ImageSlideshow() {
               <div
                 onClick={() => setSelectedPillar(centerItem)}
                 title="Click image to explore detailed specifications smoothly"
-                className="w-44 h-44 sm:w-64 sm:h-64 rounded-full p-1.5 sm:p-2 bg-gradient-to-tr from-blue-500/25 via-sky-400/20 to-cyan-300/35 shadow-[0_16px_36px_rgba(0,102,255,0.18)] mb-5 sm:mb-7 mt-3 relative transition-transform duration-500 group-hover:scale-105 cursor-pointer"
+                className="w-38 h-38 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full p-1.5 sm:p-2 bg-gradient-to-tr from-blue-500/25 via-sky-400/20 to-cyan-300/35 shadow-[0_16px_36px_rgba(0,102,255,0.18)] mb-4 sm:mb-7 mt-2 sm:mt-3 relative transition-transform duration-500 group-hover:scale-105 cursor-pointer"
               >
                 <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-inner relative bg-slate-100">
                   <AnimatePresence mode="wait">
@@ -499,7 +499,7 @@ export default function ImageSlideshow() {
       {mounted && typeof document !== "undefined" && createPortal(
         <AnimatePresence>
           {selectedPillar && (
-            <div className="fixed inset-0 z-[999999] flex items-center justify-center p-4 sm:p-6 overflow-y-auto">
+            <div className="fixed inset-0 z-[999999] flex items-center justify-center p-3 sm:p-6 overflow-y-auto">
               {/* Full-Screen Dark Glass Backdrop with Smooth Fade */}
               <motion.div
                 initial={{ opacity: 0 }}
@@ -519,7 +519,7 @@ export default function ImageSlideshow() {
                 className="relative w-full max-w-2xl bg-white rounded-2xl sm:rounded-[32px] shadow-2xl border border-slate-200 overflow-hidden z-10 my-auto flex flex-col max-h-[92vh]"
               >
                 {/* Modal Header Photo */}
-                <div className="relative h-48 sm:h-72 w-full bg-slate-900 overflow-hidden shrink-0">
+                <div className="relative h-44 sm:h-72 w-full bg-slate-900 overflow-hidden shrink-0">
                   <img
                     src={selectedPillar.image}
                     alt={selectedPillar.name}

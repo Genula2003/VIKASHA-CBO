@@ -74,7 +74,7 @@ export default function Home() {
         <Navbar />
 
         {/* Full-Width Nature Water Background Container */}
-        <div className="relative min-h-[640px] sm:min-h-[720px] lg:min-h-[820px] w-full flex items-center pt-28 sm:pt-36 pb-36 sm:pb-44 lg:pb-52 overflow-hidden">
+        <div className="relative min-h-[580px] sm:min-h-[700px] lg:min-h-[800px] w-full flex items-center pt-24 sm:pt-32 lg:pt-36 pb-24 sm:pb-36 lg:pb-48 overflow-hidden">
 
           {/* Background Nature Water Lake Photo */}
           <div className="absolute inset-0 z-0">
@@ -87,8 +87,8 @@ export default function Home() {
               decoding="async"
             />
             {/* Elegant Scrims: Soft left navy scrim for crisp text contrast, letting sunlight and reservoir shine on the right */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#03152d]/90 via-[#03152d]/50 sm:via-[#03152d]/35 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#03152d]/80 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#03152d]/95 via-[#03152d]/80 sm:via-[#03152d]/40 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#03152d] via-[#03152d]/60 sm:via-transparent to-transparent" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.1),transparent_60%)]" />
           </div>
 
@@ -98,23 +98,23 @@ export default function Home() {
               initial={{ opacity: 0, y: 25 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.85, ease: smoothEase }}
-              className="max-w-2xl space-y-6"
+              className="max-w-2xl space-y-4 sm:space-y-6"
             >
               {/* Eyebrow Pill Badge */}
               <motion.div
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.7, delay: 0.1, ease: smoothEase }}
-                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/50 backdrop-blur-md border border-sky-400/50 shadow-[0_0_15px_rgba(56,189,248,0.3)] text-xs font-mono font-bold tracking-wider text-white"
+                className="inline-flex items-center gap-1.5 sm:gap-2 px-3 sm:px-3.5 py-1 sm:py-1.5 rounded-full bg-slate-900/60 backdrop-blur-md border border-sky-400/50 shadow-[0_0_15px_rgba(56,189,248,0.3)] text-[10px] sm:text-xs font-mono font-bold tracking-wider text-white"
               >
-                <div className="w-5 h-5 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-white shadow-xs">
-                  <Droplet size={11} className="fill-white" />
+                <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-white shadow-xs">
+                  <Droplet size={10} className="fill-white" />
                 </div>
                 <span className="uppercase tracking-wider">DEMOCRATICALLY GOVERNED CBO</span>
               </motion.div>
 
               {/* Master Headline: Bold Modern Sans-Serif Typography matching reference */}
-              <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-extrabold text-white leading-[1.12] tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.5)] select-none">
+              <h1 className="text-2xl sm:text-4xl md:text-5xl lg:text-[54px] font-extrabold text-white leading-[1.15] sm:leading-[1.12] tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.5)] select-none">
                 <span className="block">A Legacy of Trust</span>
                 <span className="block">Built on a Sophisticated</span>
                 <span className="block text-[#00c0f7] drop-shadow-[0_0_24px_rgba(0,192,247,0.55)]">
@@ -123,7 +123,7 @@ export default function Home() {
               </h1>
 
               {/* Subtitle */}
-              <p className="text-sm sm:text-base text-slate-100/95 max-w-xl leading-relaxed drop-shadow-md font-medium">
+              <p className="text-xs sm:text-base text-slate-100/95 max-w-xl leading-relaxed drop-shadow-md font-medium">
                 Reliable water services, transparent billing and a sustainable tomorrow for every home.
               </p>
 
@@ -134,17 +134,17 @@ export default function Home() {
                 initial={{ opacity: 0, scale: 0.96, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 0.85, delay: 0.2, ease: smoothEase }}
-                className="relative rounded-3xl p-[2px] bg-gradient-to-b from-sky-300 via-sky-500/70 to-blue-600/80 shadow-[0_0_40px_rgba(14,165,233,0.4),0_20px_50px_rgba(2,18,44,0.7)] max-w-2xl w-full overflow-hidden group/card"
+                className="relative rounded-2xl sm:rounded-3xl p-[2px] bg-gradient-to-b from-sky-300 via-sky-500/70 to-blue-600/80 shadow-[0_0_40px_rgba(14,165,233,0.4),0_20px_50px_rgba(2,18,44,0.7)] max-w-2xl w-full overflow-hidden group/card"
               >
                 {/* Outer Glass Card Container */}
-                <div className="relative rounded-[22px] backdrop-blur-2xl bg-gradient-to-br from-[#0c2e5e]/90 via-[#071f42]/95 to-[#031127]/98 p-5 sm:p-7 text-white overflow-hidden">
+                <div className="relative rounded-[20px] sm:rounded-[22px] backdrop-blur-2xl bg-gradient-to-br from-[#0c2e5e]/95 via-[#071f42]/95 to-[#031127]/98 p-4 sm:p-7 text-white overflow-hidden">
                   
                   {/* Subtle Corner Glow Blooms */}
                   <div className="absolute -top-16 -left-16 w-40 h-40 rounded-full bg-sky-400/20 blur-3xl pointer-events-none" />
                   <div className="absolute -bottom-16 -right-16 w-48 h-48 rounded-full bg-blue-500/25 blur-3xl pointer-events-none" />
 
-                  {/* 3D Crystalline Water Teardrop & Wave in Bottom Right Corner (True Alpha PNG, No Box Artifacts) */}
-                  <div className="absolute bottom-0 right-0 w-44 sm:w-56 pointer-events-none select-none z-0">
+                  {/* 3D Crystalline Water Teardrop & Wave in Bottom Right Corner (Responsive Sizing) */}
+                  <div className="absolute bottom-0 right-0 w-28 sm:w-44 lg:w-56 pointer-events-none select-none z-0 opacity-40 sm:opacity-90">
                     <img
                       src="/hero-water-splash-corner.png"
                       alt=""
@@ -153,41 +153,41 @@ export default function Home() {
                   </div>
 
                   {/* Widget Top Bar: Water Drop Icon + Title + Instant 24/7 E-Bill Pill */}
-                  <div className="relative z-10 flex items-center justify-between mb-4 sm:mb-5 gap-2">
-                    <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl overflow-hidden shrink-0 shadow-[0_0_15px_rgba(56,189,248,0.45)] border border-sky-300/40 bg-sky-950/60">
+                  <div className="relative z-10 flex flex-col sm:flex-row items-start sm:items-center justify-between mb-3.5 sm:mb-5 gap-2.5 sm:gap-2">
+                    <div className="flex items-center gap-2.5 sm:gap-3">
+                      <div className="w-9 h-9 sm:w-11 sm:h-11 rounded-xl sm:rounded-2xl overflow-hidden shrink-0 shadow-[0_0_15px_rgba(56,189,248,0.45)] border border-sky-300/40 bg-sky-950/60">
                         <img
                           src="/card-water-icon.png"
                           alt="Water Icon"
                           className="w-full h-full object-cover"
                         />
                       </div>
-                      <h2 className="text-base sm:text-lg font-bold text-white tracking-tight">
+                      <h2 className="text-sm sm:text-lg font-bold text-white tracking-tight">
                         Enter Meter Account Number
                       </h2>
                     </div>
 
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/60 border border-sky-500/40 text-slate-200 text-[11px] sm:text-xs font-semibold shadow-xs shrink-0">
+                    <div className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-slate-900/60 border border-sky-500/40 text-slate-200 text-[10px] sm:text-xs font-semibold shadow-xs shrink-0 self-start sm:self-auto">
                       <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399] animate-pulse" />
                       <span>Instant 24/7 E-Bill</span>
                     </div>
                   </div>
 
                   {/* Form: White Pill Input + Royal Electric Blue Action Button */}
-                  <form onSubmit={handleQuickSearch} className="relative z-10 space-y-4">
-                    <div className="flex flex-col sm:flex-row gap-3">
+                  <form onSubmit={handleQuickSearch} className="relative z-10 space-y-3 sm:space-y-4">
+                    <div className="flex flex-col sm:flex-row gap-2.5 sm:gap-3">
                       
-                      {/* White / Soft Ice Pill Input Field (Spacious & Full-Text Clear) */}
+                      {/* White / Soft Ice Pill Input Field (Spacious & Full-Text Clear, 16px on mobile to avoid iOS Safari auto-zoom) */}
                       <div className="relative flex-1 min-w-0 group/input">
-                        <div className="absolute left-3.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-sky-100 flex items-center justify-center text-sky-600 pointer-events-none transition-transform group-focus-within/input:scale-110">
-                          <User size={16} />
+                        <div className="absolute left-3.5 top-1/2 -translate-y-1/2 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-sky-100 flex items-center justify-center text-sky-600 pointer-events-none transition-transform group-focus-within/input:scale-110">
+                          <User size={15} />
                         </div>
                         <input
                           type="text"
                           value={quickAccount}
                           onChange={(e) => setQuickAccount(e.target.value)}
                           placeholder="e.g. 135 (or Consumer Account No.)"
-                          className="w-full h-12 sm:h-13 pl-12 pr-4 rounded-xl sm:rounded-2xl bg-white text-slate-900 placeholder:text-slate-500 text-xs sm:text-[13px] font-semibold border border-white shadow-[inset_0_2px_4px_rgba(0,0,0,0.06),0_4px_12px_rgba(0,0,0,0.15)] focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all duration-200"
+                          className="w-full h-11 sm:h-13 pl-11 sm:pl-12 pr-4 rounded-xl sm:rounded-2xl bg-white text-slate-900 placeholder:text-slate-500 text-base sm:text-[13px] font-semibold border border-white shadow-[inset_0_2px_4px_rgba(0,0,0,0.06),0_4px_12px_rgba(0,0,0,0.15)] focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all duration-200"
                         />
                       </div>
 
@@ -195,7 +195,7 @@ export default function Home() {
                       <button
                         type="submit"
                         disabled={isSearching}
-                        className="h-12 sm:h-13 px-5 sm:px-6 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#0052e0] via-[#0066ff] to-[#0084ff] hover:from-[#0047cc] hover:to-[#0073e6] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2.5 shadow-[0_8px_24px_rgba(0,102,255,0.45),inset_0_1px_1px_rgba(255,255,255,0.4)] hover:shadow-[0_12px_32px_rgba(0,102,255,0.65)] hover:scale-[1.02] active:scale-[0.98] shrink-0 cursor-pointer disabled:opacity-75 border border-sky-300/40 transition-all duration-300 group/btn w-full sm:w-auto whitespace-nowrap"
+                        className="h-11 sm:h-13 px-5 sm:px-6 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#0052e0] via-[#0066ff] to-[#0084ff] hover:from-[#0047cc] hover:to-[#0073e6] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2.5 shadow-[0_8px_24px_rgba(0,102,255,0.45),inset_0_1px_1px_rgba(255,255,255,0.4)] hover:shadow-[0_12px_32px_rgba(0,102,255,0.65)] hover:scale-[1.02] active:scale-[0.98] shrink-0 cursor-pointer disabled:opacity-75 border border-sky-300/40 transition-all duration-300 group/btn w-full sm:w-auto whitespace-nowrap"
                       >
                         {isSearching ? (
                           <>
@@ -215,8 +215,8 @@ export default function Home() {
                     </div>
 
                     {/* Quick test row */}
-                    <div className="flex flex-wrap items-center gap-2 pt-0.5 text-xs text-slate-200">
-                      <span className="text-[12px] font-semibold text-slate-200">Quick test:</span>
+                    <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-0.5 text-xs text-slate-200">
+                      <span className="text-[11px] sm:text-[12px] font-semibold text-slate-200">Quick test:</span>
                       {["135", "102", "189"].map((acc) => {
                         const isSelected = quickAccount === acc;
                         return (
@@ -224,7 +224,7 @@ export default function Home() {
                             key={acc}
                             type="button"
                             onClick={() => setQuickAccount(acc)}
-                            className={`px-3 py-1 rounded-full font-mono text-[11px] font-bold border transition-all duration-200 cursor-pointer shadow-xs active:scale-95 ${
+                            className={`px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full font-mono text-[10px] sm:text-[11px] font-bold border transition-all duration-200 cursor-pointer shadow-xs active:scale-95 ${
                               isSelected
                                 ? "bg-sky-500/40 border-sky-300 text-white shadow-[0_0_12px_rgba(56,189,248,0.6)]"
                                 : "bg-[#062042]/80 hover:bg-sky-600/30 text-sky-200 hover:text-white border-sky-400/40 hover:border-sky-300"
@@ -237,29 +237,29 @@ export default function Home() {
                     </div>
 
                     {/* Bottom Row: Grouped cleanly on the left so the 3D water teardrop on the right is unobstructed */}
-                    <div className="pt-3.5 border-t border-sky-400/20 flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs relative z-10">
+                    <div className="pt-3 sm:pt-3.5 border-t border-sky-400/20 flex flex-wrap items-center gap-2 sm:gap-3 text-xs relative z-10">
                       <button
                         type="button"
                         onClick={() => setShowAccountHelp(true)}
-                        className="flex items-center gap-2 hover:text-sky-300 transition-colors cursor-pointer group/help text-left shrink-0"
+                        className="flex items-center gap-1.5 sm:gap-2 hover:text-sky-300 transition-colors cursor-pointer group/help text-left"
                       >
-                        <div className="w-5 h-5 rounded-full bg-sky-500/30 border border-sky-400/60 flex items-center justify-center text-sky-200 font-bold text-xs group-hover/help:border-sky-300 transition-colors shrink-0 shadow-xs">
+                        <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-sky-500/30 border border-sky-400/60 flex items-center justify-center text-sky-200 font-bold text-[10px] sm:text-xs group-hover/help:border-sky-300 transition-colors shrink-0 shadow-xs">
                           ?
                         </div>
-                        <span className="text-[11px] sm:text-xs text-slate-200 group-hover/help:text-white transition-colors">
+                        <span className="text-[10px] sm:text-xs text-slate-200 group-hover/help:text-white transition-colors">
                           Need help finding your account number?
                         </span>
                       </button>
 
-                      <span className="text-sky-300/40 text-sm hidden xs:inline">|</span>
+                      <span className="text-sky-300/40 text-sm hidden sm:inline">|</span>
 
                       <button
                         type="button"
                         onClick={() => setShowHowToPay(true)}
-                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/60 hover:bg-sky-900/50 border border-sky-400/40 hover:border-sky-300 text-slate-200 hover:text-white font-medium text-[11px] sm:text-xs transition-all duration-200 cursor-pointer shadow-xs shrink-0"
+                        className="inline-flex items-center gap-1 sm:gap-1.5 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-slate-900/60 hover:bg-sky-900/50 border border-sky-400/40 hover:border-sky-300 text-slate-200 hover:text-white font-medium text-[10px] sm:text-xs transition-all duration-200 cursor-pointer shadow-xs shrink-0"
                       >
                         <span>How to Pay?</span>
-                        <ChevronRight size={13} className="text-sky-300" />
+                        <ChevronRight size={12} className="text-sky-300" />
                       </button>
                     </div>
 
@@ -276,8 +276,8 @@ export default function Home() {
       {/* ========================================================================= */}
       {/* 3 OVERLAPPING SPOTLIGHT CARDS (MATCHING HERO OCEANIC NEON GLASS THEME) */}
       {/* ========================================================================= */}
-      <section className="relative z-30 max-w-[1360px] mx-auto px-4 sm:px-6 -mt-14 sm:-mt-24 lg:-mt-32 mb-12 sm:mb-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7">
+      <section className="relative z-30 max-w-[1360px] mx-auto px-4 sm:px-6 -mt-10 sm:-mt-20 lg:-mt-28 mb-10 sm:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-7">
           {[
             {
               category: "Smart Telemetry",
@@ -327,7 +327,7 @@ export default function Home() {
 
                 <Link href={card.href} className="flex flex-col h-full relative z-10">
                   {/* Upper Image Section */}
-                  <div className="h-48 sm:h-56 lg:h-60 w-full overflow-hidden relative bg-[#04142b]">
+                  <div className="h-44 sm:h-56 lg:h-60 w-full overflow-hidden relative bg-[#04142b]">
                     <img
                       src={card.image}
                       alt={card.title}
@@ -346,7 +346,7 @@ export default function Home() {
                   </div>
 
                   {/* Lower Panel matching Hero Palette */}
-                  <div className="p-5 sm:p-6 text-white flex-1 flex flex-col justify-between space-y-4">
+                  <div className="p-4.5 sm:p-6 text-white flex-1 flex flex-col justify-between space-y-3 sm:space-y-4">
                     <div>
                       <h3 className="text-lg sm:text-xl font-extrabold text-white tracking-tight font-sans mb-1.5 group-hover:text-[#00c0f7] transition-colors">
                         {card.title}
@@ -558,7 +558,7 @@ export default function Home() {
               >
                 <div className="flex flex-col h-full">
                   {/* Upper Image Section (~60%) */}
-                  <div className="h-48 sm:h-64 lg:h-72 w-full overflow-hidden relative bg-slate-100">
+                  <div className="h-44 sm:h-64 lg:h-72 w-full overflow-hidden relative bg-slate-100">
                     <img
                       src={card.image}
                       alt={card.title}
@@ -574,7 +574,7 @@ export default function Home() {
                   </div>
 
                   {/* Lower White Panel (White is main, Navy Dark Blue title, Silver details) */}
-                  <div className="bg-white p-5 sm:p-7 text-slate-900 border-t border-slate-100 flex-1 flex flex-col justify-between">
+                  <div className="bg-white p-4.5 sm:p-7 text-slate-900 border-t border-slate-100 flex-1 flex flex-col justify-between">
                     <div>
                       <h3 className="text-lg sm:text-2xl font-bold text-[#081B38] tracking-tight font-serif mb-2 sm:mb-2.5 group-hover:text-[#004EEB] transition-colors">
                         {card.title}
@@ -693,7 +693,7 @@ export default function Home() {
               exit={{ scale: 0.92, opacity: 0, y: 20 }}
               transition={{ duration: 0.35, ease: smoothEase }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full p-5 sm:p-8 shadow-2xl border border-slate-200 relative overflow-hidden max-h-[90vh] overflow-y-auto my-auto"
+              className="bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full p-4.5 sm:p-8 shadow-2xl border border-slate-200 relative overflow-hidden max-h-[90vh] overflow-y-auto my-auto"
             >
               <button
                 type="button"
@@ -796,7 +796,7 @@ export default function Home() {
               exit={{ scale: 0.92, opacity: 0, y: 20 }}
               transition={{ duration: 0.35, ease: smoothEase }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full p-5 sm:p-8 shadow-2xl border border-slate-200 relative overflow-hidden max-h-[90vh] overflow-y-auto my-auto"
+              className="bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full p-4.5 sm:p-8 shadow-2xl border border-slate-200 relative overflow-hidden max-h-[90vh] overflow-y-auto my-auto"
             >
               <button
                 type="button"

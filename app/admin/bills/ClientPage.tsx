@@ -155,7 +155,7 @@ export function BillsClientPage({ bills }: { bills: any[] }) {
            </div>
         </div>
 
-        <div className="overflow-hidden rounded-2xl border border-gray-100">
+        <div className="overflow-x-auto rounded-2xl border border-gray-100">
           <table className="min-w-full divide-y divide-gray-100">
             <thead className="bg-[#F8FAFC]">
               <tr>
@@ -191,7 +191,7 @@ export function BillsClientPage({ bills }: { bills: any[] }) {
                       </span>
                     </td>
                     <td className="relative whitespace-nowrap py-4 pl-3 pr-6 text-right text-sm font-medium">
-                      <div className="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <div className="flex justify-end gap-2 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
                         <a href={b.pdf_url || '#'} target="_blank" className="p-2 rounded-lg bg-gray-50 text-gray-500 hover:text-[#0066FF] hover:bg-blue-50 transition-colors tooltip-trigger" title="Download PDF">
                           <Download size={16} strokeWidth={2.5} />
                         </a>
