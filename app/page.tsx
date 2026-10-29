@@ -16,6 +16,7 @@ import {
   User,
   ArrowRight,
   Clock,
+  Droplet,
   Droplets,
   AlertTriangle,
   Phone,
@@ -28,6 +29,8 @@ import {
   Shield,
   Loader2,
   X,
+  FileText,
+  ChevronRight,
   Check
 } from "lucide-react";
 
@@ -42,24 +45,7 @@ export default function Home() {
   const [showHowToPay, setShowHowToPay] = useState(false);
   const [showAccountHelp, setShowAccountHelp] = useState(false);
 
-  // Dynamic rotating words for hero section word animation
-  const rotatingWords = [
-    { text: "Excellence.", tag: "SLS 614 Quality Audit", color: "from-white via-cyan-100 to-sky-200" },
-    { text: "Purity.", tag: "Continuous Multi-Stage Sand Filtration", color: "from-cyan-100 via-sky-200 to-blue-200" },
-    { text: "Reliability.", tag: "24/7 Gravity-Fed Flow Line", color: "from-emerald-100 via-teal-200 to-cyan-200" },
-    { text: "Integrity.", tag: "100% Audited Public Ledger", color: "from-slate-100 via-zinc-200 to-white" },
-    { text: "Community.", tag: "Democratically Governed CBO", color: "from-amber-100 via-sky-100 to-white" }
-  ];
-  const [wordIndex, setWordIndex] = useState(0);
 
-
-  // Rotate hero words every 3 seconds smoothly
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setWordIndex((prev) => (prev + 1) % rotatingWords.length);
-    }, 3000);
-    return () => clearInterval(timer);
-  }, [rotatingWords.length]);
 
   const handleQuickSearch = (e: React.FormEvent) => {
     e.preventDefault();
@@ -80,30 +66,30 @@ export default function Home() {
       <PageLoader minDuration={850} />
 
       {/* ========================================================================= */}
-      {/* 1. HERO SECTION (NATURE WATER LAKE & METER ACCOUNT SEARCH) */}
+      {/* 1. HERO SECTION (NATURE WATER RESERVOIR & NEON GLASS QUICK PAY) */}
       {/* ========================================================================= */}
-      <section className="relative w-full overflow-visible bg-[#081B38] text-white">
+      <section className="relative w-full overflow-visible bg-[#03152d] text-white">
 
         {/* Top Navbar */}
         <Navbar />
 
-        {/* Full-Width Nature Water Background Container with Reduced Darkness */}
-        <div className="relative min-h-[620px] sm:min-h-[680px] lg:min-h-[760px] w-full flex items-center pt-28 sm:pt-36 pb-36 sm:pb-44 lg:pb-52 overflow-hidden">
+        {/* Full-Width Nature Water Background Container */}
+        <div className="relative min-h-[640px] sm:min-h-[720px] lg:min-h-[820px] w-full flex items-center pt-28 sm:pt-36 pb-36 sm:pb-44 lg:pb-52 overflow-hidden">
 
           {/* Background Nature Water Lake Photo */}
           <div className="absolute inset-0 z-0">
             <img
-              src="/hero-nature-water.webp"
+              src="/hero-reservoir-bg.jpg"
               alt="Magammana Nature Water Reservoir"
               className="w-full h-full object-cover object-center"
               loading="eager"
               fetchPriority="high"
               decoding="async"
             />
-            {/* Reduced-Darkness & Reduced-Blue Scrims: Clean Navy Scrim on the left for contrast, pure natural lake & greenery glowing through */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#081B38]/80 via-[#081B38]/45 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#081B38]/70 via-transparent to-transparent" />
-            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.06),transparent_70%)]" />
+            {/* Elegant Scrims: Soft left navy scrim for crisp text contrast, letting sunlight and reservoir shine on the right */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#03152d]/90 via-[#03152d]/50 sm:via-[#03152d]/35 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#03152d]/80 via-transparent to-transparent" />
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.1),transparent_60%)]" />
           </div>
 
           {/* Left Content Area (Matching Template with Meter Account Input) */}
@@ -114,142 +100,102 @@ export default function Home() {
               transition={{ duration: 0.85, ease: smoothEase }}
               className="max-w-2xl space-y-6"
             >
-              {/* Eyebrow with Silver Line */}
-              <div className="flex items-center gap-3">
-                <span className="w-12 h-[1.5px] bg-slate-300" />
-                <span className="text-xs uppercase tracking-[0.22em] text-slate-200 font-semibold font-mono">
-                  COMMUNITY BASED ORGANIZATION &bull; WATER UTILITY
-                </span>
-              </div>
-
-              {/* Master Headline in Elegant Serif with Staggered & Rotating Word Animations */}
-              <h1 className="font-serif text-3xl sm:text-5xl lg:text-[58px] text-white leading-[1.18] sm:leading-[1.14] tracking-tight font-normal select-none">
-                <motion.span
-                  initial={{ opacity: 0, y: 18, filter: "blur(6px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ duration: 0.75, delay: 0.12, ease: smoothEase }}
-                  className="block"
-                >
-                  A Legacy of Trust
-                </motion.span>
-                <motion.span
-                  initial={{ opacity: 0, y: 18, filter: "blur(6px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ duration: 0.75, delay: 0.24, ease: smoothEase }}
-                  className="block"
-                >
-                  Built on Sophisticated
-                </motion.span>
-                <motion.span
-                  initial={{ opacity: 0, y: 18, filter: "blur(6px)" }}
-                  animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-                  transition={{ duration: 0.75, delay: 0.36, ease: smoothEase }}
-                  className="inline-flex flex-wrap items-baseline gap-x-2.5 sm:gap-x-3"
-                >
-                  <span>Water</span>
-                  <span className="inline-block relative overflow-hidden align-baseline h-[1.18em] min-w-[170px] sm:min-w-[280px] lg:min-w-[340px]">
-                    <AnimatePresence mode="wait">
-                      <motion.span
-                        key={wordIndex}
-                        initial={{ y: "100%", opacity: 0, filter: "blur(8px)", rotateX: -30 }}
-                        animate={{ y: "0%", opacity: 1, filter: "blur(0px)", rotateX: 0 }}
-                        exit={{ y: "-100%", opacity: 0, filter: "blur(8px)", rotateX: 30 }}
-                        transition={{ duration: 0.55, ease: smoothEase }}
-                        className={`inline-block font-serif italic font-normal bg-gradient-to-r ${rotatingWords[wordIndex].color} bg-clip-text text-transparent drop-shadow-[0_4px_16px_rgba(255,255,255,0.25)]`}
-                      >
-                        {rotatingWords[wordIndex].text}
-                      </motion.span>
-                    </AnimatePresence>
-                  </span>
-                </motion.span>
-              </h1>
-
-              {/* Live Animated Verified Standards Micro-Badge */}
+              {/* Eyebrow Pill Badge */}
               <motion.div
-                initial={{ opacity: 0, y: 12 }}
+                initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, delay: 0.45, ease: smoothEase }}
-                className="flex items-center gap-2 max-w-full"
+                transition={{ duration: 0.7, delay: 0.1, ease: smoothEase }}
+                className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-900/50 backdrop-blur-md border border-sky-400/50 shadow-[0_0_15px_rgba(56,189,248,0.3)] text-xs font-mono font-bold tracking-wider text-white"
               >
-                <div className="inline-flex flex-wrap items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[10px] sm:text-[11px] font-mono text-slate-200 shadow-sm max-w-full">
-                  <span className="relative flex h-2 w-2 shrink-0">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-300" />
-                  </span>
-                  <span className="text-slate-400 uppercase tracking-wider text-[9px] sm:text-[10px] font-semibold shrink-0">STANDARDS PILLAR:</span>
-                  <AnimatePresence mode="wait">
-                    <motion.span
-                      key={wordIndex}
-                      initial={{ opacity: 0, x: -6 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      exit={{ opacity: 0, x: 6 }}
-                      transition={{ duration: 0.25 }}
-                      className="text-white font-semibold truncate"
-                    >
-                      {rotatingWords[wordIndex].tag}
-                    </motion.span>
-                  </AnimatePresence>
+                <div className="w-5 h-5 rounded-full bg-gradient-to-br from-sky-400 to-blue-600 flex items-center justify-center text-white shadow-xs">
+                  <Droplet size={11} className="fill-white" />
                 </div>
+                <span className="uppercase tracking-wider">DEMOCRATICALLY GOVERNED CBO</span>
               </motion.div>
 
+              {/* Master Headline: Bold Modern Sans-Serif Typography matching reference */}
+              <h1 className="text-3xl sm:text-5xl lg:text-[54px] font-extrabold text-white leading-[1.12] tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.5)] select-none">
+                <span className="block">A Legacy of Trust</span>
+                <span className="block">Built on a Sophisticated</span>
+                <span className="block text-[#00c0f7] drop-shadow-[0_0_24px_rgba(0,192,247,0.55)]">
+                  Water Community.
+                </span>
+              </h1>
+
+              {/* Subtitle */}
+              <p className="text-sm sm:text-base text-slate-100/95 max-w-xl leading-relaxed drop-shadow-md font-medium">
+                Reliable water services, transparent billing and a sustainable tomorrow for every home.
+              </p>
+
               {/* =================================================================== */}
-              {/* METER ACCOUNT NUMBER ENTERING PART (ULTRA-PREMIUM FROSTED GLASS WIDGET) */}
+              {/* METER ACCOUNT NUMBER ENTERING CARD (NEON GLOWING GLASS WIDGET) */}
               {/* =================================================================== */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.96, y: 20 }}
                 animate={{ opacity: 1, scale: 1, y: 0 }}
-                transition={{ duration: 0.85, delay: 0.15, ease: smoothEase }}
-                className="relative rounded-2xl sm:rounded-3xl p-[1px] bg-gradient-to-b from-white/60 via-white/20 to-white/5 shadow-[0_25px_60px_rgba(4,18,40,0.6),0_0_40px_rgba(6,182,212,0.12)] max-w-xl overflow-hidden group/glass w-full"
+                transition={{ duration: 0.85, delay: 0.2, ease: smoothEase }}
+                className="relative rounded-3xl p-[2px] bg-gradient-to-b from-sky-300 via-sky-500/70 to-blue-600/80 shadow-[0_0_40px_rgba(14,165,233,0.4),0_20px_50px_rgba(2,18,44,0.7)] max-w-2xl w-full overflow-hidden group/card"
               >
-                {/* Specular Top Prismatic Highlight Sheen */}
-                <div className="absolute inset-x-0 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-cyan-300/80 to-transparent pointer-events-none z-20" />
+                {/* Outer Glass Card Container */}
+                <div className="relative rounded-[22px] backdrop-blur-2xl bg-gradient-to-br from-[#0c2e5e]/90 via-[#071f42]/95 to-[#031127]/98 p-5 sm:p-7 text-white overflow-hidden">
+                  
+                  {/* Subtle Corner Glow Blooms */}
+                  <div className="absolute -top-16 -left-16 w-40 h-40 rounded-full bg-sky-400/20 blur-3xl pointer-events-none" />
+                  <div className="absolute -bottom-16 -right-16 w-48 h-48 rounded-full bg-blue-500/25 blur-3xl pointer-events-none" />
 
-                <div className="relative rounded-[21px] sm:rounded-[23px] backdrop-blur-2xl bg-[#081B38]/65 border border-white/20 p-4 sm:p-6 text-white overflow-hidden">
+                  {/* 3D Crystalline Water Teardrop & Wave in Bottom Right Corner (True Alpha PNG, No Box Artifacts) */}
+                  <div className="absolute bottom-0 right-0 w-44 sm:w-56 pointer-events-none select-none z-0">
+                    <img
+                      src="/hero-water-splash-corner.png"
+                      alt=""
+                      className="w-full h-auto object-contain pointer-events-none"
+                    />
+                  </div>
 
-                  {/* Ambient Light Blooms inside Glass */}
-                  <div className="absolute -top-20 -left-20 w-48 h-48 rounded-full bg-cyan-400/15 blur-3xl pointer-events-none" />
-                  <div className="absolute -bottom-20 -right-20 w-48 h-48 rounded-full bg-blue-500/20 blur-3xl pointer-events-none" />
-
-                  {/* Widget Header with Cyan Beacon & Live Pill */}
-                  <div className="relative z-10 flex items-center justify-between mb-3.5 text-xs">
-                    <div className="flex items-center gap-2 sm:gap-2.5">
-                      <span className="relative flex h-2.5 w-2.5 shrink-0">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75" />
-                        <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-cyan-300 shadow-[0_0_8px_rgba(34,211,238,0.9)]" />
-                      </span>
-                      <span className="font-mono uppercase tracking-[0.14em] sm:tracking-[0.18em] font-extrabold text-white text-[11px] sm:text-xs">
-                        ENTER METER ACCOUNT NUMBER
-                      </span>
+                  {/* Widget Top Bar: Water Drop Icon + Title + Instant 24/7 E-Bill Pill */}
+                  <div className="relative z-10 flex items-center justify-between mb-4 sm:mb-5 gap-2">
+                    <div className="flex items-center gap-3">
+                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-2xl overflow-hidden shrink-0 shadow-[0_0_15px_rgba(56,189,248,0.45)] border border-sky-300/40 bg-sky-950/60">
+                        <img
+                          src="/card-water-icon.png"
+                          alt="Water Icon"
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <h2 className="text-base sm:text-lg font-bold text-white tracking-tight">
+                        Enter Meter Account Number
+                      </h2>
                     </div>
 
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-cyan-200 font-mono text-[11px] font-semibold shadow-xs hidden sm:inline-flex">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                    <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/60 border border-sky-500/40 text-slate-200 text-[11px] sm:text-xs font-semibold shadow-xs shrink-0">
+                      <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_#34d399] animate-pulse" />
                       <span>Instant 24/7 E-Bill</span>
                     </div>
                   </div>
 
-                  {/* Account Input & Search Button in Frosted Glass */}
-                  <form onSubmit={handleQuickSearch} className="relative z-10 space-y-3 sm:space-y-3.5">
-                    <div className="flex flex-col sm:flex-row gap-2.5">
-                      {/* Frosted Glass Input Field */}
-                      <div className="relative flex-1 group/input">
-                        <div className="absolute left-3.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-cyan-300 shadow-sm pointer-events-none transition-transform group-focus-within/input:scale-110">
-                          <User size={15} />
+                  {/* Form: White Pill Input + Royal Electric Blue Action Button */}
+                  <form onSubmit={handleQuickSearch} className="relative z-10 space-y-4">
+                    <div className="flex flex-col sm:flex-row gap-3">
+                      
+                      {/* White / Soft Ice Pill Input Field (Spacious & Full-Text Clear) */}
+                      <div className="relative flex-1 min-w-0 group/input">
+                        <div className="absolute left-3.5 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-sky-100 flex items-center justify-center text-sky-600 pointer-events-none transition-transform group-focus-within/input:scale-110">
+                          <User size={16} />
                         </div>
                         <input
                           type="text"
                           value={quickAccount}
                           onChange={(e) => setQuickAccount(e.target.value)}
-                          placeholder="e.g. 135 (or Consumer Account #)"
-                          className="w-full h-12 sm:h-13 pl-12 sm:pl-13 pr-4 rounded-xl bg-white/[0.12] hover:bg-white/[0.16] focus:bg-[#081B38]/90 backdrop-blur-xl text-white placeholder:text-slate-300 font-mono text-xs sm:text-sm font-bold border border-white/25 focus:border-cyan-400/90 focus:outline-none shadow-[inset_0_2px_4px_rgba(0,0,0,0.35),0_0_0_1px_rgba(255,255,255,0.06)] focus:shadow-[0_0_25px_rgba(34,211,238,0.35),inset_0_2px_4px_rgba(0,0,0,0.2)] transition-all duration-300"
+                          placeholder="e.g. 135 (or Consumer Account No.)"
+                          className="w-full h-12 sm:h-13 pl-12 pr-4 rounded-xl sm:rounded-2xl bg-white text-slate-900 placeholder:text-slate-500 text-xs sm:text-[13px] font-semibold border border-white shadow-[inset_0_2px_4px_rgba(0,0,0,0.06),0_4px_12px_rgba(0,0,0,0.15)] focus:outline-none focus:ring-2 focus:ring-sky-400 transition-all duration-200"
                         />
                       </div>
 
-                      {/* Electric Blue Frosted Glass Action Button */}
+                      {/* Electric Royal Blue Button */}
                       <button
                         type="submit"
                         disabled={isSearching}
-                        className="h-12 sm:h-13 px-5 sm:px-6 rounded-xl bg-gradient-to-r from-[#0057E7] via-[#0066FF] to-[#0080FF] hover:from-[#004EEB] hover:to-[#0070e0] text-white font-extrabold text-xs sm:text-sm flex items-center justify-center gap-2 sm:gap-2.5 shadow-[0_8px_24px_rgba(0,87,231,0.45),inset_0_1px_1px_rgba(255,255,255,0.4)] hover:shadow-[0_12px_32px_rgba(0,87,231,0.65)] hover:scale-[1.02] active:scale-[0.98] shrink-0 cursor-pointer disabled:opacity-75 border border-white/30 backdrop-blur-md transition-all duration-300 group/btn w-full sm:w-auto"
+                        className="h-12 sm:h-13 px-5 sm:px-6 rounded-xl sm:rounded-2xl bg-gradient-to-r from-[#0052e0] via-[#0066ff] to-[#0084ff] hover:from-[#0047cc] hover:to-[#0073e6] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2.5 shadow-[0_8px_24px_rgba(0,102,255,0.45),inset_0_1px_1px_rgba(255,255,255,0.4)] hover:shadow-[0_12px_32px_rgba(0,102,255,0.65)] hover:scale-[1.02] active:scale-[0.98] shrink-0 cursor-pointer disabled:opacity-75 border border-sky-300/40 transition-all duration-300 group/btn w-full sm:w-auto whitespace-nowrap"
                       >
                         {isSearching ? (
                           <>
@@ -258,19 +204,19 @@ export default function Home() {
                           </>
                         ) : (
                           <>
-                            <CreditCard size={15} className="text-white drop-shadow-sm" />
+                            <FileText size={16} className="text-white drop-shadow-sm" />
                             <span className="tracking-wide">View &amp; Pay Bill</span>
                             <div className="w-5 h-5 rounded-full bg-white/20 flex items-center justify-center text-white shrink-0 group-hover/btn:translate-x-0.5 transition-transform">
-                              <ArrowRight size={12} strokeWidth={3} />
+                              <ArrowRight size={12} strokeWidth={2.5} />
                             </div>
                           </>
                         )}
                       </button>
                     </div>
 
-                    {/* Quick Sample Clickable Accounts with Glass Chips */}
-                    <div className="flex flex-wrap items-center gap-1.5 sm:gap-2 pt-0.5 text-xs text-slate-300">
-                      <span className="text-[11px] text-slate-300/90 font-mono">Quick test:</span>
+                    {/* Quick test row */}
+                    <div className="flex flex-wrap items-center gap-2 pt-0.5 text-xs text-slate-200">
+                      <span className="text-[12px] font-semibold text-slate-200">Quick test:</span>
                       {["135", "102", "189"].map((acc) => {
                         const isSelected = quickAccount === acc;
                         return (
@@ -278,10 +224,10 @@ export default function Home() {
                             key={acc}
                             type="button"
                             onClick={() => setQuickAccount(acc)}
-                            className={`px-2.5 sm:px-3 py-1 rounded-lg font-mono text-[11px] font-bold border backdrop-blur-md transition-all duration-200 cursor-pointer shadow-xs active:scale-95 ${
+                            className={`px-3 py-1 rounded-full font-mono text-[11px] font-bold border transition-all duration-200 cursor-pointer shadow-xs active:scale-95 ${
                               isSelected
-                                ? "bg-cyan-500/35 border-cyan-400 text-cyan-200 shadow-[0_0_12px_rgba(34,211,238,0.5)]"
-                                : "bg-white/[0.08] hover:bg-white/[0.18] text-white/90 border-white/20 hover:border-cyan-400/50 hover:text-white"
+                                ? "bg-sky-500/40 border-sky-300 text-white shadow-[0_0_12px_rgba(56,189,248,0.6)]"
+                                : "bg-[#062042]/80 hover:bg-sky-600/30 text-sky-200 hover:text-white border-sky-400/40 hover:border-sky-300"
                             }`}
                           >
                             #{acc}
@@ -290,52 +236,36 @@ export default function Home() {
                       })}
                     </div>
 
-                    {/* Modal Helpers with Glass Badges */}
-                    <div className="pt-3 sm:pt-3.5 border-t border-white/15 flex flex-col xs:flex-row items-start xs:items-center justify-between gap-2.5 text-xs text-slate-300">
+                    {/* Bottom Row: Grouped cleanly on the left so the 3D water teardrop on the right is unobstructed */}
+                    <div className="pt-3.5 border-t border-sky-400/20 flex flex-wrap items-center gap-2.5 sm:gap-3 text-xs relative z-10">
                       <button
                         type="button"
                         onClick={() => setShowAccountHelp(true)}
-                        className="flex items-center gap-2 hover:text-cyan-300 transition-colors cursor-pointer group/help text-left"
+                        className="flex items-center gap-2 hover:text-sky-300 transition-colors cursor-pointer group/help text-left shrink-0"
                       >
-                        <div className="w-5 h-5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center text-slate-300 group-hover/help:text-cyan-300 group-hover/help:border-cyan-400/50 transition-colors shrink-0">
-                          <HelpCircle size={12} />
+                        <div className="w-5 h-5 rounded-full bg-sky-500/30 border border-sky-400/60 flex items-center justify-center text-sky-200 font-bold text-xs group-hover/help:border-sky-300 transition-colors shrink-0 shadow-xs">
+                          ?
                         </div>
-                        <span className="text-[11px] sm:text-xs text-slate-300 group-hover/help:text-white transition-colors">
+                        <span className="text-[11px] sm:text-xs text-slate-200 group-hover/help:text-white transition-colors">
                           Need help finding your account number?
                         </span>
                       </button>
 
+                      <span className="text-sky-300/40 text-sm hidden xs:inline">|</span>
+
                       <button
                         type="button"
                         onClick={() => setShowHowToPay(true)}
-                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/20 text-white font-medium text-[11px] sm:text-xs transition-all duration-200 hover:border-white/40 cursor-pointer shadow-xs shrink-0"
+                        className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-900/60 hover:bg-sky-900/50 border border-sky-400/40 hover:border-sky-300 text-slate-200 hover:text-white font-medium text-[11px] sm:text-xs transition-all duration-200 cursor-pointer shadow-xs shrink-0"
                       >
                         <span>How to Pay?</span>
-                        <Play size={10} className="fill-white text-white" />
+                        <ChevronRight size={13} className="text-sky-300" />
                       </button>
                     </div>
-                  </form>
 
+                  </form>
                 </div>
               </motion.div>
-
-              {/* Two Action Buttons (Navy Dark Blue & Frosted White/Silver) */}
-              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 pt-1 w-full sm:w-auto">
-                <Link
-                  href="/pay"
-                  className="px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl bg-[#081B38] hover:bg-[#0c2b59] text-white text-xs sm:text-sm font-bold border border-slate-300/40 shadow-xl transition-all duration-200 hover:scale-105 active:scale-95 flex items-center justify-center gap-2 text-center"
-                >
-                  <span>Pay Water Bill</span>
-                  <ArrowRight size={15} />
-                </Link>
-
-                <Link
-                  href="#services"
-                  className="px-6 sm:px-8 py-3 sm:py-3.5 rounded-xl bg-white/15 hover:bg-white/25 text-white text-xs sm:text-sm font-semibold border border-white/70 backdrop-blur-md transition-all duration-200 hover:scale-105 active:scale-95 text-center"
-                >
-                  Discover Services
-                </Link>
-              </div>
             </motion.div>
           </div>
 
@@ -344,31 +274,40 @@ export default function Home() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 3 OVERLAPPING CARDS (WHITE IS MAIN, NAVY DARK BLUE & SILVER THEME) */}
+      {/* 3 OVERLAPPING SPOTLIGHT CARDS (MATCHING HERO OCEANIC NEON GLASS THEME) */}
       {/* ========================================================================= */}
-      <section className="relative z-30 max-w-6xl mx-auto px-4 sm:px-6 -mt-16 sm:-mt-28 lg:-mt-40 mb-10 sm:mb-12">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
+      <section className="relative z-30 max-w-[1360px] mx-auto px-4 sm:px-6 -mt-14 sm:-mt-24 lg:-mt-32 mb-12 sm:mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7">
           {[
             {
               category: "Smart Telemetry",
               title: "SMART METERING",
               desc: "High-precision optical telemetry logging and automated consumption tracking.",
               image: "/card-smart-meter.webp",
-              href: "/pay"
+              href: "/pay",
+              dotColor: "bg-cyan-400 shadow-[0_0_8px_#22d3ee]",
+              chips: ["±0.01 m³ Precision", "Optical Logging"],
+              cta: "Explore Metering"
             },
             {
               category: "Digital E-Billing",
               title: "ONLINE BILL PAY",
-              desc: "Instant zero-surcharge settlement via LankaQR, Visa, Mastercard, and CEFT.",
+              desc: "Instant zero-surcharge settlement via LankaQR, Visa, Mastercard, and direct CEFT.",
               image: "/card-ebill-pay.webp",
-              href: "/pay"
+              href: "/pay",
+              dotColor: "bg-blue-400 shadow-[0_0_8px_#60a5fa]",
+              chips: ["Zero Surcharges", "Instant LankaQR / Card"],
+              cta: "Pay Bill Online"
             },
             {
               category: "Water Quality",
               title: "WATER PURITY",
               desc: "Continuous deep-well filtration and automated chlorination compliant with SLS 614.",
               image: "/card-water-purity.webp",
-              href: "#services"
+              href: "#services",
+              dotColor: "bg-emerald-400 shadow-[0_0_8px_#34d399]",
+              chips: ["Multi-Stage Filtration", "SLS 614 Certified"],
+              cta: "Verify Standards"
             }
           ].map((card, i) => (
             <motion.div
@@ -378,45 +317,67 @@ export default function Home() {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.85, delay: 0.15 + i * 0.12, ease: smoothEase }}
               whileHover={{ y: -8, transition: { duration: 0.25 } }}
-              className="rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(8,27,56,0.12)] bg-white border border-slate-200/90 flex flex-col group transition-all duration-300 hover:shadow-[0_25px_60px_rgba(8,27,56,0.18)] hover:border-slate-300"
+              className="relative rounded-3xl p-[2px] bg-gradient-to-b from-sky-400/70 via-sky-500/35 to-blue-600/50 shadow-[0_18px_50px_rgba(2,18,44,0.45),0_0_30px_rgba(14,165,233,0.18)] hover:shadow-[0_22px_60px_rgba(0,102,255,0.35),0_0_40px_rgba(0,192,247,0.35)] hover:border-sky-300 transition-all duration-300 group flex flex-col"
             >
-              <Link href={card.href} className="flex flex-col h-full">
-                {/* Upper Image Section (~60%) */}
-                <div className="h-48 sm:h-64 lg:h-72 w-full overflow-hidden relative bg-slate-100">
-                  <img
-                    src={card.image}
-                    alt={card.title}
-                    className="w-full h-full object-cover group-hover:scale-106 transition-transform duration-700"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-60" />
-                  {/* Floating Silver & Navy Tag on Image */}
-                  <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4">
-                    <span className="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-white/95 backdrop-blur-md border border-slate-200 text-[10px] sm:text-[11px] font-mono font-bold tracking-wider text-[#081B38] shadow-sm uppercase">
-                      {card.category}
-                    </span>
-                  </div>
-                </div>
+              <div className="relative rounded-[22px] overflow-hidden bg-gradient-to-br from-[#0c2e5e]/95 via-[#071f42]/95 to-[#031127]/98 backdrop-blur-2xl flex flex-col h-full border border-white/10">
+                
+                {/* Subtle ambient light blooms */}
+                <div className="absolute -top-14 -right-14 w-36 h-36 rounded-full bg-sky-400/15 blur-2xl pointer-events-none group-hover:bg-sky-400/25 transition-all duration-500" />
+                <div className="absolute -bottom-14 -left-14 w-36 h-36 rounded-full bg-blue-600/20 blur-2xl pointer-events-none" />
 
-                {/* Lower White Panel (White is main, Navy Dark Blue title, Silver details) */}
-                <div className="bg-white p-5 sm:p-7 text-slate-900 border-t border-slate-100 flex-1 flex flex-col justify-between">
-                  <div>
-                    <h3 className="text-lg sm:text-2xl font-bold text-[#081B38] tracking-tight font-serif mb-2 sm:mb-2.5 group-hover:text-[#004EEB] transition-colors">
-                      {card.title}
-                    </h3>
-                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
-                      {card.desc}
-                    </p>
-                  </div>
-
-                  {/* Silver Divider & Navy Dark Blue Interactive Link */}
-                  <div className="pt-4 sm:pt-5 mt-4 sm:mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#081B38] group-hover:text-[#004EEB] transition-colors">
-                    <span className="font-mono uppercase tracking-wider text-[11px]">Explore Service</span>
-                    <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-[#081B38] group-hover:text-white flex items-center justify-center transition-all duration-300">
-                      <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                <Link href={card.href} className="flex flex-col h-full relative z-10">
+                  {/* Upper Image Section */}
+                  <div className="h-48 sm:h-56 lg:h-60 w-full overflow-hidden relative bg-[#04142b]">
+                    <img
+                      src={card.image}
+                      alt={card.title}
+                      className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
+                    />
+                    {/* Seamless Gradient Blend into Card Body */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#071f42] via-[#071f42]/30 to-transparent opacity-90" />
+                    
+                    {/* Floating Hero-Style Glass Pill on Image */}
+                    <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4">
+                      <span className="px-3 py-1 rounded-full bg-[#031127]/85 backdrop-blur-md border border-sky-400/50 text-sky-200 text-[10px] sm:text-[11px] font-mono font-bold tracking-wider shadow-md flex items-center gap-1.5 uppercase">
+                        <span className={`w-1.5 h-1.5 rounded-full ${card.dotColor} animate-pulse`} />
+                        {card.category}
+                      </span>
                     </div>
                   </div>
-                </div>
-              </Link>
+
+                  {/* Lower Panel matching Hero Palette */}
+                  <div className="p-5 sm:p-6 text-white flex-1 flex flex-col justify-between space-y-4">
+                    <div>
+                      <h3 className="text-lg sm:text-xl font-extrabold text-white tracking-tight font-sans mb-1.5 group-hover:text-[#00c0f7] transition-colors">
+                        {card.title}
+                      </h3>
+                      <p className="text-xs sm:text-[13px] text-slate-200/90 leading-relaxed font-normal">
+                        {card.desc}
+                      </p>
+
+                      {/* Matching Micro Feature Chips */}
+                      <div className="mt-3.5 flex flex-wrap gap-1.5 text-[11px]">
+                        {card.chips.map((chip, idx) => (
+                          <span
+                            key={idx}
+                            className="inline-flex items-center px-2.5 py-0.5 rounded-md bg-[#041833]/80 border border-sky-400/30 text-sky-200 font-mono text-[10px] font-semibold"
+                          >
+                            {chip}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Divider & Glowing Interactive Link */}
+                    <div className="pt-3.5 border-t border-sky-400/20 flex items-center justify-between text-xs font-bold text-sky-300 group-hover:text-white transition-colors">
+                      <span className="font-mono uppercase tracking-wider text-[11px]">{card.cta}</span>
+                      <div className="w-8 h-8 rounded-full bg-sky-500/20 border border-sky-400/40 group-hover:bg-[#0066ff] group-hover:border-sky-300 group-hover:text-white text-sky-200 flex items-center justify-center transition-all duration-300 shadow-[0_0_12px_rgba(14,165,233,0.3)]">
+                        <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              </div>
             </motion.div>
           ))}
         </div>
