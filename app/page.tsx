@@ -89,16 +89,16 @@ export default function Home() {
           {/* Background Nature Water Lake Photo */}
           <div className="absolute inset-0 z-0">
             <img
-              src="/hero-nature-water.jpg"
+              src="/hero-nature-water.webp"
               alt="Magammana Nature Water Reservoir"
               className="w-full h-full object-cover object-center"
               loading="eager"
               fetchPriority="high"
               decoding="async"
             />
-            {/* Scrims: Clean Navy Scrim on the left for text contrast, letting the sunburst, reservoir & greenery glow through */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#081B38]/85 via-[#081B38]/45 to-transparent" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#081B38]/70 via-transparent to-transparent" />
+            {/* Scrims: Clean Navy Scrim on the left for text contrast, pure natural lake & greenery glowing through on the right */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#081B38]/85 via-[#081B38]/50 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#081B38]/75 via-transparent to-transparent" />
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(255,255,255,0.06),transparent_70%)]" />
           </div>
 
