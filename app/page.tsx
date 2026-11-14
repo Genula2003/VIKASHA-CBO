@@ -25,11 +25,41 @@ import {
   Building2,
   Shield,
   Loader2,
+  ChevronLeft,
+  ChevronRight,
   X
 } from "lucide-react";
 
 // Silky smooth momentum cubic-bezier easing curve
 const smoothEase = [0.22, 1, 0.36, 1] as const;
+
+// Institutional Governance 3 pillars definition
+const governanceCards = [
+  {
+    category: "Democracy & Oversight",
+    title: "COMMUNITY GOVERNED",
+    desc: "Managed democratically by elected resident committee members to maintain uninterrupted water pressure, transparent budgeting, and rapid maintenance.",
+    image: "/gov-community-assembly.webp",
+    actionText: "General Assembly",
+    icon: Building2
+  },
+  {
+    category: "SLS 614 Standard",
+    title: "CERTIFIED WATER PURITY",
+    desc: "Deep-well extraction, high-capacity sand filtration, and automated chlorination compliant with National Drinking Water Standards (SLS 614).",
+    image: "/gov-water-purification.webp",
+    actionText: "Laboratory Certified",
+    icon: Droplets
+  },
+  {
+    category: "Public Transparency",
+    title: "100% DIGITAL RECONCILIATION",
+    desc: "Every meter reading, billing calculation, and payment is logged in real-time, preventing billing discrepancies or unverified receipts.",
+    image: "/gov-digital-reconciliation.webp",
+    actionText: "DCWS Audited",
+    icon: FileCheck2
+  }
+];
 
 export default function Home() {
   const router = useRouter();
@@ -37,6 +67,24 @@ export default function Home() {
   const [isSearching, setIsSearching] = useState(false);
   const [showHowToPay, setShowHowToPay] = useState(false);
   const [showAccountHelp, setShowAccountHelp] = useState(false);
+
+  // Institutional Governance mobile slideshow state
+  const [govSlide, setGovSlide] = useState(0);
+  const [govDirection, setGovDirection] = useState(1);
+  const [isGovPaused, setIsGovPaused] = useState(false);
+
+  const paginateGov = (newDirection: number) => {
+    setGovDirection(newDirection);
+    setGovSlide((prev) => (prev + newDirection + governanceCards.length) % governanceCards.length);
+  };
+
+  useEffect(() => {
+    if (isGovPaused) return;
+    const timer = setInterval(() => {
+      paginateGov(1);
+    }, 5000);
+    return () => clearInterval(timer);
+  }, [isGovPaused]);
 
   // Dynamic rotating words for hero section word animation
   const rotatingWords = [
@@ -311,7 +359,7 @@ export default function Home() {
       {/* ========================================================================= */}
       {/* 2. 3 OVERLAPPING CARDS (WHITE IS MAIN, NAVY DARK BLUE & SILVER THEME) */}
       {/* ========================================================================= */}
-      <section className="relative z-30 max-w-6xl mx-auto px-4 sm:px-6 -mt-20 sm:-mt-28 lg:-mt-36 mb-12">
+      <section className="hidden md:block relative z-30 max-w-6xl mx-auto px-4 sm:px-6 -mt-20 sm:-mt-28 lg:-mt-36 mb-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {[
             {
@@ -510,7 +558,7 @@ export default function Home() {
             className="max-w-2xl space-y-2.5"
           >
             <span className="text-[#081B38] font-mono text-xs uppercase tracking-widest font-semibold block">
-              INSTITUTIONAL GOVERNANCE &bull; ප්‍රජා පාලනය සහ ව්‍යවස්ථාපිත අධීක්ෂණය
+              INSTITUTIONAL GOVERNANCE
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-[#081B38] tracking-tight font-serif">
               Community Owned, Democratically Run
@@ -520,36 +568,11 @@ export default function Home() {
             </p>
           </motion.div>
 
-          {/* 3 Governance Pillars */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
-            {[
-              {
-                category: "Democracy & Oversight",
-                title: "COMMUNITY GOVERNED",
-                desc: "Managed democratically by elected resident committee members to maintain uninterrupted water pressure, transparent budgeting, and rapid maintenance.",
-                image: "/gov-community-assembly.webp",
-                actionText: "General Assembly",
-                icon: Building2
-              },
-              {
-                category: "SLS 614 Standard",
-                title: "CERTIFIED WATER PURITY",
-                desc: "Deep-well extraction, high-capacity sand filtration, and automated chlorination compliant with National Drinking Water Standards (SLS 614).",
-                image: "/gov-water-purification.webp",
-                actionText: "Laboratory Certified",
-                icon: Droplets
-              },
-              {
-                category: "Public Transparency",
-                title: "100% DIGITAL RECONCILIATION",
-                desc: "Every meter reading, billing calculation, and payment is logged in real-time, preventing billing discrepancies or unverified receipts.",
-                image: "/gov-digital-reconciliation.webp",
-                actionText: "DCWS Audited",
-                icon: FileCheck2
-              }
-            ].map((card, i) => (
+          {/* Desktop: 3 Governance Pillars Grid */}
+          <div className="hidden md:grid md:grid-cols-3 gap-5 sm:gap-6 lg:gap-8">
+            {governanceCards.map((card, i) => (
               <motion.div
-                key={i}
+                key={card.title}
                 initial={{ opacity: 0, y: 35, filter: "blur(6px)" }}
                 whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 viewport={{ once: true, margin: "-40px" }}
@@ -594,6 +617,142 @@ export default function Home() {
                 </div>
               </motion.div>
             ))}
+          </div>
+
+          {/* Mobile: Interactive Responsive Touch Slideshow / Carousel */}
+          <div
+            className="block md:hidden relative"
+            onTouchStart={() => setIsGovPaused(true)}
+            onTouchEnd={() => setIsGovPaused(false)}
+            onMouseEnter={() => setIsGovPaused(true)}
+            onMouseLeave={() => setIsGovPaused(false)}
+          >
+            <div className="overflow-hidden rounded-2xl">
+              <AnimatePresence initial={false} custom={govDirection} mode="wait">
+                <motion.div
+                  key={govSlide}
+                  custom={govDirection}
+                  variants={{
+                    enter: (dir: number) => ({
+                      x: dir > 0 ? 60 : -60,
+                      opacity: 0,
+                    }),
+                    center: {
+                      x: 0,
+                      opacity: 1,
+                    },
+                    exit: (dir: number) => ({
+                      x: dir < 0 ? 60 : -60,
+                      opacity: 0,
+                    }),
+                  }}
+                  initial="enter"
+                  animate="center"
+                  exit="exit"
+                  transition={{ duration: 0.35, ease: smoothEase }}
+                  drag="x"
+                  dragConstraints={{ left: 0, right: 0 }}
+                  dragElastic={0.2}
+                  onDragEnd={(_e, { offset }) => {
+                    if (offset.x < -40) {
+                      paginateGov(1);
+                    } else if (offset.x > 40) {
+                      paginateGov(-1);
+                    }
+                  }}
+                  className="rounded-2xl overflow-hidden shadow-[0_15px_40px_rgba(8,27,56,0.12)] bg-white border border-slate-200/90 flex flex-col cursor-grab active:cursor-grabbing touch-pan-y"
+                >
+                  <div className="flex flex-col">
+                    {/* Upper Image Section */}
+                    <div className="h-48 w-full overflow-hidden relative bg-slate-100">
+                      <img
+                        src={governanceCards[govSlide].image}
+                        alt={governanceCards[govSlide].title}
+                        className="w-full h-full object-cover"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-60" />
+                      <div className="absolute top-3.5 left-3.5">
+                        <span className="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-slate-200 text-[10px] font-mono font-bold tracking-wider text-[#081B38] shadow-xs uppercase">
+                          {governanceCards[govSlide].category}
+                        </span>
+                      </div>
+                      <div className="absolute top-3.5 right-3.5">
+                        <span className="px-2 py-0.5 rounded-md bg-[#081B38]/85 backdrop-blur-md text-white font-mono text-[10px] font-bold">
+                          {String(govSlide + 1).padStart(2, '0')} / {String(governanceCards.length).padStart(2, '0')}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Lower Panel */}
+                    <div className="bg-white p-5 text-slate-900 border-t border-slate-100 flex flex-col justify-between">
+                      <div>
+                        <h3 className="text-lg font-bold text-[#081B38] tracking-tight font-serif mb-2">
+                          {governanceCards[govSlide].title}
+                        </h3>
+                        <p className="text-xs text-slate-600 leading-relaxed font-normal">
+                          {governanceCards[govSlide].desc}
+                        </p>
+                      </div>
+
+                      <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#081B38]">
+                        <span className="font-mono uppercase tracking-wider text-[11px]">
+                          {governanceCards[govSlide].actionText}
+                        </span>
+                        <div className="w-8 h-8 rounded-full bg-slate-100 text-[#081B38] flex items-center justify-center">
+                          {(() => {
+                            const IconComponent = governanceCards[govSlide].icon;
+                            return <IconComponent size={15} />;
+                          })()}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Mobile Slideshow Controls: Prev / Next Buttons & Indicators */}
+            <div className="flex items-center justify-between mt-4 px-1">
+              {/* Pagination Dots */}
+              <div className="flex items-center gap-1.5">
+                {governanceCards.map((_, dotIndex) => (
+                  <button
+                    key={dotIndex}
+                    type="button"
+                    onClick={() => {
+                      setGovDirection(dotIndex > govSlide ? 1 : -1);
+                      setGovSlide(dotIndex);
+                    }}
+                    aria-label={`Go to slide ${dotIndex + 1}`}
+                    className={`h-2 rounded-full transition-all duration-300 ${
+                      dotIndex === govSlide
+                        ? "w-6 bg-[#081B38]"
+                        : "w-2 bg-slate-300 hover:bg-slate-400"
+                    }`}
+                  />
+                ))}
+              </div>
+
+              {/* Prev / Next Buttons */}
+              <div className="flex items-center gap-2">
+                <button
+                  type="button"
+                  onClick={() => paginateGov(-1)}
+                  aria-label="Previous governance slide"
+                  className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-[#081B38] hover:bg-slate-50 active:scale-95 transition-all cursor-pointer"
+                >
+                  <ChevronLeft size={16} />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => paginateGov(1)}
+                  aria-label="Next governance slide"
+                  className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-[#081B38] hover:bg-slate-50 active:scale-95 transition-all cursor-pointer"
+                >
+                  <ChevronRight size={16} />
+                </button>
+              </div>
+            </div>
           </div>
 
         </div>
