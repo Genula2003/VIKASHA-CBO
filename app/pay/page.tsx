@@ -835,19 +835,19 @@ function ConsumerPayPortalContent() {
       {/* ========================================================================= */}
       {/* 6. SOVEREIGN INSTITUTIONAL FOOTER (EXACT MATCH TO HOME PAGE) */}
       {/* ========================================================================= */}
-      <footer className="bg-[#020e1e] text-white pt-16 pb-12 border-t border-slate-800 relative z-10">
+      <footer className="bg-[#020e1e] text-white pt-6 sm:pt-16 pb-6 sm:pb-12 border-t border-slate-800 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30, filter: "blur(4px)" }}
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true, margin: "-40px" }}
           transition={{ duration: 0.9, ease: smoothEase }}
-          className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 space-y-12"
+          className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 space-y-5 sm:space-y-12"
         >
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div className="space-y-4 md:col-span-2">
-              <div className="flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-white/10 border border-white/20 p-1 flex items-center justify-center overflow-hidden shadow-inner">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-5 sm:gap-8">
+            <div className="col-span-2 md:col-span-2 space-y-2 sm:space-y-4">
+              <div className="flex items-center gap-2.5 sm:gap-3">
+                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 border border-white/20 p-0.5 sm:p-1 flex items-center justify-center overflow-hidden shadow-inner shrink-0">
                   <img
                     src="/logo.webp"
                     alt="Vikasha CBO Official Logo"
@@ -859,18 +859,18 @@ function ConsumerPayPortalContent() {
                   />
                 </div>
                 <div>
-                  <h4 className="text-base font-bold text-white tracking-tight">Vikasha CBO</h4>
-                  <p className="text-xs text-cyan-200/80">විකාශා ප්‍රජා මූල සංවිධානය &bull; මාගම්මන</p>
+                  <h4 className="text-sm sm:text-base font-bold text-white tracking-tight">Vikasha CBO</h4>
+                  <p className="text-[11px] sm:text-xs text-cyan-200/80">විකාශා ප්‍රජා මූල සංවිධානය &bull; මාගම්මන</p>
                 </div>
               </div>
-              <p className="text-xs text-slate-300 max-w-md leading-relaxed">
+              <p className="text-[11px] sm:text-xs text-slate-300 max-w-md leading-relaxed">
                 National Water Supply &amp; Drainage Board / Department of Community Water Supply (DCWS) registered scheme ensuring uninterrupted safe drinking water for Magammana, Homagama.
               </p>
             </div>
 
-            <div className="space-y-3">
-              <h5 className="text-[11px] font-mono uppercase tracking-wider text-cyan-300">Quick Access</h5>
-              <ul className="space-y-2 text-xs text-slate-300 font-medium">
+            <div className="col-span-1 space-y-2 sm:space-y-3">
+              <h5 className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-cyan-300">Quick Access</h5>
+              <ul className="space-y-1.5 sm:space-y-2 text-[11px] sm:text-xs text-slate-300 font-medium">
                 <li><Link href="/pay" className="hover:text-cyan-300 transition-colors duration-200">Online Bill Payment</Link></li>
                 <li><Link href="/meter-reader" className="hover:text-cyan-300 transition-colors duration-200">Field Meter Reader App</Link></li>
                 <li><Link href="/admin/dashboard" className="hover:text-cyan-300 transition-colors duration-200">Administrative Dashboard</Link></li>
@@ -878,28 +878,28 @@ function ConsumerPayPortalContent() {
               </ul>
             </div>
 
-            <div className="space-y-3">
-              <h5 className="text-[11px] font-mono uppercase tracking-wider text-cyan-300">Contact &amp; Emergency</h5>
-              <div className="space-y-2 text-xs text-slate-300 font-medium">
-                <p className="flex items-center gap-2"><MapPin size={13} className="text-cyan-400" /> Magammana, Homagama, Sri Lanka</p>
-                <p className="flex items-center gap-2"><Mail size={13} className="text-cyan-400" /> support@vikashacbo.com</p>
-                <p className="flex items-center gap-2"><Phone size={13} className="text-emerald-400" /> Hotline: 011 289 4567</p>
-                <p className="flex items-center gap-2"><Clock size={13} className="text-amber-400" /> Mon - Sat: 8:00 AM - 5:00 PM</p>
+            <div className="col-span-1 space-y-2 sm:space-y-3">
+              <h5 className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-cyan-300">Contact &amp; Emergency</h5>
+              <div className="space-y-1.5 sm:space-y-2 text-[11px] sm:text-xs text-slate-300 font-medium">
+                <p className="flex items-start sm:items-center gap-1.5 sm:gap-2"><MapPin size={12} className="text-cyan-400 shrink-0 mt-0.5 sm:mt-0" /> <span>Magammana, Homagama</span></p>
+                <p className="flex items-start sm:items-center gap-1.5 sm:gap-2"><Mail size={12} className="text-cyan-400 shrink-0 mt-0.5 sm:mt-0" /> <span className="break-all">support@vikashacbo.com</span></p>
+                <p className="flex items-start sm:items-center gap-1.5 sm:gap-2"><Phone size={12} className="text-emerald-400 shrink-0 mt-0.5 sm:mt-0" /> <span>011 289 4567</span></p>
+                <p className="flex items-start sm:items-center gap-1.5 sm:gap-2"><Clock size={12} className="text-amber-400 shrink-0 mt-0.5 sm:mt-0" /> <span>Mon - Sat: 8AM - 5PM</span></p>
               </div>
             </div>
           </div>
 
-          <div className="pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+          <div className="pt-4 sm:pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 text-[11px] sm:text-xs text-slate-400">
             <div>
               &copy; {new Date().getFullYear()} Vikasha CBO (Magammana Water Project). All rights reserved.
             </div>
-            <div className="flex flex-wrap items-center gap-5 text-slate-300">
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-5 text-slate-300 text-[10.5px] sm:text-xs">
               <Link href="/privacy-policy" className="hover:text-white transition-colors duration-200">Privacy Policy</Link>
               <Link href="/terms" className="hover:text-white transition-colors duration-200">Terms &amp; Conditions</Link>
               <Link href="/refund-policy" className="hover:text-white transition-colors duration-200">Refund Policy</Link>
               <Link href="/delivery-policy" className="hover:text-white transition-colors duration-200">Delivery Policy</Link>
-              <span className="inline-flex items-center gap-1.5 text-emerald-400 font-medium text-[11px]">
-                <Shield size={13} /> DCWS / NWSDB Regulated
+              <span className="inline-flex items-center gap-1 text-emerald-400 font-medium text-[10px] sm:text-[11px]">
+                <Shield size={12} /> DCWS / NWSDB Regulated
               </span>
             </div>
           </div>
