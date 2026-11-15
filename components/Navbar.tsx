@@ -15,7 +15,8 @@ import {
   X,
   Globe,
   ChevronDown,
-  Check
+  Check,
+  ChevronRight
 } from "lucide-react";
 
 interface NavbarProps {
@@ -44,6 +45,18 @@ export default function Navbar({ activeTab = "home" }: NavbarProps) {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Prevent background scrolling when mobile sidebar is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
 
   const handleNavClick = (tab: "home" | "services" | "billing" | "support" | "about", href: string) => {
     setCurrentTab(tab);
@@ -344,119 +357,160 @@ export default function Navbar({ activeTab = "home" }: NavbarProps) {
         )}
       </AnimatePresence>
 
-      {/* Mobile Menu Drawer */}
+      {/* Mobile Slide-In Sidebar Option */}
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            className="lg:hidden bg-white/98 backdrop-blur-2xl border-b border-slate-200 px-5 py-5 space-y-4 shadow-2xl max-h-[calc(100vh-80px)] overflow-y-auto"
-          >
-            <nav className="flex flex-col space-y-1 text-sm font-semibold text-[#081B38]">
-              <button
-                type="button"
-                onClick={() => handleNavClick("about", "#about")}
-                className="text-left py-2.5 px-3 rounded-lg hover:bg-slate-100 flex items-center justify-between border-b border-slate-100"
-              >
-                <span>About</span>
-                <span className="text-slate-400 text-xs font-normal">Magammana CBO</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => handleNavClick("services", "#services")}
-                className="text-left py-2.5 px-3 rounded-lg hover:bg-slate-100 flex items-center justify-between border-b border-slate-100"
-              >
-                <span>Services</span>
-                <span className="text-slate-400 text-xs font-normal">Water Supply</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => handleNavClick("billing", "/pay")}
-                className="text-left py-2.5 px-3 rounded-lg hover:bg-slate-100 flex items-center justify-between border-b border-slate-100"
-              >
-                <span>Billing &amp; Payments</span>
-                <span className="text-cyan-600 text-xs font-mono font-bold">Quick Pay</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => handleNavClick("about", "#governance")}
-                className="text-left py-2.5 px-3 rounded-lg hover:bg-slate-100 flex items-center justify-between border-b border-slate-100"
-              >
-                <span>Governance</span>
-                <span className="text-slate-400 text-xs font-normal">DCWS Regulated</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => handleNavClick("support", "#leaks")}
-                className="text-left py-2.5 px-3 rounded-lg hover:bg-slate-100 flex items-center justify-between border-b border-slate-100"
-              >
-                <span>Customer Support</span>
-                <span className="text-amber-600 text-xs font-semibold">Report Leaks</span>
-              </button>
-            </nav>
+          <div className="fixed inset-0 z-50 lg:hidden" aria-modal="true" role="dialog" aria-label="Mobile Navigation Sidebar">
+            {/* Backdrop Overlay */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25 }}
+              onClick={() => setMobileMenuOpen(false)}
+              className="fixed inset-0 bg-[#081B38]/60 backdrop-blur-sm"
+              aria-hidden="true"
+            />
 
-            {/* Mobile Drawer Actions & Utilities */}
-            <div className="pt-2 space-y-3 border-t border-slate-100">
-              {/* Pay Water Bill Primary Button */}
-              <Link
-                href="/pay"
-                onClick={() => setMobileMenuOpen(false)}
-                className="w-full py-3 rounded-xl bg-[#081B38] hover:bg-[#0B2548] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm"
-              >
-                <CreditCard size={15} />
-                <span>Pay Water Bill Online</span>
-              </Link>
+            {/* Slide-In Side Panel */}
+            <motion.div
+              initial={{ x: "100%" }}
+              animate={{ x: 0 }}
+              exit={{ x: "100%" }}
+              transition={{ duration: 0.35, ease: smoothEase }}
+              className="fixed top-0 right-0 bottom-0 w-[85vw] max-w-[360px] h-full bg-white shadow-2xl flex flex-col justify-between overflow-y-auto z-10 border-l border-slate-200"
+            >
+              {/* Top Panel Header */}
+              <div className="p-4 sm:p-5 border-b border-slate-100 flex items-center justify-between bg-slate-50/70">
+                <div className="flex items-center gap-2.5">
+                  <div className="w-9 h-9 rounded-full bg-white border border-slate-200 p-0.5 flex items-center justify-center shadow-xs shrink-0">
+                    <img
+                      src="/logo.webp"
+                      alt="Vikasha CBO Official Emblem"
+                      width={36}
+                      height={36}
+                      className="w-full h-full object-contain"
+                    />
+                  </div>
+                  <div>
+                    <span className="font-bold text-sm text-[#081B38] block leading-tight">Vikasha CBO</span>
+                    <span className="text-[10px] text-cyan-700 font-mono font-medium block">Magammana Community Water</span>
+                  </div>
+                </div>
 
-              {/* Language Selector in Mobile Drawer */}
-              <div className="flex items-center justify-between p-2 rounded-xl bg-slate-50 border border-slate-200">
-                <div className="flex items-center gap-2 text-xs font-semibold text-slate-700">
-                  <Globe size={14} className="text-[#081B38]" />
-                  <span>Language / භාෂාව</span>
-                </div>
-                <div className="flex items-center gap-1">
-                  <button
-                    type="button"
-                    onClick={() => setCurrentLang("EN")}
-                    className={`px-2.5 py-1 rounded-md text-[11px] font-bold transition-colors ${
-                      currentLang === "EN" ? "bg-[#081B38] text-white" : "text-slate-600 hover:bg-slate-200"
-                    }`}
-                  >
-                    EN
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => setCurrentLang("SI")}
-                    className={`px-2.5 py-1 rounded-md text-[11px] font-bold transition-colors ${
-                      currentLang === "SI" ? "bg-[#081B38] text-white" : "text-slate-600 hover:bg-slate-200"
-                    }`}
-                  >
-                    සිංහල
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  onClick={() => setMobileMenuOpen(false)}
+                  className="w-8 h-8 rounded-lg bg-white border border-slate-200 flex items-center justify-center text-slate-500 hover:text-slate-900 active:scale-95 transition-all cursor-pointer shadow-xs"
+                  aria-label="Close sidebar navigation"
+                >
+                  <X size={18} />
+                </button>
               </div>
 
-              {/* Staff Portal & Hotline Quick Access */}
-              <div className="grid grid-cols-2 gap-2 text-xs">
+              {/* Navigation Items */}
+              <div className="p-4 flex-1 space-y-1 overflow-y-auto">
+                <div className="px-2 py-1 text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400">
+                  Navigation Menu
+                </div>
+
+                {[
+                  { id: "about", label: "About CBO", sub: "Magammana Community Project", href: "#about" },
+                  { id: "services", label: "Water Services", sub: "Purity & Supply Schemes", href: "#services" },
+                  { id: "billing", label: "Billing & E-Pay", sub: "Instant 24/7 Bill Settlement", href: "/pay", highlight: true },
+                  { id: "about", label: "Institutional Governance", sub: "DCWS Regulated Oversight", href: "#governance" },
+                  { id: "support", label: "Emergency & Leaks", sub: "Direct Field Assistance", href: "#leaks" },
+                ].map((item, idx) => (
+                  <button
+                    key={idx}
+                    type="button"
+                    onClick={() => handleNavClick(item.id as "home" | "services" | "billing" | "support" | "about", item.href)}
+                    className={`w-full text-left p-3 rounded-xl flex items-center justify-between transition-colors group cursor-pointer ${
+                      item.highlight
+                        ? "bg-[#081B38]/5 border border-[#081B38]/15 text-[#081B38] font-bold"
+                        : "hover:bg-slate-50 text-slate-800 font-semibold"
+                    }`}
+                  >
+                    <div>
+                      <div className="text-sm flex items-center gap-1.5">
+                        <span>{item.label}</span>
+                        {item.highlight && (
+                          <span className="px-1.5 py-0.5 rounded text-[9px] bg-[#081B38] text-white font-mono font-bold">
+                            PAY
+                          </span>
+                        )}
+                      </div>
+                      <div className="text-[11px] text-slate-500 font-normal mt-0.5">
+                        {item.sub}
+                      </div>
+                    </div>
+                    <ChevronRight size={16} className="text-slate-400 group-hover:text-[#081B38] group-hover:translate-x-0.5 transition-all" />
+                  </button>
+                ))}
+              </div>
+
+              {/* Bottom Actions & Language Selector */}
+              <div className="p-4 border-t border-slate-100 bg-slate-50/50 space-y-3">
+                {/* Pay Water Bill Primary Button */}
                 <Link
-                  href="/login"
+                  href="/pay"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center gap-1.5 p-2.5 rounded-xl border border-slate-200 bg-white text-[#081B38] font-semibold hover:bg-slate-50"
+                  className="w-full py-3 rounded-xl bg-[#081B38] hover:bg-[#0B2548] active:scale-[0.98] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition-all cursor-pointer"
                 >
-                  <User size={13} className="text-slate-500" />
-                  <span>Staff Login</span>
+                  <CreditCard size={15} />
+                  <span>Pay Water Bill Online</span>
                 </Link>
 
-                <a
-                  href="tel:0112894567"
-                  className="flex items-center justify-center gap-1.5 p-2.5 rounded-xl border border-emerald-200 bg-emerald-50 text-emerald-800 font-semibold"
-                >
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span>Hotline: 011 289</span>
-                </a>
+                {/* Language Selector */}
+                <div className="flex items-center justify-between p-2 rounded-xl bg-white border border-slate-200 shadow-xs">
+                  <div className="flex items-center gap-2 text-xs font-semibold text-slate-700 pl-1">
+                    <Globe size={14} className="text-[#081B38]" />
+                    <span>Language / භාෂාව</span>
+                  </div>
+                  <div className="flex items-center gap-1">
+                    <button
+                      type="button"
+                      onClick={() => setCurrentLang("EN")}
+                      className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
+                        currentLang === "EN" ? "bg-[#081B38] text-white shadow-xs" : "text-slate-600 hover:bg-slate-100"
+                      }`}
+                    >
+                      EN
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setCurrentLang("SI")}
+                      className={`px-3 py-1 rounded-lg text-xs font-bold transition-all ${
+                        currentLang === "SI" ? "bg-[#081B38] text-white shadow-xs" : "text-slate-600 hover:bg-slate-100"
+                      }`}
+                    >
+                      සිංහල
+                    </button>
+                  </div>
+                </div>
+
+                {/* Staff Portal & Hotline Quick Access */}
+                <div className="grid grid-cols-2 gap-2 text-xs">
+                  <Link
+                    href="/login"
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="flex items-center justify-center gap-1.5 p-2.5 rounded-xl border border-slate-200 bg-white text-[#081B38] font-semibold hover:bg-slate-50 transition-colors shadow-xs"
+                  >
+                    <User size={13} className="text-slate-500" />
+                    <span>Staff Login</span>
+                  </Link>
+
+                  <a
+                    href="tel:0112894567"
+                    className="flex items-center justify-center gap-1.5 p-2.5 rounded-xl border border-emerald-200 bg-emerald-50 text-emerald-800 font-semibold hover:bg-emerald-100 transition-colors"
+                  >
+                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                    <span>Hotline: 011 289</span>
+                  </a>
+                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
+          </div>
         )}
       </AnimatePresence>
 
