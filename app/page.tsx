@@ -123,7 +123,7 @@ export default function Home() {
       {/* ========================================================================= */}
       {/* 2. 3 OVERLAPPING CARDS (WHITE IS MAIN, NAVY DARK BLUE & SILVER THEME) */}
       {/* ========================================================================= */}
-      <section className="hidden md:block relative z-30 max-w-6xl mx-auto px-4 sm:px-6 -mt-20 sm:-mt-28 lg:-mt-36 mb-12">
+      <section className="hidden md:block relative z-30 max-w-6xl mx-auto px-4 sm:px-6 -mt-12 sm:-mt-16 lg:-mt-20 mb-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {[
             {
