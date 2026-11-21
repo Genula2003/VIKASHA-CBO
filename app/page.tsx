@@ -208,7 +208,7 @@ export default function Home() {
       {/* ========================================================================= */}
       {/* 3. OUR SERVICES SECTION */}
       {/* ========================================================================= */}
-      <section id="services" className="pt-6 sm:pt-8 pb-16 sm:pb-20 bg-[#071525] relative z-10 border-t border-white/10 text-white">
+      <section id="services" className="pt-6 sm:pt-8 pb-16 sm:pb-20 bg-white relative z-10">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 space-y-8 sm:space-y-10">
 
           {/* Header Strip with Eyebrow and "View All Services ->" Pill Button */}
@@ -221,12 +221,12 @@ export default function Home() {
               className="space-y-1.5"
             >
               <div className="flex items-center gap-2">
-                <span className="text-[#00D9FF] font-mono text-xs uppercase tracking-[0.2em] font-bold">
+                <span className="text-[#081B38] font-mono text-xs uppercase tracking-widest font-bold">
                   OUR SERVICES
                 </span>
-                <span className="w-8 h-[2px] bg-[#00D9FF]" />
+                <span className="w-8 h-[2px] bg-[#081B38]" />
               </div>
-              <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight font-sans">
+              <h2 className="text-2xl sm:text-4xl font-extrabold text-[#081B38] tracking-tight font-serif">
                 Water Services at Your Fingertips
               </h2>
             </motion.div>
@@ -239,10 +239,10 @@ export default function Home() {
             >
               <Link
                 href="/pay"
-                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-white/15 bg-white/[0.045] hover:bg-white/[0.085] text-white hover:border-[#00D9FF]/40 text-xs font-semibold backdrop-blur-md shadow-sm transition-all duration-300 hover:scale-105 active:scale-95 w-fit"
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-slate-300 text-slate-700 hover:bg-slate-50 text-xs font-semibold shadow-sm transition-all duration-300 hover:scale-105 active:scale-95 w-fit"
               >
                 <span>View All Services</span>
-                <ArrowRight size={14} className="text-[#00D9FF]" />
+                <ArrowRight size={14} />
               </Link>
             </motion.div>
           </div>
@@ -268,24 +268,24 @@ export default function Home() {
       {/* ========================================================================= */}
       {/* 5. EMERGENCY LEAK REPORTING CALLOUT (#leaks) */}
       {/* ========================================================================= */}
-      <section id="leaks" className="py-12 sm:py-16 bg-[#071525] relative z-10 border-b border-white/10">
+      <section id="leaks" className="py-12 sm:py-16 bg-white relative z-10 border-b border-slate-200">
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, scale: 0.96, y: 32, filter: "blur(6px)" }}
             whileInView={{ opacity: 1, scale: 1, y: 0, filter: "blur(0px)" }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.9, ease: smoothEase }}
-            className="rounded-2xl sm:rounded-3xl bg-gradient-to-r from-amber-500/10 via-[#0b1c30] to-amber-500/5 border border-amber-500/30 p-5 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-5 sm:gap-6 shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_30px_rgba(245,158,11,0.08)] backdrop-blur-xl"
+            className="rounded-2xl sm:rounded-3xl bg-gradient-to-r from-amber-500/15 via-orange-500/10 to-amber-50/50 border border-amber-300/80 p-5 sm:p-8 flex flex-col md:flex-row md:items-center justify-between gap-5 sm:gap-6 shadow-sm"
           >
             <div className="flex items-start gap-3.5 sm:gap-4">
-              <div className="w-11 h-11 sm:w-13 sm:h-13 rounded-xl sm:rounded-2xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center shrink-0 text-amber-400 shadow-[0_0_15px_rgba(245,158,11,0.2)]">
+              <div className="w-11 h-11 sm:w-13 sm:h-13 rounded-xl sm:rounded-2xl bg-amber-500/20 border border-amber-400/50 flex items-center justify-center shrink-0 text-amber-800">
                 <AlertTriangle size={24} />
               </div>
               <div className="space-y-1 sm:space-y-1.5">
-                <h3 className="text-lg sm:text-xl font-bold font-sans text-white tracking-tight">
+                <h3 className="text-lg sm:text-xl font-bold text-amber-950 tracking-tight">
                   Report a Road Water Leak or Pipe Damage
                 </h3>
-                <p className="text-xs sm:text-sm text-[#A8BACB] max-w-xl leading-relaxed">
+                <p className="text-xs sm:text-sm text-amber-900/80 max-w-xl leading-relaxed">
                   Notice an unusual distribution burst or supply interruption? Alert our maintenance crew immediately for rapid mobilization across the Magammana sector.
                 </p>
               </div>
@@ -294,7 +294,7 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5 sm:gap-3 w-full md:w-auto shrink-0">
               <a
                 href="tel:0112894567"
-                className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-[#071525] font-extrabold text-xs flex items-center justify-center gap-2 shadow-[0_0_20px_rgba(245,158,11,0.35)] transition-all duration-300 hover:scale-105 active:scale-95 text-center"
+                className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-amber-600 hover:bg-amber-700 text-white font-bold text-xs flex items-center justify-center gap-2 shadow-md transition-all duration-300 hover:scale-105 active:scale-95 text-center"
               >
                 <Phone size={14} />
                 <span>Hotline: 011 289 4567</span>
@@ -302,9 +302,9 @@ export default function Home() {
 
               <a
                 href="mailto:support@vikashacbo.com"
-                className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-white/[0.05] hover:bg-white/10 border border-white/15 hover:border-amber-400/40 text-white font-semibold text-xs flex items-center justify-center gap-2 shadow-sm transition-all duration-300 text-center"
+                className="px-5 sm:px-6 py-2.5 sm:py-3 rounded-full bg-white hover:bg-amber-100/60 border border-amber-300 text-amber-950 font-semibold text-xs flex items-center justify-center gap-2 shadow-sm transition-all duration-300 text-center"
               >
-                <Mail size={14} className="text-amber-400" />
+                <Mail size={14} />
                 <span>support@vikashacbo.com</span>
               </a>
             </div>
@@ -315,7 +315,7 @@ export default function Home() {
       {/* ========================================================================= */}
       {/* 6. ABOUT CBO / INSTITUTIONAL GOVERNANCE SECTION (#governance & #about) */}
       {/* ========================================================================= */}
-      <section id="about" className="py-14 sm:py-24 bg-[#071525] relative z-10 border-b border-white/10 text-white">
+      <section id="about" className="py-14 sm:py-24 bg-slate-50/70 relative z-10 border-b border-slate-200">
         <span id="governance" className="absolute -top-24" />
 
         <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 space-y-10 sm:space-y-12">
@@ -327,13 +327,13 @@ export default function Home() {
             transition={{ duration: 0.85, ease: smoothEase }}
             className="max-w-2xl space-y-2.5"
           >
-            <span className="text-[#00D9FF] font-mono text-xs uppercase tracking-[0.2em] font-semibold block">
+            <span className="text-[#081B38] font-mono text-xs uppercase tracking-widest font-semibold block">
               INSTITUTIONAL GOVERNANCE
             </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-white tracking-tight font-sans">
+            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#081B38] tracking-tight font-serif">
               Community Owned, Democratically Run
             </h2>
-            <p className="text-xs sm:text-sm text-[#A8BACB] leading-relaxed font-normal">
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-normal">
               Vikasha CBO operates under the constitutional oversight of the Magammana General Assembly and the Department of Community Water Supply (DCWS).
             </p>
           </motion.div>
@@ -347,40 +347,39 @@ export default function Home() {
                 whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 viewport={{ once: true, margin: "-40px" }}
                 transition={{ duration: 0.85, delay: 0.15 + i * 0.12, ease: smoothEase }}
-                whileHover={{ y: -6, transition: { duration: 0.25 } }}
-                className="rounded-2xl sm:rounded-3xl p-[1px] bg-gradient-to-b from-white/20 via-white/[0.08] to-transparent shadow-[0_20px_50px_rgba(0,0,0,0.55),0_0_30px_rgba(0,217,255,0.06)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.75),0_0_40px_rgba(0,217,255,0.2)] transition-all duration-500 group flex flex-col"
+                whileHover={{ y: -8, transition: { duration: 0.25 } }}
+                className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(8,27,56,0.12)] bg-white border border-slate-200/90 flex flex-col group transition-all duration-300 hover:shadow-[0_25px_60px_rgba(8,27,56,0.18)] hover:border-slate-300"
               >
-                <div className="rounded-2xl sm:rounded-3xl overflow-hidden bg-[#071525]/95 backdrop-blur-2xl border border-[rgba(255,255,255,0.12)] group-hover:border-[#00D9FF]/40 flex flex-col h-full transition-all duration-300">
+                <div className="flex flex-col h-full">
                   {/* Upper Image Section */}
-                  <div className="h-44 sm:h-56 lg:h-64 w-full overflow-hidden relative bg-[#071525]">
+                  <div className="h-44 sm:h-56 lg:h-64 w-full overflow-hidden relative bg-slate-100">
                     <img
                       src={card.image}
                       alt={card.title}
                       className="w-full h-full object-cover group-hover:scale-106 transition-transform duration-700"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[#071525] via-[#071525]/30 to-black/20" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-60" />
                     <div className="absolute top-3.5 left-3.5 sm:top-4 sm:left-4">
-                      <span className="inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full bg-[#071525]/85 backdrop-blur-md border border-[rgba(255,255,255,0.15)] text-[10px] sm:text-[11px] font-mono font-bold tracking-wider text-white shadow-xs uppercase">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#00D9FF] animate-pulse" />
+                      <span className="px-2.5 sm:px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-slate-200 text-[10px] sm:text-[11px] font-mono font-bold tracking-wider text-[#081B38] shadow-xs uppercase">
                         {card.category}
                       </span>
                     </div>
                   </div>
 
                   {/* Lower Panel */}
-                  <div className="bg-[#071525]/95 p-5 sm:p-7 text-white border-t border-white/10 flex-1 flex flex-col justify-between">
+                  <div className="bg-white p-5 sm:p-7 text-slate-900 border-t border-slate-100 flex-1 flex flex-col justify-between">
                     <div>
-                      <h3 className="text-lg sm:text-2xl font-bold font-sans text-white tracking-tight mb-2 group-hover:text-[#00D9FF] transition-colors">
+                      <h3 className="text-lg sm:text-2xl font-bold text-[#081B38] tracking-tight font-serif mb-2 group-hover:text-[#004EEB] transition-colors">
                         {card.title}
                       </h3>
-                      <p className="text-xs sm:text-[13px] text-[#A8BACB] leading-relaxed font-normal">
+                      <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
                         {card.desc}
                       </p>
                     </div>
 
-                    <div className="pt-4 sm:pt-5 mt-4 sm:mt-5 border-t border-white/10 flex items-center justify-between text-xs font-mono font-bold text-white group-hover:text-[#00D9FF] transition-colors">
-                      <span className="uppercase tracking-wider text-[11px]">{card.actionText}</span>
-                      <div className="w-8 h-8 rounded-full bg-white/[0.06] border border-white/15 text-[#00D9FF] group-hover:bg-[#00D9FF] group-hover:text-[#071525] group-hover:border-[#00D9FF] flex items-center justify-center transition-all duration-300 shadow-[0_0_15px_rgba(0,217,255,0.15)]">
+                    <div className="pt-4 sm:pt-5 mt-4 sm:mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#081B38] group-hover:text-[#004EEB] transition-colors">
+                      <span className="font-mono uppercase tracking-wider text-[11px]">{card.actionText}</span>
+                      <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-[#081B38] group-hover:text-white flex items-center justify-center transition-all duration-300">
                         <card.icon size={15} />
                       </div>
                     </div>
@@ -431,46 +430,45 @@ export default function Home() {
                       paginateGov(-1);
                     }
                   }}
-                  className="rounded-2xl overflow-hidden shadow-[0_15px_40px_rgba(0,0,0,0.6)] bg-[#071525]/95 border border-[rgba(255,255,255,0.15)] flex flex-col cursor-grab active:cursor-grabbing touch-pan-y text-white"
+                  className="rounded-2xl overflow-hidden shadow-[0_15px_40px_rgba(8,27,56,0.12)] bg-white border border-slate-200/90 flex flex-col cursor-grab active:cursor-grabbing touch-pan-y"
                 >
                   <div className="flex flex-col">
                     {/* Upper Image Section */}
-                    <div className="h-48 w-full overflow-hidden relative bg-[#071525]">
+                    <div className="h-48 w-full overflow-hidden relative bg-slate-100">
                       <img
                         src={governanceCards[govSlide].image}
                         alt={governanceCards[govSlide].title}
                         className="w-full h-full object-cover"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-[#071525] via-[#071525]/30 to-black/20" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-60" />
                       <div className="absolute top-3.5 left-3.5">
-                        <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[#071525]/85 backdrop-blur-md border border-[rgba(255,255,255,0.15)] text-[10px] font-mono font-bold tracking-wider text-white shadow-xs uppercase">
-                          <span className="w-1.5 h-1.5 rounded-full bg-[#00D9FF] animate-pulse" />
+                        <span className="px-2.5 py-1 rounded-full bg-white/95 backdrop-blur-md border border-slate-200 text-[10px] font-mono font-bold tracking-wider text-[#081B38] shadow-xs uppercase">
                           {governanceCards[govSlide].category}
                         </span>
                       </div>
                       <div className="absolute top-3.5 right-3.5">
-                        <span className="px-2 py-0.5 rounded-md bg-[#00D9FF]/15 border border-[#00D9FF]/40 text-[#00D9FF] font-mono text-[10px] font-bold">
+                        <span className="px-2 py-0.5 rounded-md bg-[#081B38]/85 backdrop-blur-md text-white font-mono text-[10px] font-bold">
                           {String(govSlide + 1).padStart(2, '0')} / {String(governanceCards.length).padStart(2, '0')}
                         </span>
                       </div>
                     </div>
 
                     {/* Lower Panel */}
-                    <div className="bg-[#071525]/95 p-5 text-white border-t border-white/10 flex flex-col justify-between">
+                    <div className="bg-white p-5 text-slate-900 border-t border-slate-100 flex flex-col justify-between">
                       <div>
-                        <h3 className="text-lg font-bold font-sans text-white tracking-tight mb-2">
+                        <h3 className="text-lg font-bold text-[#081B38] tracking-tight font-serif mb-2">
                           {governanceCards[govSlide].title}
                         </h3>
-                        <p className="text-xs text-[#A8BACB] leading-relaxed font-normal">
+                        <p className="text-xs text-slate-600 leading-relaxed font-normal">
                           {governanceCards[govSlide].desc}
                         </p>
                       </div>
 
-                      <div className="pt-4 mt-4 border-t border-white/10 flex items-center justify-between text-xs font-mono font-bold text-white">
-                        <span className="uppercase tracking-wider text-[11px]">
+                      <div className="pt-4 mt-4 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#081B38]">
+                        <span className="font-mono uppercase tracking-wider text-[11px]">
                           {governanceCards[govSlide].actionText}
                         </span>
-                        <div className="w-8 h-8 rounded-full bg-white/[0.06] border border-white/15 text-[#00D9FF] flex items-center justify-center">
+                        <div className="w-8 h-8 rounded-full bg-slate-100 text-[#081B38] flex items-center justify-center">
                           {(() => {
                             const IconComponent = governanceCards[govSlide].icon;
                             return <IconComponent size={15} />;
@@ -498,8 +496,8 @@ export default function Home() {
                     aria-label={`Go to slide ${dotIndex + 1}`}
                     className={`h-2 rounded-full transition-all duration-300 ${
                       dotIndex === govSlide
-                        ? "w-6 bg-[#00D9FF] shadow-[0_0_12px_rgba(0,217,255,0.6)]"
-                        : "w-2 bg-white/20 hover:bg-white/40"
+                        ? "w-6 bg-[#081B38]"
+                        : "w-2 bg-slate-300 hover:bg-slate-400"
                     }`}
                   />
                 ))}
@@ -511,7 +509,7 @@ export default function Home() {
                   type="button"
                   onClick={() => paginateGov(-1)}
                   aria-label="Previous governance slide"
-                  className="w-9 h-9 rounded-full bg-[#071525]/90 border border-white/15 shadow-sm flex items-center justify-center text-white hover:text-[#00D9FF] hover:border-[#00D9FF] active:scale-95 transition-all cursor-pointer"
+                  className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-[#081B38] hover:bg-slate-50 active:scale-95 transition-all cursor-pointer"
                 >
                   <ChevronLeft size={16} />
                 </button>
@@ -519,7 +517,7 @@ export default function Home() {
                   type="button"
                   onClick={() => paginateGov(1)}
                   aria-label="Next governance slide"
-                  className="w-9 h-9 rounded-full bg-[#071525]/90 border border-white/15 shadow-sm flex items-center justify-center text-white hover:text-[#00D9FF] hover:border-[#00D9FF] active:scale-95 transition-all cursor-pointer"
+                  className="w-9 h-9 rounded-full bg-white border border-slate-200 shadow-sm flex items-center justify-center text-[#081B38] hover:bg-slate-50 active:scale-95 transition-all cursor-pointer"
                 >
                   <ChevronRight size={16} />
                 </button>
@@ -533,7 +531,7 @@ export default function Home() {
       {/* ========================================================================= */}
       {/* 7. SOVEREIGN INSTITUTIONAL FOOTER */}
       {/* ========================================================================= */}
-      <footer className="bg-[#040d18] text-white pt-6 sm:pt-16 pb-6 sm:pb-12 border-t border-white/10 relative z-10">
+      <footer className="bg-[#020e1e] text-white pt-6 sm:pt-16 pb-6 sm:pb-12 border-t border-slate-800 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 30, filter: "blur(4px)" }}
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -558,40 +556,40 @@ export default function Home() {
                 </div>
                 <div>
                   <h4 className="text-sm sm:text-base font-bold text-white tracking-tight">Vikasha CBO</h4>
-                  <p className="text-[11px] sm:text-xs text-[#00D9FF]/90 font-mono">විකාශා ප්‍රජා මූල සංවිධානය &bull; මාගම්මන</p>
+                  <p className="text-[11px] sm:text-xs text-cyan-200/80">විකාශා ප්‍රජා මූල සංවිධානය &bull; මාගම්මන</p>
                 </div>
               </div>
-              <p className="text-[11px] sm:text-xs text-[#A8BACB] max-w-md leading-relaxed">
+              <p className="text-[11px] sm:text-xs text-slate-300 max-w-md leading-relaxed">
                 National Water Supply &amp; Drainage Board / Department of Community Water Supply (DCWS) registered scheme ensuring uninterrupted safe drinking water for Magammana, Homagama.
               </p>
             </div>
 
             <div className="col-span-1 space-y-2 sm:space-y-3">
-              <h5 className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-[#00D9FF]">Quick Access</h5>
-              <ul className="space-y-1.5 sm:space-y-2 text-[11px] sm:text-xs text-[#A8BACB] font-medium">
-                <li><Link href="/pay" className="hover:text-[#00D9FF] transition-colors duration-200">Online Bill Payment</Link></li>
-                <li><Link href="/meter-reader" className="hover:text-[#00D9FF] transition-colors duration-200">Field Meter Reader App</Link></li>
-                <li><Link href="/admin/dashboard" className="hover:text-[#00D9FF] transition-colors duration-200">Administrative Dashboard</Link></li>
-                <li><Link href="/login" className="hover:text-[#00D9FF] transition-colors duration-200">Staff Portal Login</Link></li>
+              <h5 className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-cyan-300">Quick Access</h5>
+              <ul className="space-y-1.5 sm:space-y-2 text-[11px] sm:text-xs text-slate-300 font-medium">
+                <li><Link href="/pay" className="hover:text-cyan-300 transition-colors duration-200">Online Bill Payment</Link></li>
+                <li><Link href="/meter-reader" className="hover:text-cyan-300 transition-colors duration-200">Field Meter Reader App</Link></li>
+                <li><Link href="/admin/dashboard" className="hover:text-cyan-300 transition-colors duration-200">Administrative Dashboard</Link></li>
+                <li><Link href="/login" className="hover:text-cyan-300 transition-colors duration-200">Staff Portal Login</Link></li>
               </ul>
             </div>
 
             <div className="col-span-1 space-y-2 sm:space-y-3">
-              <h5 className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-[#00D9FF]">Contact &amp; Emergency</h5>
-              <div className="space-y-1.5 sm:space-y-2 text-[11px] sm:text-xs text-[#A8BACB] font-medium">
-                <p className="flex items-start sm:items-center gap-1.5 sm:gap-2"><MapPin size={12} className="text-[#00D9FF] shrink-0 mt-0.5 sm:mt-0" /> <span>Magammana, Homagama</span></p>
-                <p className="flex items-start sm:items-center gap-1.5 sm:gap-2"><Mail size={12} className="text-[#00D9FF] shrink-0 mt-0.5 sm:mt-0" /> <span className="break-all">support@vikashacbo.com</span></p>
+              <h5 className="text-[10px] sm:text-[11px] font-mono uppercase tracking-wider text-cyan-300">Contact &amp; Emergency</h5>
+              <div className="space-y-1.5 sm:space-y-2 text-[11px] sm:text-xs text-slate-300 font-medium">
+                <p className="flex items-start sm:items-center gap-1.5 sm:gap-2"><MapPin size={12} className="text-cyan-400 shrink-0 mt-0.5 sm:mt-0" /> <span>Magammana, Homagama</span></p>
+                <p className="flex items-start sm:items-center gap-1.5 sm:gap-2"><Mail size={12} className="text-cyan-400 shrink-0 mt-0.5 sm:mt-0" /> <span className="break-all">support@vikashacbo.com</span></p>
                 <p className="flex items-start sm:items-center gap-1.5 sm:gap-2"><Phone size={12} className="text-emerald-400 shrink-0 mt-0.5 sm:mt-0" /> <span>011 289 4567</span></p>
                 <p className="flex items-start sm:items-center gap-1.5 sm:gap-2"><Clock size={12} className="text-amber-400 shrink-0 mt-0.5 sm:mt-0" /> <span>Mon - Sat: 8AM - 5PM</span></p>
               </div>
             </div>
           </div>
 
-          <div className="pt-4 sm:pt-8 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 text-[11px] sm:text-xs text-[#A8BACB]/70">
+          <div className="pt-4 sm:pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 sm:gap-4 text-[11px] sm:text-xs text-slate-400">
             <div>
               &copy; {new Date().getFullYear()} Vikasha CBO (Magammana Water Project). All rights reserved.
             </div>
-            <div className="flex flex-wrap items-center gap-2.5 sm:gap-5 text-[#A8BACB] text-[10.5px] sm:text-xs">
+            <div className="flex flex-wrap items-center gap-2.5 sm:gap-5 text-slate-300 text-[10.5px] sm:text-xs">
               <Link href="/privacy-policy" className="hover:text-white transition-colors duration-200">Privacy Policy</Link>
               <Link href="/terms" className="hover:text-white transition-colors duration-200">Terms &amp; Conditions</Link>
               <Link href="/refund-policy" className="hover:text-white transition-colors duration-200">Refund Policy</Link>
@@ -615,7 +613,7 @@ export default function Home() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setShowHowToPay(false)}
-            className="fixed inset-0 z-50 bg-[#071525]/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto"
+            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto"
           >
             <motion.div
               initial={{ scale: 0.92, opacity: 0, y: 20 }}
@@ -623,24 +621,24 @@ export default function Home() {
               exit={{ scale: 0.92, opacity: 0, y: 20 }}
               transition={{ duration: 0.35, ease: smoothEase }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-[#071525]/95 backdrop-blur-2xl rounded-2xl sm:rounded-3xl max-w-lg w-full p-4.5 sm:p-8 shadow-[0_25px_80px_rgba(0,0,0,0.85),0_0_50px_rgba(0,217,255,0.15)] border border-[rgba(255,255,255,0.15)] relative overflow-hidden max-h-[90vh] overflow-y-auto my-auto text-white"
+              className="bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full p-4.5 sm:p-8 shadow-2xl border border-slate-200 relative overflow-hidden max-h-[90vh] overflow-y-auto my-auto"
             >
               <button
                 type="button"
                 onClick={() => setShowHowToPay(false)}
-                className="absolute top-4 right-4 sm:top-5 sm:right-5 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
+                className="absolute top-4 right-4 sm:top-5 sm:right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition-colors cursor-pointer"
                 aria-label="Close modal"
               >
                 <X size={17} />
               </button>
 
               <div className="flex items-center gap-3 mb-5 sm:mb-6 pr-8">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#00D9FF]/15 border border-[#00D9FF]/40 text-[#00D9FF] flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-cyan-100 text-cyan-700 flex items-center justify-center shrink-0">
                   <Play size={20} className="ml-0.5" />
                 </div>
                 <div>
-                  <h3 className="text-lg sm:text-xl font-bold font-sans text-white leading-tight">How to Pay Your Bill Online</h3>
-                  <p className="text-[11px] sm:text-xs text-[#A8BACB]">Quick 4-step digital payment guide</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-tight">How to Pay Your Bill Online</h3>
+                  <p className="text-[11px] sm:text-xs text-slate-500">Quick 4-step digital payment guide</p>
                 </div>
               </div>
 
@@ -667,13 +665,13 @@ export default function Home() {
                     desc: "Download your official stamped PDF receipt instantly and receive an SMS notification."
                   }
                 ].map((item) => (
-                  <div key={item.step} className="flex items-start gap-3 p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white/[0.03] border border-white/10">
-                    <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#00D9FF] text-[#071525] text-xs font-extrabold flex items-center justify-center shrink-0">
+                  <div key={item.step} className="flex items-start gap-3 p-3 sm:p-3.5 rounded-xl sm:rounded-2xl bg-slate-50 border border-slate-200/80">
+                    <span className="w-6 h-6 sm:w-7 sm:h-7 rounded-full bg-[#081B38] text-white text-xs font-bold flex items-center justify-center shrink-0">
                       {item.step}
                     </span>
                     <div>
-                      <h4 className="text-xs sm:text-sm font-bold text-white font-sans">{item.title}</h4>
-                      <p className="text-[11px] sm:text-xs text-[#A8BACB] mt-0.5 leading-relaxed">
+                      <h4 className="text-xs sm:text-sm font-bold text-slate-800">{item.title}</h4>
+                      <p className="text-[11px] sm:text-xs text-slate-500 mt-0.5 leading-relaxed">
                         {item.desc}
                       </p>
                     </div>
@@ -681,11 +679,11 @@ export default function Home() {
                 ))}
               </div>
 
-              <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-white/10 flex justify-end">
+              <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-slate-100 flex justify-end">
                 <button
                   type="button"
                   onClick={() => setShowHowToPay(false)}
-                  className="px-6 py-2.5 rounded-xl bg-[#00D9FF] hover:bg-[#2ae0ff] text-[#071525] text-xs font-extrabold shadow-[0_0_20px_rgba(0,217,255,0.4)] transition-all cursor-pointer"
+                  className="px-6 py-2.5 rounded-xl bg-[#081B38] hover:bg-[#06152d] text-white text-xs font-bold transition-all cursor-pointer"
                 >
                   Got It
                 </button>
@@ -705,7 +703,7 @@ export default function Home() {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setShowAccountHelp(false)}
-            className="fixed inset-0 z-50 bg-[#071525]/80 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto"
+            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-md flex items-center justify-center p-3 sm:p-6 overflow-y-auto"
           >
             <motion.div
               initial={{ scale: 0.92, opacity: 0, y: 20 }}
@@ -713,58 +711,58 @@ export default function Home() {
               exit={{ scale: 0.92, opacity: 0, y: 20 }}
               transition={{ duration: 0.35, ease: smoothEase }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-[#071525]/95 backdrop-blur-2xl rounded-2xl sm:rounded-3xl max-w-lg w-full p-4.5 sm:p-8 shadow-[0_25px_80px_rgba(0,0,0,0.85),0_0_50px_rgba(0,217,255,0.15)] border border-[rgba(255,255,255,0.15)] relative overflow-hidden max-h-[90vh] overflow-y-auto my-auto text-white"
+              className="bg-white rounded-2xl sm:rounded-3xl max-w-lg w-full p-4.5 sm:p-8 shadow-2xl border border-slate-200 relative overflow-hidden max-h-[90vh] overflow-y-auto my-auto"
             >
               <button
                 type="button"
                 onClick={() => setShowAccountHelp(false)}
-                className="absolute top-4 right-4 sm:top-5 sm:right-5 w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-colors cursor-pointer"
+                className="absolute top-4 right-4 sm:top-5 sm:right-5 w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-600 flex items-center justify-center transition-colors cursor-pointer"
                 aria-label="Close modal"
               >
                 <X size={17} />
               </button>
 
               <div className="flex items-center gap-3 mb-5 sm:mb-6 pr-8">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-[#00D9FF]/15 border border-[#00D9FF]/40 text-[#00D9FF] flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl sm:rounded-2xl bg-blue-100 text-blue-700 flex items-center justify-center shrink-0">
                   <HelpCircle size={20} />
                 </div>
                 <div>
-                  <h3 className="text-lg sm:text-xl font-bold font-sans text-white leading-tight">Locating Your Account Number</h3>
-                  <p className="text-[11px] sm:text-xs text-[#A8BACB]">Printed on your monthly paper bill or SMS alert</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-slate-900 leading-tight">Locating Your Account Number</h3>
+                  <p className="text-[11px] sm:text-xs text-slate-500">Printed on your monthly paper bill or SMS alert</p>
                 </div>
               </div>
 
               {/* Visual Simulated Bill Snippet */}
-              <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-white/[0.03] border-2 border-dashed border-[#00D9FF]/50 space-y-2.5 sm:space-y-3 font-mono text-xs">
-                <div className="flex items-center justify-between pb-2 border-b border-white/10">
-                  <span className="font-bold text-white text-[11px] sm:text-xs">VIKASHA CBO &bull; WATER BILL</span>
-                  <span className="px-2 py-0.5 rounded bg-[#00D9FF]/15 text-[#00D9FF] font-bold border border-[#00D9FF]/30 text-[10px]">
+              <div className="p-3.5 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50 border-2 border-dashed border-cyan-400/70 space-y-2.5 sm:space-y-3 font-mono text-xs">
+                <div className="flex items-center justify-between pb-2 border-b border-slate-200">
+                  <span className="font-bold text-slate-800 text-[11px] sm:text-xs">VIKASHA CBO &bull; WATER BILL</span>
+                  <span className="px-2 py-0.5 rounded bg-cyan-100 text-cyan-800 font-bold border border-cyan-300 text-[10px]">
                     MONTHLY STATEMENT
                   </span>
                 </div>
                 <div className="grid grid-cols-2 gap-2 text-[11px]">
                   <div>
-                    <span className="text-[#A8BACB] block text-[10px]">Consumer Name:</span>
-                    <span className="font-semibold text-white">W. M. Perera</span>
+                    <span className="text-slate-400 block text-[10px]">Consumer Name:</span>
+                    <span className="font-semibold text-slate-700">W. M. Perera</span>
                   </div>
-                  <div className="bg-[#00D9FF]/10 p-1.5 sm:p-2 rounded-xl border border-[#00D9FF]/40 animate-pulse">
-                    <span className="text-[#00D9FF] block font-bold text-[9px] uppercase">
+                  <div className="bg-cyan-50 p-1.5 sm:p-2 rounded-xl border border-cyan-400 animate-pulse">
+                    <span className="text-cyan-800 block font-bold text-[9px] uppercase">
                       Account No / ගිණුම් අංකය &larr;
                     </span>
-                    <span className="font-extrabold text-white text-xs sm:text-sm">135</span>
+                    <span className="font-extrabold text-cyan-900 text-xs sm:text-sm">135</span>
                   </div>
                 </div>
               </div>
 
-              <p className="text-xs text-[#A8BACB] mt-4 leading-relaxed">
-                Your Account Number is 3 or 4 digits long. If you do not have your physical paper bill, contact our Magammana community helpdesk at <a href="tel:0112894567" className="text-[#00D9FF] font-bold underline">011 289 4567</a> with your NIC number.
+              <p className="text-xs text-slate-600 mt-4 leading-relaxed">
+                Your Account Number is 3 or 4 digits long. If you do not have your physical paper bill, contact our Magammana community helpdesk at <a href="tel:0112894567" className="text-[#0284c7] font-bold underline">011 289 4567</a> with your NIC number.
               </p>
 
-              <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-white/10 flex justify-end">
+              <div className="mt-5 sm:mt-6 pt-3.5 sm:pt-4 border-t border-slate-100 flex justify-end">
                 <button
                   type="button"
                   onClick={() => setShowAccountHelp(false)}
-                  className="px-6 py-2.5 rounded-xl bg-[#00D9FF] hover:bg-[#2ae0ff] text-[#071525] text-xs font-extrabold shadow-[0_0_20px_rgba(0,217,255,0.4)] transition-all cursor-pointer"
+                  className="px-6 py-2.5 rounded-xl bg-[#081B38] hover:bg-[#06152d] text-white text-xs font-bold transition-all cursor-pointer"
                 >
                   Understood
                 </button>

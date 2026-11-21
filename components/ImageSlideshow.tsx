@@ -197,29 +197,26 @@ export default function ImageSlideshow() {
   };
 
   return (
-    <section id="infrastructure" className="py-20 sm:py-28 bg-[#071525] relative z-0 border-t border-b border-white/10 text-white">
+    <section id="infrastructure" className="py-20 sm:py-28 bg-[#FFFFFF] relative z-0 border-t border-b border-slate-200/80">
       <div className="max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Centered Eyebrow Badge */}
         <div className="flex items-center justify-center gap-2 mb-3.5">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/[0.045] border border-[rgba(255,255,255,0.12)] text-[#00D9FF] text-[11px] font-mono font-bold uppercase tracking-wider shadow-[0_0_20px_rgba(0,217,255,0.16)] backdrop-blur-md">
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00D9FF] opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00D9FF]" />
-            </span>
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50/80 border border-blue-200/70 text-[#0066FF] text-[11px] font-mono font-bold uppercase tracking-wider shadow-xs">
+            <Sparkles size={13} className="text-[#0066FF]" />
             <span>CORE INFRASTRUCTURE &bull; යටිතල පහසුකම් පද්ධතිය</span>
           </div>
         </div>
 
         {/* Centered Master Title */}
-        <h2 className="text-2xl sm:text-4xl lg:text-[44px] font-extrabold text-white tracking-tight text-center leading-[1.2] max-w-4xl mx-auto px-4 font-sans">
+        <h2 className="text-2xl sm:text-4xl lg:text-[42px] font-bold text-[#081B38] tracking-tight text-center leading-[1.2] max-w-4xl mx-auto px-4 font-serif">
           Engineering Resilient Water Infrastructure
           <br className="hidden sm:inline" />
           {" "}For Community Generations
         </h2>
 
         {/* Centered Subtitle */}
-        <p className="text-[#A8BACB] text-xs sm:text-sm text-center max-w-2xl mx-auto mt-3.5 px-6 leading-relaxed font-normal">
+        <p className="text-slate-600 text-xs sm:text-sm text-center max-w-2xl mx-auto mt-3.5 px-6 leading-relaxed font-normal">
           Explore the physical engineering, advanced filtration systems, elevated community storage, and optical telemetry grids powering Magammana&apos;s 24/7 drinking water supply.
         </p>
 
@@ -236,7 +233,7 @@ export default function ImageSlideshow() {
             type="button"
             onClick={handlePrev}
             aria-label="Previous slide"
-            className="hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#071525]/90 border border-white/15 shadow-[0_0_20px_rgba(0,0,0,0.6)] text-white hover:text-[#00D9FF] hover:border-[#00D9FF] hover:shadow-[0_0_20px_rgba(0,217,255,0.3)] hover:scale-105 active:scale-95 transition-all items-center justify-center cursor-pointer"
+            className="hidden md:flex absolute -left-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/95 border border-slate-200 shadow-lg text-[#081B38] hover:text-[#0066FF] hover:scale-105 active:scale-95 transition-all items-center justify-center cursor-pointer"
           >
             <ChevronLeft size={20} />
           </button>
@@ -244,7 +241,7 @@ export default function ImageSlideshow() {
             type="button"
             onClick={handleNext}
             aria-label="Next slide"
-            className="hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-[#071525]/90 border border-white/15 shadow-[0_0_20px_rgba(0,0,0,0.6)] text-white hover:text-[#00D9FF] hover:border-[#00D9FF] hover:shadow-[0_0_20px_rgba(0,217,255,0.3)] hover:scale-105 active:scale-95 transition-all items-center justify-center cursor-pointer"
+            className="hidden md:flex absolute -right-5 top-1/2 -translate-y-1/2 z-20 w-11 h-11 rounded-full bg-white/95 border border-slate-200 shadow-lg text-[#081B38] hover:text-[#0066FF] hover:scale-105 active:scale-95 transition-all items-center justify-center cursor-pointer"
           >
             <ChevronRight size={20} />
           </button>
@@ -255,7 +252,7 @@ export default function ImageSlideshow() {
             {/* ============================================================== */}
             <div
               onClick={() => setCurrentIndex(leftIndex)}
-              className="hidden md:flex flex-col items-center text-center rounded-[32px] sm:rounded-[38px] bg-[#071525]/95 border border-white/10 p-7 sm:p-9 shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:border-[#00D9FF]/40 hover:shadow-[0_25px_60px_rgba(0,0,0,0.7),0_0_30px_rgba(0,217,255,0.15)] transition-all duration-500 cursor-pointer group relative overflow-hidden select-none"
+              className="hidden md:flex flex-col items-center text-center rounded-[32px] sm:rounded-[38px] bg-white border border-slate-200/90 p-7 sm:p-9 shadow-[0_4px_20px_rgba(8,27,56,0.05)] hover:shadow-[0_12px_32px_rgba(8,27,56,0.1)] transition-all duration-500 cursor-pointer group relative overflow-hidden select-none"
             >
               {/* Circular Image Portal - Smooth Click-to-Show Specs */}
               <div
@@ -264,9 +261,9 @@ export default function ImageSlideshow() {
                   setSelectedPillar(leftItem);
                 }}
                 title="Click image to view specifications"
-                className="w-44 h-44 sm:w-48 sm:h-48 rounded-full p-1.5 bg-gradient-to-tr from-[#00D9FF]/30 via-white/10 to-transparent shadow-[0_8px_25px_rgba(0,0,0,0.5)] mb-5 relative transition-transform duration-500 group-hover:scale-105 cursor-pointer"
+                className="w-44 h-44 sm:w-48 sm:h-48 rounded-full p-1.5 bg-gradient-to-tr from-blue-100/70 via-slate-100 to-blue-50/80 shadow-[0_8px_25px_rgba(8,27,56,0.08)] mb-5 relative transition-transform duration-500 group-hover:scale-105 cursor-pointer"
               >
-                <div className="w-full h-full rounded-full overflow-hidden border-2 border-white/20 shadow-inner relative bg-[#071525]">
+                <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-inner relative bg-slate-100">
                   <img
                     key={leftItem.id}
                     src={leftItem.image}
@@ -275,8 +272,8 @@ export default function ImageSlideshow() {
                     loading="lazy"
                   />
                   {/* Subtle Hover Lens Badge */}
-                  <div className="absolute inset-0 bg-[#071525]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="w-8 h-8 rounded-full bg-[#00D9FF] text-[#071525] flex items-center justify-center shadow-md">
+                  <div className="absolute inset-0 bg-[#081B38]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="w-8 h-8 rounded-full bg-white/90 text-[#081B38] flex items-center justify-center shadow-md">
                       <Maximize2 size={14} />
                     </span>
                   </div>
@@ -284,12 +281,12 @@ export default function ImageSlideshow() {
               </div>
 
               {/* Title */}
-              <h3 className="font-bold tracking-[0.14em] uppercase text-white font-sans text-xs sm:text-sm group-hover:text-[#00D9FF] transition-colors line-clamp-1">
+              <h3 className="font-bold tracking-[0.14em] uppercase text-[#081B38] font-sans text-xs sm:text-sm group-hover:text-[#0066FF] transition-colors line-clamp-1">
                 {leftItem.name}
               </h3>
 
               {/* Subtitle */}
-              <p className="text-[#A8BACB] text-xs sm:text-[13px] leading-relaxed max-w-[240px] mt-2 mb-6 font-normal line-clamp-2">
+              <p className="text-slate-500 text-xs sm:text-[13px] leading-relaxed max-w-[240px] mt-2 mb-6 font-normal line-clamp-2">
                 {leftItem.subtitle}
               </p>
 
@@ -300,7 +297,7 @@ export default function ImageSlideshow() {
                   e.stopPropagation();
                   setSelectedPillar(leftItem);
                 }}
-                className="rounded-full bg-white/[0.08] hover:bg-[#00D9FF] text-white hover:text-[#071525] border border-white/15 hover:border-[#00D9FF] font-medium text-xs px-6 py-2.5 inline-flex items-center gap-1.5 transition-all duration-300 shadow-sm hover:scale-105 active:scale-95 cursor-pointer"
+                className="rounded-full bg-[#081B38] hover:bg-[#0066FF] text-white font-medium text-xs px-6 py-2.5 inline-flex items-center gap-1.5 transition-all duration-300 shadow-sm hover:scale-105 active:scale-95 cursor-pointer"
               >
                 <span>Explore</span>
                 <span className="text-sm leading-none">&rarr;</span>
@@ -311,10 +308,10 @@ export default function ImageSlideshow() {
             {/* 2. CENTER CARD (Elevated Hero with Smooth Progress & Clickable Image) */}
             {/* ============================================================== */}
             <div
-              className="flex flex-col items-center text-center rounded-[28px] sm:rounded-[42px] bg-gradient-to-b from-[#0b1c30] via-[#071525] to-[#05101c] border-2 border-[#00D9FF]/40 p-5 sm:p-10 md:py-14 md:-my-5 shadow-[0_25px_70px_rgba(0,0,0,0.8),0_0_50px_rgba(0,217,255,0.2)] hover:shadow-[0_30px_80px_rgba(0,0,0,0.9),0_0_60px_rgba(0,217,255,0.3)] transition-all duration-500 z-10 relative overflow-hidden group select-none"
+              className="flex flex-col items-center text-center rounded-[28px] sm:rounded-[42px] bg-gradient-to-b from-white via-white to-blue-50/25 border-2 border-blue-500/30 p-5 sm:p-10 md:py-14 md:-my-5 shadow-[0_20px_50px_rgba(0,102,255,0.12),0_4px_20px_rgba(8,27,56,0.06)] hover:shadow-[0_25px_60px_rgba(0,102,255,0.18)] transition-all duration-500 z-10 relative overflow-hidden group select-none"
             >
               {/* Top Badge */}
-              <span className="absolute top-3.5 sm:top-5 px-3 py-1 rounded-full bg-[#00D9FF]/15 border border-[#00D9FF]/40 text-[10px] font-mono font-bold tracking-wider text-[#00D9FF] uppercase shadow-xs">
+              <span className="absolute top-3.5 sm:top-5 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-[10px] font-mono font-bold tracking-wider text-[#0066FF] uppercase shadow-xs">
                 {centerItem.badge || "FEATURED INFRASTRUCTURE"}
               </span>
 
@@ -322,9 +319,9 @@ export default function ImageSlideshow() {
               <div
                 onClick={() => setSelectedPillar(centerItem)}
                 title="Click image to explore detailed specifications smoothly"
-                className="w-38 h-38 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full p-1.5 sm:p-2 bg-gradient-to-tr from-[#00D9FF]/40 via-sky-400/25 to-cyan-300/35 shadow-[0_0_35px_rgba(0,217,255,0.3)] mb-4 sm:mb-7 mt-2 sm:mt-3 relative transition-transform duration-500 group-hover:scale-105 cursor-pointer"
+                className="w-38 h-38 sm:w-56 sm:h-56 md:w-64 md:h-64 rounded-full p-1.5 sm:p-2 bg-gradient-to-tr from-blue-500/25 via-sky-400/20 to-cyan-300/35 shadow-[0_16px_36px_rgba(0,102,255,0.18)] mb-4 sm:mb-7 mt-2 sm:mt-3 relative transition-transform duration-500 group-hover:scale-105 cursor-pointer"
               >
-                <div className="w-full h-full rounded-full overflow-hidden border-2 border-white/20 shadow-inner relative bg-[#071525]">
+                <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-inner relative bg-slate-100">
                   <AnimatePresence mode="wait">
                     <motion.img
                       key={centerItem.id}
@@ -340,9 +337,9 @@ export default function ImageSlideshow() {
                   </AnimatePresence>
 
                   {/* Smooth View Hover Overlay */}
-                  <div className="absolute inset-0 bg-[#071525]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="px-3 py-1.5 rounded-full bg-[#00D9FF] text-[#071525] text-[11px] font-bold shadow-lg flex items-center gap-1.5">
-                      <Maximize2 size={13} className="text-[#071525]" />
+                  <div className="absolute inset-0 bg-[#081B38]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="px-3 py-1.5 rounded-full bg-white/95 text-[#081B38] text-[11px] font-bold shadow-lg flex items-center gap-1.5">
+                      <Maximize2 size={13} className="text-[#0066FF]" />
                       <span>View Specifications</span>
                     </span>
                   </div>
@@ -359,31 +356,31 @@ export default function ImageSlideshow() {
                   transition={{ duration: 0.35 }}
                   className="flex flex-col items-center"
                 >
-                  <h3 className="font-bold tracking-[0.14em] uppercase text-white font-sans text-xs sm:text-base group-hover:text-[#00D9FF] transition-colors">
+                  <h3 className="font-bold tracking-[0.14em] uppercase text-[#081B38] font-sans text-xs sm:text-base group-hover:text-[#0066FF] transition-colors">
                     {centerItem.name}
                   </h3>
 
-                  <p className="text-[#A8BACB] text-xs sm:text-sm leading-relaxed max-w-[280px] mt-2 mb-6 sm:mb-7 font-normal">
+                  <p className="text-slate-600 text-xs sm:text-sm leading-relaxed max-w-[280px] mt-2 mb-6 sm:mb-7 font-normal">
                     {centerItem.subtitle}
                   </p>
                 </motion.div>
               </AnimatePresence>
 
-              {/* Elevated Vibrant Button */}
+              {/* Elevated Vibrant Blue Button */}
               <button
                 type="button"
                 onClick={() => setSelectedPillar(centerItem)}
-                className="rounded-full bg-[#00D9FF] hover:bg-[#2ae0ff] text-[#071525] font-extrabold text-xs sm:text-sm px-7 sm:px-8 py-3 sm:py-3.5 inline-flex items-center gap-2 transition-all duration-300 shadow-[0_0_20px_rgba(0,217,255,0.4)] hover:scale-105 active:scale-95 cursor-pointer"
+                className="rounded-full bg-[#0066FF] hover:bg-blue-600 text-white font-bold text-xs sm:text-sm px-7 sm:px-8 py-3 sm:py-3.5 inline-flex items-center gap-2 transition-all duration-300 shadow-md shadow-blue-500/25 hover:scale-105 active:scale-95 cursor-pointer"
               >
                 <span>Explore</span>
                 <span className="text-sm leading-none">&rarr;</span>
               </button>
 
               {/* Sleek 4-Second Auto-Slide Progress Bar */}
-              <div className="w-28 h-1 bg-white/10 rounded-full overflow-hidden mt-5 sm:mt-6" title="Auto-rotates every 4 seconds">
+              <div className="w-28 h-1 bg-blue-100 rounded-full overflow-hidden mt-5 sm:mt-6" title="Auto-rotates every 4 seconds">
                 <div
                   key={`${currentIndex}-${isPaused}`}
-                  className={`h-full bg-[#00D9FF] ${isPaused ? "w-0 opacity-40" : "animate-progress"}`}
+                  className={`h-full bg-[#0066FF] ${isPaused ? "w-0 opacity-40" : "animate-progress"}`}
                   style={{
                     animationDuration: "4000ms",
                     animationTimingFunction: "linear",
@@ -397,7 +394,7 @@ export default function ImageSlideshow() {
                 <button
                   type="button"
                   onClick={handlePrev}
-                  className="px-4 py-2 rounded-full border border-white/15 text-xs font-semibold text-white bg-[#071525]/90 shadow-xs flex items-center gap-1 active:scale-95 transition-transform"
+                  className="px-4 py-2 rounded-full border border-slate-200 text-xs font-semibold text-slate-700 bg-white shadow-xs flex items-center gap-1 active:scale-95 transition-transform"
                 >
                   <ChevronLeft size={14} />
                   <span>Prev</span>
@@ -405,7 +402,7 @@ export default function ImageSlideshow() {
                 <button
                   type="button"
                   onClick={handleNext}
-                  className="px-4 py-2 rounded-full border border-white/15 text-xs font-semibold text-white bg-[#071525]/90 shadow-xs flex items-center gap-1 active:scale-95 transition-transform"
+                  className="px-4 py-2 rounded-full border border-slate-200 text-xs font-semibold text-slate-700 bg-white shadow-xs flex items-center gap-1 active:scale-95 transition-transform"
                 >
                   <span>Next</span>
                   <ChevronRight size={14} />
@@ -418,7 +415,7 @@ export default function ImageSlideshow() {
             {/* ============================================================== */}
             <div
               onClick={() => setCurrentIndex(rightIndex)}
-              className="hidden md:flex flex-col items-center text-center rounded-[32px] sm:rounded-[38px] bg-[#071525]/95 border border-white/10 p-7 sm:p-9 shadow-[0_20px_50px_rgba(0,0,0,0.5)] hover:border-[#00D9FF]/40 hover:shadow-[0_25px_60px_rgba(0,0,0,0.7),0_0_30px_rgba(0,217,255,0.15)] transition-all duration-500 cursor-pointer group relative overflow-hidden select-none"
+              className="hidden md:flex flex-col items-center text-center rounded-[32px] sm:rounded-[38px] bg-white border border-slate-200/90 p-7 sm:p-9 shadow-[0_4px_20px_rgba(8,27,56,0.05)] hover:shadow-[0_12px_32px_rgba(8,27,56,0.1)] transition-all duration-500 cursor-pointer group relative overflow-hidden select-none"
             >
               {/* Circular Image Portal - Smooth Click-to-Show Specs */}
               <div
@@ -427,9 +424,9 @@ export default function ImageSlideshow() {
                   setSelectedPillar(rightItem);
                 }}
                 title="Click image to view specifications"
-                className="w-44 h-44 sm:w-48 sm:h-48 rounded-full p-1.5 bg-gradient-to-tr from-[#00D9FF]/30 via-white/10 to-transparent shadow-[0_8px_25px_rgba(0,0,0,0.5)] mb-5 relative transition-transform duration-500 group-hover:scale-105 cursor-pointer"
+                className="w-44 h-44 sm:w-48 sm:h-48 rounded-full p-1.5 bg-gradient-to-tr from-blue-100/70 via-slate-100 to-blue-50/80 shadow-[0_8px_25px_rgba(8,27,56,0.08)] mb-5 relative transition-transform duration-500 group-hover:scale-105 cursor-pointer"
               >
-                <div className="w-full h-full rounded-full overflow-hidden border-2 border-white/20 shadow-inner relative bg-[#071525]">
+                <div className="w-full h-full rounded-full overflow-hidden border-4 border-white shadow-inner relative bg-slate-100">
                   <img
                     key={rightItem.id}
                     src={rightItem.image}
@@ -438,8 +435,8 @@ export default function ImageSlideshow() {
                     loading="lazy"
                   />
                   {/* Subtle Hover Lens Badge */}
-                  <div className="absolute inset-0 bg-[#071525]/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <span className="w-8 h-8 rounded-full bg-[#00D9FF] text-[#071525] flex items-center justify-center shadow-md">
+                  <div className="absolute inset-0 bg-[#081B38]/30 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <span className="w-8 h-8 rounded-full bg-white/90 text-[#081B38] flex items-center justify-center shadow-md">
                       <Maximize2 size={14} />
                     </span>
                   </div>
@@ -447,12 +444,12 @@ export default function ImageSlideshow() {
               </div>
 
               {/* Title */}
-              <h3 className="font-bold tracking-[0.14em] uppercase text-white font-sans text-xs sm:text-sm group-hover:text-[#00D9FF] transition-colors line-clamp-1">
+              <h3 className="font-bold tracking-[0.14em] uppercase text-[#081B38] font-sans text-xs sm:text-sm group-hover:text-[#0066FF] transition-colors line-clamp-1">
                 {rightItem.name}
               </h3>
 
               {/* Subtitle */}
-              <p className="text-[#A8BACB] text-xs sm:text-[13px] leading-relaxed max-w-[240px] mt-2 mb-6 font-normal line-clamp-2">
+              <p className="text-slate-500 text-xs sm:text-[13px] leading-relaxed max-w-[240px] mt-2 mb-6 font-normal line-clamp-2">
                 {rightItem.subtitle}
               </p>
 
@@ -463,7 +460,7 @@ export default function ImageSlideshow() {
                   e.stopPropagation();
                   setSelectedPillar(rightItem);
                 }}
-                className="rounded-full bg-white/[0.08] hover:bg-[#00D9FF] text-white hover:text-[#071525] border border-white/15 hover:border-[#00D9FF] font-medium text-xs px-6 py-2.5 inline-flex items-center gap-1.5 transition-all duration-300 shadow-sm hover:scale-105 active:scale-95 cursor-pointer"
+                className="rounded-full bg-[#081B38] hover:bg-[#0066FF] text-white font-medium text-xs px-6 py-2.5 inline-flex items-center gap-1.5 transition-all duration-300 shadow-sm hover:scale-105 active:scale-95 cursor-pointer"
               >
                 <span>Explore</span>
                 <span className="text-sm leading-none">&rarr;</span>
@@ -483,8 +480,8 @@ export default function ImageSlideshow() {
                 onClick={() => setCurrentIndex(idx)}
                 className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                   isActive
-                    ? "w-8 bg-[#00D9FF] shadow-[0_0_12px_rgba(0,217,255,0.6)]"
-                    : "w-2 bg-white/20 hover:bg-white/40"
+                    ? "w-8 bg-[#0066FF] shadow-xs shadow-blue-500/30"
+                    : "w-2 bg-slate-300 hover:bg-slate-400"
                 }`}
                 aria-label={`Switch to ${item.name}`}
                 title={item.name}
@@ -519,22 +516,22 @@ export default function ImageSlideshow() {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 exit={{ opacity: 0, scale: 0.94, y: 20 }}
                 transition={{ duration: 0.32, ease: smoothEase }}
-                className="relative w-full max-w-2xl bg-[#071525]/95 backdrop-blur-2xl rounded-2xl sm:rounded-[32px] shadow-[0_25px_80px_rgba(0,0,0,0.85),0_0_50px_rgba(0,217,255,0.15)] border border-[rgba(255,255,255,0.15)] overflow-hidden z-10 my-auto flex flex-col max-h-[92vh] text-white"
+                className="relative w-full max-w-2xl bg-white rounded-2xl sm:rounded-[32px] shadow-2xl border border-slate-200 overflow-hidden z-10 my-auto flex flex-col max-h-[92vh]"
               >
                 {/* Modal Header Photo */}
-                <div className="relative h-44 sm:h-72 w-full bg-[#071525] overflow-hidden shrink-0">
+                <div className="relative h-44 sm:h-72 w-full bg-slate-900 overflow-hidden shrink-0">
                   <img
                     src={selectedPillar.image}
                     alt={selectedPillar.name}
                     className="w-full h-full object-cover object-center transition-transform duration-700 hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#071525] via-[#071525]/60 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#081B38] via-[#081B38]/50 to-transparent" />
 
                   {/* Close Button */}
                   <button
                     type="button"
                     onClick={() => setSelectedPillar(null)}
-                    className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#071525]/80 hover:bg-[#071525] text-white border border-white/20 backdrop-blur-md flex items-center justify-center transition-colors cursor-pointer z-10"
+                    className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-black/50 hover:bg-black/75 text-white backdrop-blur-md flex items-center justify-center transition-colors cursor-pointer z-10"
                     aria-label="Close modal"
                   >
                     <X size={17} />
@@ -542,14 +539,14 @@ export default function ImageSlideshow() {
 
                   {/* Modal Title & Category */}
                   <div className="absolute bottom-4 sm:bottom-5 left-4 sm:left-6 right-4 sm:right-6 text-white">
-                    <span className="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-[#00D9FF]/15 backdrop-blur-md text-[9px] sm:text-[10px] font-mono tracking-wider uppercase border border-[#00D9FF]/40 text-[#00D9FF] font-bold">
+                    <span className="px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full bg-white/20 backdrop-blur-md text-[9px] sm:text-[10px] font-mono tracking-wider uppercase border border-white/30 text-cyan-200 font-bold">
                       {selectedPillar.category}
                     </span>
-                    <h3 className="text-xl sm:text-3xl font-bold font-sans mt-1.5 sm:mt-2 tracking-tight">
+                    <h3 className="text-xl sm:text-3xl font-black font-serif mt-1.5 sm:mt-2 tracking-tight">
                       {selectedPillar.name}
                     </h3>
-                    <p className="flex items-center gap-1.5 text-[11px] sm:text-xs text-[#A8BACB] font-medium mt-1">
-                      <MapPin size={12} className="text-[#00D9FF] shrink-0" />
+                    <p className="flex items-center gap-1.5 text-[11px] sm:text-xs text-slate-300 font-medium mt-1">
+                      <MapPin size={12} className="text-cyan-400 shrink-0" />
                       <span className="truncate">{selectedPillar.location}</span>
                     </p>
                   </div>
@@ -558,24 +555,24 @@ export default function ImageSlideshow() {
                 {/* Modal Body */}
                 <div className="p-4 sm:p-8 overflow-y-auto space-y-4 sm:space-y-6">
                   <div>
-                    <h4 className="text-xs font-mono uppercase tracking-wider text-[#A8BACB] font-bold mb-1.5">
+                    <h4 className="text-xs font-mono uppercase tracking-wider text-slate-400 font-bold mb-1.5">
                       Engineering Specifications
                     </h4>
-                    <p className="text-sm text-[#A8BACB] leading-relaxed font-normal">
+                    <p className="text-sm text-slate-700 leading-relaxed font-normal">
                       {selectedPillar.description}
                     </p>
                   </div>
 
                   {/* Specifications Checklist */}
-                  <div className="rounded-2xl bg-white/[0.03] border border-white/10 p-4 sm:p-5 space-y-2.5">
-                    <div className="text-xs font-mono font-bold text-white uppercase tracking-wider flex items-center gap-2">
-                      <ShieldCheck size={16} className="text-[#00D9FF]" />
+                  <div className="rounded-2xl bg-slate-50 border border-slate-200/80 p-4 sm:p-5 space-y-2.5">
+                    <div className="text-xs font-mono font-bold text-[#081B38] uppercase tracking-wider flex items-center gap-2">
+                      <ShieldCheck size={16} className="text-emerald-600" />
                       <span>Technical Architecture &bull; {selectedPillar.metric}</span>
                     </div>
-                    <ul className="space-y-2 pt-1 text-xs text-[#A8BACB] font-medium">
+                    <ul className="space-y-2 pt-1 text-xs text-slate-600 font-medium">
                       {selectedPillar.specs.map((spec, idx) => (
                         <li key={idx} className="flex items-start gap-2">
-                          <CheckCircle2 size={14} className="text-[#00D9FF] shrink-0 mt-0.5" />
+                          <CheckCircle2 size={14} className="text-emerald-500 shrink-0 mt-0.5" />
                           <span>{spec}</span>
                         </li>
                       ))}
@@ -587,7 +584,7 @@ export default function ImageSlideshow() {
                     <button
                       type="button"
                       onClick={() => setSelectedPillar(null)}
-                      className="w-full sm:w-auto px-6 py-2.5 rounded-full border border-white/15 text-[#A8BACB] hover:text-white hover:border-white/30 text-xs font-semibold hover:bg-white/5 transition-colors cursor-pointer text-center"
+                      className="w-full sm:w-auto px-6 py-2.5 rounded-full border border-slate-300 text-slate-700 text-xs font-semibold hover:bg-slate-50 transition-colors cursor-pointer text-center"
                     >
                       Close Window
                     </button>
@@ -596,7 +593,7 @@ export default function ImageSlideshow() {
                       <Link
                         href="/pay"
                         onClick={() => setSelectedPillar(null)}
-                        className="w-full sm:w-auto px-6 py-2.5 rounded-full bg-[#00D9FF] hover:bg-[#2ae0ff] text-[#071525] text-xs font-extrabold transition-all shadow-[0_0_20px_rgba(0,217,255,0.4)] text-center inline-flex items-center justify-center gap-1.5"
+                        className="w-full sm:w-auto px-6 py-2.5 rounded-full bg-[#0066FF] hover:bg-blue-600 text-white text-xs font-bold transition-all shadow-sm text-center inline-flex items-center justify-center gap-1.5"
                       >
                         <span>Quick Pay Portal</span>
                         <ArrowRight size={14} />
