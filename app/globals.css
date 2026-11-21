@@ -121,12 +121,35 @@ html {
   pointer-events: none;
 }
 
+@keyframes heroFloatSlow {
+  0%, 100% {
+    transform: translateY(0px) translateZ(38px);
+  }
+  50% {
+    transform: translateY(-8px) translateZ(38px);
+  }
+}
+
+@keyframes heroFloatReverse {
+  0%, 100% {
+    transform: translateY(0px) translateZ(50px);
+  }
+  50% {
+    transform: translateY(7px) translateZ(50px);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .skeleton-shimmer::after,
   .skeleton-shimmer-subtle::after,
   .skeleton-shimmer-dark::after {
     animation: none;
     display: none;
+  }
+  .animate-\[heroFloatSlow_6s_ease-in-out_infinite\],
+  .animate-\[heroFloatReverse_7s_ease-in-out_infinite\],
+  .animate-\[heroFloatSlow_8s_ease-in-out_infinite\] {
+    animation: none !important;
   }
   html {
     scroll-behavior: auto;
