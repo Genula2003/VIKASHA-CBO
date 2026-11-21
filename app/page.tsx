@@ -121,9 +121,9 @@ export default function Home() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 2. 3 OVERLAPPING CARDS (WHITE IS MAIN, NAVY DARK BLUE & SILVER THEME) */}
+      {/* 2. 3 HERO-MATCHING FEATURE CARDS (DEEP NAVY, GLASSMORPHISM & CYAN ACCENTS) */}
       {/* ========================================================================= */}
-      <section className="hidden md:block relative z-30 max-w-6xl mx-auto px-4 sm:px-6 -mt-12 sm:-mt-16 lg:-mt-20 mb-12">
+      <section className="relative z-30 max-w-6xl mx-auto px-4 sm:px-6 -mt-12 sm:-mt-16 lg:-mt-20 mb-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {[
             {
@@ -154,41 +154,47 @@ export default function Home() {
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.85, delay: 0.15 + i * 0.12, ease: smoothEase }}
-              whileHover={{ y: -8, transition: { duration: 0.25 } }}
-              className="rounded-2xl overflow-hidden shadow-[0_20px_50px_rgba(8,27,56,0.12)] bg-white border border-slate-200/90 flex flex-col group transition-all duration-300 hover:shadow-[0_25px_60px_rgba(8,27,56,0.18)] hover:border-slate-300"
+              whileHover={{ y: -6, transition: { duration: 0.25 } }}
+              className="rounded-2xl p-[1px] bg-gradient-to-b from-white/20 via-white/[0.08] to-transparent shadow-[0_20px_50px_rgba(0,0,0,0.55),0_0_30px_rgba(0,217,255,0.06)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.75),0_0_40px_rgba(0,217,255,0.2)] transition-all duration-500 group flex flex-col"
             >
-              <Link href={card.href} className="flex flex-col h-full">
-                {/* Upper Image Section (~60%) */}
-                <div className="h-56 sm:h-64 lg:h-72 w-full overflow-hidden relative bg-slate-100">
+              <Link
+                href={card.href}
+                className="rounded-2xl overflow-hidden bg-[#071525]/95 backdrop-blur-2xl border border-[rgba(255,255,255,0.12)] group-hover:border-[#00D9FF]/40 flex flex-col h-full transition-all duration-300"
+              >
+                {/* Upper Image Section */}
+                <div className="h-56 sm:h-64 lg:h-72 w-full overflow-hidden relative bg-[#071525]">
                   <img
                     src={card.image}
                     alt={card.title}
                     className="w-full h-full object-cover group-hover:scale-106 transition-transform duration-700"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-60" />
-                  {/* Floating Silver & Navy Tag on Image */}
+                  {/* Subtle Dark Navy Gradient Scrim */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#071525] via-[#071525]/30 to-black/20" />
+
+                  {/* Floating Hero-matching Cyan/Glass Tag on Image */}
                   <div className="absolute top-4 left-4">
-                    <span className="px-3 py-1 rounded-full bg-white/95 backdrop-blur-md border border-slate-200 text-[11px] font-mono font-bold tracking-wider text-[#081B38] shadow-sm uppercase">
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#071525]/85 backdrop-blur-md border border-[rgba(255,255,255,0.15)] text-[11px] font-mono font-bold tracking-wider text-white shadow-sm uppercase">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#00D9FF] animate-pulse" />
                       {card.category}
                     </span>
                   </div>
                 </div>
 
-                {/* Lower White Panel (White is main, Navy Dark Blue title, Silver details) */}
-                <div className="bg-white p-6 sm:p-7 text-slate-900 border-t border-slate-100 flex-1 flex flex-col justify-between">
+                {/* Lower Glass Panel matching Hero Section */}
+                <div className="bg-[#071525]/95 p-6 sm:p-7 text-white border-t border-white/10 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-bold text-[#081B38] tracking-tight font-serif mb-2.5 group-hover:text-[#004EEB] transition-colors">
+                    <h3 className="text-xl sm:text-2xl font-bold font-sans text-white tracking-tight mb-2.5 group-hover:text-[#00D9FF] transition-colors">
                       {card.title}
                     </h3>
-                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
+                    <p className="text-xs sm:text-[13px] text-[#A8BACB] leading-relaxed font-normal">
                       {card.desc}
                     </p>
                   </div>
 
-                  {/* Silver Divider & Navy Dark Blue Interactive Link */}
-                  <div className="pt-5 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-bold text-[#081B38] group-hover:text-[#004EEB] transition-colors">
-                    <span className="font-mono uppercase tracking-wider text-[11px]">Explore Service</span>
-                    <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-[#081B38] group-hover:text-white flex items-center justify-center transition-all duration-300">
+                  {/* Divider & Cyan Interactive Action Footer */}
+                  <div className="pt-5 mt-5 border-t border-white/10 flex items-center justify-between text-xs font-mono font-bold text-white group-hover:text-[#00D9FF] transition-colors">
+                    <span className="uppercase tracking-wider text-[11px]">Explore Service</span>
+                    <div className="w-8 h-8 rounded-full bg-white/[0.06] border border-white/15 text-[#00D9FF] group-hover:bg-[#00D9FF] group-hover:text-[#071525] group-hover:border-[#00D9FF] flex items-center justify-center transition-all duration-300 shadow-[0_0_15px_rgba(0,217,255,0.15)]">
                       <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
                     </div>
                   </div>
