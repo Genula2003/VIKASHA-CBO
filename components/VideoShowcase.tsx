@@ -24,7 +24,7 @@ export default function VideoShowcase() {
         whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
         viewport={{ once: true, margin: "-60px" }}
         transition={{ duration: 0.9, ease: smoothEase }}
-        className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_25px_70px_rgba(2,24,50,0.14)] border border-slate-200/90 bg-[#021832] aspect-[16/9] max-h-[580px] w-full"
+        className="relative rounded-2xl sm:rounded-3xl overflow-hidden shadow-[0_25px_70px_rgba(0,0,0,0.7),0_0_50px_rgba(0,217,255,0.12)] border border-white/15 bg-[#021832] aspect-[16/9] max-h-[580px] w-full"
       >
         <video
           ref={videoRef}
