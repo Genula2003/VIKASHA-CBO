@@ -121,27 +121,27 @@ export default function Home() {
       </section>
 
       {/* ========================================================================= */}
-      {/* 2. 3 HERO-MATCHING FEATURE CARDS (DEEP NAVY, GLASSMORPHISM & CYAN ACCENTS) */}
+      {/* 2. 3 HERO-MATCHING FEATURE CARDS (CLEAN WHITE THEME AS PER SPECIFICATION) */}
       {/* ========================================================================= */}
       <section className="relative z-30 max-w-6xl mx-auto px-4 sm:px-6 -mt-12 sm:-mt-16 lg:-mt-20 mb-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {[
             {
-              category: "Smart Telemetry",
+              category: "SMART TELEMETRY",
               title: "SMART METERING",
               desc: "High-precision optical telemetry logging and automated consumption tracking.",
               image: "/card-smart-meter.webp",
               href: "/pay"
             },
             {
-              category: "Digital E-Billing",
+              category: "DIGITAL E-BILLING",
               title: "ONLINE BILL PAY",
               desc: "Instant zero-surcharge settlement via LankaQR, Visa, Mastercard, and CEFT.",
               image: "/card-ebill-pay.webp",
               href: "/pay"
             },
             {
-              category: "Water Quality",
+              category: "WATER QUALITY",
               title: "WATER PURITY",
               desc: "Continuous deep-well filtration and automated chlorination compliant with SLS 614.",
               image: "/card-water-purity.webp",
@@ -155,46 +155,45 @@ export default function Home() {
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.85, delay: 0.15 + i * 0.12, ease: smoothEase }}
               whileHover={{ y: -6, transition: { duration: 0.25 } }}
-              className="rounded-2xl p-[1px] bg-gradient-to-b from-white/20 via-white/[0.08] to-transparent shadow-[0_20px_50px_rgba(0,0,0,0.55),0_0_30px_rgba(0,217,255,0.06)] hover:shadow-[0_25px_60px_rgba(0,0,0,0.75),0_0_40px_rgba(0,217,255,0.2)] transition-all duration-500 group flex flex-col"
+              className="rounded-3xl overflow-hidden shadow-[0_20px_50px_rgba(8,27,56,0.08),0_1px_3px_rgba(0,0,0,0.04)] hover:shadow-[0_28px_65px_rgba(8,27,56,0.15)] bg-white border border-slate-100 flex flex-col group transition-all duration-300"
             >
               <Link
                 href={card.href}
-                className="rounded-2xl overflow-hidden bg-[#071525]/95 backdrop-blur-2xl border border-[rgba(255,255,255,0.12)] group-hover:border-[#00D9FF]/40 flex flex-col h-full transition-all duration-300"
+                className="flex flex-col h-full"
               >
                 {/* Upper Image Section */}
-                <div className="h-56 sm:h-64 lg:h-72 w-full overflow-hidden relative bg-[#071525]">
+                <div className="h-52 sm:h-60 lg:h-64 w-full overflow-hidden relative bg-slate-100">
                   <img
                     src={card.image}
                     alt={card.title}
-                    className="w-full h-full object-cover group-hover:scale-106 transition-transform duration-700"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                   />
-                  {/* Subtle Dark Navy Gradient Scrim */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#071525] via-[#071525]/30 to-black/20" />
+                  {/* Subtle Top Gradient for Badge Legibility */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-900/20 via-transparent to-black/10" />
 
-                  {/* Floating Hero-matching Cyan/Glass Tag on Image */}
+                  {/* Floating Pristine White/Glass Category Badge */}
                   <div className="absolute top-4 left-4">
-                    <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#071525]/85 backdrop-blur-md border border-[rgba(255,255,255,0.15)] text-[11px] font-mono font-bold tracking-wider text-white shadow-sm uppercase">
-                      <span className="w-1.5 h-1.5 rounded-full bg-[#00D9FF] animate-pulse" />
+                    <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-slate-200 text-[10.5px] sm:text-[11px] font-mono font-bold tracking-widest text-[#081B38] shadow-sm uppercase">
                       {card.category}
                     </span>
                   </div>
                 </div>
 
-                {/* Lower Glass Panel matching Hero Section */}
-                <div className="bg-[#071525]/95 p-6 sm:p-7 text-white border-t border-white/10 flex-1 flex flex-col justify-between">
+                {/* Lower White Panel Matching Image 3 */}
+                <div className="bg-white p-6 sm:p-7 text-slate-900 border-t border-slate-100 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-xl sm:text-2xl font-bold font-sans text-white tracking-tight mb-2.5 group-hover:text-[#00D9FF] transition-colors">
+                    <h3 className="text-xl sm:text-2xl font-bold font-sans text-[#081B38] tracking-tight mb-2.5 group-hover:text-[#0057E7] transition-colors">
                       {card.title}
                     </h3>
-                    <p className="text-xs sm:text-[13px] text-[#A8BACB] leading-relaxed font-normal">
+                    <p className="text-xs sm:text-[13px] text-slate-600 leading-relaxed font-normal">
                       {card.desc}
                     </p>
                   </div>
 
-                  {/* Divider & Cyan Interactive Action Footer */}
-                  <div className="pt-5 mt-5 border-t border-white/10 flex items-center justify-between text-xs font-mono font-bold text-white group-hover:text-[#00D9FF] transition-colors">
+                  {/* Action Footer with Explore Service and Rounded Icon Arrow */}
+                  <div className="pt-5 mt-5 border-t border-slate-100 flex items-center justify-between text-xs font-mono font-bold text-[#081B38] group-hover:text-[#0057E7] transition-colors">
                     <span className="uppercase tracking-wider text-[11px]">Explore Service</span>
-                    <div className="w-8 h-8 rounded-full bg-white/[0.06] border border-white/15 text-[#00D9FF] group-hover:bg-[#00D9FF] group-hover:text-[#071525] group-hover:border-[#00D9FF] flex items-center justify-center transition-all duration-300 shadow-[0_0_15px_rgba(0,217,255,0.15)]">
+                    <div className="w-8 h-8 rounded-full bg-slate-100 group-hover:bg-[#081B38] text-slate-700 group-hover:text-white flex items-center justify-center transition-all duration-300 shadow-xs">
                       <ArrowRight size={14} className="group-hover:translate-x-0.5 transition-transform" />
                     </div>
                   </div>
