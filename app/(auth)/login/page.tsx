@@ -3,7 +3,7 @@
 import { useTransition, useState } from 'react'
 import { login } from './actions'
 import Link from 'next/link'
-import { Droplet, ArrowRight, ShieldCheck, Gauge, Check, User } from 'lucide-react'
+import { Droplet, ArrowRight, ShieldCheck, Gauge, Check, User, Eye, EyeOff } from 'lucide-react'
 import { motion } from 'framer-motion'
 
 export default function LoginPage() {
@@ -11,6 +11,7 @@ export default function LoginPage() {
   const [error, setError] = useState<string | null>(null)
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
   const [selectedRole, setSelectedRole] = useState<string | null>(null)
 
   const handleQuickFill = (fillEmail: string, fillPass: string, roleName: string) => {
@@ -170,17 +171,32 @@ export default function LoginPage() {
               <label htmlFor="password" className="block text-xs font-semibold text-gray-300 mb-1.5">
                 Password
               </label>
-              <input
-                id="password"
-                name="password"
-                type="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                autoComplete="current-password"
-                required
-                className="w-full rounded-xl bg-white/10 border border-white/20 px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0066FF] focus:bg-white/15 transition-all text-base sm:text-sm"
-                placeholder="••••••••"
-              />
+              <div className="relative">
+                <input
+                  id="password"
+                  name="password"
+                  type={showPassword ? 'text' : 'password'}
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  autoComplete="current-password"
+                  required
+                  className="w-full rounded-xl bg-white/10 border border-white/20 pl-4 pr-11 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0066FF] focus:bg-white/15 transition-all text-base sm:text-sm"
+                  placeholder="••••••••"
+                />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword((prev) => !prev)}
+                  className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-white p-1 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#0066FF]/50 transition-colors"
+                  aria-label={showPassword ? 'Hide password' : 'Show password'}
+                  title={showPassword ? 'Hide password' : 'Show password'}
+                >
+                  {showPassword ? (
+                    <EyeOff size={18} className="text-gray-300 hover:text-white" />
+                  ) : (
+                    <Eye size={18} className="text-gray-400 hover:text-white" />
+                  )}
+                </button>
+              </div>
             </div>
 
             {error && (

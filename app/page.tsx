@@ -97,7 +97,7 @@ export default function Home() {
       {/* ========================================================================= */}
       {/* 1. HERO SECTION (PREMIUM DIGITAL WATER SERVICES PLATFORM) */}
       {/* ========================================================================= */}
-      <section className="relative w-full overflow-visible bg-white text-slate-900">
+      <section className="relative w-full overflow-visible bg-[#071525] text-white">
 
         {/* Top Navbar */}
         <Navbar />

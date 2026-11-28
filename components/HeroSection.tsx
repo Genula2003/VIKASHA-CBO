@@ -42,11 +42,6 @@ export default function HeroSection({
     onSearch(accountInput);
   };
 
-  const handleQuickChipClick = (acc: string) => {
-    setAccountInput(acc);
-    onSearch(acc);
-  };
-
   return (
     <div
       className="relative w-full overflow-visible bg-[#071525] text-white pt-20 sm:pt-24 lg:pt-28 pb-20 sm:pb-24 lg:pb-32"
@@ -247,22 +242,6 @@ export default function HeroSection({
                         </>
                       )}
                     </button>
-                  </div>
-
-                  {/* Sample Clickable Test Accounts */}
-                  <div className="flex items-center gap-2 pt-0.5 text-xs text-[#A8BACB] flex-wrap">
-                    <span className="text-[10.5px] font-mono text-[#A8BACB]/80">Quick test:</span>
-                    {["135", "102", "189"].map((acc) => (
-                      <button
-                        key={acc}
-                        type="button"
-                        onClick={() => handleQuickChipClick(acc)}
-                        className="px-2 py-0.5 rounded-md bg-white/[0.06] hover:bg-[#00D9FF] hover:text-[#071525] text-white/90 font-mono text-[10.5px] font-semibold border border-white/10 hover:border-[#00D9FF] transition-all cursor-pointer"
-                        title={`Load test account #${acc}`}
-                      >
-                        #{acc}
-                      </button>
-                    ))}
                   </div>
 
                   {/* Helper Links */}
