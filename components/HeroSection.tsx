@@ -44,7 +44,7 @@ export default function HeroSection({
 
   return (
     <div
-      className="relative w-full overflow-visible bg-[#071525] text-white pt-20 sm:pt-24 lg:pt-28 pb-20 sm:pb-24 lg:pb-32"
+      className="relative w-full overflow-visible bg-[#071525] text-white pt-28 sm:pt-36 lg:pt-40 pb-12 sm:pb-20 lg:pb-32"
       aria-label="Water Billing Platform Overview"
     >
       {/* ========================================================================= */}
@@ -69,7 +69,7 @@ export default function HeroSection({
           }}
         />
         {/* Top Navbar Scrim */}
-        <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#071525]/90 via-[#071525]/40 to-transparent" />
+        <div className="absolute inset-x-0 top-0 h-36 sm:h-44 bg-gradient-to-b from-[#071525]/90 via-[#071525]/40 to-transparent" />
         {/* Bottom Transition Scrim */}
         <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#071525] via-[#071525]/85 to-transparent" />
       </div>

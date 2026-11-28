@@ -123,7 +123,7 @@ export default function Home() {
       {/* ========================================================================= */}
       {/* 2. 3 HERO-MATCHING FEATURE CARDS (CLEAN WHITE THEME AS PER SPECIFICATION) */}
       {/* ========================================================================= */}
-      <section className="relative z-30 max-w-6xl mx-auto px-4 sm:px-6 -mt-12 sm:-mt-16 lg:-mt-20 mb-12">
+      <section className="hidden md:block relative z-30 max-w-6xl mx-auto px-4 sm:px-6 -mt-12 sm:-mt-16 lg:-mt-20 mb-12">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
           {[
             {
