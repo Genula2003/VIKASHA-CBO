@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowRight,
   ArrowUpRight,
@@ -10,7 +11,10 @@ import {
   HelpCircle,
   Loader2,
   Play,
+  Receipt,
   Search,
+  ShieldCheck,
+  Smartphone,
   User,
 } from "lucide-react";
 
@@ -21,12 +25,15 @@ interface HeroSectionProps {
   onOpenHowToPay: () => void;
 }
 
+const smoothEase = [0.22, 1, 0.36, 1] as const;
+
 export default function HeroSection({
   onSearch,
   isSearching,
   onOpenAccountHelp,
   onOpenHowToPay,
 }: HeroSectionProps) {
+  const shouldReduceMotion = useReducedMotion();
   const [accountInput, setAccountInput] = useState("");
   const [isInputFocused, setIsInputFocused] = useState(false);
 
@@ -35,82 +42,128 @@ export default function HeroSection({
     onSearch(accountInput);
   };
 
+  const handleQuickChipClick = (acc: string) => {
+    setAccountInput(acc);
+    onSearch(acc);
+  };
+
   return (
     <div
-      className="relative w-full overflow-hidden bg-white text-slate-900 pt-28 sm:pt-36 lg:pt-38 pb-16 sm:pb-20 lg:pb-24"
+      className="relative w-full overflow-visible bg-[#071525] text-white pt-20 sm:pt-24 lg:pt-28 pb-20 sm:pb-24 lg:pb-32"
       aria-label="Water Billing Platform Overview"
     >
       {/* ========================================================================= */}
-      {/* HERO SECTION BACKGROUND: REAL WATER DROPLET ARTWORK & TECHNICAL GRID      */}
+      {/* 1. CINEMATIC MOUNTAIN RESERVOIR PHOTOGRAPHY & TECHNICAL LAYER */}
       {/* ========================================================================= */}
-      <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden select-none">
-        {/* Full-bleed fluid water background image */}
+      {/* Background Photographic Mountain Reservoir Layer (Uploaded by User) */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <Image
-          src="/hero-water-bg.webp"
-          alt="Vikasha CBO Water Utility Background"
+          src="/hero-cinematic-reservoir.jpg"
+          alt="Magammana Mountain Water Reservoir & Hydrostatic Intake Station"
           fill
           priority
-          quality={95}
-          className="object-cover object-right lg:object-center pointer-events-none"
+          sizes="100vw"
+          className="object-cover object-[center_35%] lg:object-[center_40%]"
         />
-
-        {/* Crisp Light Technical Grid (32px pattern matching mockup) */}
+        {/* Scrims: Clean Navy Scrim on the left for text contrast, letting the misty mountains & reservoir glow on the right */}
         <div
-          className="absolute inset-0 z-[1] pointer-events-none opacity-[0.04]"
+          className="absolute inset-0"
           style={{
-            backgroundImage: `
-              linear-gradient(rgba(0, 162, 255, 0.7) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(0, 162, 255, 0.7) 1px, transparent 1px)
-            `,
-            backgroundSize: "32px 32px",
+            background:
+              "linear-gradient(90deg, rgba(7, 21, 37, 0.96) 0%, rgba(7, 21, 37, 0.88) 42%, rgba(7, 21, 37, 0.52) 75%, rgba(7, 21, 37, 0.28) 100%)",
           }}
-          aria-hidden="true"
         />
-
-        {/* Soft white gradient protection for mobile text contrast */}
-        <div
-          className="absolute inset-0 z-[2] pointer-events-none bg-gradient-to-r from-white/95 via-white/70 to-transparent lg:hidden"
-          aria-hidden="true"
-        />
+        {/* Top Navbar Scrim */}
+        <div className="absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-[#071525]/90 via-[#071525]/40 to-transparent" />
+        {/* Bottom Transition Scrim */}
+        <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#071525] via-[#071525]/85 to-transparent" />
       </div>
 
+      {/* Technical Grid Pattern with Vignette Fade */}
+      <div
+        className="absolute inset-0 z-0 pointer-events-none opacity-20"
+        style={{
+          backgroundImage: `
+            linear-gradient(rgba(0, 217, 255, 0.08) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(0, 217, 255, 0.08) 1px, transparent 1px)
+          `,
+          backgroundSize: "44px 44px",
+          maskImage:
+            "radial-gradient(ellipse 75% 65% at 50% 35%, black 20%, transparent 80%)",
+          WebkitMaskImage:
+            "radial-gradient(ellipse 75% 65% at 50% 35%, black 20%, transparent 80%)",
+        }}
+        aria-hidden="true"
+      />
+
       {/* ========================================================================= */}
-      {/* MAIN CONTAINER GRID                                                      */}
+      {/* 2. HERO CONTENT (TWO-COLUMN RESPONSIVE GRID) */}
       {/* ========================================================================= */}
       <div className="relative z-10 max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 xl:gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 xl:gap-12 items-center">
 
-          {/* =================================================================== */}
-          {/* LEFT COLUMN: HEADLINE, ACCENT BAR, SUBTITLE, CTAs, BILL LOOKUP CARD */}
-          {/* =================================================================== */}
-          <div className="lg:col-span-7 xl:col-span-7 flex flex-col space-y-4 sm:space-y-4.5 order-1 lg:order-1 pt-2 sm:pt-4">
+          {/* --------------------------------------------------------------------- */}
+          {/* CONTENT COLUMN: HEADLINE, CTAs & QUICK BILL LOOKUP FORM */}
+          {/* --------------------------------------------------------------------- */}
+          <div className="lg:col-span-8 xl:col-span-7 flex flex-col space-y-4 sm:space-y-5 max-w-2xl">
+            {/* Small Badge: THE FUTURE OF WATER BILLING */}
+            <motion.div
+              initial={shouldReduceMotion ? {} : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.65, ease: smoothEase }}
+              className="inline-flex items-center"
+            >
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/[0.045] border border-[rgba(255,255,255,0.12)] shadow-[0_0_15px_rgba(0,217,255,0.14)] backdrop-blur-md">
+                <span className="relative flex h-2 w-2">
+                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#00D9FF] opacity-75" />
+                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#00D9FF]" />
+                </span>
+                <span className="text-[10px] sm:text-[11px] font-mono font-semibold tracking-[0.18em] uppercase text-white/90">
+                  THE FUTURE OF WATER BILLING
+                </span>
+              </div>
+            </motion.div>
 
-            {/* Master Headline */}
-            <div className="space-y-0.5">
-              <h1 className="font-sans font-extrabold text-[36px] sm:text-[46px] lg:text-[54px] xl:text-[62px] text-[#081B38] leading-[1.08] tracking-tight select-none">
-                <span>Smarter</span>
-                <br />
-                <span className="text-[#00a2ff]">Water Billing.</span>
+            {/* Main Master Headline */}
+            <div className="space-y-1">
+              <motion.h1
+                initial={shouldReduceMotion ? {} : { opacity: 0, y: 18 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.75, delay: 0.08, ease: smoothEase }}
+                className="font-sans font-extrabold text-[32px] sm:text-4xl lg:text-[44px] xl:text-[48px] text-white leading-[1.12] tracking-tight select-none"
+              >
+                <span>Smarter </span>
+                <span className="text-[#00D9FF] drop-shadow-[0_0_30px_rgba(0,217,255,0.35)]">
+                  Water Billing
+                </span>
+                .
                 <br />
                 <span>Simpler Everyday Living.</span>
-              </h1>
-
-              {/* Cyan Accent Bar */}
-              <div className="w-14 sm:w-16 h-1.5 bg-[#00a2ff] rounded-full mt-3 mb-3.5" />
+              </motion.h1>
             </div>
 
-            {/* Subtitle Paragraph */}
-            <p className="text-slate-600 text-sm sm:text-base leading-relaxed font-normal max-w-lg">
-              View your bill, track water usage, and make secure
-              <br className="hidden sm:inline" /> payments anytime, anywhere.
-            </p>
+            {/* Supporting Paragraph */}
+            <motion.p
+              initial={shouldReduceMotion ? {} : { opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.75, delay: 0.16, ease: smoothEase }}
+              className="text-[#A8BACB] text-sm sm:text-base leading-relaxed font-normal max-w-xl"
+            >
+              Experience a smarter way to manage your water bills. View account details, track water
+              consumption, and make secure payments through one seamless digital platform.
+            </motion.p>
 
-            {/* Primary & Secondary Pill CTA Buttons */}
-            <div className="flex flex-wrap items-center gap-3 pt-1">
-              {/* Primary Pill Button */}
+            {/* Primary and Secondary CTA Buttons */}
+            <motion.div
+              initial={shouldReduceMotion ? {} : { opacity: 0, y: 14 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.75, delay: 0.22, ease: smoothEase }}
+              className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 pt-0.5"
+            >
+              {/* Primary CTA */}
               <Link
                 href="/pay"
-                className="group inline-flex items-center justify-center gap-2.5 h-12 px-7 rounded-full bg-[#00a2ff] hover:bg-[#0090e6] text-white font-bold text-sm tracking-tight shadow-[0_8px_20px_rgba(0,162,255,0.35)] hover:shadow-[0_12px_28px_rgba(0,162,255,0.5)] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                className="group relative inline-flex items-center justify-center gap-2 h-11 sm:h-12 px-6 rounded-xl bg-[#00D9FF] hover:bg-[#2ae0ff] text-[#071525] font-extrabold text-sm tracking-tight shadow-[0_8px_20px_-4px_rgba(0,217,255,0.4)] hover:shadow-[0_12px_28px_-4px_rgba(0,217,255,0.6)] transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
                 aria-label="Pay Your Water Bill online"
               >
                 <span>Pay Your Water Bill</span>
@@ -120,109 +173,155 @@ export default function HeroSection({
                 />
               </Link>
 
-              {/* Secondary Pill Button */}
+              {/* Secondary CTA */}
               <Link
                 href="/pay"
-                className="group inline-flex items-center justify-center gap-2 h-12 px-6 rounded-full bg-white hover:bg-slate-50 text-slate-800 font-semibold text-sm border border-slate-300 shadow-sm transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
+                className="group inline-flex items-center justify-center gap-2 h-11 sm:h-12 px-5 rounded-xl bg-white/[0.045] hover:bg-white/[0.085] text-white font-semibold text-sm border border-[rgba(255,255,255,0.14)] hover:border-white/30 backdrop-blur-md transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] cursor-pointer"
                 aria-label="View Account Details and past bills"
               >
                 <span>View Account Details</span>
                 <ArrowUpRight
                   size={15}
-                  className="text-slate-700 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+                  className="text-[#00D9FF] transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
                 />
               </Link>
-            </div>
+            </motion.div>
 
             {/* =================================================================== */}
-            {/* QUICK ACCOUNT BILL LOOKUP CARD                                      */}
+            {/* QUICK BILL LOOKUP COMPACT GLASS MODULE */}
             {/* =================================================================== */}
-            <div className="mt-3 sm:mt-4 max-w-xl w-full rounded-2xl bg-white border border-slate-200/90 shadow-[0_16px_40px_rgba(0,120,220,0.08)] p-4 sm:p-5">
-              {/* Card Header Strip */}
-              <div className="flex items-center justify-between mb-3 text-xs">
-                <span className="font-mono uppercase tracking-wider font-bold text-[#081B38] flex items-center gap-2">
-                  <Search size={14} className="text-[#00a2ff]" />
-                  <span className="text-[11.5px] sm:text-xs">QUICK ACCOUNT BILL LOOKUP</span>
-                </span>
-                <span className="text-slate-400 font-mono text-[10.5px] sm:text-xs">
-                  Instant 24/7 E-Bill Access
-                </span>
-              </div>
+            <motion.div
+              initial={shouldReduceMotion ? {} : { opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.75, delay: 0.28, ease: smoothEase }}
+              className="rounded-2xl p-[1px] bg-gradient-to-b from-white/20 via-white/[0.08] to-transparent shadow-[0_15px_40px_rgba(0,0,0,0.45)] max-w-xl w-full"
+            >
+              <div className="backdrop-blur-xl bg-[rgba(255,255,255,0.045)] border border-[rgba(255,255,255,0.12)] rounded-2xl p-3.5 sm:p-4">
+                <div className="flex items-center justify-between mb-2.5 text-xs">
+                  <span className="font-mono uppercase tracking-wider font-bold text-white flex items-center gap-2">
+                    <Search size={13} className="text-[#00D9FF]" />
+                    <span className="text-[11px] sm:text-xs">QUICK ACCOUNT BILL LOOKUP</span>
+                  </span>
+                  <span className="text-[#A8BACB] font-mono text-[10px] sm:text-[11px] hidden sm:inline">
+                    Instant 24/7 E-Bill Access
+                  </span>
+                </div>
 
-              {/* Form Input & Action Button */}
-              <form onSubmit={handleSubmit} className="space-y-2.5">
-                <div className="flex flex-col sm:flex-row gap-2.5">
-                  <div className="relative flex-1">
-                    <div className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#00a2ff] pointer-events-none">
-                      <User size={16} />
+                <form onSubmit={handleSubmit} className="space-y-2.5">
+                  <div className="flex flex-col sm:flex-row gap-2">
+                    <div className="relative flex-1">
+                      <div className="absolute left-3 top-1/2 -translate-y-1/2 w-7 h-7 rounded-lg bg-white/[0.06] border border-white/10 flex items-center justify-center text-[#00D9FF]">
+                        <User size={14} />
+                      </div>
+                      <input
+                        type="text"
+                        value={accountInput}
+                        onChange={(e) => setAccountInput(e.target.value)}
+                        onFocus={() => setIsInputFocused(true)}
+                        onBlur={() => setIsInputFocused(false)}
+                        placeholder="Enter Consumer Account # (e.g. 135)"
+                        aria-label="Water Consumer Account Number"
+                        className={`w-full h-10 sm:h-11 pl-11 pr-3 rounded-xl bg-[#071525]/90 text-white placeholder:text-slate-400 font-mono text-xs sm:text-sm font-semibold transition-all duration-200 border ${
+                          isInputFocused
+                            ? "border-[#00D9FF] ring-2 ring-[#00D9FF]/20 shadow-[0_0_15px_rgba(0,217,255,0.15)]"
+                            : "border-white/15 hover:border-white/25"
+                        } focus:outline-none`}
+                      />
                     </div>
-                    <input
-                      type="text"
-                      value={accountInput}
-                      onChange={(e) => setAccountInput(e.target.value)}
-                      onFocus={() => setIsInputFocused(true)}
-                      onBlur={() => setIsInputFocused(false)}
-                      placeholder="Enter Consumer Account # (e.g. 135)"
-                      aria-label="Water Consumer Account Number"
-                      className={`w-full h-11 sm:h-12 pl-10 pr-3 rounded-xl bg-slate-50 text-slate-900 placeholder:text-slate-400 font-mono text-xs sm:text-sm font-semibold transition-all duration-200 border ${
-                        isInputFocused
-                          ? "border-[#00a2ff] ring-2 ring-[#00a2ff]/20 bg-white"
-                          : "border-slate-200 hover:border-slate-300"
-                      } focus:outline-none`}
-                    />
+
+                    <button
+                      type="submit"
+                      disabled={isSearching}
+                      className="h-10 sm:h-11 px-5 rounded-xl bg-white hover:bg-slate-100 text-[#071525] font-extrabold text-xs sm:text-sm flex items-center justify-center gap-1.5 shadow-md transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shrink-0 cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed whitespace-nowrap"
+                    >
+                      {isSearching ? (
+                        <>
+                          <Loader2 size={15} className="animate-spin text-[#071525]" />
+                          <span>Verifying...</span>
+                        </>
+                      ) : (
+                        <>
+                          <CreditCard size={14} className="text-[#071525]" />
+                          <span>Check Bill</span>
+                          <ArrowRight size={13} />
+                        </>
+                      )}
+                    </button>
                   </div>
 
-                  <button
-                    type="submit"
-                    disabled={isSearching}
-                    className="h-11 sm:h-12 px-6 rounded-xl bg-[#081B38] hover:bg-[#0c2447] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] shrink-0 cursor-pointer disabled:opacity-75 disabled:cursor-not-allowed whitespace-nowrap"
-                  >
-                    {isSearching ? (
-                      <>
-                        <Loader2 size={15} className="animate-spin text-white" />
-                        <span>Verifying...</span>
-                      </>
-                    ) : (
-                      <>
-                        <CreditCard size={15} className="text-[#00a2ff]" />
-                        <span>Check Bill</span>
-                        <ArrowRight size={14} />
-                      </>
-                    )}
-                  </button>
+                  {/* Sample Clickable Test Accounts */}
+                  <div className="flex items-center gap-2 pt-0.5 text-xs text-[#A8BACB] flex-wrap">
+                    <span className="text-[10.5px] font-mono text-[#A8BACB]/80">Quick test:</span>
+                    {["135", "102", "189"].map((acc) => (
+                      <button
+                        key={acc}
+                        type="button"
+                        onClick={() => handleQuickChipClick(acc)}
+                        className="px-2 py-0.5 rounded-md bg-white/[0.06] hover:bg-[#00D9FF] hover:text-[#071525] text-white/90 font-mono text-[10.5px] font-semibold border border-white/10 hover:border-[#00D9FF] transition-all cursor-pointer"
+                        title={`Load test account #${acc}`}
+                      >
+                        #{acc}
+                      </button>
+                    ))}
+                  </div>
+
+                  {/* Helper Links */}
+                  <div className="pt-2 border-t border-white/10 flex flex-wrap items-center justify-between gap-2.5 text-xs text-[#A8BACB]">
+                    <button
+                      type="button"
+                      onClick={onOpenAccountHelp}
+                      className="flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer text-[10.5px] sm:text-[11px]"
+                    >
+                      <HelpCircle size={12} className="text-[#00D9FF]" />
+                      <span>Need help finding your account number?</span>
+                    </button>
+
+                    <button
+                      type="button"
+                      onClick={onOpenHowToPay}
+                      className="flex items-center gap-1.5 hover:text-white transition-colors font-medium cursor-pointer text-[10.5px] sm:text-[11px]"
+                    >
+                      <span>How to Pay?</span>
+                      <Play size={10} className="text-[#00D9FF]" />
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </motion.div>
+
+            {/* =================================================================== */}
+            {/* MINIMAL TRUST INDICATOR ROW */}
+            {/* =================================================================== */}
+            <motion.div
+              initial={shouldReduceMotion ? {} : { opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.75, delay: 0.35, ease: smoothEase }}
+              className="pt-1"
+            >
+              <div className="flex flex-wrap items-center gap-y-1.5 text-[#A8BACB] text-[11px] font-mono uppercase tracking-wider">
+                <div className="flex items-center gap-1.5">
+                  <ShieldCheck size={14} className="text-[#00D9FF]" />
+                  <span className="font-semibold text-white/90">Secure Digital Payments</span>
                 </div>
 
-                {/* Helper Links Footer */}
-                <div className="pt-2 border-t border-slate-100 flex flex-wrap items-center justify-between gap-2.5 text-xs text-slate-500">
-                  <button
-                    type="button"
-                    onClick={onOpenAccountHelp}
-                    className="flex items-center gap-1.5 hover:text-[#081B38] transition-colors cursor-pointer text-[11px] sm:text-xs"
-                  >
-                    <HelpCircle size={13} className="text-[#00a2ff]" />
-                    <span>Need help finding your account number?</span>
-                  </button>
+                <span className="hidden sm:inline-block w-px h-3 bg-white/20 mx-3" />
 
-                  <button
-                    type="button"
-                    onClick={onOpenHowToPay}
-                    className="flex items-center gap-1.5 hover:text-[#081B38] transition-colors font-medium cursor-pointer text-[11px] sm:text-xs"
-                  >
-                    <span>How to Pay?</span>
-                    <Play size={10} className="text-[#00a2ff] fill-[#00a2ff]" />
-                  </button>
+                <div className="flex items-center gap-1.5">
+                  <Smartphone size={14} className="text-[#00D9FF]" />
+                  <span className="font-semibold text-white/90">Easy Account Access</span>
                 </div>
-              </form>
-            </div>
+
+                <span className="hidden sm:inline-block w-px h-3 bg-white/20 mx-3" />
+
+                <div className="flex items-center gap-1.5">
+                  <Receipt size={14} className="text-[#00D9FF]" />
+                  <span className="font-semibold text-white/90">Digital Billing Records</span>
+                </div>
+              </div>
+            </motion.div>
           </div>
 
-          {/* =================================================================== */}
-          {/* RIGHT COLUMN: OPEN SPACING FOR BACKGROUND WATER DROPLET ARTWORK      */}
-          {/* =================================================================== */}
-          <div
-            className="lg:col-span-5 xl:col-span-5 hidden lg:block min-h-[440px] pointer-events-none"
-            aria-hidden="true"
-          />
+
 
         </div>
       </div>
